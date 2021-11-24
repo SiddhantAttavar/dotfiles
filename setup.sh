@@ -29,6 +29,11 @@ function createSymlink {
   ln -s ${curr} ${dest}
 }
 
+# Install programs
+sudo add-apt-repository -y ppa:neovim-ppa/unstable
+sudo apt install -y neovim
+sudo apt install -y neofetch
+
 # Create folders for conf files
 mkdir -p $HOME/.config
 
