@@ -1,35 +1,38 @@
 #!/bin/bash
 
 # Initialize dotfilesDir
-dotfilesDir="$HOME/.dotfiles"
+DOTFILES_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 # Helper functions for creating symlinks
 function createSymlink {
-  curr="${dotfilesDir}/${1}"
-  dest="$HOME/${2}"
-  dateStr=$(date +%Y-%m-%d-%H%M)
+	CURR="$DOTFILES_DIR/${1}"
+	DEST="$HOME/${2}"
+	DATE_STR=$(date +%Y-%m-%d-%H%M)
 
-  if [ -h "${dest}" ]; then
-    # Existing symlink 
-    echo "Removing existing symlink: ${dest}"
-    rm ${dest} 
+	if [ -h "${DEST}" ]; then
+		# Existing symlink 
+		echo "Removing existing symlink: ${DEST}"
+		rm ${DEST} 
 
-  elif [ -f "${dest}" ]; then
-    # Existing file
-    echo "Backing up existing file: ${dest}"
-    mv ${dest}{,.${dateStr}}
+	elif [ -f "${DEST}" ]; then
+		# Existing file
+		echo "Backing up existing file: ${DEST}"
+		mv ${DEST}{,.${DATE_STR}}
 
-  elif [ -d "${dest}" ]; then
-    # Existing dir
-    echo "Backing up existing dir: ${dest}"
-    mv ${dest}{,.${dateStr}}
-  fi
+	elif [ -d "${DEST}" ]; then
+		# Existing dir
+		echo "Backing up existing dir: ${DEST}"
+		mv ${DEST}{,.${DATE_STR}}
+	fi
 
-  echo "Creating new symlink: ${dest}"
-  ln -s ${curr} ${dest}
+	echo "Creating new symlink: ${DEST}"
+	ln -s ${CURR} ${DEST}
 }
 
 # Install programs
+echo "Installing programs"
+sudo apt update
+sudo apt upgrade -y
 sudo add-apt-repository -y ppa:neovim-ppa/unstable
 sudo apt install -y neovim
 sudo apt install -y neofetch
@@ -39,11 +42,18 @@ mkdir -p $HOME/.config
 
 # Create symlinks
 # createSymlink foo bar
+echo "Creating symlinks"
 createSymlink bash/.bashrc .bashrc
 createSymlink bash/.hushlogin .hushlogin
 createSymlink nvim .config/nvim
 createSymlink neofetch .config/neofetch
 
 # Setup neovim: install vim-plug and plugins
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 echo "Installing Neovim plugins"
-nvim --headless +PlugInstall +qa > /dev/null
+nvim --headless +PlugInstall +qa 2> /dev/null
+
+# Source config files
+echo "Sourcing config files"
+source ~/.bashrc
