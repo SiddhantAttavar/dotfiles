@@ -66,4 +66,4 @@ General tools:
 ## Setup <a name = "setup"></a>
  - Clone this repository: `git clone https://github.com/SiddhantAttavar/dotfiles.git`
  - cd into the dotfiles-windows directory: `cd dotfiles`
- - Run `setup.ps1` in PowerShell with the command: `powershell -ExecutionPolicy Bypass -File setup.ps1`
+ - Run `setup.ps1` in PowerShell as an administrator with the command: `powershell -ExecutionPolicy Bypass -File setup.ps1`
