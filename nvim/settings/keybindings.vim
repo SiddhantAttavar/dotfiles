@@ -13,8 +13,8 @@ nnoremap <C-b> :NERDTreeToggle<CR>
 nnoremap <C-s> :wa!<CR>
 
 " Babar
-nnoremap <Tab> :BufferNext<CR>
-nnoremap <S-Tab> :BufferPrevious<CR>
+nnoremap <Tab> :w!<CR> :BufferNext<CR>
+nnoremap <S-Tab> :w!<CR> :BufferPrevious<CR>
 nnoremap <C-w> :BufferClose<CR>
 nnoremap <C-t> :tabnew<CR>:wincmd p<CR>
 

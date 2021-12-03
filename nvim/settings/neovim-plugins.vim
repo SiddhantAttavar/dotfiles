@@ -1,7 +1,11 @@
 " Neovim specific plugins
 " Plug 'foo/bar'
 
-call plug#begin('~/.config/nvim/plugged')
+if has('win32')
+	call plug#begin('~/AppData/Local/nvim/plugged')
+else
+	call plug#begin('~/.config/nvim/plugged')
+endif
 
 " Onedark theme
 Plug 'navarasu/onedark.nvim'
@@ -14,7 +18,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 
 " Autocomplete
-Plug 'github/copilot.vim'
 
 " Icons
 Plug 'kyazdani42/nvim-web-devicons'
