@@ -65,6 +65,12 @@ General tools:
  - [fzf](https://github.com/junegunn/fzf)
 
 ## Setup <a name = "setup"></a>
+### Windows <a name = "windows"></a>
  - Clone this repository: `git clone https://github.com/SiddhantAttavar/dotfiles.git`
  - cd into the dotfiles-windows directory: `cd dotfiles`
  - Run `setup.ps1` in PowerShell as an administrator with the command: `powershell -ExecutionPolicy Bypass -File setup.ps1`
+
+### Linux <a name = "linux"></a>
+ - Clone this repository: `git clone https://github.com/SiddhantAttavar/dotfiles.git ~/.dotfiles`
+ - cd into the dotfiles-windows directory: `cd ~/.dotfiles`
+ - Run `setup.sh` in bash as an administrator with the command: `bash setup.sh`
