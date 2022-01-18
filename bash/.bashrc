@@ -118,3 +118,7 @@ fi
 
 # Oh-my-posh
 # eval "$(oh-my-posh-wsl --init --shell bash --config ~/.poshthemes/powerlevel10k_lean.omp.json)"
+
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
