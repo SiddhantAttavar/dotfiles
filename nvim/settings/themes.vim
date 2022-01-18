@@ -1,3 +1,5 @@
 " Themes
-let g:onedark_style = 'cool'
+let g:onedark_config = {
+    \ 'style': 'cool',
+\}
 colorscheme onedark
