@@ -1,5 +1,5 @@
 " Import settings, plugins, themes etc from different files
-" source ~\AppData\Local\nvim\settings\file.vim
+" source ./settings/file.vim
 
 " General customization
 runtime ./settings/general-settings.vim
