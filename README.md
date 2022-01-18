@@ -21,8 +21,8 @@ IDEs and editors:
 	- [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 	- [vim-devicons](https://github.com/ryanoasis/vim-devicons)
 	- [barbar](https://github.com/romgrk/barbar.nvim)
-	- [nerdtree](https://github.com/preservim/nerdtree)
-	- [vim-airline](https://github.com/vim-airline/vim-airline)
+	- [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua)
+	- [lualine](https://github.com/nvim-lualine/lualine.nvim)
 	- [cpbooster](https://github.com/searleser97/cpbooster.vim)
 
 Terminal stuff:
