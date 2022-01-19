@@ -1,6 +1,5 @@
 # dotfiles
-My personal configuration for Windows and WSL
-My personal configuration for Windows
+My personal configuration for Windows, WSL and Termux
 
 ## Programs and other things I use <a name = "programs"></a>
 IDEs and editors:
