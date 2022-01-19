@@ -8,10 +8,8 @@ IDEs and editors:
 	- [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
 	- [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
 	- [Competitive Programming Helper](https://marketplace.visualstudio.com/items?itemName=DivyanshuAgrawal.competitive-programming-helper)
-	- [Github Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
 	- [Office Viewer](https://marketplace.visualstudio.com/items?itemName=cweijan.vscode-office)
 	- [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-	- [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)
 	- [VSCode Neovim](https://marketplace.visualstudio.com/items?itemName=asvetliakov.vscode-neovim)
  - [Neovim](https://neovim.io/) - Plugins (using [Vim-plug](https://github.com/junegunn/vim-plug)):
 	- [onedark](https://github.com/navarasu/onedark.nvim)
@@ -27,6 +25,7 @@ IDEs and editors:
 
 Terminal stuff:
  - [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10): Ubuntu 20.04 LTS
+ - [Termux](https://f-droid.org/en/packages/com.termux/)
  - [Windows Terminal](http://aka.ms/windowsterminal)
 
 Languages and Other development tools:
@@ -54,10 +53,8 @@ General tools:
 	- [Adblock](https://microsoftedge.microsoft.com/addons/detail/adblock-%E2%80%94-best-ad-blocker/ndcileolkflehcjpmjnfbnaibdcgglog)
 	- [BrowserToys](https://github.com/SiddhantAttavar/BrowserToys-Extension)
 	- [Competitive Companion](https://chrome.google.com/webstore/detail/competitive-companion/cjnmckjndlpiamhfimnnjmnckgghkjbl)
-	- [Google Docs Offline](https://chrome.google.com/webstore/detail/docs-offline/adlepfefemdignonambfpicinlbppbnl?hl=en)
 	- [Grammarly](https://microsoftedge.microsoft.com/addons/detail/grammarly-for-microsoft-e/cnlefmmeadmemmdciolhbnfeacpdfbkd)
 	- [Night Eye](https://microsoftedge.microsoft.com/addons/detail/night-eye-dark-mode-on-/gijhmcgnnbcpigflkfoimbnfjnbcphah)
-	- [Return Youtube Dislike](https://chrome.google.com/webstore/detail/return-youtube-dislike/gebbhagfogifgggkldgodflihgfeippi)
  - [File Explorer](https://www.windows.com/en-us/downloads/file-explorer/)
  - [Notepad](https://www.microsoft.com/en-us/p/windows-notepad/9msmlrh6lzf3)
  - [Powertoys](https://docs.microsoft.com/en-us/windows/powertoys/)
