@@ -74,3 +74,8 @@ General tools:
  - Clone this repository: `git clone https://github.com/SiddhantAttavar/dotfiles.git ~/.dotfiles`
  - cd into the dotfiles-windows directory: `cd ~/.dotfiles`
  - Run `setup.sh` in bash as an administrator with the command: `bash setup.sh`
+
+### Termux <a name = "termux"></a>
+ - Clone this repository: `git clone https://github.com/SiddhantAttavar/dotfiles.git ~/.dotfiles`
+ - cd into the dotfiles-windows directory: `cd ~/.dotfiles`
+ - Run `termux-setup.sh` in bash as an administrator with the command: `bash termux-setup.sh`
