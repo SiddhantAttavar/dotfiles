@@ -116,6 +116,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Aliases
+alias rm='rm -r'
+
 # Oh-my-posh
 # eval "$(oh-my-posh-wsl --init --shell bash --config ~/.poshthemes/powerlevel10k_lean.omp.json)"
 
