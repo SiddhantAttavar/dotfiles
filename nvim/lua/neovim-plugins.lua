@@ -1,5 +1,5 @@
 -- Neovim specific plugins
-if vim.fn.has('win32') then
+if vim.fn.has('win32') == 1 then
 	vim.call('plug#begin', '~/AppData/Local/nvim/plugged')
 else
 	vim.call('plug#begin', '~/.config/nvim/plugged')
