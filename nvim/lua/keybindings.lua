@@ -33,6 +33,9 @@ map {'<C-b>', ':lua require"tree".toggle()<CR>'}
 -- Saving
 map {'<C-s>', ':wa<CR>'}
 
+-- Copy-pasting
+map {'<C-S-c>', ':%y+'}
+
 -- Babar
 map {'<Tab>', ':BufferNext<CR>'}
 map {'<S-Tab>', ':BufferPrevious<CR>'}
