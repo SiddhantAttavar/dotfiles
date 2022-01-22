@@ -1,4 +1,4 @@
--- Key mapping
+-- Key mapping for neovim
 -- Helper function
 local map = function(key)
 	-- get the extra options
@@ -33,13 +33,10 @@ map {'<C-b>', ':lua require"tree".toggle()<CR>'}
 -- Saving
 map {'<C-s>', ':wa<CR>'}
 
--- Copy-pasting
-map {'<C-S-c>', ':%y+'}
-
 -- Babar
-map {'<Tab>', ':BufferNext<CR>'}
-map {'<S-Tab>', ':BufferPrevious<CR>'}
-map {'<C-w>', ':BufferClose<CR>'}
+map {'<Tab>', ':w<CR>:BufferNext<CR>'}
+map {'<S-Tab>', ':w<CR>:BufferPrevious<CR>'}
+map {'<C-w>', ':w<CR>:BufferClose<CR>'}
 map {'<C-t>', ':tabnew<CR>:wincmd p<CR>'}
 
 -- Fuzzy File Search

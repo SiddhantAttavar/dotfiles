@@ -3,6 +3,7 @@
 
 -- General customization
 require('general-settings')
+require('general-keybindings')
 if vim.g.vscode then
 	-- VSCode-neovim specific customization
 	require('vscode-neovim-settings')
@@ -12,7 +13,7 @@ else
 	require('neovim-settings')
 	require('neovim-plugins')
 	require('themes')
-	require('keybindings')
+	require('neovim-keybindings')
 end
 
 -- Plugin specific customization
