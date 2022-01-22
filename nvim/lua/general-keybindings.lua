@@ -18,3 +18,5 @@ local map = function(key)
 	end
 end
 
+-- Copy-pasting
+map {'Y', ':%y+<CR>'}
