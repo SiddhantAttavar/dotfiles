@@ -5,5 +5,8 @@ require'nvim-tree'.setup {
 	update_cwd = true,
 	view = {
 		auto_resize = true
+	},
+	filters = {
+		dotfiles = true
 	}
 }
