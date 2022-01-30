@@ -25,7 +25,7 @@ map {'<C-S-h>', '<C-w>H'}
 map {'<C-j>', '<C-w>j'}
 map {'<C-k>', '<C-w>k'}
 map {'<C-l>', '<C-w>l'}
-map {'<C-q>', ':wqa<CR>'}
+map {'<C-q>', ':xa<CR>'}
 
 -- NERDTree Explorer
 map {'<C-b>', ':lua require"tree".toggle()<CR>'}
