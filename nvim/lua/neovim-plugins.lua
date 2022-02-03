@@ -29,6 +29,6 @@ Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-lualine/lualine.nvim'
 
 -- Competitive programming
-Plug 'searleser97/cpbooster.vim'
+--Plug 'searleser97/cpbooster.vim'
 
 vim.call('plug#end')
