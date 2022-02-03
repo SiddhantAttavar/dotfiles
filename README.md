@@ -60,8 +60,6 @@ Languages and Other development tools:
 	- [urllib3](https://pypi.org/project/urllib3/)
 	- [scipy](https://pypi.org/project/scipy/)
  - [Mingw-w64 with C++ compiler](https://sourceforge.net/projects/mingw-w64/)
- - [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) - Packages:
-	- [cpbooster](https://github.com/searleser97/cpbooster)
 
 General tools:
  - [Microsoft Edge](https://www.microsoft.com/en-us/edge) - Extensions:
