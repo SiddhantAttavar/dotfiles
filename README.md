@@ -1,5 +1,5 @@
 # dotfiles
-My personal configuration for Windows, WSL and Termux
+My personal configuration for Windows, WSL and Android
 
 ## Setup <a name = "setup"></a>
 ### Windows <a name = "windows"></a>
@@ -71,5 +71,6 @@ General tools:
  - [File Explorer](https://www.windows.com/en-us/downloads/file-explorer/)
  - [Notepad](https://www.microsoft.com/en-us/p/windows-notepad/9msmlrh6lzf3)
  - [Powertoys](https://docs.microsoft.com/en-us/windows/powertoys/)
+ - [Ratio](https://play.google.com/store/apps/category/GAME?hl=en_US&gl=US)
  - [Google Drive Desktop](https://www.google.com/intl/en_in/drive/download/)
  - [fzf](https://github.com/junegunn/fzf)
