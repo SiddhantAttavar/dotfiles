@@ -1,2 +1,5 @@
 -- Themes
-require('onedark').setup()
+require('onedark').setup {
+    style = 'cool'
+}
+require('onedark').load()
