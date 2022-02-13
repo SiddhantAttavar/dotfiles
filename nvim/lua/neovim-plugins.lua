@@ -8,7 +8,7 @@ end
 local Plug = vim.fn['plug#']
 -- Plug 'foo/bar'
 -- Onedark theme
-Plug 'navarasu/onedark.nvim'
+Plug 'ful1e5/onedark.nvim'
 
 -- Fuzzy file search
 Plug('junegunn/fzf', {['do'] = vim.fn['fzf#install']})
