@@ -8,6 +8,7 @@ vim.o.linebreak = true
 vim.o.tabstop = 4
 vim.o.softtabstop = 0 
 vim.o.expandtab = false
+vim.cmd "autocmd VimEnter * set autoindent | filetype indent on"
 
 -- Copy/paste from system clipboard
 vim.o.paste = true
