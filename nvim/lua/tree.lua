@@ -8,7 +8,6 @@ tree.toggle = function()
 		vim.cmd("wincmd p")
 	else
 		require'bufferline.state'.set_offset(0)
-		require'nvim-tree'.close()
 	end
 end
 
