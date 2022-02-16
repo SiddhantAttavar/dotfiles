@@ -9,6 +9,6 @@ require'nvim-tree'.setup {
 	}
 }
 
--- Autostart NvimTree with a directory is opened
+-- Set offset for barbar is it is started with a directory argument
 vim.cmd "autocmd StdinReadPre * let s:std_in=1"
-vim.cmd "autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | tabnew | execute 'NvimTreeOpen' | execute 'lua require\"bufferline.state\".set_offset(31)' | execute 'cd '.argv()[0] | endif"
+vim.cmd "autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | execute 'lua require\"bufferline.state\".set_offset(31)' | endif"
