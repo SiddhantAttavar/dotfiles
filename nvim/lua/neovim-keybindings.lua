@@ -37,7 +37,7 @@ map {'<C-s>', ':wa<CR>'}
 map {'<Tab>', ':BufferNext<CR>'}
 map {'<S-Tab>', ':BufferPrevious<CR>'}
 map {'<C-w>', ':BufferClose<CR>'}
-map {'<C-t>', ':tabnew<CR>:wincmd p<CR>'}
+map {'<C-t>', ':enew<CR>'}
 
 -- Fuzzy File Search
 map {'<C-p>', ':Files<CR>'}
