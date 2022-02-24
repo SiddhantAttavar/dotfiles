@@ -1,3 +1,28 @@
+# Hide user name and host name in terminal prompt
+PS1='\[\033[01;32m\]\[\033[00m\]\[\033[01;34m\]\w\[\033[00m\]\$ '
+
+# ALIASES
+# some more ls aliases
+alias ll='ls -Al -F --file-type'
+alias la='ls -A -F --file-type'
+alias l='ls -F --file-type'
+alias ls='command ls -F --file-type'
+
+# clear screem alias
+alias cls='clear'
+
+# rm alias
+alias rm='rm -r'
+
+# Oh-my-posh
+# eval "$(oh-my-posh-wsl --init --shell bash --config ~/.poshthemes/powerlevel10k_lean.omp.json)"
+
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
+
+# UBUNTU .BASHRC TEMPLATE STARTS HERE
+
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -57,16 +82,16 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+	PS1='\[\033[01;32m\]\[\033[00m\]\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='\w\$ '
 fi
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    PS1="\[\e]0;\w\a\]$PS1"
     ;;
 *)
     ;;
@@ -110,25 +135,3 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-# Hide user name and host name in terminal prompt
-PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\[\033[00m\]\[\033[01;34m\]\w\[\033[00m\]\$ '
-
-# ALIASES
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
-# clear screem alias
-alias cls='clear'
-
-# rm alias
-alias rm='rm -r'
-
-# Oh-my-posh
-# eval "$(oh-my-posh-wsl --init --shell bash --config ~/.poshthemes/powerlevel10k_lean.omp.json)"
-
-# Install Ruby Gems to ~/gems
-export GEM_HOME="$HOME/gems"
-export PATH="$HOME/gems/bin:$PATH"
