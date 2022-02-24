@@ -3,10 +3,10 @@ PS1='\[\033[01;32m\]\[\033[00m\]\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 # ALIASES
 # some more ls aliases
-alias ll='ls -Al -F --file-type'
-alias la='ls -A -F --file-type'
-alias l='ls -F --file-type'
-alias ls='command ls -F --file-type'
+alias ls='command ls'
+alias ll='ls -Al'
+alias la='ls -A'
+alias l='ls'
 
 # clear screem alias
 alias cls='clear'
