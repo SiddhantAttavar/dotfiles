@@ -4,7 +4,7 @@ require'nvim-tree'.setup {
 	disable_netrw = true,
 	auto_close = true,
 	open_on_setup = false,
-	open_on_tab = false,
+	open_on_tab = true,
 	update_cwd = true,
 	view = {
 		auto_resize = true
