@@ -44,6 +44,7 @@ apt install -y neofetch
 
 # Create folders for conf files
 mkdir -p $HOME/.config
+mkdir -p $HOME/bin
 
 # Create symlinks
 # createSymlink foo bar
@@ -52,6 +53,10 @@ createSymlink bash/.bashrc .bashrc
 createSymlink bash/.hushlogin .hushlogin
 createSymlink nvim .config/nvim
 createSymlink neofetch .config/neofetch
+
+if [ ! -f $HOME/bin/termux-file-editor ]; then
+	ln -s $PREFIX/bin/nvim $HOME/bin/termux-file-editor
+fi
 
 # Setup neovim: install vim-plug and plugins
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
