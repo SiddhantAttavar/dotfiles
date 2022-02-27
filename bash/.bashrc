@@ -21,6 +21,10 @@ alias rm='rm -r'
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
 
+# Set default editor
+export VISUAL=nvim
+export EDITOR=nvim
+
 # UBUNTU .BASHRC TEMPLATE STARTS HERE
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
