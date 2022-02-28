@@ -42,6 +42,3 @@ map {'<C-t>', ':enew<CR>'}
 -- Fuzzy File Search
 map {'<C-p>', ':Files<CR>'}
 
--- Competitive programming
-map {'<C-r>', ':Test<CR>'}
-
