@@ -45,6 +45,7 @@ mkdir -p $HOME/.config
 echo "Creating symlinks"
 createSymlink bash/.bashrc .bashrc
 createSymlink bash/.hushlogin .hushlogin
+createSymlink bash/.dircolors .dircolors
 createSymlink nvim .config/nvim
 createSymlink neofetch .config/neofetch
 
