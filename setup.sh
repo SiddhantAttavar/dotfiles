@@ -33,6 +33,7 @@ function createSymlink {
 echo "Installing programs"
 sudo apt update
 sudo apt upgrade -y
+sudo apt autoremove -y
 sudo add-apt-repository -y ppa:neovim-ppa/unstable
 sudo apt install -y neovim
 sudo apt install -y neofetch
