@@ -1,13 +1,15 @@
 # ALIASES
-# some more ls aliases
-alias ls='command ls'
-alias ll='ls -Al'
-alias la='ls -A'
-alias l='ls'
+# some ls aliases
+Set-Alias ll 'ls -Al'
+Set-Alias la 'ls -A'
+Set-Alias l 'ls'
 
-# clear screem alias
-alias cls='clear'
+# clear screem aliases
+Set-Alias cls 'clear'
 
-# rm alias
-alias rm='rm -r'
+# rm aliases
+Set-Alias rm 'rm -r'
+
+# touch alias
+Set-Alias touch 'New-Item'
 

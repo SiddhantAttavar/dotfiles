@@ -2,7 +2,7 @@
 PS1='\[\033[01;32m\]\[\033[00m\]\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 # ALIASES
-# some more ls aliases
+# some ls aliases
 alias ll='ls -Al'
 alias la='ls -A'
 alias l='ls'
