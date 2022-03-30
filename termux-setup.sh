@@ -39,6 +39,7 @@ pkg upgrade
 echo "Installing programs"
 apt update
 apt upgrade -y
+apt autoremove -y
 apt install -y neovim
 apt install -y neofetch
 

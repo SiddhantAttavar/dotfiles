@@ -13,6 +13,13 @@ alias cls='clear'
 # rm alias
 alias rm='rm -r'
 
+# git aliases
+alias gsync='git pull; git push'
+alias gca='git add .; git commit -m'
+
+# apt aliases
+alias update='sudo apt update; sudo apt upgrade -y'
+
 # Set default editor
 export VISUAL=nvim
 export EDITOR=nvim
