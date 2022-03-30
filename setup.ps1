@@ -41,6 +41,7 @@ if (!(Test-Path -Path "C:\Users\attav\AppData\Local\Programs\Python\")) {
 # Create symlinks
 echo "Creating symlinks"
 Create-Symlink nvim ~/AppData/Local/nvim
+Create-Symlink powershell/Microsoft.PowerShell_profile.ps1 ~/Documents/WindowsPowershell/Microsoft.PowerShell_profile.ps1
 
 # Setup neovim: install vim-plug and plugins
 echo "Installing Neovim plugins"

@@ -1,14 +1,8 @@
 # ALIASES
-# some ls aliases
-Set-Alias ll 'ls -Al'
-Set-Alias la 'ls -A'
-Set-Alias l 'ls'
-
-# clear screem aliases
-Set-Alias cls 'clear'
-
-# rm aliases
-Set-Alias rm 'rm -r'
+# some Get-ChildItem aliases
+Set-Alias ll 'Get-ChildItem -Force'
+Set-Alias la 'Get-ChildItem -Force'
+Set-Alias l 'Get-ChildItem'
 
 # touch alias
 Set-Alias touch 'New-Item'
