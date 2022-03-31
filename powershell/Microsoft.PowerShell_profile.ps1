@@ -15,6 +15,7 @@ Set-Alias touch 'New-Item'
 # git aliases
 function gsync {git pull; git push}
 function gca {git add .; git commit -m $args[0]}
+function gcap {git add .; git commit -m $args[0]; git push}
 
 # winget aliases
 function update {winget upgrade --all --accept-package-agreements --accept-source-agreements}
