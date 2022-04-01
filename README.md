@@ -30,18 +30,16 @@ IDEs and editors:
 	- [onedark](https://github.com/navarasu/onedark.nvim)
 	- [fzf](https://github.com/junegunn/fzf.vim)
 	- [vim-fugitive](https://github.com/tpope/vim-fugitive)
-	- [copilot](https://github.com/github/copilot.vim)
 	- [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 	- [vim-devicons](https://github.com/ryanoasis/vim-devicons)
 	- [barbar](https://github.com/romgrk/barbar.nvim)
 	- [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua)
 	- [lualine](https://github.com/nvim-lualine/lualine.nvim)
-	- [cpbooster](https://github.com/searleser97/cpbooster.vim)
 
 Terminal stuff:
  - [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10): Ubuntu 20.04 LTS
- - [Termux](https://f-droid.org/en/packages/com.termux/)
  - [Windows Terminal](http://aka.ms/windowsterminal)
+ - [Termux](https://f-droid.org/en/packages/com.termux/)
 
 Languages and Other development tools:
  - [Python](https://www.python.org/) - Packages:
@@ -66,12 +64,11 @@ General tools:
 	- [Adblock](https://microsoftedge.microsoft.com/addons/detail/adblock-%E2%80%94-best-ad-blocker/ndcileolkflehcjpmjnfbnaibdcgglog)
 	- [BrowserToys](https://github.com/SiddhantAttavar/BrowserToys-Extension)
 	- [Competitive Companion](https://chrome.google.com/webstore/detail/competitive-companion/cjnmckjndlpiamhfimnnjmnckgghkjbl)
-	- [Grammarly](https://microsoftedge.microsoft.com/addons/detail/grammarly-for-microsoft-e/cnlefmmeadmemmdciolhbnfeacpdfbkd)
-	- [Night Eye](https://microsoftedge.microsoft.com/addons/detail/night-eye-dark-mode-on-/gijhmcgnnbcpigflkfoimbnfjnbcphah)
+	- [LanguageTool](https://microsoftedge.microsoft.com/addons/detail/grammar-spell-checker-%E2%80%94/hfjadhjooeceemgojogkhlppanjkbobc)
 	- [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb)
  - [File Explorer](https://www.windows.com/en-us/downloads/file-explorer/)
  - [Notepad](https://www.microsoft.com/en-us/p/windows-notepad/9msmlrh6lzf3)
  - [Powertoys](https://docs.microsoft.com/en-us/windows/powertoys/)
  - [Ratio](https://play.google.com/store/apps/category/GAME?hl=en_US&gl=US)
- - [Google Drive Desktop](https://www.google.com/intl/en_in/drive/download/)
+ - [Google Drive File Stream](https://www.google.com/intl/en_in/drive/download/)
  - [fzf](https://github.com/junegunn/fzf)
