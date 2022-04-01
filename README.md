@@ -68,6 +68,7 @@ General tools:
 	- [Competitive Companion](https://chrome.google.com/webstore/detail/competitive-companion/cjnmckjndlpiamhfimnnjmnckgghkjbl)
 	- [Grammarly](https://microsoftedge.microsoft.com/addons/detail/grammarly-for-microsoft-e/cnlefmmeadmemmdciolhbnfeacpdfbkd)
 	- [Night Eye](https://microsoftedge.microsoft.com/addons/detail/night-eye-dark-mode-on-/gijhmcgnnbcpigflkfoimbnfjnbcphah)
+	- [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb)
  - [File Explorer](https://www.windows.com/en-us/downloads/file-explorer/)
  - [Notepad](https://www.microsoft.com/en-us/p/windows-notepad/9msmlrh6lzf3)
  - [Powertoys](https://docs.microsoft.com/en-us/windows/powertoys/)
