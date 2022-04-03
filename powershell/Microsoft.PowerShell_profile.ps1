@@ -1,7 +1,7 @@
 # ALIASES
 # some ls aliases
-Set-Alias ll 'Get-ChildItem -Force'
-Set-Alias la 'Get-ChildItem -Force'
+function ll {Get-ChildItem -Force}
+function la {Get-ChildItem -Force}
 Set-Alias l 'Get-ChildItem'
 
 # rm alias
