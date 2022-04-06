@@ -4,7 +4,7 @@ My personal configuration for Windows, Linux (WSL) and Android (Termux)
 ## Setup <a name = "setup"></a>
 ### Windows <a name = "windows"></a>
  - Clone this repository: `git clone https://github.com/SiddhantAttavar/dotfiles.git`
- - cd into the dotfiles-windows directory: `cd dotfiles`
+ - cd into the dotfiles directory: `cd dotfiles`
  - Run `setup.ps1` in PowerShell as an administrator with the command: `powershell -ExecutionPolicy Bypass -File setup.ps1`
 
 ### Linux / WSL <a name = "linux"></a>
@@ -14,7 +14,7 @@ My personal configuration for Windows, Linux (WSL) and Android (Termux)
 
 ### Android / Termux <a name = "termux"></a>
  - Clone this repository: `git clone https://github.com/SiddhantAttavar/dotfiles.git ~/.dotfiles`
- - cd into the dotfiles-windows directory: `cd ~/.dotfiles`
+ - cd into the dotfiles directory: `cd ~/.dotfiles`
  - Run `termux-setup.sh` in bash as an administrator with the command: `bash termux-setup.sh`
 
 ## Programs and other things I use <a name = "programs"></a>
