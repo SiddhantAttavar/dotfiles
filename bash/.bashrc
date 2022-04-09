@@ -19,8 +19,8 @@ alias gca='git add .; git commit -m'
 gcap() { git add . ; git commit -m "$1" ; git push ; }
 
 # apt aliases
-alias update='sudo apt update; sudo apt upgrade -y'
-alias termuxupdate='apt update; apt upgrade -y'
+alias update='sudo apt update; sudo apt upgrade -y; sudo apt autoremove -y'
+alias termuxupdate='apt update; apt upgrade -y; apt autoremove -y'
 
 # Set default editor
 export VISUAL=nvim
