@@ -55,6 +55,7 @@ createSymlink bash/.hushlogin .hushlogin
 createSymlink bash/.dircolors .dircolors
 createSymlink nvim .config/nvim
 createSymlink neofetch .config/neofetch
+createSymlink termux .termux
 
 if [ ! -f $HOME/bin/termux-file-editor ]; then
 	ln -s $PREFIX/bin/nvim $HOME/bin/termux-file-editor
