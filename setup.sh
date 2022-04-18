@@ -49,9 +49,10 @@ createSymlink bash/.hushlogin .hushlogin
 createSymlink bash/.dircolors .dircolors
 createSymlink nvim .config/nvim
 createSymlink neofetch .config/neofetch
+createSymlink x/.xmodmap .xmodmap
 
 # Setup neovim: install vim-plug and plugins
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+curl -fLo ~/.vim/autoload/plug.vim --createdirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 echo "Installing Neovim plugins"
 nvim --headless +PlugInstall +qa 2> /dev/null
