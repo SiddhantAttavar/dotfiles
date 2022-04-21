@@ -1,9 +1,10 @@
+# TERMINAL CONFIG
 # Hide user name and host name in terminal prompt
 PS1='\[\033[01;32m\]\[\033[00m\]\[\033[01;34m\]\w\[\033[00m\]\$ '
+set -o vi
 
 # ALIASES
 # some ls aliases
-#alias ls='command ls --group-directories-first'
 alias ls='ls --group-directories-first'
 alias ll='ls -Al --group-directories-first'
 alias la='ls -A --group-directories-first'
@@ -24,6 +25,7 @@ gcap() { git add . ; git commit -m "$1" ; git push ; }
 alias update='sudo apt update; sudo apt upgrade -y; sudo apt autoremove -y'
 alias termuxupdate='apt update; apt upgrade -y; apt autoremove -y'
 
+# ENVIRONMENT LAYERS
 # Set default editor
 export VISUAL=nvim
 export EDITOR=nvim
