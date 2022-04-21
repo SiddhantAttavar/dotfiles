@@ -20,3 +20,5 @@ end
 
 -- Copy-pasting
 map {'Y', ':%y+<CR>'}
+map {'<esc>', ':noh<CR><esc>'}
+map {'<esc>^[', '<esc>^['}
