@@ -50,6 +50,7 @@ createSymlink bash/.dircolors .dircolors
 createSymlink nvim .config/nvim
 createSymlink neofetch .config/neofetch
 createSymlink x/.xmodmap .xmodmap
+createSymlink scripts scripts
 
 # Setup neovim: install vim-plug and plugins
 curl -fLo ~/.vim/autoload/plug.vim --createdirs \
