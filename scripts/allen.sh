@@ -1,5 +1,9 @@
 #!/bin/bash
 for pdf in $DOWNLOADS_DIR/*.pdf; do
+	if [ ! -f $pdf ]; then
+		continue;
+	fi
+
 	read -p "${pdf##*/} Subject: " subject;
 
 	if [ $subject == 'p' ] ; then
