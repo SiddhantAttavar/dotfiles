@@ -1,6 +1,6 @@
 #!/bin/bash
-for pdf in $DOWNLOADS_DIR/*.pdf; do
-	if [ ! -f $pdf ]; then
+for pdf in "$DOWNLOADS_DIR"/*.pdf; do
+	if [ ! -f "$pdf" ]; then
 		continue;
 	fi
 
