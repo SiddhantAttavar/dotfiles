@@ -24,22 +24,11 @@ function Create-Symlink($Source, $Dest) {
 
 # Installing programs
 echo "Installing programs"
-if (!(Test-Path -Path "C:\Program Files\Neovim")) {
-		winget install Neovim.Neovim
-}
-if (!(Test-Path -Path "C:\Program Files\Git")) {
-		winget install Git.Git
-}
-if (!(Test-Path -Path "C:\Program Files\Google")) {
-		winget install Google.Drive
-		echo "Drive"
-}
-if (!(Test-Path -Path "C:\Users\attav\AppData\Local\Programs\Microsoft VS Code")) {
-		winget install Microsoft.VisualStudioCode
-}
-if (!(Test-Path -Path "C:\Users\attav\AppData\Local\Programs\Python\")) {
-		winget install Python.Python.3
-}
+winget install Neovim.Neovim
+winget install Git.Git
+winget install Google.Drive
+winget install Microsoft.VisualStudioCode
+winget install Python.Python.3
 
 # Create symlinks
 echo "Creating symlinks"
