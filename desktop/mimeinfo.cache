@@ -1,0 +1,16 @@
+[MIME Cache]
+application/rdf+xml=firefox-private.desktop;
+application/rss+xml=firefox-private.desktop;
+application/x-xpinstall=firefox-private.desktop;
+application/xhtml+xml=firefox-private.desktop;
+application/xml=firefox-private.desktop;
+image/gif=firefox-private.desktop;
+image/jpeg=firefox-private.desktop;
+image/png=firefox-private.desktop;
+text/html=firefox-private.desktop;
+text/xml=firefox-private.desktop;
+video/webm=firefox-private.desktop;
+x-scheme-handler/chrome=firefox-private.desktop;
+x-scheme-handler/ftp=firefox-private.desktop;
+x-scheme-handler/http=firefox-private.desktop;
+x-scheme-handler/https=firefox-private.desktop;

@@ -24,6 +24,9 @@ function Create-Symlink($Source, $Dest) {
 
 # Installing programs
 echo "Installing programs"
+if (!(Test-Path -Path "C:\Program Files\Neovim")) {
+		winget install Neovim.Neovim
+}
 if (!(Test-Path -Path "C:\Program Files\Git")) {
 		winget install Git.Git
 }
