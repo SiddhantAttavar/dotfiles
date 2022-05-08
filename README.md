@@ -60,12 +60,12 @@ Languages and Other development tools:
  - [Mingw-w64 with C++ compiler](https://sourceforge.net/projects/mingw-w64/)
 
 General tools:
- - [Microsoft Edge](https://www.microsoft.com/en-us/edge) - Extensions:
-	- [Adblock](https://microsoftedge.microsoft.com/addons/detail/adblock-%E2%80%94-best-ad-blocker/ndcileolkflehcjpmjnfbnaibdcgglog)
+ - [Firefox](https://www.mozilla.org/en-US/firefox/new/) - Extensions:
+	- [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
 	- [BrowserToys](https://github.com/SiddhantAttavar/BrowserToys-Extension)
-	- [Competitive Companion](https://chrome.google.com/webstore/detail/competitive-companion/cjnmckjndlpiamhfimnnjmnckgghkjbl)
-	- [LanguageTool](https://microsoftedge.microsoft.com/addons/detail/grammar-spell-checker-%E2%80%94/hfjadhjooeceemgojogkhlppanjkbobc)
-	- [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb)
+	- [Competitive Companion](https://addons.mozilla.org/en-US/firefox/addon/competitive-companion/)
+	- [LanguageTool](https://addons.mozilla.org/en-US/firefox/addon/languagetool/)
+	- [Vimium](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)
  - [File Explorer](https://www.windows.com/en-us/downloads/file-explorer/)
  - [Notepad](https://www.microsoft.com/en-us/p/windows-notepad/9msmlrh6lzf3)
  - [Powertoys](https://docs.microsoft.com/en-us/windows/powertoys/)
