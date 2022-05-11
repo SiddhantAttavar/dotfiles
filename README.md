@@ -65,7 +65,7 @@ General tools:
 	- [BrowserToys](https://github.com/SiddhantAttavar/BrowserToys-Extension)
 	- [Competitive Companion](https://addons.mozilla.org/en-US/firefox/addon/competitive-companion/)
 	- [LanguageTool](https://addons.mozilla.org/en-US/firefox/addon/languagetool/)
-	- [Vimium](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)
+	- [Vim Vixen](https://addons.mozilla.org/en-US/firefox/addon/vim-vixen/)
  - [File Explorer](https://www.windows.com/en-us/downloads/file-explorer/)
  - [Notepad](https://www.microsoft.com/en-us/p/windows-notepad/9msmlrh6lzf3)
  - [Powertoys](https://docs.microsoft.com/en-us/windows/powertoys/)
