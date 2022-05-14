@@ -37,11 +37,8 @@ pkg upgrade
 
 # Install programs
 echo "Installing programs"
-apt update
-apt upgrade -y
-apt autoremove -y
-apt install -y neovim
-apt install -y neofetch
+pkg install -y neovim
+pkg install -y neofetch
 
 # Create folders for conf files
 mkdir -p $HOME/.config
