@@ -36,6 +36,7 @@ sudo apt upgrade -y
 sudo apt autoremove -y
 sudo add-apt-repository -y ppa:neovim-ppa/unstable
 sudo apt install -y neovim
+sudo apt install -y tmux
 sudo apt install -y neofetch
 
 # Create folders for conf files

@@ -38,6 +38,7 @@ pkg upgrade
 # Install programs
 echo "Installing programs"
 pkg install -y neovim
+pkg install -y tmux
 pkg install -y neofetch
 
 # Create folders for conf files
