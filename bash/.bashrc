@@ -1,6 +1,6 @@
 # TERMINAL CONFIG
 # Hide user name and host name in terminal prompt
-PS1='\[\033[01;32m\]\[\033[00m\]\[\033[01;34m\]\w\[\033[00m\]》'
+PS1='\[\033[01;32m\]\[\033[00m\]\[\033[01;34m\]\w\[\033[00m\] 》'
 set -o vi
 
 # ALIASES
@@ -95,9 +95,9 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-	PS1='\[\033[01;32m\]\[\033[00m\]\[\033[01;34m\]\w\[\033[00m\]》'
+	PS1='\[\033[01;32m\]\[\033[00m\]\[\033[01;34m\]\w\[\033[00m\] 》'
 else
-    PS1='\w》'
+    PS1='\w 》'
 fi
 unset color_prompt force_color_prompt
 
