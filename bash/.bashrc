@@ -34,6 +34,10 @@ alias py='python3'
 export VISUAL=nvim
 export EDITOR=nvim
 
+if [ -f ~/.bash_profile ]; then
+    . ~/.bash_profile
+fi
+
 # UBUNTU .BASHRC TEMPLATE STARTS HERE
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
