@@ -38,6 +38,9 @@ sudo add-apt-repository -y ppa:neovim-ppa/unstable
 sudo apt install -y neovim
 sudo apt install -y tmux
 sudo apt install -y neofetch
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+. ~/.fzf/install
+rm -r ~/.fzf
 
 # Create folders for conf files
 mkdir -p $HOME/.config
@@ -46,6 +49,7 @@ mkdir -p $HOME/.config
 # createSymlink foo bar
 echo "Creating symlinks"
 createSymlink bash/.bashrc .bashrc
+createSymlink bash/.bash_aliases .bash_aliases
 createSymlink bash/.hushlogin .hushlogin
 createSymlink bash/.dircolors .dircolors
 createSymlink nvim .config/nvim

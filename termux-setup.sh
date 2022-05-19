@@ -40,6 +40,9 @@ echo "Installing programs"
 pkg install -y neovim
 pkg install -y tmux
 pkg install -y neofetch
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+. ~/.fzf/install
+rm -r ~/.fzf
 
 # Create folders for conf files
 mkdir -p $HOME/.config
@@ -49,6 +52,7 @@ mkdir -p $HOME/bin
 # createSymlink foo bar
 echo "Creating symlinks"
 createSymlink bash/.bashrc .bashrc
+createSymlink bash/.bash_aliases .bash_aliases
 createSymlink bash/.hushlogin .hushlogin
 createSymlink bash/.dircolors .dircolors
 createSymlink nvim .config/nvim
