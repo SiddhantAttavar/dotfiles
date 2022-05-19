@@ -42,7 +42,6 @@ pkg install -y tmux
 pkg install -y neofetch
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 . ~/.fzf/install
-rm -r ~/.fzf
 
 # Create folders for conf files
 mkdir -p $HOME/.config
