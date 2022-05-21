@@ -6,9 +6,11 @@ vim.o.linebreak = true
 
 -- Indentation settings
 vim.o.tabstop = 4
+vim.o.shiftwidth = 4
 vim.o.softtabstop = 0 
 vim.o.expandtab = false
-vim.cmd "autocmd VimEnter * set autoindent | filetype indent on"
+vim.o.smartindent = true
+vim.o.autoindent = true
 
 -- Copy/paste from system clipboard
 vim.o.clipboard = 'unnamedplus'
