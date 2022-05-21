@@ -20,5 +20,8 @@ end
 
 -- Copy-pasting
 map {'Y', ':%y+<CR>'}
+map {'<C-v>', '"+p'}
+
+-- Highlighting
 map {'<esc>', ':noh<CR><esc>'}
 map {'<esc>^[', '<esc>^['}

@@ -11,7 +11,6 @@ vim.o.expandtab = false
 vim.cmd "autocmd VimEnter * set autoindent | filetype indent on"
 
 -- Copy/paste from system clipboard
-vim.o.paste = true
 vim.o.clipboard = 'unnamedplus'
 
 -- Enable the mouse
