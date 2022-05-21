@@ -13,6 +13,8 @@ alias rm='rm -r'
 
 # git aliases
 alias gsync='git pull; git push'
+alias gs='git status'
+alias gd='git diff'
 alias gca='git add .; git commit -m'
 gcap() { git add . ; git commit -m "$1" ; git push ; }
 
