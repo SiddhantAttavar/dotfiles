@@ -8,8 +8,9 @@ alias l='ls --group-directories-first'
 # clear screem alias
 alias cls='clear'
 
-# rm alias
+# file management alias
 alias rm='rm -r'
+alias md='mkdir'
 
 # git aliases
 alias gsync='git pull; git push'
