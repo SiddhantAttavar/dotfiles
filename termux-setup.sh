@@ -55,6 +55,7 @@ createSymlink bash/.bash_aliases .bash_aliases
 createSymlink bash/.hushlogin .hushlogin
 createSymlink bash/.dircolors .dircolors
 createSymlink nvim .config/nvim
+createSymlink vim .vim
 createSymlink neofetch .config/neofetch
 createSymlink termux .termux
 createSymlink scripts scripts
