@@ -9,4 +9,4 @@ let bufferline.closable = v:true
 let bufferline.clickable = v:true
 
 " Offset the tabs for filetree
-autocmd VimEnter * lua require'bufferline.state'.set_offset(31, 'FileTree')
+" autocmd VimEnter * lua require'bufferline.state'.set_offset(31, 'FileTree')
