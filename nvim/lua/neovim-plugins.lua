@@ -6,6 +6,7 @@ else
 end
 
 local Plug = vim.fn['plug#']
+
 -- Plug 'foo/bar'
 -- Onedark theme
 Plug 'navarasu/onedark.nvim'
@@ -14,8 +15,9 @@ Plug 'navarasu/onedark.nvim'
 Plug('junegunn/fzf', {['do'] = vim.fn['fzf#install']})
 Plug 'junegunn/fzf.vim'
 
--- Git extension
+-- Git
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 -- Autocomplete
 Plug 'neovim/nvim-lspconfig'

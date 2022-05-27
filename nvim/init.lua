@@ -21,6 +21,7 @@ if vim.g.vscode then
 	-- VSCode-neovim specific plugins
 else
 	-- Neovim specific plugins
+	require('neovim-plugin-setup')
 	require('nvimtree')
 	require('barbar')
 	require('nvimlualine')
