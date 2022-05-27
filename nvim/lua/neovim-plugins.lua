@@ -18,6 +18,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 
 -- Autocomplete
+Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'nvim-lua/plenary.nvim'
 
 -- Icons
 Plug 'kyazdani42/nvim-web-devicons'
