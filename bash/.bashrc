@@ -18,6 +18,9 @@ if [ -f ~/.bash_profile ]; then
     . ~/.bash_profile
 fi
 
+# Update PATH
+export PATH="$HOME/.local/bin:$PATH"
+
 # Set Gem Path for ruby
 export GEM_HOME="$HOME/.gems"
 export PATH="$HOME/.gems/bin:$PATH"

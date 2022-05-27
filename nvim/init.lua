@@ -26,4 +26,5 @@ else
 	require('nvimlualine')
 	require('tree')
 	require('nvim-lspconfig')
+	require('nvim-cmp')
 end
