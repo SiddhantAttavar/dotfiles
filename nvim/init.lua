@@ -25,5 +25,5 @@ else
 	require('barbar')
 	require('nvimlualine')
 	require('tree')
-	require('nvim-ls')
+	require('nvim-lspconfig')
 end

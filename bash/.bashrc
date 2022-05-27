@@ -22,6 +22,10 @@ fi
 export GEM_HOME="$HOME/.gems"
 export PATH="$HOME/.gems/bin:$PATH"
 
+# Set Java Home
+export JAVA_HOME=/usr/lib/jvm/java-18-openjdk-amd64
+export PATH=$JAVA_HOME/jre/bin:$PATH
+
 # UBUNTU .BASHRC TEMPLATE STARTS HERE
 
 # ~/.bashrc: executed by bash(1) for non-login shells.

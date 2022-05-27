@@ -18,6 +18,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 
 -- Autocomplete
+Plug 'neovim/nvim-lspconfig'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'nvim-lua/plenary.nvim'
 
