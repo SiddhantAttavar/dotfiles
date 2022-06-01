@@ -1,3 +1,4 @@
-# Nvim plugin folders
+# Vim/Nvim plugin folders
 nvim/plugged/
 nvim/autoload/
+vim/autoload/
