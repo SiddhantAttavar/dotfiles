@@ -19,7 +19,7 @@ My personal configuration for Windows, Linux (WSL) and Android (Termux)
 
 ## Programs and other things I use <a name = "programs"></a>
 IDEs and editors:
- - [Visual Studio Code](https://code.visualstudio.com/) - Extensions:
+ - [VSCodium](https://vscodium.com) - Extensions:
 	- [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
 	- [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
 	- [Competitive Programming Helper](https://marketplace.visualstudio.com/items?itemName=DivyanshuAgrawal.competitive-programming-helper)
