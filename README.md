@@ -20,11 +20,9 @@ My personal configuration for Windows, Linux (WSL) and Android (Termux)
 ## Programs and other things I use <a name = "programs"></a>
 IDEs and editors:
  - [VSCodium](https://vscodium.com) - Extensions:
-	- [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
 	- [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
 	- [Competitive Programming Helper](https://marketplace.visualstudio.com/items?itemName=DivyanshuAgrawal.competitive-programming-helper)
 	- [Office Viewer](https://marketplace.visualstudio.com/items?itemName=cweijan.vscode-office)
-	- [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 	- [VSCode Neovim](https://marketplace.visualstudio.com/items?itemName=asvetliakov.vscode-neovim)
  - [Neovim](https://neovim.io/) - Plugins (using [Vim-plug](https://github.com/junegunn/vim-plug)):
 	- [onedark](https://github.com/navarasu/onedark.nvim)

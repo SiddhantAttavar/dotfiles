@@ -30,6 +30,14 @@ function createSymlink {
 }
 
 # Install programs
+# Add repositories
+wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg \
+    | gpg --dearmor \
+    | sudo dd of=/usr/share/keyrings/vscodium-archive-keyring.gpg
+echo 'deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] https://download.vscodium.com/debs vscodium main' \
+    | sudo tee /etc/apt/sources.list.d/vscodium.list
+
+# Install programs
 echo "Installing programs"
 sudo apt update
 sudo apt upgrade -y
@@ -38,6 +46,9 @@ sudo add-apt-repository -y ppa:neovim-ppa/unstable
 sudo apt install -y neovim
 sudo apt install -y tmux
 sudo apt install -y neofetch
+sudo apt install -y codium
+
+# fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 . ~/.fzf/install
 
