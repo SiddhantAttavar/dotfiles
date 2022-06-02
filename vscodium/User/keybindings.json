@@ -1,0 +1,12 @@
+// Place your key bindings in this file to override the defaults
+[
+	{
+		"key": "ctrl+r",
+		"command": "cph.runTestCases",
+		"when": "editorTextFocus && editorLangId == 'c' || editorTextFocus && editorLangId == 'cpp' || editorTextFocus && editorLangId == 'cuda-cpp'"
+	},
+	{
+		"key": "ctrl+alt+b",
+		"command": "-cph.runTestCases"
+	}
+]

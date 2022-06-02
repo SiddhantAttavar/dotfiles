@@ -2,3 +2,11 @@
 nvim/plugged/
 nvim/autoload/
 vim/autoload/
+
+# VSCodium folders
+vscodium/*
+!vscodium/product.json
+!vscodium/User
+vscodium/User/*
+!vscodium/User/keybindings.json
+!vscodium/User/settings.json
