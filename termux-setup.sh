@@ -57,9 +57,10 @@ createSymlink bash/.dircolors .dircolors
 createSymlink vale/.vale.ini .vale.ini
 createSymlink nvim .config/nvim
 createSymlink vim .vim
+createSymlink vscodium .config/VSCodium
 createSymlink neofetch .config/neofetch
 createSymlink termux .termux
-createSymlink scripts scripts
+createSymlink scripts .scripts
 
 if [ ! -f $HOME/bin/termux-file-editor ]; then
 	ln -s $PREFIX/bin/nvim $HOME/bin/termux-file-editor

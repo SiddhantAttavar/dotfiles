@@ -1,9 +1,9 @@
 # ALIASES
 # some ls aliases
-alias ls='ls --group-directories-first'
+alias ls='ls --color=auto --group-directories-first'
 alias ll='ls -Al --group-directories-first'
-alias la='ls -A --group-directories-first'
-alias l='ls --group-directories-first'
+alias la='ls -A'
+alias l='ls'
 
 # clear screem alias
 alias cls='clear'

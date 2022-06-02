@@ -54,9 +54,10 @@ createSymlink bash/.dircolors .dircolors
 createSymlink vale/.vale.ini .vale.ini
 createSymlink nvim .config/nvim
 createSymlink vim .vim
+createSymlink vscodium .config/VSCodium
 createSymlink neofetch .config/neofetch
 createSymlink x/.xmodmap .xmodmap
-createSymlink scripts scripts
+createSymlink scripts .scripts
 
 # Setup neovim: install vim-plug and plugins
 curl -fLo ~/.vim/autoload/plug.vim --createdirs \
