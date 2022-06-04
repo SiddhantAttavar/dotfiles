@@ -18,8 +18,6 @@ vim.o.clipboard = 'unnamedplus'
 -- Enable the mouse
 vim.o.mouse = 'a'
 
--- vim.o.default encoding to UTF-8
+-- Text encoding settings
 vim.o.encoding = 'UTF-8'
-
--- vim.o.line ending style as Unix Line Endings (LF)
 vim.o.fileformat = 'unix'
