@@ -1,7 +1,6 @@
 {
     "cph.general.defaultLanguage": "cpp",
-    "cph.general.retainWebviewContext": true,
-    "editor.fontSize": 16,
+	"cph.general.retainWebviewContext": true,
     "workbench.editorAssociations": {
         "*.png": "cweijan.officeViewer",
         "*.ipynb": "jupyter-notebook",
@@ -154,7 +153,6 @@
     },
 	"GitLive.Issue tracker integration": "Disabled",
 	"cph.general.defaultLanguageTemplateFileLocation": "~/d/Competitions/Competitive-Programming/Templates/emplate.cpp",
-    "window.titleBarStyle": "custom",
     "git.autofetch": true,
     "files.eol": "\n",
     "editor.insertSpaces": false,
@@ -192,4 +190,15 @@
 	"vscode-neovim.neovimInitVimPaths.win32": "C:\\Users\\attav\\.config\\AppData\\Local\\nvim\\init.lua",
 	"workbench.enableExperiments": false,
 	"workbench.settings.enableNaturalLanguageSearch": false,
+	"window.titleBarStyle": "custom",
+	"security.workspace.trust.enabled": false,
+	"editor.fontSize": 18,
+	"[markdown]": {
+		"editor.quickSuggestions": true
+	},
+	"editor.quickSuggestions": {
+		"other": true,
+		"comments": true, // !!!
+		"strings": true   // !!!
+	}
 }
