@@ -9,10 +9,13 @@ set linebreak
 
 " Indentation settings
 set tabstop=4
-set softtabstop=0 noexpandtab
+set shiftwidth=4
+set softtabstop=0
+set noexpandtab
+set smartindent
+set autoindent
 
 " Copy/paste from system clipboard
-set paste
 set clipboard=unnamedplus
 
 " Enable the mouse

@@ -31,16 +31,16 @@ Plug 'tpope/vim-fugitive'
 " Autocomplete
 
 " Icons
-Plug 'kyazdani42/nvim-web-devicons'
+" Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ryanoasis/vim-devicons'
 
 " Tabs, status bar and explorer
-Plug 'romgrk/barbar.nvim'
+" Plug 'romgrk/barbar.nvim'
 Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Competitive programming
-Plug 'searleser97/cpbooster.vim'
+" Plug 'searleser97/cpbooster.vim'
 
 call plug#end()

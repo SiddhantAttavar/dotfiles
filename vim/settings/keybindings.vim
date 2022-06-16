@@ -12,14 +12,17 @@ nnoremap <C-b> :NERDTreeToggle<CR>
 " Saving
 nnoremap <C-s> :wa!<CR>
 
-" Babar
-nnoremap <Tab> :w!<CR> :BufferNext<CR>
-nnoremap <S-Tab> :w!<CR> :BufferPrevious<CR>
-nnoremap <C-w> :BufferClose<CR>
-nnoremap <C-t> :tabnew<CR>:wincmd p<CR>
+" Tab navigation
+nnoremap <C-w> :w<CR> :bd<CR>
+nnoremap <C-t> :enew<CR>
+nnoremap <C-Tab> :w<CR> :bn<CR>
+nnoremap <C-S-Tab> :w<CR> :bp<CR>
+
+" Copy-pasting
+nnoremap <C-v> "+p
 
 " Fuzzy File Search
 nnoremap <C-p> :Files<CR>
 
 " Competitive programming
-nnoremap <C-r> :Test<CR>
+" nnoremap <C-r> :Test<CR>
