@@ -21,7 +21,7 @@ gcap() { git add . ; git commit -m "$1" ; git push ; }
 
 # apt aliases
 alias update='sudo apt update; sudo apt upgrade -y; sudo apt autoremove -y'
-alias termuxupdate='pkg update; pkg upgrade -y'
+alias termuxupdate='pkg update -y; pkg upgrade -y'
 
 # python aliases
 alias python='python3'
