@@ -26,3 +26,4 @@ nnoremap <C-p> :Files<CR>
 
 " Competitive programming
 " nnoremap <C-r> :Test<CR>
+nnoremap <C-r> :!python ‰:p<CR>
