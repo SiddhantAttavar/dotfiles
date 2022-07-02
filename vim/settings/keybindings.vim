@@ -1,8 +1,8 @@
 " Key mapping
 " Window mapping
-nnoremap  <C-h> <C-w>h
+nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
-nnoremap  <C-k> <C-w>k
+nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-q> :wqa!<CR>
 
@@ -15,8 +15,8 @@ nnoremap <C-s> :wa!<CR>
 " Tab navigation
 nnoremap <C-w> :w<CR> :bd<CR>
 nnoremap <C-t> :enew<CR>
-nnoremap <C-Tab> :w<CR> :bn<CR>
-nnoremap <C-S-Tab> :w<CR> :bp<CR>
+nnoremap <Tab> :w<CR> :bn<CR>
+nnoremap <S-Tab> :w<CR> :bp<CR>
 
 " Copy-pasting
 nnoremap <C-v> "+p
@@ -26,4 +26,4 @@ nnoremap <C-p> :Files<CR>
 
 " Competitive programming
 " nnoremap <C-r> :Test<CR>
-nnoremap <C-r> :!python ‰:p<CR>
+nnoremap <C-r> :!python.exe %:p<CR>
