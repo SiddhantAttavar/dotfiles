@@ -6,7 +6,7 @@ require'nvim-tree'.setup {
 	open_on_tab = true,
 	update_cwd = true,
 	view = {
-		auto_resize = true
+    	adaptive_size = true
 	},
 	filters = {
 		dotfiles = true
