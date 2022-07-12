@@ -124,7 +124,6 @@
         "plaintext": true,
         "markdown": true
 	},
-	"cph.general.saveLocation": "~/d/Competitions/Competitive-Programming/build",
     "browser-preview.chromeExecutable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
     "terminal.integrated.defaultProfile.windows": "PowerShell",
     "terminal.integrated.profiles.windows": {
@@ -152,7 +151,7 @@
         }
     },
 	"GitLive.Issue tracker integration": "Disabled",
-	"cph.general.defaultLanguageTemplateFileLocation": "~/d/Competitions/Competitive-Programming/Templates/emplate.cpp",
+	"cph.general.defaultLanguageTemplateFileLocation": "/home/siddhantattavar/d/Competitions/Competitive-Programming/Templates/Template.cpp",
     "git.autofetch": true,
     "files.eol": "\n",
     "editor.insertSpaces": false,
@@ -194,11 +193,16 @@
 	"security.workspace.trust.enabled": false,
 	"editor.fontSize": 18,
 	"[markdown]": {
-		"editor.quickSuggestions": true
+		"editor.quickSuggestions": {
+			"comments": "on",
+			"strings": "on",
+			"other": "on"
+		}
 	},
 	"editor.quickSuggestions": {
 		"other": true,
 		"comments": true, // !!!
 		"strings": true   // !!!
-	}
+	},
+	"cph.general.saveLocation": "/home/siddhantattavar/d/Competitions/Competitive-Programming/build"
 }
