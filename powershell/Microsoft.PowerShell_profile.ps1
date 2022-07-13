@@ -14,6 +14,8 @@ Set-Alias touch 'New-Item'
 
 # git aliases
 function gsync {git pull; git push}
+function gs {git status;}
+function gd {git diff;}
 function gca {git add .; git commit -m $args[0]}
 function gcap {git add .; git commit -m $args[0]; git push}
 

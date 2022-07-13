@@ -22,6 +22,9 @@ IDEs and editors:
  - [VSCodium](https://vscodium.com) - Extensions:
 	- [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
 	- [Competitive Programming Helper](https://marketplace.visualstudio.com/items?itemName=DivyanshuAgrawal.competitive-programming-helper)
+	- [Dictionary Completion](https://marketplace.visualstudio.com/items?itemName=yzhang.dictionary-completion)
+	- [LanguageTool for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=adamvoss.vscode-languagetool)
+	- [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
 	- [Office Viewer](https://marketplace.visualstudio.com/items?itemName=cweijan.vscode-office)
 	- [VSCode Neovim](https://marketplace.visualstudio.com/items?itemName=asvetliakov.vscode-neovim)
  - [Neovim](https://neovim.io/) - Plugins (using [Vim-plug](https://github.com/junegunn/vim-plug)):
@@ -40,26 +43,12 @@ Terminal stuff:
  - [Termux](https://f-droid.org/en/packages/com.termux/)
 
 Languages and Other development tools:
- - [Python](https://www.python.org/) - Packages:
-	- [anvil-app-server](https://pypi.org/project/anvil-app-server/)
-	- [anvil-uplink](https://pypi.org/project/anvil-uplink/)
-	- [json](https://pypi.org/project/json/)
-	- [jupyter](https://pypi.org/project/jupyter/)
-	- [matplotlib](https://pypi.org/project/matplotlib/)
-	- [networkx](https://pypi.org/project/networkx/)
-	- [numpy](https://pypi.org/project/numpy/)
-	- [pandas](https://pypi.org/project/pandas/)
-	- [Pillow](https://pypi.org/project/Pillow/)
-	- [pyinstaller](https://pypi.org/project/pyinstaller/)
-	- [requests](https://pypi.org/project/requests/)
-	- [tensorflow](https://pypi.org/project/tensorflow/)
-	- [urllib3](https://pypi.org/project/urllib3/)
-	- [scipy](https://pypi.org/project/scipy/)
+ - [Python](https://www.python.org/):
  - [Mingw-w64 with C++ compiler](https://sourceforge.net/projects/mingw-w64/)
 
 General tools:
  - [Firefox](https://www.mozilla.org/en-US/firefox/new/) - Extensions:
-	- [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
+	- [AdNauseam](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
 	- [BrowserToys](https://github.com/SiddhantAttavar/BrowserToys-Extension)
 	- [Competitive Companion](https://addons.mozilla.org/en-US/firefox/addon/competitive-companion/)
 	- [LanguageTool](https://addons.mozilla.org/en-US/firefox/addon/languagetool/)
