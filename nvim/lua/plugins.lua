@@ -17,21 +17,12 @@ Plug 'junegunn/fzf.vim'
 
 -- Git
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-
--- Autocomplete
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
 
 -- Icons
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ryanoasis/vim-devicons'
 
--- Tabs, status bar and explorer
+-- Startup page, tabs, status bar and explorer
 Plug 'romgrk/barbar.nvim'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-lualine/lualine.nvim'

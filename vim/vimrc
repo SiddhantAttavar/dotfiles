@@ -2,8 +2,8 @@
 " source ./settings/file.vim
 
 " General customization
-runtime ./settings/general-settings.vim
-runtime ./settings/vim-plugins.vim
+runtime ./settings/settings.vim
+runtime ./settings/plugins.vim
 runtime ./settings/themes.vim
 runtime ./settings/keybindings.vim
 runtime ./settings/nerdtree.vim

@@ -2,30 +2,21 @@
 -- require('file')
 
 -- General customization
-require('general-settings')
-require('general-keybindings')
-if vim.g.vscode then
-	-- VSCode-neovim specific customization
-	require('vscode-neovim-settings')
-	require('vscode-neovim-plugins')
-else
+require('settings')
+require('keybindings')
+if not (vim.g.vscode) then
 	-- Neovim specific customization
-	require('neovim-settings')
-	require('neovim-plugins')
+	require('plugins')
 	require('themes')
-	require('neovim-keybindings')
+	require('nvim-keybindings')
 end
 
 -- Plugin specific customization
-if vim.g.vscode then
-	-- VSCode-neovim specific plugins
-else
+if not (vim.g.vscode) then
 	-- Neovim specific plugins
-	require('neovim-plugin-setup')
+	require('plugin-setup')
 	require('nvimtree')
 	require('barbar')
 	require('nvimlualine')
 	require('tree')
-	require('nvim-lspconfig')
-	require('nvim-cmp')
 end
