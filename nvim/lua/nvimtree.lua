@@ -5,9 +5,6 @@ require'nvim-tree'.setup {
 	open_on_setup = false,
 	open_on_tab = true,
 	update_cwd = true,
-	view = {
-    	adaptive_size = true
-	},
 	filters = {
 		dotfiles = true
 	}
@@ -19,3 +16,4 @@ vim.opt.splitright = true
 vim.cmd "autocmd StdinReadPre * let s:std_in=1"
 vim.cmd "autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | execute 'lua require\"bufferline.state\".set_offset(31)' | endif"
 vim.cmd "autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif"
+

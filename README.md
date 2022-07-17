@@ -48,7 +48,7 @@ Languages and Other development tools:
 
 General tools:
  - [Firefox](https://www.mozilla.org/en-US/firefox/new/) - Extensions:
-	- [AdNauseam](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
+	- [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
 	- [BrowserToys](https://github.com/SiddhantAttavar/BrowserToys-Extension)
 	- [Competitive Companion](https://addons.mozilla.org/en-US/firefox/addon/competitive-companion/)
 	- [LanguageTool](https://addons.mozilla.org/en-US/firefox/addon/languagetool/)
