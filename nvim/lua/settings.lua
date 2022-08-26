@@ -11,6 +11,7 @@ vim.o.softtabstop = 0
 vim.o.expandtab = false
 vim.o.smartindent = true
 vim.o.autoindent = true
+vim.o.cindent = true
 
 -- Copy/paste from system clipboard
 vim.o.clipboard = 'unnamedplus'
