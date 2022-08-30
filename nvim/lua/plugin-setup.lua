@@ -19,4 +19,11 @@ require('lualine').setup {
 }
 
 -- coq-nvim setup
-vim.g.coq_settings = { auto_start = 'shut-up' }
+vim.g.coq_settings = {
+	auto_start = 'shut-up',
+	clients = {
+		snippets = {
+			enabled = false
+		}
+	}
+}

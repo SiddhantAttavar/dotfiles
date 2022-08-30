@@ -17,10 +17,10 @@ local lsp_util = require('lspconfig.util')
 --lsp.prosemd.setup{ on_attach = on_attach }
 
 -- pyright
-lsp.pyright.setup{ on_attach = on_attach }
+-- lsp.pyright.setup{ on_attach = on_attach }
 
 -- Set autocompletion
-local servers = { 'pyright' }
+local servers = {}
 for _, lsp_server in ipairs(servers) do
   lsp[lsp_server].setup {
     -- on_attach = my_custom_on_attach,
