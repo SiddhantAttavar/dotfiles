@@ -3,7 +3,7 @@
 	{
 		"key": "ctrl+r",
 		"command": "cph.runTestCases",
-		"when": "editorTextFocus && editorLangId == 'cpp' || editorTextFocus && editorLangId == 'py' || editorTextFocus && editorLangId == 'java'"
+		"when": "editorFocus"
 	},
 	{
 		"key": "ctrl+alt+b",

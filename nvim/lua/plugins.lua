@@ -27,6 +27,12 @@ Plug 'romgrk/barbar.nvim'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-lualine/lualine.nvim'
 
+-- LSP and autocomplete
+Plug 'neovim/nvim-lspconfig'
+Plug('ms-jpq/coq_nvim', {['run'] = 'python3 -m coq deps'})
+Plug 'ms-jpq/coq.artifacts'
+Plug 'ms-jpq/coq.thirdparty'
+
 -- Competitive programming
 --Plug 'searleser97/cpbooster.vim'
 

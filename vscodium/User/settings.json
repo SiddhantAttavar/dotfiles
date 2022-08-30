@@ -189,7 +189,6 @@
 	"vscode-neovim.neovimInitVimPaths.win32": "C:\\Users\\attav\\.config\\AppData\\Local\\nvim\\init.lua",
 	"workbench.enableExperiments": false,
 	"workbench.settings.enableNaturalLanguageSearch": false,
-	"window.titleBarStyle": "custom",
 	"security.workspace.trust.enabled": false,
 	"editor.fontSize": 18,
 	"[markdown]": {
@@ -204,5 +203,7 @@
 		"comments": true, // !!!
 		"strings": true   // !!!
 	},
-	"cph.general.saveLocation": "/home/siddhantattavar/d/Competitions/Competitive-Programming/build"
+	"cph.general.saveLocation": "/home/siddhantattavar/d/Competitions/Competitive-Programming/build",
+	"window.titleBarStyle": "custom",
+	"window.commandCenter": true
 }

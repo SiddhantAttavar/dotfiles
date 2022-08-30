@@ -1,7 +1,9 @@
 -- Plugin customization files
+require('nvim-lspconfig')
 require('nvimtree')
 require('barbar')
 require('tree')
+require('lspconfig')
 
 -- Onedark
 require('onedark').setup {
@@ -15,3 +17,6 @@ require('lualine').setup {
 		theme = 'onedark'
 	}
 }
+
+-- coq-nvim setup
+vim.g.coq_settings = { auto_start = 'shut-up' }
