@@ -1,44 +1,28 @@
--- Key mapping for neovim
--- Helper function
-local map = function(key)
-	-- get the extra options
-	local opts = {noremap = true}
-	for i, v in pairs(key) do
-		if type(i) == 'string' then opts[i] = v end
-	end
-  
-	-- basic support for buffer-scoped keybindings
-	local buffer = opts.buffer
-	opts.buffer = nil
-  
-	if buffer then
-		vim.api.nvim_buf_set_keymap('n', 0, key[1], key[2], opts)
-	else
-		vim.api.nvim_set_keymap('n', key[1], key[2], opts)
-	end
-end
-
+-- Key bindings for neovim
 -- Window mapping
-map {'<Leader>w', ':write<CR>'}
-map {'<C-h>', '<C-w>h'}
-map {'<C-S-h>', '<C-w>H'}
-map {'<C-j>', '<C-w>j'}
-map {'<C-k>', '<C-w>k'}
-map {'<C-l>', '<C-w>l'}
-map {'<C-q>', ':xa<CR>'}
+vim.api.nvim_set_keymap('n', '<Leader>w', ':write<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-q>', 'ZZ', { noremap = true })
 
 -- NERDTree Explorer
-map {'<C-b>', ':lua require"tree".toggle()<CR>'}
+vim.api.nvim_set_keymap('n', '<C-b>', ':lua require"tree".toggle(, {})<CR>', { noremap = true })
 
 -- Saving
-map {'<C-s>', ':wa<CR>'}
+vim.api.nvim_set_keymap('n', '<C-s>', ':wa<CR>', { noremap = true })
 
 -- Babar
-map {'<Tab>', ':BufferNext<CR>'}
-map {'<S-Tab>', ':BufferPrevious<CR>'}
-map {'<C-w>', ':BufferClose<CR>'}
-map {'<C-t>', ':enew<CR>'}
+vim.api.nvim_set_keymap('n', '<Tab>', ':BufferNext<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<S-Tab>', ':BufferPrevious<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-w>', ':BufferClose<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-t>', ':enew<CR>', { noremap = true })
 
 -- Fuzzy File Search
-map {'<C-p>', ':Files<CR>'}
+vim.api.nvim_set_keymap('n', '<C-p>', ':Files<CR>', { noremap = true })
 
+-- Terminal
+vim.api.nvim_set_keymap('n', '<C-g>', ':vsp<bar>term<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-f>', ':below 10sp term://$SHELL<cr>i', { noremap = true })
+vim.api.nvim_set_keymap('t', '<esc>', '<C-\\><C-n>', { noremap = true })

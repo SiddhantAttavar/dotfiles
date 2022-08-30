@@ -8,6 +8,6 @@ require('keybindings')
 if not (vim.g.vscode) then
 	-- Neovim specific customization
 	require('plugins')
-	require('nvim-keybindings')
 	require('plugin-setup')
+	require('nvim-keybindings')
 end

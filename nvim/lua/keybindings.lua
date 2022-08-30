@@ -25,3 +25,4 @@ map {'<C-v>', '"+p'}
 -- Highlighting
 map {'<esc>', ':noh<CR><esc>'}
 map {'<esc>^[', '<esc>^['}
+
