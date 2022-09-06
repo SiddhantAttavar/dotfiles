@@ -21,3 +21,13 @@ function gcap {git add .; git commit -m $args[0]; git push}
 
 # winget aliases
 function update {winget upgrade --all --accept-package-agreements --accept-source-agreements}
+
+# Shows navigable menu of all options when hitting Tab
+Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+
+# Autocompletion for arrow keys
+Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
+Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
+
+# New-Alias <alias> <aliased-command>
+New-Alias open ii
