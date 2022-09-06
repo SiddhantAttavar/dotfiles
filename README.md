@@ -44,6 +44,7 @@ Terminal stuff:
  - [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10): Ubuntu 20.04 LTS
  - [Windows Terminal](http://aka.ms/windowsterminal)
  - [Termux](https://f-droid.org/en/packages/com.termux/)
+ - [ZSH](https://www.zsh.org/)
 
 Languages and Other development tools:
  - [Python](https://www.python.org/):

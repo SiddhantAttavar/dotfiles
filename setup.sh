@@ -43,6 +43,7 @@ sudo apt update
 sudo apt upgrade -y
 sudo apt autoremove -y
 sudo add-apt-repository -y ppa:neovim-ppa/unstable
+sudo apt install -y zsh
 sudo apt install -y neovim
 sudo apt install -y tmux
 sudo apt install -y neofetch
@@ -60,8 +61,10 @@ mkdir -p $HOME/.config
 echo "Creating symlinks"
 createSymlink bash/.bashrc .bashrc
 createSymlink bash/.bash_aliases .bash_aliases
-createSymlink bash/.hushlogin .hushlogin
-createSymlink bash/.dircolors .dircolors
+createSymlink zsh/.zshrc .zshrc
+createSymlink rc/.hushlogin .hushlogin
+createSymlink rc/.dircolors .dircolors
+createSymlink rc/.inputrc .inputrc
 createSymlink neofetch .config/neofetch
 createSymlink nvim .config/nvim
 createSymlink vale/.vale.ini .vale.ini
@@ -79,6 +82,9 @@ nvim --headless +PlugInstall +qa 2> /dev/null
 
 # Theming options
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/denysdovhan/gnome-terminal-one/master/one-dark.sh)"
+
+# Oh-my-zsh setup
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 # Source config files
 echo "Sourcing config files"
