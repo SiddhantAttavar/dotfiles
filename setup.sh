@@ -62,11 +62,12 @@ createSymlink bash/.bashrc .bashrc
 createSymlink bash/.bash_aliases .bash_aliases
 createSymlink bash/.hushlogin .hushlogin
 createSymlink bash/.dircolors .dircolors
-createSymlink vale/.vale.ini .vale.ini
-createSymlink nvim .config/nvim
-createSymlink vim .vim
-createSymlink vscodium .config/VSCodium
 createSymlink neofetch .config/neofetch
+createSymlink nvim .config/nvim
+createSymlink vale/.vale.ini .vale.ini
+createSymlink vim .vim
+createSymlink alacritty .config/alacritty
+createSymlink vscodium .config/VSCodium
 createSymlink x/.xmodmap .xmodmap
 createSymlink scripts .scripts
 
@@ -75,6 +76,9 @@ curl -fLo ~/.vim/autoload/plug.vim --createdirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 echo "Installing Neovim plugins"
 nvim --headless +PlugInstall +qa 2> /dev/null
+
+# Theming options
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/denysdovhan/gnome-terminal-one/master/one-dark.sh)"
 
 # Source config files
 echo "Sourcing config files"

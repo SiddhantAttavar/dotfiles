@@ -36,8 +36,11 @@ IDEs and editors:
 	- [barbar](https://github.com/romgrk/barbar.nvim)
 	- [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua)
 	- [lualine](https://github.com/nvim-lualine/lualine.nvim)
+	- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
+	- [coq_nvim](https://github.com/ms-jpq/coq_nvim)
 
 Terminal stuff:
+ - [Alacritty](https://alacritty.org/)
  - [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10): Ubuntu 20.04 LTS
  - [Windows Terminal](http://aka.ms/windowsterminal)
  - [Termux](https://f-droid.org/en/packages/com.termux/)
