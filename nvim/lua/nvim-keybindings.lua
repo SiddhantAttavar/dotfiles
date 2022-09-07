@@ -8,7 +8,7 @@ vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-q>', 'ZZ', { noremap = true })
 
 -- NERDTree Explorer
-vim.api.nvim_set_keymap('n', '<C-b>', ':lua require"tree".toggle(, {})<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-b>', ':lua require"tree".toggle()<cr>', { noremap = true })
 
 -- Saving
 vim.api.nvim_set_keymap('n', '<C-s>', ':wa<CR>', { noremap = true })
