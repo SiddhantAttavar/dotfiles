@@ -48,6 +48,7 @@ sudo apt install -y neovim
 sudo apt install -y tmux
 sudo apt install -y neofetch
 sudo apt install -y codium
+pip install ranger-fm
 
 # fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
