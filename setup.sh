@@ -86,6 +86,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/denysdovhan/gnome-termin
 
 # Oh-my-zsh setup
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+git clone https://github.com/unixorn/fzf-zsh-plugin.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-zsh-plugin
 
 # Source config files
 echo "Sourcing config files"

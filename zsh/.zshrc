@@ -71,7 +71,11 @@ ZSH_THEME="af-magic"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+	git
+	fzf
+	fzf-zsh-plugin
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -133,8 +137,8 @@ export JAVA_HOME=/usr/lib/jvm/java-18-openjdk-amd64
 export PATH=$JAVA_HOME/jre/bin:$PATH
 
 # Load .bash_profle
-if [ -f ~/.fzf.bash ]; then
-    . ~/.fzf.bash
+if [ -f ~/.fzf.zsh ]; then
+    . ~/.fzf.zsh
 fi
 
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash
