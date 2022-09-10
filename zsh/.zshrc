@@ -105,40 +105,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# TERMINAL CONFIG
-# Hide user name and host name in terminal prompt
-# PS1='\[\033[01;32m\]\[\033[00m\]\[\033[01;34m\]\w\[\033[00m\]》'
-set -o vi
-
-# ENVIRONMENT LAYERS
-# Set default editor
-export VISUAL=nvim
-export EDITOR=nvim
-
-# Load .bash_aliases
-if [ -f ~/.bash_alises ]; then
-    . ~/.bash_aliases
+if [ -f $HOME/.shrc ]; then
+	. $HOME/.shrc
 fi
-
-# Load .bash_profle
-if [ -f ~/.bash_profile ]; then
-    . ~/.bash_profile
-fi
-
-# Update PATH
-export PATH="$HOME/.local/bin:$PATH"
-
-# Set Gem Path for ruby
-export GEM_HOME="$HOME/.gems"
-export PATH="$HOME/.gems/bin:$PATH"
-
-# Set Java Home
-export JAVA_HOME=/usr/lib/jvm/java-18-openjdk-amd64
-export PATH=$JAVA_HOME/jre/bin:$PATH
-
-# Load .bash_profle
-if [ -f ~/.fzf.zsh ]; then
-    . ~/.fzf.zsh
-fi
-
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash
