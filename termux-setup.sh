@@ -40,8 +40,9 @@ echo "Installing programs"
 pkg install -y neovim
 pkg install -y tmux
 pkg install -y neofetch
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-. ~/.fzf/install
+pjg install -y fzf
+#git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+#. ~/.fzf/install
 
 # Create folders for conf files
 mkdir -p $HOME/.config
@@ -78,7 +79,6 @@ nvim --headless +PlugInstall +qa 2> /dev/null
 
 # Oh-my-zsh setup
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-git clone https://github.com/unixorn/fzf-zsh-plugin.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-zsh-plugin
 
 # Source config files
 echo "Sourcing config files"

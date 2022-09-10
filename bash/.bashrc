@@ -29,12 +29,6 @@ xterm*|rxvt*)
     ;;
 esac
 
-
-# Load .fzf.bash
-if [ -f ~/.fzf.bash ]; then
-    . ~/.fzf.bash
-fi
-
 # append to the history file, don't overwrite it
 shopt -s histappend
 
@@ -56,3 +50,5 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# FZF setup
+source /usr/share/doc/fzf/examples/completion.bash

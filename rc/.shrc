@@ -15,9 +15,9 @@ if [ -f ~/.sh-aliases ]; then
     . ~/.sh-aliases
 fi
 
-# Load .bash_profle
-if [ -f ~/.bash_profile ]; then
-    . ~/.bash_profile
+# Load .profle
+if [ -f ~/.profile ]; then
+    . ~/.profile
 fi
 
 # Update PATH

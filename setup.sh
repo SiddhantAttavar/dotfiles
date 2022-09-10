@@ -48,11 +48,8 @@ sudo apt install -y neovim
 sudo apt install -y tmux
 sudo apt install -y neofetch
 sudo apt install -y codium
+sudo apt install -y fzf
 pip install ranger-fm
-
-# fzf
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-. ~/.fzf/install
 
 # Create folders for conf files
 mkdir -p $HOME/.config
@@ -88,7 +85,6 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/denysdovhan/gnome-termin
 
 # Oh-my-zsh setup
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-git clone https://github.com/unixorn/fzf-zsh-plugin.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-zsh-plugin
 
 # Source config files
 echo "Sourcing config files"

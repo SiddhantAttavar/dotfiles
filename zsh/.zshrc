@@ -74,7 +74,6 @@ ZSH_THEME="af-magic"
 plugins=(
 	git
 	fzf
-	fzf-zsh-plugin
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -108,3 +107,6 @@ source $ZSH/oh-my-zsh.sh
 if [ -f $HOME/.shrc ]; then
 	. $HOME/.shrc
 fi
+
+# Fzf setup
+source /usr/share/doc/fzf/examples/completion.zsh
