@@ -60,16 +60,18 @@ mkdir -p $HOME/.config
 # Create symlinks
 # createSymlink foo bar
 echo "Creating symlinks"
-createSymlink bash/.bashrc .bashrc
-createSymlink bash/.bash_aliases .bash_aliases
-createSymlink zsh/.zshrc .zshrc
+createSymlink rc/.shrc .shrc
+createSymlink rc/.sh-aliases .sh-aliases
 createSymlink rc/.hushlogin .hushlogin
 createSymlink rc/.dircolors .dircolors
 createSymlink rc/.inputrc .inputrc
+createSymlink bash/.bashrc .bashrc
+createSymlink zsh/.zshrc .zshrc
 createSymlink neofetch .config/neofetch
 createSymlink nvim .config/nvim
 createSymlink vale/.vale.ini .vale.ini
 createSymlink vim .vim
+createSymlink ranger .config/ranger
 createSymlink alacritty .config/alacritty
 createSymlink vscodium .config/VSCodium
 createSymlink x/.xmodmap .xmodmap
@@ -90,4 +92,4 @@ git clone https://github.com/unixorn/fzf-zsh-plugin.git ${ZSH_CUSTOM:-~/.oh-my-z
 
 # Source config files
 echo "Sourcing config files"
-source ~/.bashrc
+source $HOME/.shrc

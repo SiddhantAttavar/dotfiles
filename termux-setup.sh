@@ -50,13 +50,17 @@ mkdir -p $HOME/bin
 # Create symlinks
 # createSymlink foo bar
 echo "Creating symlinks"
+createSymlink rc/.shrc .shrc
+createSymlink rc/.sh-aliases .sh-aliases
+createSymlink rc/.hushlogin .hushlogin
+createSymlink rc/.dircolors .dircolors
+createSymlink rc/.inputrc .inputrc
 createSymlink bash/.bashrc .bashrc
-createSymlink bash/.bash_aliases .bash_aliases
-createSymlink bash/.hushlogin .hushlogin
-createSymlink bash/.dircolors .dircolors
+createSymlink zsh/.zshrc .zshrc
 createSymlink vale/.vale.ini .vale.ini
 createSymlink nvim .config/nvim
 createSymlink vim .vim
+createSymlink ranger .config/ranger
 createSymlink vscodium .config/VSCodium
 createSymlink neofetch .config/neofetch
 createSymlink termux .termux
@@ -72,6 +76,10 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 echo "Installing Neovim plugins"
 nvim --headless +PlugInstall +qa 2> /dev/null
 
+# Oh-my-zsh setup
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+git clone https://github.com/unixorn/fzf-zsh-plugin.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-zsh-plugin
+
 # Source config files
 echo "Sourcing config files"
-source ~/.bashrc
+source $HOME/.shrc

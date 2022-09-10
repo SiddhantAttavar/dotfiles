@@ -10,3 +10,6 @@ vscodium/*
 vscodium/User/*
 !vscodium/User/keybindings.json
 !vscodium/User/settings.json
+
+# Termux files
+termux/shell
