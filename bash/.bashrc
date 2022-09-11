@@ -52,4 +52,6 @@ fi
 
 # FZF setup
 [ -f /usr/share/doc/fzf/examples/completion.bash ] && source /usr/share/doc/fzf/examples/completion.bash
+[ -f /usr/share/doc/fzf/examples/key-bindings.bash ] && source /usr/share/doc/fzf/examples/key-bindings.bash
 [ -f /data/data/com.termux/files/usr/share/fzf/completion.bash ] && source /data/data/com.termux/files/usr/share/fzf/completion.bash
+[ -f /data/data/com.termux/files/usr/share/fzf/key-bindings.bash ] && source /data/data/com.termux/files/usr/share/fzf/key-bindings.bash

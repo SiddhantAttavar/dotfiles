@@ -110,4 +110,6 @@ fi
 
 # Fzf setup
 [ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
+[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
 [ -f /data/data/com.termux/files/usr/share/fzf/completion.zsh ] && source /data/data/com.termux/files/usr/share/fzf/completion.zsh
+[ -f /data/data/com.termux/files/usr/share/fzf/key-bindings.zsh ] && source /data/data/com.termux/files/usr/share/fzf/key-bindings.zsh
