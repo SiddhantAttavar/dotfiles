@@ -51,4 +51,5 @@ if ! shopt -oq posix; then
 fi
 
 # FZF setup
-source /usr/share/doc/fzf/examples/completion.bash
+[ -f /usr/share/doc/fzf/examples/completion.bash ] && source /usr/share/doc/fzf/examples/completion.bash
+[ -f /data/data/com.termux/files/usr/share/fzf/completion.bash ] && source /data/data/com.termux/files/usr/share/fzf/completion.bash

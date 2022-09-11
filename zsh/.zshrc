@@ -109,4 +109,5 @@ if [ -f $HOME/.shrc ]; then
 fi
 
 # Fzf setup
-source /usr/share/doc/fzf/examples/completion.zsh
+[ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
+[ -f /data/data/com.termux/files/usr/share/fzf/completion.zsh ] && source /data/data/com.termux/files/usr/share/fzf/completion.zsh
