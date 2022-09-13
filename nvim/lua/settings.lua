@@ -22,3 +22,6 @@ vim.o.mouse = 'a'
 -- Text encoding settings
 vim.o.encoding = 'UTF-8'
 vim.o.fileformat = 'unix'
+
+-- Buffer management
+vim.opt.splitright = true

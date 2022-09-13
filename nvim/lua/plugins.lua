@@ -23,7 +23,6 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ryanoasis/vim-devicons'
 
 -- Startup page, tabs, status bar, terminal and explorer
-Plug 'romgrk/barbar.nvim'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-lualine/lualine.nvim'
 
