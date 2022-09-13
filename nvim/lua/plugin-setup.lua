@@ -4,6 +4,7 @@ require('nvimtree')
 require('barbar')
 require('tree')
 require('lspconfig')
+require('coq-nvim')
 
 -- Onedark
 require('onedark').setup {
@@ -15,15 +16,5 @@ require('onedark').load()
 require('lualine').setup {
 	options = {
 		theme = 'onedark'
-	}
-}
-
--- coq-nvim setup
-vim.g.coq_settings = {
-	auto_start = 'shut-up',
-	clients = {
-		snippets = {
-			enabled = false
-		}
 	}
 }
