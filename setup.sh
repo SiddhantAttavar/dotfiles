@@ -72,6 +72,7 @@ createSymlink ranger .config/ranger
 createSymlink alacritty .config/alacritty
 createSymlink vscodium .config/VSCodium
 createSymlink x/.xmodmap .xmodmap
+createSymlink desktop/firefox-private.desktop .local/share/applications/firefox-private.desktop
 createSymlink scripts .scripts
 
 # Setup neovim: install vim-plug and plugins
