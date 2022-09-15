@@ -18,6 +18,9 @@ Plug 'junegunn/fzf.vim'
 -- Git
 Plug 'tpope/vim-fugitive'
 
+-- Terminal
+Plug 's1n7ax/nvim-terminal'
+
 -- Icons
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ryanoasis/vim-devicons'

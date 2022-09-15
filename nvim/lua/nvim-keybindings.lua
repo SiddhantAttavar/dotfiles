@@ -8,7 +8,7 @@ vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-q>', ':wa<CR>ZZ', { noremap = true })
 
 -- NERDTree Explorer
-vim.api.nvim_set_keymap('n', '<C-b>', ':lua require"tree".toggle()<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-b>', ':NvimTreeToggle<CR>', { noremap = true })
 
 -- Saving
 vim.api.nvim_set_keymap('n', '<C-s>', ':wa<CR>', { noremap = true })
@@ -23,6 +23,5 @@ vim.api.nvim_set_keymap('n', '<C-t>', ':enew<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-p>', ':Files<CR>', { noremap = true })
 
 -- Terminal
-vim.api.nvim_set_keymap('n', '<C-g>', ':vsp<bar>term<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-f>', ':below 10sp term://$SHELL<cr>i', { noremap = true })
+vim.api.nvim_set_keymap('t', '<C-f>', '<C-\\><C-n>:lua NTGlobal["terminal"]:toggle()<CR>', { noremap = true })
 vim.api.nvim_set_keymap('t', '<esc>', '<C-\\><C-n>', { noremap = true })

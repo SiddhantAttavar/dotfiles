@@ -52,3 +52,8 @@ require('lualine').setup {
 		lualine_c = {'buffers'}
 	}
 }
+
+-- Toggleterm
+require("nvim-terminal").setup{
+	toggle_keymap = '<C-f>'
+}

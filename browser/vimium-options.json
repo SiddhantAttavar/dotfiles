@@ -27,7 +27,7 @@
   "hideHud": false,
   "keyMappings": "# Insert your preferred key mappings here.",
   "linkHintCharacters": "sadfjklewcmpgh",
-  "linkHintNumbers": "0123456789",
+  "linkHintNumbers": "sadfjklewcmpgh",
   "newTabUrl": "about:newtab",
   "nextPatterns": "next,more,newer,>,›,→,»,≫,>>",
   "previousPatterns": "prev,previous,back,older,<,‹,←,«,≪,<<",

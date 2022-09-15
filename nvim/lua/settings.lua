@@ -13,6 +13,19 @@ vim.o.smartindent = true
 vim.o.autoindent = true
 vim.o.cindent = true
 
+-- Terminal
+vim.o.shell = 'zsh'
+
+-- Spell check and dictionary completion
+vim.api.nvim_create_autocmd('FileType', {
+	pattern = {'markdown', 'text', 'tex', 'gitcommit'},
+	command = 'setlocal spell | setlocal complete+=kspell'
+})
+vim.api.nvim_create_autocmd('BufLeave', {
+	pattern= {'bash*', 'zsh*'},
+	command = 'setlocal nobuflisted'
+})
+
 -- Copy/paste from system clipboard
 vim.o.clipboard = 'unnamedplus'
 
@@ -24,4 +37,5 @@ vim.o.encoding = 'UTF-8'
 vim.o.fileformat = 'unix'
 
 -- Buffer management
-vim.opt.splitright = true
+vim.o.splitright = true
+vim.o.hidden = true
