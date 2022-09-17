@@ -9,7 +9,8 @@ alias l='ls --group-directories-first'
 alias cls='clear'
 
 # file management alias
-alias rm='rm -r'
+alias rm='rm -ri'
+alias mv='mv -i'
 alias md='mkdir'
 
 # git aliases
@@ -26,3 +27,4 @@ alias termuxupdate='pkg update -y; pkg upgrade -y'
 # python aliases
 alias python='python3'
 alias py='python3'
+
