@@ -39,3 +39,7 @@ vim.o.fileformat = 'unix'
 -- Buffer management
 vim.o.splitright = true
 vim.o.hidden = true
+
+-- Persistent undo
+vim.o.undofile = true
+vim.o.undodor = os.getenv('HOME') .. 'undo'
