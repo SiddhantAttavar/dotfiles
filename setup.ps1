@@ -24,6 +24,10 @@ function Create-Symlink($Source, $Dest) {
 
 # Installing programs
 echo "Installing programs"
+Set-PSRepository -Name 'PSGallery' -InstallationPolicy Trusted
+Install-Module -Name PowerShellGet
+Install-Module PSReadLine
+Install-Module -Name PSFzf
 winget install Neovim.Neovim
 winget install Git.Git
 winget install Google.Drive

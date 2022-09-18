@@ -1,5 +1,5 @@
 -- Neovim specific plugins
-if vim.fn.has('win32') == 1 then
+if vim.fn.has('win32') then
 	vim.call('plug#begin', '~/AppData/Local/nvim/plugged')
 else
 	vim.call('plug#begin', '~/.config/nvim/plugged')
@@ -31,9 +31,11 @@ Plug 'nvim-lualine/lualine.nvim'
 
 -- LSP and autocomplete
 Plug 'neovim/nvim-lspconfig'
-Plug('ms-jpq/coq_nvim', {['run'] = 'python3 -m coq deps'})
-Plug 'ms-jpq/coq.artifacts'
-Plug 'ms-jpq/coq.thirdparty'
+if not vim.fn.has('win32') then
+	Plug('ms-jpq/coq_nvim', {['run'] = 'python3 -m coq deps'})
+	Plug 'ms-jpq/coq.artifacts'
+	Plug 'ms-jpq/coq.thirdparty'
+end
 
 -- Competitive programming
 --Plug 'searleser97/cpbooster.vim'

@@ -14,7 +14,9 @@ vim.o.autoindent = true
 vim.o.cindent = true
 
 -- Terminal
-vim.o.shell = 'zsh'
+if not vim.fn.has('win32') then
+	vim.o.shell = 'zsh'
+end
 
 -- Spell check and dictionary completion
 vim.api.nvim_create_autocmd('FileType', {
@@ -42,4 +44,3 @@ vim.o.hidden = true
 
 -- Persistent undo
 vim.o.undofile = true
-vim.o.undodor = os.getenv('HOME') .. 'undo'
