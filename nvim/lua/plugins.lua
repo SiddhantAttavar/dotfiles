@@ -1,5 +1,5 @@
 -- Neovim specific plugins
-if vim.fn.has('win32') then
+if vim.loop.os_uname().sysname == 'Windows' then
 	vim.call('plug#begin', '~/AppData/Local/nvim/plugged')
 else
 	vim.call('plug#begin', '~/.config/nvim/plugged')
@@ -34,7 +34,7 @@ Plug('glacambre/firenvim', {['do'] = vim.fn['firenvim#install(0)']})
 
 -- LSP and autocomplete
 Plug 'neovim/nvim-lspconfig'
-if not vim.fn.has('win32') then
+if vim.loop.os_uname().sysname ~= 'Windows' then
 	Plug('ms-jpq/coq_nvim', {['run'] = 'python3 -m coq deps'})
 	Plug 'ms-jpq/coq.artifacts'
 	Plug 'ms-jpq/coq.thirdparty'
