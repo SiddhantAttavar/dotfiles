@@ -41,6 +41,7 @@ vim.o.fileformat = 'unix'
 -- Buffer management
 vim.o.splitright = true
 vim.o.hidden = true
+vim.o.laststatus=3
 
 -- Persistent undo
 vim.o.undofile = true
