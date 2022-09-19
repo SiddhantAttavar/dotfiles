@@ -53,7 +53,21 @@ require('lualine').setup {
 	}
 }
 
--- Toggleterm
-require("nvim-terminal").setup{
+-- nvim-terminal
+require('nvim-terminal').setup{
 	toggle_keymap = '<C-f>'
 }
+
+-- firenvim
+vim.g.firenvim_config = {
+     localSettings = {
+         ['.*'] = {
+             takeover = 'never',
+			 content = 'markdown'
+         },
+     }
+ }
+
+if vim.g.started_by_firenvim then
+	vim.o.laststatus = 0
+end

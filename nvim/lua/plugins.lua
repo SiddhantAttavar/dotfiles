@@ -29,6 +29,9 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-lualine/lualine.nvim'
 
+-- Browser nvim extension
+Plug('glacambre/firenvim', {['do'] = vim.fn['firenvim#install(0)']})
+
 -- LSP and autocomplete
 Plug 'neovim/nvim-lspconfig'
 if not vim.fn.has('win32') then
