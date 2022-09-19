@@ -32,13 +32,14 @@ Plug 'nvim-lualine/lualine.nvim'
 -- Browser nvim extension
 Plug('glacambre/firenvim', {['do'] = vim.fn['firenvim#install(0)']})
 
--- LSP and autocomplete
+-- LSP, autocomplete, and treesitter
 Plug 'neovim/nvim-lspconfig'
 if vim.loop.os_uname().sysname ~= 'Windows' then
 	Plug('ms-jpq/coq_nvim', {['run'] = 'python3 -m coq deps'})
 	Plug 'ms-jpq/coq.artifacts'
 	Plug 'ms-jpq/coq.thirdparty'
 end
+Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
 
 -- Competitive programming
 --Plug 'searleser97/cpbooster.vim'

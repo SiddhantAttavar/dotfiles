@@ -79,7 +79,7 @@ createSymlink scripts .scripts
 curl -fLo ~/.vim/autoload/plug.vim --createdirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 echo "Installing Neovim plugins"
-nvim --headless +PlugInstall +qa 2> /dev/null
+nvim -es -u $DOTFILES_DIR/nvim/init.lua -i NONE -c "PlugInstall" -c "qa"
 
 # Theming options
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/denysdovhan/gnome-terminal-one/master/one-dark.sh)"

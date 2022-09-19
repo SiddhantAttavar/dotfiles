@@ -71,3 +71,16 @@ vim.g.firenvim_config = {
 if vim.g.started_by_firenvim then
 	vim.o.laststatus = 0
 end
+
+-- nvim-treesitter
+require('nvim-treesitter.configs').setup {
+	ensure_installed = {
+		'python',
+		'cpp',
+		'markdown',
+		'markdown_inline'
+	},
+	highlight = {
+		enable = true
+	}
+}
