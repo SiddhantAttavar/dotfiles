@@ -1,6 +1,7 @@
 # Vim/Nvim plugin folders
 nvim/plugged/
 nvim/autoload/
+nvim/spell/
 vim/autoload/
 
 # VSCodium folders
