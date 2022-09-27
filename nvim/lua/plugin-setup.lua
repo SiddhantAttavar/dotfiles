@@ -76,9 +76,7 @@ end
 require('nvim-treesitter.configs').setup {
 	ensure_installed = {
 		'python',
-		'cpp',
-		'markdown',
-		'markdown_inline'
+		'cpp'
 	},
 	highlight = {
 		enable = true

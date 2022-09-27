@@ -22,8 +22,8 @@
       "passKeys": "/"
     }
   ],
-  "filterLinkHints": true,
-  "waitForEnterForFilteredHints": true,
+  "filterLinkHints": false,
+  "waitForEnterForFilteredHints": false,
   "hideHud": false,
   "keyMappings": "# Insert your preferred key mappings here.",
   "linkHintCharacters": "sadfjklewcmpgh",
