@@ -41,6 +41,9 @@ if vim.loop.os_uname().sysname ~= 'Windows_NT' then
 end
 Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
 
+-- Text editing plugins
+Plug 'windwp/nvim-autopairs'
+
 -- Competitive programming
 --Plug 'searleser97/cpbooster.vim'
 

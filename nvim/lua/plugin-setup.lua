@@ -54,7 +54,7 @@ require('lualine').setup {
 }
 
 -- nvim-terminal
-require('nvim-terminal').setup{
+require('nvim-terminal').setup {
 	toggle_keymap = '<C-f>'
 }
 
@@ -82,3 +82,6 @@ require('nvim-treesitter.configs').setup {
 		enable = true
 	}
 }
+
+-- nvim-autopairs
+require('nvim-autopairs').setup {}
