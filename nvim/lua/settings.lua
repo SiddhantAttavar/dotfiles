@@ -21,7 +21,7 @@ end
 -- Spell check and dictionary completion
 vim.api.nvim_create_autocmd('FileType', {
 	pattern = {'markdown', 'text', 'tex', 'gitcommit'},
-	command = 'setlocal spell | setlocal complete+=kspell'
+	command = 'setlocal spell | set spellsuggest=best,5 | setlocal complete+=kspell'
 })
 vim.api.nvim_create_autocmd('BufLeave', {
 	pattern= {'bash*', 'zsh*'},
