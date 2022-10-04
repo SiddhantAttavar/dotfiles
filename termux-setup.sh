@@ -79,6 +79,7 @@ nvim --headless +PlugInstall +qa 2> /dev/null
 
 # Oh-my-zsh setup
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+chsh -s zsh
 
 # Source config files
 echo "Sourcing config files"
