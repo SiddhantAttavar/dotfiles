@@ -45,3 +45,6 @@ vim.o.laststatus=3
 
 -- Persistent undo
 vim.o.undofile = true
+
+-- completion options
+vim.o.completeopt = menu,menuone,noselect

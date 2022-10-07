@@ -34,11 +34,13 @@ Plug('glacambre/firenvim', {['do'] = vim.fn['firenvim#install(0)']})
 
 -- LSP, autocomplete, and treesitter
 Plug 'neovim/nvim-lspconfig'
-if vim.loop.os_uname().sysname ~= 'Windows_NT' then
-	Plug('ms-jpq/coq_nvim', {['run'] = 'python3 -m coq deps'})
-	Plug 'ms-jpq/coq.artifacts'
-	Plug 'ms-jpq/coq.thirdparty'
-end
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'L3MON4D3/LuaSnip'
+Plug 'saadparwaiz1/cmp_luasnip'
 Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
 
 -- Text editing plugins

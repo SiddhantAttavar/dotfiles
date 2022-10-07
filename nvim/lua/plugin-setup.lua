@@ -6,10 +6,10 @@ local lsp_util = require('lspconfig.util')
 -- Set autocompletion
 local servers = {}
 for _, lsp_server in ipairs(servers) do
-  lsp[lsp_server].setup {
-    -- on_attach = my_custom_on_attach,
-    capabilities = capabilities,
-  }
+	lsp[lsp_server].setup {
+		-- on_attach = my_custom_on_attach,
+		capabilities = capabilities,
+	}
 end
 
 -- nvimtree
@@ -39,7 +39,7 @@ vim.g.coq_settings = {
 
 -- onedark
 require('onedark').setup {
-    style = 'cool'
+	style = 'cool'
 }
 require('onedark').load()
 
@@ -60,13 +60,13 @@ require('nvim-terminal').setup {
 
 -- firenvim
 vim.g.firenvim_config = {
-     localSettings = {
-         ['.*'] = {
-             takeover = 'never',
-			 content = 'markdown'
-         },
-     }
- }
+	localSettings = {
+		['.*'] = {
+			takeover = 'never',
+			content = 'markdown'
+		},
+	}
+}
 
 if vim.g.started_by_firenvim then
 	vim.o.laststatus = 0
@@ -85,3 +85,41 @@ require('nvim-treesitter.configs').setup {
 
 -- nvim-autopairs
 require('nvim-autopairs').setup {}
+
+local cmp = require('cmp')
+cmp.setup {
+	snippet = {
+		expand = function(args)
+			require('luasnip').lsp_expand(args.body)
+		end,
+	},
+	sources = cmp.config.sources({
+		{ name = 'nvim_lsp' },
+		{ name = 'luasnip' },
+	}, {
+		{ name = 'buffer' },
+	}),
+	mapping = cmp.mapping.preset.insert({
+		["<Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_next_item()
+			elseif luasnip.expand_or_jumpable() then
+				luasnip.expand_or_jump()
+			elseif has_words_before() then
+				cmp.complete()
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
+
+		["<S-Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_prev_item()
+			elseif luasnip.jumpable(-1) then
+				luasnip.jump(-1)
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
+	})
+}
