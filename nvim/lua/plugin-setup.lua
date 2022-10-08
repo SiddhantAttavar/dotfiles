@@ -16,7 +16,7 @@ for _, lsp_server in ipairs(servers) do
 end
 
 -- nvimtree
-require'nvim-tree'.setup {
+require('nvim-tree').setup {
 	hijack_netrw = false,
 	disable_netrw = true,
 	open_on_setup = false,
@@ -93,11 +93,21 @@ require('nvim-treesitter.configs').setup {
 -- nvim-autopairs
 require('nvim-autopairs').setup {}
 
+-- luasnip
+local luasnip = require('luasnip')
+luasnip.setup {}
+
+local has_words_before = function()
+	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
+-- nvim-cmp
 local cmp = require('cmp')
 cmp.setup {
 	snippet = {
 		expand = function(args)
-			require('luasnip').lsp_expand(args.body)
+			luasnip.lsp_expand(args.body)
 		end,
 	},
 	sources = cmp.config.sources({
@@ -107,7 +117,7 @@ cmp.setup {
 		{ name = 'buffer' },
 	}),
 	mapping = cmp.mapping.preset.insert({
-		['<C-d>'] = cmp.mapping(function(fallback)
+		['<Tab>'] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
 			elseif luasnip.expand_or_jumpable() then
@@ -118,7 +128,7 @@ cmp.setup {
 				fallback()
 			end
 		end, { 'i', 's' }),
-		['<C-f>'] = cmp.mapping(function(fallback)
+		['<S-Tab>'] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item()
 			elseif luasnip.jumpable(-1) then
