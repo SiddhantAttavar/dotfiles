@@ -41,8 +41,7 @@ pkg install -y neovim
 pkg install -y tmux
 pkg install -y neofetch
 pjg install -y fzf
-#git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-#. ~/.fzf/install
+pkg install -y python
 
 # Create folders for conf files
 mkdir -p $HOME/.config

@@ -2,9 +2,11 @@
 local lsp = require('lspconfig')
 local lsp_configs = require('lspconfig.configs')
 local lsp_util = require('lspconfig.util')
-lsp.pylsp.setup {}
-lsp.clangd.setup {}
-lsp.ltex.setup{}
+if not vim.fn.has('termux') then
+	lsp.pylsp.setup {}
+	lsp.clangd.setup {}
+	lsp.ltex.setup{}
+end
 
 -- Set autocompletion
 local servers = {}
