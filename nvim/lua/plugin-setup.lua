@@ -2,6 +2,9 @@
 local lsp = require('lspconfig')
 local lsp_configs = require('lspconfig.configs')
 local lsp_util = require('lspconfig.util')
+lsp.pylsp.setup {}
+lsp.clangd.setup {}
+lsp.ltex.setup{}
 
 -- Set autocompletion
 local servers = {}
@@ -48,7 +51,15 @@ require('lualine').setup {
 	options = {
 		theme = 'onedark'
 	},
-	sections = {
+	winbar = {
+		lualine_c = {
+			{
+				'buffers',
+				show_filename_only = {'true'}
+			},
+		}
+	},
+	inactive_winbar = {
 		lualine_c = {'buffers'}
 	}
 }
@@ -67,10 +78,6 @@ vim.g.firenvim_config = {
 		},
 	}
 }
-
-if vim.g.started_by_firenvim then
-	vim.o.laststatus = 0
-end
 
 -- nvim-treesitter
 require('nvim-treesitter.configs').setup {
@@ -100,7 +107,7 @@ cmp.setup {
 		{ name = 'buffer' },
 	}),
 	mapping = cmp.mapping.preset.insert({
-		["<Tab>"] = cmp.mapping(function(fallback)
+		['<C-d>'] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
 			elseif luasnip.expand_or_jumpable() then
@@ -110,9 +117,8 @@ cmp.setup {
 			else
 				fallback()
 			end
-		end, { "i", "s" }),
-
-		["<S-Tab>"] = cmp.mapping(function(fallback)
+		end, { 'i', 's' }),
+		['<C-f>'] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item()
 			elseif luasnip.jumpable(-1) then
@@ -120,6 +126,7 @@ cmp.setup {
 			else
 				fallback()
 			end
-		end, { "i", "s" }),
+		end, { 'i', 's' }),
+		['<CR>'] = cmp.mapping.confirm({select = true})
 	})
 }

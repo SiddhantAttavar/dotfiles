@@ -42,6 +42,10 @@ vim.o.fileformat = 'unix'
 vim.o.splitright = true
 vim.o.hidden = true
 vim.o.laststatus=3
+if vim.g.started_by_firenvim then
+	vim.o.laststatus = 0
+end
+
 
 -- Persistent undo
 vim.o.undofile = true

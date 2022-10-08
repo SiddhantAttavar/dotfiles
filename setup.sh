@@ -51,6 +51,11 @@ sudo apt install -y codium
 sudo apt install -y fzf
 pip install ranger-fm
 
+# Install lsps
+pip install python-lsp-server
+sudo apt install clangd-12
+sudo apt-get install openjdk-18-jre openjdk-18-jdk -y
+
 # Create folders for conf files
 mkdir -p $HOME/.config
 
