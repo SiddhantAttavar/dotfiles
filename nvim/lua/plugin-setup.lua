@@ -51,7 +51,9 @@ require('onedark').load()
 -- Lualine configuration
 require('lualine').setup {
 	options = {
-		theme = 'onedark'
+		theme = 'onedark',
+		component_separators = '|',
+		section_separators = { left = '', right = '' },
 	},
 	winbar = {
 		lualine_c = {
