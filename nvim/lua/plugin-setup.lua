@@ -2,7 +2,7 @@
 local lsp = require('lspconfig')
 local lsp_configs = require('lspconfig.configs')
 local lsp_util = require('lspconfig.util')
-if not vim.fn.has('termux') then
+if vim.fn.has('termux') == 0 then
 	lsp.pylsp.setup {}
 	lsp.clangd.setup {}
 	lsp.ltex.setup{}
@@ -55,16 +55,41 @@ require('lualine').setup {
 		component_separators = '|',
 		section_separators = { left = '', right = '' },
 	},
+	sections = {
+		lualine_a = {
+			{
+				'mode',
+				separator = { left = '', right = '' },
+				right_padding = 2
+			},
+		},
+		lualine_b = { 'filetype', 'diagnostics' },
+		lualine_c = { 'filename' },
+		lualine_x = {},
+		lualine_y = { 'diff' },
+		lualine_z = {
+			{
+				'branch',
+				separator = { right = '' },
+				left_padding = 2
+			},
+		},
+	},
 	winbar = {
 		lualine_c = {
 			{
 				'buffers',
-				show_filename_only = {'true'}
+				show_filename_only = { 'false' }
 			},
 		}
 	},
 	inactive_winbar = {
-		lualine_c = {'buffers'}
+		lualine_c = {
+			{
+				'buffers',
+				show_filename_only = { 'false' }
+			},
+		}
 	}
 }
 
