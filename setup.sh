@@ -51,11 +51,6 @@ sudo apt install -y codium
 sudo apt install -y fzf
 pip install ranger-fm
 
-# Install lsps
-pip install python-lsp-server
-sudo apt install -y clangd-12
-sudo apt-get install -y openjdk-18-jre openjdk-18-jdk
-
 # Create folders for conf files
 mkdir -p $HOME/.config
 
@@ -85,6 +80,18 @@ curl -fLo ~/.vim/autoload/plug.vim --createdirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 echo "Installing Neovim plugins"
 nvim -es -u $DOTFILES_DIR/nvim/init.lua -i NONE -c "PlugInstall" -c "qa"
+
+# Install lsps
+pip install python-lsp-server
+sudo apt install -y clangd-12
+sudo apt-get install -y openjdk-18-jre openjdk-18-jdk
+
+# Install vscodium extensions
+codium --install-extension DivyanshuAgrawal.competitive-programming-helper
+codium --install-extension formulahendry.code-runner
+codium --install-extension yzhang.markdown-all-in-one
+codium --install-extension cweijan.vscode-office
+codium --install-extension asvetliakov.vscode-neovim
 
 # Theming options
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/denysdovhan/gnome-terminal-one/master/one-dark.sh)"

@@ -1,5 +1,5 @@
 # dotfiles
-My personal configuration for Windows, Linux (WSL) and Android (Termux)
+My personal configuration for Windows, Linux and Android
 
 ## Setup <a name = "setup"></a>
 ### Windows <a name = "windows"></a>
@@ -19,25 +19,27 @@ My personal configuration for Windows, Linux (WSL) and Android (Termux)
 
 ## Programs and other things I use <a name = "programs"></a>
 IDEs and editors:
- - [VSCodium](https://vscodium.com) - Extensions:
-	- [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
-	- [Competitive Programming Helper](https://marketplace.visualstudio.com/items?itemName=DivyanshuAgrawal.competitive-programming-helper)
-	- [Dictionary Completion](https://marketplace.visualstudio.com/items?itemName=yzhang.dictionary-completion)
-	- [LanguageTool for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=adamvoss.vscode-languagetool)
-	- [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
-	- [Office Viewer](https://marketplace.visualstudio.com/items?itemName=cweijan.vscode-office)
-	- [VSCode Neovim](https://marketplace.visualstudio.com/items?itemName=asvetliakov.vscode-neovim)
  - [Neovim](https://neovim.io/) - Plugins (using [Vim-plug](https://github.com/junegunn/vim-plug)):
 	- [onedark](https://github.com/navarasu/onedark.nvim)
 	- [fzf](https://github.com/junegunn/fzf.vim)
 	- [vim-fugitive](https://github.com/tpope/vim-fugitive)
 	- [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 	- [vim-devicons](https://github.com/ryanoasis/vim-devicons)
-	- [barbar](https://github.com/romgrk/barbar.nvim)
 	- [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua)
 	- [lualine](https://github.com/nvim-lualine/lualine.nvim)
 	- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
-	- [coq_nvim](https://github.com/ms-jpq/coq_nvim)
+	- [nvim-terminal](https://github.com/s1n7ax/nvim-terminal)
+	- [firenvim](https://github.com/glacambre/firenvim)
+	- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+	- [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
+	- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+	- [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
+ - [VSCodium](https://vscodium.com) - Extensions:
+	- [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
+	- [Competitive Programming Helper](https://marketplace.visualstudio.com/items?itemName=DivyanshuAgrawal.competitive-programming-helper)
+	- [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
+	- [Office Viewer](https://marketplace.visualstudio.com/items?itemName=cweijan.vscode-office)
+	- [VSCode Neovim](https://marketplace.visualstudio.com/items?itemName=asvetliakov.vscode-neovim)
 
 Terminal stuff:
  - [Alacritty](https://alacritty.org/)
@@ -57,9 +59,7 @@ General tools:
 	- [Competitive Companion](https://addons.mozilla.org/en-US/firefox/addon/competitive-companion/)
 	- [LanguageTool](https://addons.mozilla.org/en-US/firefox/addon/languagetool/)
 	- [Vimium FF](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)
- - [File Explorer](https://www.windows.com/en-us/downloads/file-explorer/)
- - [Notepad](https://www.microsoft.com/en-us/p/windows-notepad/9msmlrh6lzf3)
+	- [GNOME Shell Integration](https://addons.mozilla.org/en-US/firefox/addon/gnome-shell-integration/)
+	- [Firenvim](https://addons.mozilla.org/en-US/firefox/addon/firenvim/)
+	- [Greasemonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/)
  - [Powertoys](https://docs.microsoft.com/en-us/windows/powertoys/)
- - [Ratio](https://play.google.com/store/apps/category/GAME?hl=en_US&gl=US)
- - [Google Drive File Stream](https://www.google.com/intl/en_in/drive/download/)
- - [fzf](https://github.com/junegunn/fzf)
