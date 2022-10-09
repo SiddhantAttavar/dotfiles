@@ -42,6 +42,7 @@ vim.o.fileformat = 'unix'
 vim.o.splitright = true
 vim.o.hidden = true
 vim.o.laststatus=3
+vim.o.signcolumn = 'yes'
 if vim.g.started_by_firenvim then
 	vim.o.laststatus = 0
 end

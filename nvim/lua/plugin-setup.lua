@@ -59,12 +59,19 @@ require('lualine').setup {
 		lualine_a = {
 			{
 				'mode',
-				separator = { left = '', right = '' },
+				separator = { left = '' },
 				right_padding = 2
 			},
 		},
 		lualine_b = { 'filetype', 'diagnostics' },
-		lualine_c = { 'filename' },
+		lualine_c = {
+			{
+				'filename',
+				file_status = true,
+				newfile_status = true,
+				path = 1
+			}
+		},
 		lualine_x = {},
 		lualine_y = { 'diff' },
 		lualine_z = {
@@ -76,19 +83,31 @@ require('lualine').setup {
 		},
 	},
 	winbar = {
-		lualine_c = {
+		lualine_a = {
 			{
 				'buffers',
-				show_filename_only = { 'false' }
+				separator = { left = '', right = '' },
+				symbols = { alternate_file = '' }
 			},
+		},
+		lualine_z = {
+			{
+				'tabs',
+				separator = { left = '', right = '' },
+			}
 		}
 	},
 	inactive_winbar = {
-		lualine_c = {
+		lualine_a = {
 			{
 				'buffers',
-				show_filename_only = { 'false' }
+				symbols = { alternate_file = '' }
 			},
+		},
+		lualine_z = {
+			{
+				'tabs',
+			}
 		}
 	}
 }
