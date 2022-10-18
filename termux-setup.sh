@@ -59,7 +59,6 @@ createSymlink bash/.bashrc .bashrc
 createSymlink zsh/.zshrc .zshrc
 createSymlink vale/.vale.ini .vale.ini
 createSymlink nvim .config/nvim
-createSymlink vim .vim
 createSymlink ranger .config/ranger
 createSymlink vscodium .config/VSCodium
 createSymlink neofetch .config/neofetch
