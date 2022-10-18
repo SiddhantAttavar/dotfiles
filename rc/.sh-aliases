@@ -1,4 +1,10 @@
 # ALIASES
+# single letter aliases
+alias n='nvim'
+alias r='rm -ri'
+alias m='mv -i'
+alias c='cd'
+
 # some ls aliases
 alias ls='ls --color=auto --group-directories-first'
 alias ll='ls -Al --group-directories-first'
