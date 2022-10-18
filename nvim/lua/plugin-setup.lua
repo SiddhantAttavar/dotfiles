@@ -2,19 +2,31 @@
 local lsp = require('lspconfig')
 local lsp_configs = require('lspconfig.configs')
 local lsp_util = require('lspconfig.util')
-if vim.fn.has('termux') == 0 then
-	lsp.pylsp.setup {}
-	lsp.clangd.setup {}
-	lsp.ltex.setup{}
+
+-- disable virtual text
+local on_attach = function(_, bufnr)
+	vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
+	vim.lsp.diagnostic.on_publish_diagnostics, {
+		virtual_text = false,
+		signs = true,
+		update_in_insert = false,
+	}
+	)
 end
 
--- Set autocompletion
-local servers = {}
-for _, lsp_server in ipairs(servers) do
-	lsp[lsp_server].setup {
-		-- on_attach = my_custom_on_attach,
-		capabilities = capabilities,
+if vim.fn.has('termux') == 0 then
+	-- Set autocompletion
+	local servers = {
+		[1] = 'pylsp',
+		[2] = 'clangd',
+		[3] = 'ltex'
 	}
+	for _, lsp_server in ipairs(servers) do
+		lsp[lsp_server].setup {
+			on_attach = on_attach,
+			capabilities = capabilities,
+		}
+	end
 end
 
 -- nvimtree
