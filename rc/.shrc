@@ -32,6 +32,10 @@ export PATH="$HOME/.gems/bin:$PATH"
 export JAVA_HOME=/usr/lib/jvm/java-18-openjdk-amd64
 export PATH=$JAVA_HOME/jre/bin:$PATH
 
+# FZF settings
+export FZF_DEFAULT_COMMAND='fdfind --type f --strip-cwd-prefix --hidden --follow'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 # UBUNTU .BASHRC TEMPLATE STARTS HERE
 
 # ~/.bashrc: executed by bash(1) for non-login shells.

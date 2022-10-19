@@ -2,6 +2,9 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
 	-- use 'foo/bar'
+	-- packer.nvim
+	use 'wbthomason/packer.nvim'
+
 	-- Onedark theme
 	use 'navarasu/onedark.nvim'
 

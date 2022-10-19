@@ -18,6 +18,7 @@ alias cls='clear'
 alias rm='rm -ri'
 alias mv='mv -i'
 alias md='mkdir'
+alias fd='fdfind'
 
 # git aliases
 alias gsync='git pull; git push'

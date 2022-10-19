@@ -49,6 +49,7 @@ sudo apt install -y tmux
 sudo apt install -y neofetch
 sudo apt install -y codium
 sudo apt install -y fzf
+sudo apt install -y fd-find
 pip install ranger-fm
 
 # Create folders for conf files

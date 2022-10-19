@@ -1,0 +1,26 @@
+# dotfolders
+.cache
+.oh-my-zsh
+.fzf
+.pki
+.ssh
+.var
+.gems
+.gnupg
+.vscode-oss
+.local
+.mozilla
+.config
+
+# Types of files/folders
+**/.git
+**/.tmp*
+
+# Folders
+d/Others/Google Drive
+d/$RECYCLE.BIN
+d/Program Files
+d/System Volume Information
+d/WindowsApps
+d/Recovery
+d/MapData
