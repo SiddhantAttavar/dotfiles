@@ -50,6 +50,7 @@ sudo apt install -y neofetch
 sudo apt install -y codium
 sudo apt install -y fzf
 sudo apt install -y fd-find
+sudo apt install -y bat
 pip install ranger-fm
 
 # Create folders for conf files
@@ -74,6 +75,8 @@ createSymlink vscodium .config/VSCodium
 createSymlink x/.xmodmap .xmodmap
 createSymlink desktop/firefox-private.desktop .local/share/applications/firefox-private.desktop
 createSymlink scripts .scripts
+createSymlink pistol .config/pistol
+createSymlink bat .config/bat
 
 # Setup neovim: install vim-plug and plugins
 curl -fLo ~/.vim/autoload/plug.vim --createdirs \
@@ -98,6 +101,8 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/denysdovhan/gnome-termin
 
 # Oh-my-zsh setup
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+mkdir -p ~/.local/bin
+wget -O ~/.local/bin/pistol https://github.com/doronbehar/pistol/releases/latest/download/pistol
 
 # Source config files
 echo "Sourcing config files"

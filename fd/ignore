@@ -11,16 +11,17 @@
 .local
 .mozilla
 .config
+.rest-client
 
 # Types of files/folders
 **/.git
 **/.tmp*
 
 # Folders
-d/Others/Google Drive
-d/$RECYCLE.BIN
-d/Program Files
-d/System Volume Information
-d/WindowsApps
-d/Recovery
-d/MapData
+**/Others/Google Drive
+**/$RECYCLE.BIN
+**/Program Files
+**/System Volume Information
+**/WindowsApps
+**/Recovery
+**/MapData

@@ -35,3 +35,5 @@ alias termuxupdate='pkg update -y; pkg upgrade -y'
 alias python='python3'
 alias py='python3'
 
+# bat alias
+alias bat='batcat'

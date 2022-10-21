@@ -12,12 +12,12 @@ export EDITOR=nvim
 
 # Load .sh_aliases
 if [ -f ~/.sh-aliases ]; then
-    . ~/.sh-aliases
+	. ~/.sh-aliases
 fi
 
 # Load .profle
 if [ -f ~/.profile ]; then
-    . ~/.profile
+	. ~/.profile
 fi
 
 # Update PATH
@@ -33,8 +33,18 @@ export JAVA_HOME=/usr/lib/jvm/java-18-openjdk-amd64
 export PATH=$JAVA_HOME/jre/bin:$PATH
 
 # FZF settings
-export FZF_DEFAULT_COMMAND='fdfind --type f --strip-cwd-prefix --hidden --follow'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_DEFAULT_OPTS='--header "E to edit" --preview="pistol {}" --bind "E:execute($EDITOR {})"'
+export FZF_DEFAULT_COMMAND='fdfind --hidden --follow .'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND --type f"
+export ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
+
+_fzf_compgen_path() {
+	fdfind --hidden --follow . "$1"
+}
+
+_fzf_compgen_dir() {
+	fdfind --hidden --follow . --type d "$1"
+}
 
 # UBUNTU .BASHRC TEMPLATE STARTS HERE
 
@@ -44,8 +54,8 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # If not running interactively, don't do anything
 case $- in
-    *i*) ;;
-      *) return;;
+	*i*) ;;
+	*) return;;
 esac
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -62,19 +72,19 @@ HISTFILESIZE=2000
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
+	debian_chroot=$(cat /etc/debian_chroot)
 fi
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto --group-directories-first'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
+	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+	alias ls='ls --color=auto --group-directories-first'
+	#alias dir='dir --color=auto'
+	#alias vdir='vdir --color=auto'
 
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+	alias grep='grep --color=auto'
+	alias fgrep='fgrep --color=auto'
+	alias egrep='egrep --color=auto'
 fi
 
 # colored GCC warnings and errors
@@ -86,17 +96,17 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 # UBUNTU .BASHRC TEMPLATE ENDS HERE
 function ranger {
-    local IFS=$'\t\n'
-    local tempfile="$(mktemp -t tmp.XXXXXX)"
-    local ranger_cmd=(
-        command
-        ranger
-        --cmd="map Q chain shell echo %d > "$tempfile"; quitall"
-    )
-    
-    ${ranger_cmd[@]} "$@"
-    if [[ -f "$tempfile" ]] && [[ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]]; then
-        cd -- "$(cat "$tempfile")" || return
-    fi
-    command rm -f -- "$tempfile" 2>/dev/null
+	local IFS=$'\t\n'
+	local tempfile="$(mktemp -t tmp.XXXXXX)"
+	local ranger_cmd=(
+	command
+	ranger
+	--cmd="map Q chain shell echo %d > "$tempfile"; quitall"
+)
+
+${ranger_cmd[@]} "$@"
+if [[ -f "$tempfile" ]] && [[ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]]; then
+	cd -- "$(cat "$tempfile")" || return
+fi
+command rm -f -- "$tempfile" 2>/dev/null
 }
