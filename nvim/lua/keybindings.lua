@@ -21,7 +21,7 @@ if not (vim.g.vscode) then
 	-- Saving
 	vim.api.nvim_set_keymap('n', '<C-s>', ':wa<CR>', { noremap = true })
 
-	-- Babar
+	-- Buffers
 	vim.api.nvim_set_keymap('n', '<Tab>', ':bn<CR>', { noremap = true })
 	vim.api.nvim_set_keymap('n', '<S-Tab>', ':bp<CR>', { noremap = true })
 	vim.api.nvim_set_keymap('n', '<C-w>', ':bd<CR>', { noremap = true })
@@ -31,6 +31,7 @@ if not (vim.g.vscode) then
 	vim.api.nvim_set_keymap('n', '<C-p>', ':Files<CR>', { noremap = true })
 
 	-- Terminal
-	vim.api.nvim_set_keymap('t', '<C-g>', '<C-\\><C-n>:lua NTGlobal["terminal"]:toggle()<CR>', { noremap = true })
+	vim.api.nvim_set_keymap('n', '<C-f>', ':ToggleTerm<CR>', { noremap = true })
+	vim.api.nvim_set_keymap('t', '<C-f>', '<C-\\><C-n>:ToggleTerm<CR>', { noremap = true })
 	vim.api.nvim_set_keymap('t', '<esc>', '<C-\\><C-n>', { noremap = true })
 end

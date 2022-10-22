@@ -31,8 +31,9 @@ vim.api.nvim_create_autocmd('BufLeave', {
 -- Copy/paste from system clipboard
 vim.o.clipboard = 'unnamedplus'
 
--- Enable the mouse
+-- General UI/UX
 vim.o.mouse = 'a'
+vim.o.termguicolor = true
 
 -- Text encoding settings
 vim.o.encoding = 'UTF-8'
@@ -46,7 +47,6 @@ vim.o.signcolumn = 'yes'
 if vim.g.started_by_firenvim then
 	vim.o.laststatus = 0
 end
-
 
 -- Persistent undo
 vim.o.undofile = true

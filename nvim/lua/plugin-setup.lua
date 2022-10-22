@@ -1,3 +1,17 @@
+-- No config plugins
+local no_config = {
+	[1] = 'nvim-autopairs',
+	[2] = 'luasnip',
+	[3] = 'indent_blankline',
+	[4] = 'project_nvim',
+	[5] = 'project_nvim',
+	[6] = 'gitsigns',
+	[7] = 'telescope'
+}
+for _, plugin in pairs(no_config) do
+	require(plugin).setup {}
+end
+
 -- nvim-lspconfig
 local lsp = require('lspconfig')
 local lsp_configs = require('lspconfig.configs')
@@ -24,7 +38,6 @@ if vim.fn.has('termux') == 0 then
 	for _, lsp_server in ipairs(servers) do
 		lsp[lsp_server].setup {
 			on_attach = on_attach,
-			capabilities = capabilities,
 		}
 	end
 end
@@ -124,11 +137,6 @@ require('lualine').setup {
 	}
 }
 
--- nvim-terminal
-require('nvim-terminal').setup {
-	toggle_keymap = '<C-f>'
-}
-
 -- firenvim
 vim.g.firenvim_config = {
 	localSettings = {
@@ -150,16 +158,9 @@ require('nvim-treesitter.configs').setup {
 	}
 }
 
--- nvim-autopairs
-require('nvim-autopairs').setup {}
-
--- luasnip
-local luasnip = require('luasnip')
-luasnip.setup {}
-
 local has_words_before = function()
 	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
 end
 
 -- nvim-cmp
@@ -200,3 +201,55 @@ cmp.setup {
 		['<CR>'] = cmp.mapping.confirm({select = true})
 	})
 }
+
+-- nvim-dap
+local dap = require('dap')
+dap.configurations.python = {
+	{
+		type = 'python';
+		request = 'launch';
+		name = 'Launch file';
+		program = '${file}';
+		pythonPath = function()
+			return '/usr/bin/python'
+		end;
+	},
+}
+
+-- toggleterm.nvim
+require('toggleterm').setup {
+	winbar = {
+		enabled = false
+	}
+}
+
+-- nvim-notify
+vim.notify = require('notify')
+
+-- alpha.nvim
+local alpha = require('alpha')
+local dashboard = require('alpha.themes.dashboard')
+
+-- Set header
+dashboard.section.header.val = {
+    '                                                     ',
+    '  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ',
+    '  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ',
+    '  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ',
+    '  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ',
+    '  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ',
+    '  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ',
+    '                                                     ',
+}
+
+-- Set menu
+dashboard.section.buttons.val = {
+    dashboard.button( 'e', '  > New file' , ':ene <BAR> startinsert <CR>'),
+    dashboard.button( 'f', '  > Find file', ':Files<CR>'),
+    dashboard.button( 'r', '  > Recent'   , ':Telescope oldfiles<CR>'),
+    dashboard.button( 's', '  > Settings' , ':e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>'),
+    dashboard.button( 'q', '  > Quit NVIM', ':qa<CR>'),
+}
+
+-- Send config to alpha
+alpha.setup(dashboard.opts)
