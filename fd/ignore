@@ -12,6 +12,8 @@
 .mozilla
 .config
 .rest-client
+.npm
+.gnome
 
 # Types of files/folders
 **/.git

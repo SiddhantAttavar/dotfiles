@@ -165,6 +165,7 @@ end
 
 -- nvim-cmp
 local cmp = require('cmp')
+local luasnip = require('luasnip')
 cmp.setup {
 	snippet = {
 		expand = function(args)
@@ -246,10 +247,20 @@ dashboard.section.header.val = {
 dashboard.section.buttons.val = {
     dashboard.button( 'e', '  > New file' , ':ene <BAR> startinsert <CR>'),
     dashboard.button( 'f', '  > Find file', ':Files<CR>'),
-    dashboard.button( 'r', '  > Recent'   , ':Telescope oldfiles<CR>'),
+    dashboard.button( 'r', '  > Recent'   , ':History<CR>'),
     dashboard.button( 's', '  > Settings' , ':e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>'),
     dashboard.button( 'q', '  > Quit NVIM', ':qa<CR>'),
 }
 
 -- Send config to alpha
 alpha.setup(dashboard.opts)
+
+-- fzf.vim
+vim.cmd [[command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', 'pistol {}']}, <bang>0)]]
+
+-- competitest.nvim
+require('competitest').setup {
+	testcases_directory = '~/d/Competitions/Competitive-Programming/build',
+	testcases_use_single_file = true
+}

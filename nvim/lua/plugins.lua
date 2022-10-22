@@ -29,13 +29,13 @@ return require('packer').startup(function(use)
 	use 'rcarriga/nvim-notify'
 	use 'lukas-reineke/indent-blankline.nvim'
 
-	-- projects
+	-- Projects
 	use 'ahmedkhalf/project.nvim'
 
 	-- Browser nvim extension
 	use { 'glacambre/firenvim', run = function() vim.fn['firenvim#install'](0) end }
 
-	-- LSP, autocomplete, and treesitter
+	-- LSP and autocomplete
 	use 'neovim/nvim-lspconfig'
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'hrsh7th/cmp-buffer'
@@ -44,7 +44,10 @@ return require('packer').startup(function(use)
 	use 'hrsh7th/nvim-cmp'
 	use 'L3MON4D3/LuaSnip'
 	use 'saadparwaiz1/cmp_luasnip'
+
+	-- Treesitter and syntax highlighting
 	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+	use 'sheerun/vim-polyglot'
 
 	-- DAP
 	use 'mfussenegger/nvim-dap'
@@ -52,4 +55,7 @@ return require('packer').startup(function(use)
 	-- Text editing plugins
 	use 'windwp/nvim-autopairs'
 	use 'numToStr/Comment.nvim'
+
+	-- Competitive programming
+	use { 'xeluxee/competitest.nvim', requires = {'MunifTanjim/nui.nvim'} }
 end)
