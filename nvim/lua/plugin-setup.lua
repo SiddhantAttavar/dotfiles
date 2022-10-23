@@ -6,7 +6,8 @@ local no_config = {
 	[4] = 'project_nvim',
 	[5] = 'project_nvim',
 	[6] = 'gitsigns',
-	[7] = 'telescope'
+	[7] = 'telescope',
+	[8] = 'Comment'
 }
 for _, plugin in pairs(no_config) do
 	require(plugin).setup {}
@@ -264,3 +265,6 @@ require('competitest').setup {
 	testcases_directory = '~/d/Competitions/Competitive-Programming/build',
 	testcases_use_single_file = true
 }
+
+-- markdown-preview.nvim
+vim.g.mkdp_markdown_css = '~/test.css'

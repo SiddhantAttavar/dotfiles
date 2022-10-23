@@ -47,7 +47,6 @@ return require('packer').startup(function(use)
 
 	-- Treesitter and syntax highlighting
 	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-	use 'sheerun/vim-polyglot'
 
 	-- DAP
 	use 'mfussenegger/nvim-dap'
@@ -58,4 +57,8 @@ return require('packer').startup(function(use)
 
 	-- Competitive programming
 	use { 'xeluxee/competitest.nvim', requires = {'MunifTanjim/nui.nvim'} }
+
+	-- Markdown
+	-- install without yarn or npm
+	use { 'iamcco/markdown-preview.nvim', run = function() vim.fn['mkdp#util#install']() end }
 end)
