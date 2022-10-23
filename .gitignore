@@ -15,3 +15,7 @@ vscodium/User/*
 
 # Termux files
 termux/shell
+
+# Qutebrowser
+qutebrowser/*
+!qutebrowser/config.py

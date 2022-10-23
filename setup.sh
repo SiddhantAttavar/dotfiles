@@ -77,6 +77,7 @@ createSymlink desktop/firefox-private.desktop .local/share/applications/firefox-
 createSymlink scripts .scripts
 createSymlink pistol .config/pistol
 createSymlink bat .config/bat
+createSymlink qutebrowser .config/qutebrowser
 
 # Setup neovim: install vim-plug and plugins
 curl -fLo ~/.vim/autoload/plug.vim --createdirs \
