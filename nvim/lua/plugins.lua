@@ -25,7 +25,6 @@ return require('packer').startup(function(use)
 	-- Fuzzy finder / Telescope
 	use { 'junegunn/fzf', run = ':call fzf#install()' }
 	use 'junegunn/fzf.vim'
-	use { 'nvim-telescope/telescope.nvim', tag = '0.1.0',requires = { 'nvim-lua/plenary.nvim' } }
 
 	-- Git
 	use 'tpope/vim-fugitive'
@@ -77,7 +76,10 @@ return require('packer').startup(function(use)
 	-- install without yarn or npm
 	use { 'iamcco/markdown-preview.nvim', run = function() vim.fn['mkdp#util#install']() end }
 
-		-- Automatically set up your configuration after cloning packer.nvim
+	-- Movement
+	use 'ggandor/leap.nvim'
+
+	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if packer_bootstrap then
 		require('packer').sync()

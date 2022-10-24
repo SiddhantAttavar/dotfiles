@@ -5,8 +5,7 @@ local no_config = {
 	[3] = 'indent_blankline',
 	[4] = 'project_nvim',
 	[5] = 'gitsigns',
-	[6] = 'telescope',
-	[7] = 'Comment'
+	[6] = 'Comment'
 }
 for _, plugin in pairs(no_config) do
 	require(plugin).setup {}
@@ -296,3 +295,6 @@ navic.setup {
 	highlight = true,
 	depth_limit = 3
 }
+
+-- leap.nvim
+require('leap').add_default_mappings()
