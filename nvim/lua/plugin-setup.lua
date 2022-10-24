@@ -4,10 +4,9 @@ local no_config = {
 	[2] = 'luasnip',
 	[3] = 'indent_blankline',
 	[4] = 'project_nvim',
-	[5] = 'project_nvim',
-	[6] = 'gitsigns',
-	[7] = 'telescope',
-	[8] = 'Comment'
+	[5] = 'gitsigns',
+	[6] = 'telescope',
+	[7] = 'Comment'
 }
 for _, plugin in pairs(no_config) do
 	require(plugin).setup {}
@@ -17,16 +16,19 @@ end
 local lsp = require('lspconfig')
 local lsp_configs = require('lspconfig.configs')
 local lsp_util = require('lspconfig.util')
+local navic = require('nvim-navic')
 
--- disable virtual text
-local on_attach = function(_, bufnr)
+-- Set up lsps
+local on_attach = function(client, bufnr)
 	vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
 	vim.lsp.diagnostic.on_publish_diagnostics, {
-		virtual_text = false,
 		signs = true,
 		update_in_insert = false,
 	}
 	)
+	if client.server_capabilities.documentSymbolProvider then
+		navic.attach(client, bufnr)
+    end
 end
 
 if vim.fn.has('termux') == 0 then
@@ -75,6 +77,23 @@ require('onedark').setup {
 require('onedark').load()
 
 -- Lualine configuration
+function get_buffers()
+	local curr_win = nvim.api.nvim_ta
+end
+
+local function diff_source()
+	local gitsigns = vim.b.gitsigns_status_dict
+	if gitsigns then
+		return {
+			added = gitsigns.added,
+			modified = gitsigns.changed,
+			removed = gitsigns.removed
+		}
+	else
+		return {0, 0, 0}
+	end
+end
+
 require('lualine').setup {
 	options = {
 		theme = 'onedark',
@@ -98,23 +117,34 @@ require('lualine').setup {
 				path = 1
 			}
 		},
-		lualine_x = {},
-		lualine_y = { 'diff' },
+		lualine_y = {
+			{
+				'diff',
+				source = 'gitsign_source'
+			}
+		},
 		lualine_z = {
 			{
-				'branch',
+				'FugitiveHead',
+				icon = '',
 				separator = { right = '' },
 				left_padding = 2
-			},
+			}
 		},
 	},
-	winbar = {
+	tabline = {
 		lualine_a = {
 			{
 				'buffers',
 				separator = { left = '', right = '' },
 				symbols = { alternate_file = '' }
 			},
+		},
+		lualine_c = {
+			{
+				navic.get_location,
+				cond = navic.is_available
+			}
 		},
 		lualine_z = {
 			{
@@ -123,18 +153,11 @@ require('lualine').setup {
 			}
 		}
 	},
-	inactive_winbar = {
-		lualine_a = {
-			{
-				'buffers',
-				symbols = { alternate_file = '' }
-			},
-		},
-		lualine_z = {
-			{
-				'tabs',
-			}
-		}
+	extensions = {
+		'fugitive',
+		'fzf',
+		'nvim-tree',
+		'toggleterm'
 	}
 }
 
@@ -234,31 +257,30 @@ local dashboard = require('alpha.themes.dashboard')
 
 -- Set header
 dashboard.section.header.val = {
-    '                                                     ',
-    '  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ',
-    '  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ',
-    '  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ',
-    '  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ',
-    '  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ',
-    '  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ',
-    '                                                     ',
+	'                                                     ',
+	'  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ',
+	'  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ',
+	'  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ',
+	'  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ',
+	'  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ',
+	'  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ',
+	'                                                     ',
 }
 
 -- Set menu
 dashboard.section.buttons.val = {
-    dashboard.button( 'e', '  > New file' , ':ene <BAR> startinsert <CR>'),
-    dashboard.button( 'f', '  > Find file', ':Files<CR>'),
-    dashboard.button( 'r', '  > Recent'   , ':History<CR>'),
-    dashboard.button( 's', '  > Settings' , ':e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>'),
-    dashboard.button( 'q', '  > Quit NVIM', ':qa<CR>'),
+		dashboard.button( 'e', '	> New file' , ':ene <BAR> startinsert <CR>'),
+		dashboard.button( 'f', '	> Find file', ':Files<CR>'),
+		dashboard.button( 'r', '	> Recent'	 , ':History<CR>'),
+		dashboard.button( 's', '	> Settings' , ':e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>'),
+		dashboard.button( 'q', '	> Quit NVIM', ':qa<CR>'),
 }
 
 -- Send config to alpha
 alpha.setup(dashboard.opts)
 
 -- fzf.vim
-vim.cmd [[command! -bang -nargs=? -complete=dir Files
-    \ call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', 'pistol {}']}, <bang>0)]]
+vim.cmd [[command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', 'pistol {}']}, <bang>0)]]
 
 -- competitest.nvim
 require('competitest').setup {
@@ -268,3 +290,9 @@ require('competitest').setup {
 
 -- markdown-preview.nvim
 vim.g.mkdp_markdown_css = '~/test.css'
+
+-- nvim-navic
+navic.setup {
+	highlight = true,
+	depth_limit = 3
+}

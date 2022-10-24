@@ -53,3 +53,6 @@ vim.o.undofile = true
 
 -- completion options
 vim.o.completeopt = menu,menuone,noselect
+
+-- guifont
+vim.cmd [[set guifont=CaskaydiaCove\ Nerd\ Font]]

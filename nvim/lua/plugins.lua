@@ -1,7 +1,21 @@
-vim.cmd [[packadd packer.nvim]]
+-- Intall packer
+local ensure_packer = function()
+	local fn = vim.fn
+	local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+	if fn.empty(fn.glob(install_path)) > 0 then
+		fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+		vim.cmd [[packadd packer.nvim]]
+		return true
+	end
+	return false
+end
 
+local packer_bootstrap = ensure_packer()
+
+-- Install plugins
 return require('packer').startup(function(use)
 	-- use 'foo/bar'
+
 	-- packer.nvim
 	use 'wbthomason/packer.nvim'
 
@@ -21,7 +35,7 @@ return require('packer').startup(function(use)
 	use 'kyazdani42/nvim-web-devicons'
 	use 'ryanoasis/vim-devicons'
 
-	-- UI: Startup page, tabs, status bar, explorer etc.
+	-- UI: Startup page, statusline, explorer etc.
 	use { 'goolord/alpha-nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
 	use 'kyazdani42/nvim-tree.lua'
 	use 'nvim-lualine/lualine.nvim'
@@ -37,6 +51,7 @@ return require('packer').startup(function(use)
 
 	-- LSP and autocomplete
 	use 'neovim/nvim-lspconfig'
+	use { 'SmiteshP/nvim-navic', requires = 'neovim/nvim-lspconfig' }
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'hrsh7th/cmp-buffer'
 	use 'hrsh7th/cmp-path'
@@ -61,4 +76,10 @@ return require('packer').startup(function(use)
 	-- Markdown
 	-- install without yarn or npm
 	use { 'iamcco/markdown-preview.nvim', run = function() vim.fn['mkdp#util#install']() end }
+
+		-- Automatically set up your configuration after cloning packer.nvim
+	-- Put this at the end after all plugins
+	if packer_bootstrap then
+		require('packer').sync()
+	end
 end)
