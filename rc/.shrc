@@ -42,9 +42,9 @@ _fzf_compgen_path() {
 	fdfind --hidden --follow . "$1"
 }
 
-# _fzf_compgen_dir() {
-# 	fdfind --hidden --follow . --type d "$1"
-# }
+_fzf_compgen_dir() {
+	fdfind --hidden --follow . --type d "$1"
+}
 
 # UBUNTU .BASHRC TEMPLATE STARTS HERE
 

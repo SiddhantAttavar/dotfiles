@@ -1,7 +1,7 @@
 # ALIASES
 # single letter aliases
 alias n='nvim'
-alias r='rm -ri'
+alias r='rm -rI'
 alias m='mv -i'
 alias c='cd'
 
