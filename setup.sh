@@ -79,12 +79,6 @@ createSymlink pistol .config/pistol
 createSymlink bat .config/bat
 createSymlink qutebrowser .config/qutebrowser
 
-# Setup neovim: install vim-plug and plugins
-curl -fLo ~/.vim/autoload/plug.vim --createdirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-echo "Installing Neovim plugins"
-nvim -es -u $DOTFILES_DIR/nvim/init.lua -i NONE -c "PlugInstall" -c "qa"
-
 # Install lsps
 pip install python-lsp-server
 sudo apt install -y clangd-12
