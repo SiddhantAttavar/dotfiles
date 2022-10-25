@@ -19,3 +19,4 @@ termux/shell
 # Qutebrowser
 qutebrowser/*
 !qutebrowser/config.py
+!qutebrowser/autoconfig.yml
