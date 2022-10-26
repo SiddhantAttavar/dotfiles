@@ -13,6 +13,14 @@ settings:
       normal:
         <Ctrl+Shift+Tab>: tab-prev
         <Ctrl+Tab>: tab-next
+  colors.webpage.darkmode.algorithm:
+    global: lightness-cielab
+  colors.webpage.darkmode.enabled:
+    global: true
+  colors.webpage.darkmode.policy.images:
+    global: never
+  colors.webpage.preferred_color_scheme:
+    global: dark
   downloads.open_dispatcher:
     global: null
   editor.command:
@@ -39,3 +47,9 @@ settings:
     - -e
     - ranger
     - --choosefile={}
+  fonts.default_family:
+    global: CaskaydiaCove Nerd Font
+  fonts.web.family.standard:
+    global: CaskaydiaCove Nerd Font
+  tabs.new_position.unrelated:
+    global: next

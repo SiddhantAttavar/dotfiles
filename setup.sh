@@ -78,6 +78,7 @@ createSymlink scripts .scripts
 createSymlink pistol .config/pistol
 createSymlink bat .config/bat
 createSymlink qutebrowser .config/qutebrowser
+createSymlink git .config/git
 
 # Install lsps
 pip install python-lsp-server
