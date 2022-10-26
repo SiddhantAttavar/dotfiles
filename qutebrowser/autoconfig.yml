@@ -6,6 +6,14 @@
 
 config_version: 2
 settings:
+  aliases:
+    global:
+      h: help
+      q: close
+      qa: quit
+      w: session-save
+      wq: quit --save
+      wqa: quit --save
   auto_save.session:
     global: true
   bindings.commands:
@@ -21,6 +29,10 @@ settings:
     global: never
   colors.webpage.preferred_color_scheme:
     global: dark
+  content.headers.user_agent:
+    accounts.google.com: Mozilla/5.0 (X11; Linux x86_64; rv:57.0) Gecko/20100101 Firefox/77.0
+    global: Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko)
+      {qt_key}/{qt_version} {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version}
   downloads.open_dispatcher:
     global: null
   editor.command:

@@ -54,7 +54,8 @@ end
 local servers = {
 	[1] = 'pylsp',
 	[2] = 'clangd',
-	[3] = 'prosemd_lsp'
+	[3] = 'prosemd_lsp',
+	[4] = 'sumneko_lua'
 }
 for _, lsp_server in ipairs(servers) do
 	lsp[lsp_server].setup {
@@ -303,9 +304,6 @@ require('competitest').setup {
 	testcases_directory = '~/d/Competitions/Competitive-Programming/build',
 	testcases_use_single_file = true
 }
-
--- markdown-preview.nvim
-vim.g.mkdp_markdown_css = '~/test.css'
 
 -- nvim-navic
 navic.setup {

@@ -53,6 +53,9 @@ sudo apt install -y fd-find
 sudo apt install -y bat
 pip install ranger-fm
 
+# Install rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
 # Create folders for conf files
 mkdir -p $HOME/.config
 
