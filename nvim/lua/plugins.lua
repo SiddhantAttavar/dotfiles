@@ -40,34 +40,32 @@ return require('packer').startup(function(use)
 	use 'nvim-lualine/lualine.nvim'
 	use { 'akinsho/toggleterm.nvim', tag = '*' }
 	use 'rcarriga/nvim-notify'
-	use 'lukas-reineke/indent-blankline.nvim'
-
-	-- Projects
-	use 'ahmedkhalf/project.nvim'
 
 	-- Browser nvim extension
 	use { 'glacambre/firenvim', run = function() vim.fn['firenvim#install'](0) end }
 
-	-- LSP and autocomplete
+	-- LSP and DAP
 	use 'neovim/nvim-lspconfig'
+	use 'L3MON4D3/LuaSnip'
+	use 'williamboman/mason.nvim'
 	use { 'SmiteshP/nvim-navic', requires = 'neovim/nvim-lspconfig' }
+	use 'mfussenegger/nvim-dap'
+	use 'jose-elias-alvarez/null-ls.nvim'
+
+	-- Completion
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'hrsh7th/cmp-buffer'
 	use 'hrsh7th/cmp-path'
 	use 'hrsh7th/cmp-cmdline'
-	use 'hrsh7th/nvim-cmp'
-	use 'L3MON4D3/LuaSnip'
 	use 'saadparwaiz1/cmp_luasnip'
-
-	-- Treesitter and syntax highlighting
-	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-
-	-- DAP
-	use 'mfussenegger/nvim-dap'
+	use 'hrsh7th/nvim-cmp'
 
 	-- Text editing plugins
+	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 	use 'windwp/nvim-autopairs'
 	use 'numToStr/Comment.nvim'
+	use 'lukas-reineke/indent-blankline.nvim'
+	use 'nmac427/guess-indent.nvim'
 
 	-- Competitive programming
 	use { 'xeluxee/competitest.nvim', requires = {'MunifTanjim/nui.nvim'} }

@@ -1,11 +1,13 @@
 -- No config plugins
 local no_config = {
 	[1] = 'nvim-autopairs',
-	[2] = 'luasnip',
-	[3] = 'indent_blankline',
-	[4] = 'project_nvim',
-	[5] = 'gitsigns',
-	[6] = 'Comment'
+	[2] = 'indent_blankline',
+	[3] = 'gitsigns',
+	[4] = 'Comment',
+	[5] = 'guess-indent',
+	[6] = 'mason',
+	[7] = 'null-ls',
+	[8] = 'luasnip'
 }
 for _, plugin in pairs(no_config) do
 	require(plugin).setup {}
@@ -13,8 +15,6 @@ end
 
 -- nvim-lspconfig
 local lsp = require('lspconfig')
-local lsp_configs = require('lspconfig.configs')
-local lsp_util = require('lspconfig.util')
 local navic = require('nvim-navic')
 
 -- Set up lsps
@@ -25,23 +25,41 @@ local on_attach = function(client, bufnr)
 		update_in_insert = false,
 	}
 	)
+
 	if client.server_capabilities.documentSymbolProvider then
 		navic.attach(client, bufnr)
-    end
+	end
+
+	-- Mappings.
+	-- See `:help vim.lsp.*` for documentation on any of the below functions
+	local bufopts = { noremap=true, silent=true, buffer=bufnr }
+	vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+	vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+	vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+	vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+	vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+	vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+	vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+	vim.keymap.set('n', '<space>wl', function()
+		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+	end, bufopts)
+	vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
+	vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+	vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+	vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+	vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
-if vim.fn.has('termux') == 0 then
-	-- Set autocompletion
-	local servers = {
-		[1] = 'pylsp',
-		[2] = 'clangd',
-		[3] = 'ltex'
+-- Set autocompletion
+local servers = {
+	[1] = 'pylsp',
+	[2] = 'clangd',
+	[3] = 'prosemd_lsp'
+}
+for _, lsp_server in ipairs(servers) do
+	lsp[lsp_server].setup {
+		on_attach = on_attach,
 	}
-	for _, lsp_server in ipairs(servers) do
-		lsp[lsp_server].setup {
-			on_attach = on_attach,
-		}
-	end
 end
 
 -- nvimtree
@@ -189,6 +207,7 @@ end
 -- nvim-cmp
 local cmp = require('cmp')
 local luasnip = require('luasnip')
+
 cmp.setup {
 	snippet = {
 		expand = function(args)
@@ -205,8 +224,8 @@ cmp.setup {
 		['<Tab>'] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
-			elseif luasnip.expand_or_jumpable() then
-				luasnip.expand_or_jump()
+			elseif luasnip.jumpable(-1) then
+				luasnip.jump(-1)
 			elseif has_words_before() then
 				cmp.complete()
 			else
@@ -216,8 +235,6 @@ cmp.setup {
 		['<S-Tab>'] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item()
-			elseif luasnip.jumpable(-1) then
-				luasnip.jump(-1)
 			else
 				fallback()
 			end
@@ -268,11 +285,11 @@ dashboard.section.header.val = {
 
 -- Set menu
 dashboard.section.buttons.val = {
-		dashboard.button( 'e', '	> New file' , ':ene <BAR> startinsert <CR>'),
-		dashboard.button( 'f', '	> Find file', ':Files<CR>'),
-		dashboard.button( 'r', '	> Recent'	 , ':History<CR>'),
-		dashboard.button( 's', '	> Settings' , ':e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>'),
-		dashboard.button( 'q', '	> Quit NVIM', ':qa<CR>'),
+	dashboard.button( 'e', '	> New file' , ':ene <BAR> startinsert <CR>'),
+	dashboard.button( 'f', '	> Find file', ':Files<CR>'),
+	dashboard.button( 'r', '	> Recent'	 , ':History<CR>'),
+	dashboard.button( 's', '	> Settings' , ':e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>'),
+	dashboard.button( 'q', '	> Quit NVIM', ':qa<CR>'),
 }
 
 -- Send config to alpha
