@@ -14,6 +14,8 @@ settings:
       w: session-save
       wq: quit --save
       wqa: quit --save
+  auto_save.interval:
+    global: 15000
   auto_save.session:
     global: true
   bindings.commands:
@@ -33,6 +35,10 @@ settings:
     accounts.google.com: Mozilla/5.0 (X11; Linux x86_64; rv:57.0) Gecko/20100101 Firefox/77.0
     global: Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko)
       {qt_key}/{qt_version} {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version}
+  content.register_protocol_handler:
+    https://mail.google.com?extsrc=mailto&url=%25s: false
+  downloads.location.directory:
+    global: $HOME/d/Downloads
   downloads.open_dispatcher:
     global: null
   editor.command:

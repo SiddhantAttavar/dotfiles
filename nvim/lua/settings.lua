@@ -33,7 +33,7 @@ vim.o.clipboard = 'unnamedplus'
 
 -- General UI/UX
 vim.o.mouse = 'a'
-vim.o.termguicolor = true
+vim.opt.termguicolors = true
 
 -- Text encoding settings
 vim.o.encoding = 'UTF-8'
