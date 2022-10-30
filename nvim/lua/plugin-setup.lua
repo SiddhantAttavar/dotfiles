@@ -17,7 +17,7 @@ end
 local lsp = require('lspconfig')
 local navic = require('nvim-navic')
 
--- Set up lsps
+-- on_attach callback function
 local on_attach = function(client, bufnr)
 	vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
 	vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -50,17 +50,39 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
--- Set autocompletion
-local servers = {
-	[1] = 'pylsp',
-	[2] = 'clangd',
-	[3] = 'prosemd_lsp',
-	[4] = 'sumneko_lua'
-}
-for _, lsp_server in ipairs(servers) do
-	lsp[lsp_server].setup {
-		on_attach = on_attach,
+-- configs for lsp servers
+local lsp_config = {
+	pylsp = {
+		settings = {
+			pylsp = {
+				plugins = {
+					pycodestyle = {
+						enabled = false
+					}
+				}
+			}
+		}
+	},
+	clangd = {},
+	prosemd_lsp = {},
+	sumneko_lua = {
+		settings = {
+			Lua = {
+				diagnostics = {
+					globals = { 'vim' }
+				},
+				telemetry = {
+					enable = false
+				}
+			}
+		}
 	}
+}
+
+-- setup LSPs
+for lsp_server, config in pairs(lsp_config) do
+	config.on_attach = on_attach
+	lsp[lsp_server].setup(config)
 end
 
 -- nvimtree
