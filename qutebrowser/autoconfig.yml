@@ -71,5 +71,7 @@ settings:
     global: CaskaydiaCove Nerd Font
   fonts.web.family.standard:
     global: CaskaydiaCove Nerd Font
+  tabs.last_close:
+    global: close
   tabs.new_position.unrelated:
     global: next
