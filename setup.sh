@@ -82,6 +82,7 @@ createSymlink pistol .config/pistol
 createSymlink bat .config/bat
 createSymlink qutebrowser .config/qutebrowser
 createSymlink git .config/git
+createSymlink tmux/.tmux.conf .tmux.conf
 
 # Install lsps
 pip install python-lsp-server
