@@ -2,6 +2,16 @@
 # A generic setup file for bash/zsh/...
 
 # TERMINAL CONFIG
+# Helper functions
+exists() {
+	for d in $PATH; do
+		if test -x "$d/$1"; then 
+			return 0
+		fi
+	done
+	return 1
+}
+
 # Set terminal input mode to vi keybindings
 set -o vi
 
@@ -35,17 +45,20 @@ export PATH=$JAVA_HOME/jre/bin:$PATH
 
 # FZF settings
 export FZF_DEFAULT_OPTS='--preview="pistol {}"'
-export FZF_DEFAULT_COMMAND='fdfind --hidden --follow .'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND --type f"
-export ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 
-_fzf_compgen_path() {
-	fdfind --hidden --follow . "$1"
-}
+if exists 'fdfind'; then
+	export FZF_DEFAULT_COMMAND='fdfind --hidden --follow .'
 
-_fzf_compgen_dir() {
-	fdfind --hidden --follow . --type d "$1"
-}
+	_fzf_compgen_path() {
+		fdfind --hidden --follow . "$1"
+	}
+
+	_fzf_compgen_dir() {
+		fdfind --hidden --follow . --type d "$1"
+	}
+	export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND --type f"
+	export ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
+fi
 
 # UBUNTU .BASHRC TEMPLATE STARTS HERE
 

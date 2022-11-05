@@ -1,3 +1,4 @@
+#!/bin/sh
 # ALIASES
 # single letter aliases
 alias n='nvim'
@@ -18,7 +19,9 @@ alias cls='clear'
 alias rm='rm -ri'
 alias mv='mv -i'
 alias md='mkdir'
-alias fd='fdfind'
+if exists 'fdfind' ; then
+	alias fd='fdfind'
+fi
 
 # git aliases
 alias gsync='git pull; git push'
