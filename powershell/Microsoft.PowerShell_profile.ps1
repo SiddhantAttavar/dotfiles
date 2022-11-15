@@ -21,7 +21,7 @@ function gca {git add .; git commit -m $args[0]}
 function gcap {git add .; git commit -m $args[0]; git push}
 
 # winget aliases
-function update {winget upgrade --all --accept-package-agreements --accept-source-agreements}
+function update {winget upgrade --all --accept-source-agreements}
 
 # Shows navigable menu of all options when hitting Tab
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
