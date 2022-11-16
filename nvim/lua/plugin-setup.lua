@@ -323,8 +323,16 @@ vim.cmd [[command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args
 
 -- competitest.nvim
 require('competitest').setup {
-	testcases_directory = '~/d/Competitions/Competitive-Programming/build',
-	testcases_use_single_file = true
+	testcases_use_single_file = true,
+	compile_command = {
+		cpp = {
+			exec = 'g++',
+			args = { '-Wall', '$(FNAME)', '-o', '$(FNOEXT).out' }
+		}
+	},
+	run_command = {
+		cpp = { exec = './$(FNOEXT).out' }
+	}
 }
 
 -- nvim-navic
