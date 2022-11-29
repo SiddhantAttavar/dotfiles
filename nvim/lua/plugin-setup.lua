@@ -262,7 +262,13 @@ cmp.setup {
 				fallback()
 			end
 		end, { 'i', 's' }),
-		['<CR>'] = cmp.mapping.confirm({select = true})
+		['CR'] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.confirm({select = true})
+			else
+				fallback()
+			end
+		end, { 'i', 's' })
 	})
 }
 
@@ -342,4 +348,6 @@ navic.setup {
 }
 
 -- leap.nvim
-require('leap').add_default_mappings()
+_G.leap = function()
+	require('leap').add_default_mappings()
+end

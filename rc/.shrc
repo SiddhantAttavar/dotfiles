@@ -6,10 +6,10 @@
 exists() {
 	for d in $PATH; do
 		if test -x "$d/$1"; then 
-			return 0
+			return 1
 		fi
 	done
-	return 1
+	return 0
 }
 
 # Set terminal input mode to vi keybindings
@@ -56,6 +56,7 @@ if exists 'fdfind'; then
 	_fzf_compgen_dir() {
 		fdfind --hidden --follow . --type d "$1"
 	}
+
 	export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND --type f"
 	export ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 fi
