@@ -8,4 +8,5 @@ if not (vim.g.vscode) then
 	require('plugins')
 	require('plugin-setup')
 	require('keybindings')
+	require('commands')
 end
