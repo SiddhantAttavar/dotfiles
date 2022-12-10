@@ -48,9 +48,7 @@ IDEs and editors:
 	- [markdown-preview](https://github.com/iamcco/markdown-preview.nvim)
 	- [leap](https://github.com/ggandor/leap.nvim)
  - [VSCodium](https://vscodium.com) — Extensions:
-	- [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
 	- [Competitive Programming Helper](https://marketplace.visualstudio.com/items?itemName=DivyanshuAgrawal.competitive-programming-helper)
-	- [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
 	- [Office Viewer](https://marketplace.visualstudio.com/items?itemName=cweijan.vscode-office)
 	- [VSCode Neovim](https://marketplace.visualstudio.com/items?itemName=asvetliakov.vscode-neovim)
 
@@ -63,12 +61,8 @@ Terminal stuff:
  - [Tmux](https://github.com/tmux/tmux)
  - [Ranger](https://github.com/ranger/ranger)
 
-Languages and Other development tools:
- - [Python](https://www.python.org/):
- - [Mingw-w64 with C++ compiler](https://sourceforge.net/projects/mingw-w64/)
-
 General tools:
- - [Qutebrowser]()
+ - [Qutebrowser](https://qutebrowser.org)
  - [Firefox](https://www.mozilla.org/en-US/firefox/new/) — Extensions:
 	- [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
 	- [BrowserToys](https://github.com/SiddhantAttavar/BrowserToys-Extension)
