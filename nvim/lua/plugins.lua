@@ -19,6 +19,9 @@ return require('packer').startup(function(use)
 	-- packer.nvim
 	use 'wbthomason/packer.nvim'
 
+	-- General settings
+	use 'tpope/vim-sensible'
+
 	-- Onedark theme
 	use 'navarasu/onedark.nvim'
 

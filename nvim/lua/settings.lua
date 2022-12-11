@@ -7,7 +7,7 @@ vim.o.linebreak = true
 -- Indentation settings
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
-vim.o.softtabstop = 0 
+vim.o.softtabstop = 0
 vim.o.expandtab = false
 vim.o.smartindent = true
 vim.o.autoindent = true
@@ -49,7 +49,7 @@ vim.o.signcolumn = 'yes'
 vim.o.undofile = true
 
 -- completion options
-vim.o.completeopt = menu,menuone,noselect
+vim.o.completeopt = 'menu'
 
 -- guifont
 vim.cmd [[set guifont=CaskaydiaCove\ Nerd\ Font]]
