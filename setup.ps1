@@ -28,10 +28,8 @@ Set-PSRepository -Name 'PSGallery' -InstallationPolicy Trusted
 Install-Module -Name PowerShellGet
 Install-Module PSReadLine
 Install-Module -Name PSFzf
-winget install Neovim.Neovim
-winget install Git.Git
-winget install Microsoft.VisualStudioCode
-winget install Python.Python.3
+
+winget import windows\programs.json
 
 # Create symlinks
 echo "Creating symlinks"
