@@ -51,6 +51,7 @@ return require('packer').startup(function(use)
 	use 'neovim/nvim-lspconfig'
 	use 'L3MON4D3/LuaSnip'
 	use 'williamboman/mason.nvim'
+	use 'williamboman/mason-lspconfig.nvim'
 	use { 'SmiteshP/nvim-navic', requires = 'neovim/nvim-lspconfig' }
 	use 'mfussenegger/nvim-dap'
 	use 'jose-elias-alvarez/null-ls.nvim'
