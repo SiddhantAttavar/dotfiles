@@ -51,7 +51,7 @@ local on_attach = function(client, bufnr)
 end
 
 -- configs for lsp servers
-local lsp_config = {
+local server_config = {
 	pylsp = {
 		settings = {
 			pylsp = {
@@ -80,10 +80,21 @@ local lsp_config = {
 }
 
 -- setup LSPs
-for lsp_server, config in pairs(lsp_config) do
-	config.on_attach = on_attach
-	lsp[lsp_server].setup(config)
-end
+require('mason-lspconfig').setup {
+	ensure_installed = {
+		'pylsp',
+		'clangd',
+		'prosemd_lsp',
+		'sumneko_lua'
+	}
+}
+require('mason-lspconfig').setup_handlers {
+	function (server_name)
+		config = server_config[server_name]
+		config.on_attach = on_attach
+		lsp[server_name].setup(config)
+	end
+}
 
 -- nvimtree
 require('nvim-tree').setup {
