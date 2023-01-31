@@ -38,6 +38,10 @@ if not (vim.g.vscode) then
 	vim.api.nvim_set_keymap('t', '<C-f>', '<C-\\><C-n>:ToggleTerm<CR>', opts)
 	vim.api.nvim_set_keymap('t', '<esc>', '<C-\\><C-n>', opts)
 
+	-- Competitest
+	vim.api.nvim_set_keymap('n', '<C-r>', ':CompetiTestRun<CR>', opts)
+	vim.api.nvim_set_keymap('n', '<C-S-u>', ':CompetitestReceive<CR>', opts)
+
 	-- LSP
 	vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 	vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
