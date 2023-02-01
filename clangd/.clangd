@@ -1,0 +1,22 @@
+CompileFlags:
+  Add:
+  - -I/usr/include/c++/11
+  - -I/usr/include/x86_64-linux-gnu/c++/11
+  - -I/usr/include/c++/11/backward
+  - -I/usr/lib/gcc/x86_64-linux-gnu/11/include
+  - -I/usr/local/include
+  - -I/usr/include/x86_64-linux-gnu
+  - -I/usr/include
+  - -DLOCAL
+  - -Wall
+  - -O2
+  - -Wextra
+  - -Wshadow
+  - -Wconversion
+  - -Wfloat-equal
+  - -Wno-unused-const-variable
+  - -Wno-sign-conversion
+  - -std=c++17
+
+Index:
+  Background: Skip
