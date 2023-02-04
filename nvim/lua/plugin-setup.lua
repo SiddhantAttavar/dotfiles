@@ -344,7 +344,7 @@ require('competitest').setup {
 	compile_command = {
 		cpp = {
 			exec = 'g++',
-			args = { '-Wall', '$(FNAME)', '-o', '$(FNOEXT).out' }
+			args = { '-Wall', '$(FNAME)', '-o', 'a.out' }
 		}
 	},
 	run_command = {
