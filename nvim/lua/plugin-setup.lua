@@ -348,7 +348,7 @@ require('competitest').setup {
 		}
 	},
 	run_command = {
-		cpp = { exec = './$(FNOEXT).out' }
+		cpp = { exec = './a.out' }
 	},
 	runner_ui = {
 		interface = 'split'
