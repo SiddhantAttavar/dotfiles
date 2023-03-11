@@ -65,7 +65,7 @@ local server_config = {
 	},
 	clangd = {},
 	prosemd_lsp = {},
-	sumneko_lua = {
+	lua_ls = {
 		settings = {
 			Lua = {
 				diagnostics = {
@@ -85,7 +85,7 @@ require('mason-lspconfig').setup {
 		'pylsp',
 		'clangd',
 		'prosemd_lsp',
-		'sumneko_lua'
+		'lua_ls'
 	}
 }
 require('mason-lspconfig').setup_handlers {
