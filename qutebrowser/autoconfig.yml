@@ -23,6 +23,17 @@ settings:
       normal:
         <Ctrl+Shift+Tab>: tab-prev
         <Ctrl+Tab>: tab-next
+  bindings.key_mappings:
+    global:
+      <Ctrl-6>: <Ctrl-^>
+      <Ctrl-Enter>: <Ctrl-Return>
+      <Ctrl-I>: <Tab>
+      <Ctrl-J>: <Return>
+      <Ctrl-M>: <Return>
+      <Ctrl-[>: <Escape>
+      <Enter>: <Return>
+      <Shift-Enter>: <Return>
+      <Shift-Return>: <Return>
   colors.webpage.darkmode.algorithm:
     global: lightness-cielab
   colors.webpage.darkmode.enabled:
@@ -33,10 +44,6 @@ settings:
     global: dark
   content.geolocation:
     https://www.aakash.ac.in: false
-  content.headers.user_agent:
-    accounts.google.com: Mozilla/5.0 (X11; Linux x86_64; rv:57.0) Gecko/20100101 Firefox/77.0
-    global: Mozilla/5.0 (Macintosh; Intel Mac OS X 13_0) AppleWebKit/537.36 (KHTML,
-      like Gecko) Chrome/107.0.0.0 Safari/537.36
   content.notifications.enabled:
     https://messages.google.com: false
   content.register_protocol_handler:
