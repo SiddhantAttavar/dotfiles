@@ -23,8 +23,7 @@ local plugins = {
 
 	-- Onedark theme
 	{ 'navarasu/onedark.nvim',
-		lazy = false,
-		config = function()
+		init = function()
 			require('onedark').setup {
 				style = 'cool'
 			}
@@ -36,24 +35,27 @@ local plugins = {
 	{ 'junegunn/fzf.vim',
 		dependencies = { 'junegunn/fzf' },
 		build = ':call fzf#install()',
-		cmd = 'Files',
+		cmd = { 'Files', 'History' },
+		keys = { { '<C-p>', ':Files<CR>' } },
 		config = function()
 			vim.cmd [[command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', 'pistol {}']}, <bang>0)]]
-		end,
-		lazy = false
+		end
 	},
 
 	-- Git
-	{ 'tpope/vim-fugitive' },
+	{ 'tpope/vim-fugitive', cmd = { 'Git', 'G' } },
 
 	-- Icons
-	{ 'kyazdani42/nvim-web-devicons' },
-	{ 'ryanoasis/vim-devicons' },
+	{ 'kyazdani42/nvim-web-devicons', lazy = false },
+	{ 'ryanoasis/vim-devicons', lazy = false },
 
-	-- UI: Startup page, statusline, explorer etc.
+	-- Dashboard
 	{ 'goolord/alpha-nvim',
 		dependencies = { 'kyazdani42/nvim-web-devicons' },
-		config = function()
+		enabled = function()
+			return vim.fn.argc() == 0
+		end,
+		init = function()
 			local alpha = require('alpha')
 			local dashboard = require('alpha.themes.dashboard')
 
@@ -74,17 +76,19 @@ local plugins = {
 				dashboard.button( 'e', '	> New file' , ':ene <BAR> startinsert <CR>'),
 				dashboard.button( 'f', '	> Find file', ':Files<CR>'),
 				dashboard.button( 'r', '	> Recent'	 , ':History<CR>'),
-				dashboard.button( 's', '	> Settings' , ':e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>'),
+				dashboard.button( 's', '	> Settings' , ':e $MYVIMRC<CR>'),
 				dashboard.button( 'q', '	> Quit NVIM', ':qa<CR>'),
 			}
 
 			-- Send config to alpha
 			alpha.setup(dashboard.opts)
-		end,
-		lazy = false
+		end
 	},
+
+	-- File Tree
 	{ 'kyazdani42/nvim-tree.lua',
 		cmd = 'NvimTreeToggle',
+		keys = { { '<C-b>', ':NvimTreeToggle<CR>' } },
 		config = function()
 			require('nvim-tree').setup {
 				hijack_netrw = false,
@@ -99,8 +103,13 @@ local plugins = {
 		end
 	},
 
+	-- Terminal
 	{ 'akinsho/toggleterm.nvim',
 		cmd = 'ToggleTerm',
+		keys = {
+			{ '<C-f>', ':ToggleTerm<CR>' },
+			{ '<C-f>', '<C-\\><C-n>:ToggleTerm<CR>', mode = 't' }
+		},
 		config = function()
 			require('toggleterm').setup {
 				winbar = {
@@ -109,25 +118,27 @@ local plugins = {
 			}
 		end
 	},
+
+	-- Notifications
 	{ 'rcarriga/nvim-notify',
 		init = function()
 			vim.notify = require('notify')
 		end
 	},
-	{ 'SmiteshP/nvim-navic',
-		config = function()
-			require('nvim-navic').setup {
-				highlight = true,
-				depth_limit = 3
-			}
-		end
-	},
+
 
 	-- Lualine
 	{ 'nvim-lualine/lualine.nvim',
-		dependencies = 'SmiteshP/nvim-navic',
-		config = function()
+		dependencies = { 'SmiteshP/nvim-navic', 'lewis6991/gitsigns.nvim' },
+		keys = {
+			{ '<leader>e', vim.diagnostic.open_float },
+			{ '[d', vim.diagnostic.goto_prev },
+			{ ']d', vim.diagnostic.goto_next },
+			{ '<leader>q', vim.diagnostic.setloclist }
+		},
+		init = function()
 			local navic = require('nvim-navic')
+
 			require('lualine').setup {
 				options = {
 					theme = 'onedark',
@@ -160,7 +171,7 @@ local plugins = {
 					},
 					lualine_z = {
 						{
-							'FugitiveHead',
+							'g:gitsigns_head',
 							icon = '',
 							separator = { right = '' },
 							left_padding = 2
@@ -189,21 +200,19 @@ local plugins = {
 					}
 				},
 				extensions = {
-					'fugitive',
 					'fzf',
 					'nvim-tree',
 					'toggleterm'
 				}
 			}
-		end,
-		lazy = false
+		end
 	},
 
 	-- Browser nvim extension
 	{ 'glacambre/firenvim',
 		build = function() vim.fn['firenvim#install'](0) end,
+		enabled = not not vim.g.started_by_firenvim,
 		init = function()
-			-- firenvim
 			vim.g.firenvim_config = {
 				localSettings = {
 					['.*'] = {
@@ -215,21 +224,24 @@ local plugins = {
 		end
 	},
 
-	-- LSP
-	{ 'neovim/nvim-lspconfig',
+	-- LSP Lualine element
+	{ 'SmiteshP/nvim-navic',
 		config = function()
+			require('nvim-navic').setup {
+				highlight = true,
+				depth_limit = 3
+			}
 		end
 	},
 
 	-- LSP extension plugins
-	{ 'L3MON4D3/LuaSnip' },
-	{ 'williamboman/mason-lspconfig.nvim',
-		dependencies = { 'williamboman/mason.nvim', 'SmiteshP/nvim-navic', 'neovim/nvim-lspconfig' },
+	{ 'neovim/nvim-lspconfig',
+		dependencies = { 'williamboman/mason.nvim', 'SmiteshP/nvim-navic', 'williamboman/mason-lspconfig.nvim' },
+		ft = { 'py', 'md', 'c', 'cpp', 'lua' },
 		config = function()
 			-- nvim-lspconfig and mason
 			require('mason').setup {}
 			local lsp = require('lspconfig')
-			local navic = require('nvim-navic')
 
 			-- on_attach callback function
 			local on_attach = function(client, bufnr)
@@ -241,7 +253,7 @@ local plugins = {
 				)
 
 				if client.server_capabilities.documentSymbolProvider then
-					navic.attach(client, bufnr)
+					require('nvim-navic').attach(client, bufnr)
 				end
 
 				-- Mappings.
@@ -254,9 +266,7 @@ local plugins = {
 				vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
 				vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
 				vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-				vim.keymap.set('n', '<space>wl', function()
-					print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-				end, bufopts)
+				vim.keymap.set('n', '<space>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, bufopts)
 				vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
 				vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
 				vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
@@ -292,7 +302,7 @@ local plugins = {
 					}
 				}
 			}
-			
+
 			-- setup LSPs
 			require('mason-lspconfig').setup {
 				ensure_installed = {
@@ -310,10 +320,12 @@ local plugins = {
 					lsp[server_name].setup(config)
 				end
 			}
-		end,
-		lazy = false
+		end
 	},
+
+	-- Debugging
 	{ 'mfussenegger/nvim-dap',
+		ft = { 'py' },
 		config = function()
 			local dap = require('dap')
 			dap.configurations.python = {
@@ -332,8 +344,8 @@ local plugins = {
 
 	-- Completion
 	{ 'hrsh7th/nvim-cmp',
-        dependencies = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/cmp-cmdline' },
-		config = function()
+        dependencies = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/cmp-cmdline', 'saadparwaiz1/cmp_luasnip', 'L3MON4D3/LuaSnip' },
+		init = function()
 			local has_words_before = function()
 				local line, col = unpack(vim.api.nvim_win_get_cursor(0))
 				return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
@@ -342,6 +354,7 @@ local plugins = {
 			-- nvim-cmp
 			local cmp = require('cmp')
 			local luasnip = require('luasnip')
+			luasnip.setup {}
 
 			cmp.setup {
 				snippet = {
@@ -383,13 +396,13 @@ local plugins = {
 					end, { 'i', 's' })
 				})
 			}
-		end,
-		lazy = false
+		end
     },
 
 	-- Text editing plugins
 	{ 'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
+		ft = { 'py', 'cpp' },
 		config = function()
 			-- nvim-treesitter
 			require('nvim-treesitter.configs').setup {
@@ -401,14 +414,19 @@ local plugins = {
 					enable = true
 				}
 			}
-		end,
-		lazy = false
+		end
 	},
 
 	-- Competitive programming
 	{ 'xeluxee/competitest.nvim',
 		dependencies = { 'MunifTanjim/nui.nvim' },
 		cmd = { 'CompetiTestAdd', 'CompetiTestRun', 'CompetiTestReceive' },
+		keys = {
+			{ '<C-r>', ':CompetiTestRun<CR>' },
+			{ '<C-u>c', ':CompetiTestReceive contest<CR>' },
+			{ '<C-u>t', ':CompetiTestReceive testcases<CR>' },
+			{ '<C-u>p', ':CompetiTestReceive problem<CR>' }
+		},
 		config = function()
 			require('competitest').setup {
 				testcases_use_single_file = true,
@@ -430,14 +448,15 @@ local plugins = {
 
 	-- Markdown
 	-- install without yarn or npm
-	{ 'iamcco/markdown-preview.nvim', build = function() vim.fn['mkdp#util#install']() end },
+	{ 'iamcco/markdown-preview.nvim',
+		build = function() vim.fn['mkdp#util#install']() end,
+		ft = 'md'
+	},
 
 	-- Movement
 	{ 'ggandor/leap.nvim',
-		config = function()
-			_G.leap = function()
-				require('leap').add_default_mappings()
-			end
+		init = function()
+			require('leap').add_default_mappings()
 		end
 	},
 }
@@ -447,11 +466,11 @@ local no_config = {
 	['windwp/nvim-autopairs'] = 'nvim-autopairs',
 	['lukas-reineke/indent-blankline.nvim' ] = 'indent_blankline',
 	['lewis6991/gitsigns.nvim'] = 'gitsigns',
-	['numToStr/Comment.nvim' ] = 'Comment',
-	['nmac427/guess-indent.nvim' ] = 'guess-indent',
-	['jose-elias-alvarez/null-ls.nvim' ] = 'null-ls',
-	['saadparwaiz1/cmp_luasnip' ] = 'luasnip'
+	['numToStr/Comment.nvim'] = 'Comment',
+	['nmac427/guess-indent.nvim'] = 'guess-indent',
+	['jose-elias-alvarez/null-ls.nvim'] = 'null-ls'
 }
+
 for plugin, name in pairs(no_config) do
 	table.insert(plugins, {
 		plugin,
