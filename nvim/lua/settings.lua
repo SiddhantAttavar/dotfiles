@@ -42,7 +42,7 @@ vim.o.fileformat = 'unix'
 -- Buffer management
 vim.o.splitright = true
 vim.o.hidden = true
-vim.o.laststatus=3
+vim.api.nvim_create_autocmd({ 'VimEnter' }, { command = 'set laststatus=3' })
 vim.o.signcolumn = 'yes'
 
 -- Persistent undo

@@ -90,7 +90,7 @@ require('mason-lspconfig').setup {
 }
 require('mason-lspconfig').setup_handlers {
 	function (server_name)
-		config = server_config[server_name]
+		local config = server_config[server_name]
 		config.on_attach = on_attach
 		lsp[server_name].setup(config)
 	end
@@ -127,29 +127,12 @@ require('onedark').setup {
 }
 require('onedark').load()
 
--- Lualine configuration
-function get_buffers()
-	local curr_win = nvim.api.nvim_ta
-end
-
-local function diff_source()
-	local gitsigns = vim.b.gitsigns_status_dict
-	if gitsigns then
-		return {
-			added = gitsigns.added,
-			modified = gitsigns.changed,
-			removed = gitsigns.removed
-		}
-	else
-		return {0, 0, 0}
-	end
-end
-
 require('lualine').setup {
 	options = {
 		theme = 'onedark',
 		component_separators = '|',
 		section_separators = { left = '', right = '' },
+		globalstatus = true,
 	},
 	sections = {
 		lualine_a = {
@@ -171,7 +154,7 @@ require('lualine').setup {
 		lualine_y = {
 			{
 				'diff',
-				source = 'gitsign_source'
+				source = 'gitsigns_source'
 			}
 		},
 		lualine_z = {
@@ -234,7 +217,7 @@ require('nvim-treesitter.configs').setup {
 }
 
 local has_words_before = function()
-	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+	local line, col = table.unpack(vim.api.nvim_win_get_cursor(0))
 	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
 end
 

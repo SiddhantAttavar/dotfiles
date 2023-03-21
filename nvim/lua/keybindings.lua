@@ -1,4 +1,8 @@
 -- Key bindings for neovim
+-- Leader key
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
 -- Copy-pasting
 local opts = { noremap=true, silent=true }
 vim.api.nvim_set_keymap('n', 'Y', ':%y+<CR>', opts)
@@ -10,11 +14,15 @@ vim.api.nvim_set_keymap('n', '<esc>', ':noh<CR><esc>', opts)
 if not (vim.g.vscode) then
 	-- Window mapping
 	vim.api.nvim_set_keymap('n', '<Leader>w', ':w<CR>', opts)
-	vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', opts)
-	vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', opts)
-	vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', opts)
-	vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', opts)
+	vim.api.nvim_set_keymap('n', '<Leader>h', '<C-w>h', opts)
+	vim.api.nvim_set_keymap('n', '<Leader>j', '<C-w>j', opts)
+	vim.api.nvim_set_keymap('n', '<Leader>k', '<C-w>k', opts)
+	vim.api.nvim_set_keymap('n', '<Leader>l', '<C-w>l', opts)
 	vim.api.nvim_set_keymap('n', '<C-q>', ':wa<CR>:xa<CR>', opts)
+
+	-- Undo and redo
+	vim.api.nvim_set_keymap('n', '<Leader>u', 'u', opts)
+	vim.api.nvim_set_keymap('n', '<Leader>r', '<C-r>', opts)
 
 	-- NERDTree Explorer
 	vim.api.nvim_set_keymap('n', '<C-b>', ':NvimTreeToggle<CR>', opts)
