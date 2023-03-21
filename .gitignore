@@ -4,6 +4,7 @@ nvim/plugin/
 nvim/autoload/
 nvim/spell/
 vim/autoload/
+nvim/lazy-lock.json
 
 # VSCodium folders
 vscodium/*
