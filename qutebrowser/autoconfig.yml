@@ -44,6 +44,12 @@ settings:
     global: dark
   content.geolocation:
     https://www.aakash.ac.in: false
+  content.media.audio_capture:
+    https://teams.microsoft.com: true
+  content.media.audio_video_capture:
+    https://teams.microsoft.com: true
+  content.media.video_capture:
+    https://teams.microsoft.com: true
   content.notifications.enabled:
     https://messages.google.com: false
   content.register_protocol_handler:

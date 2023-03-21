@@ -67,7 +67,7 @@ local plugins = {
 				'  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ',
 				'  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ',
 				'  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ',
-				'  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ',
+				'  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝	  ╚═╝ ',
 				'                                                     ',
 			}
 
@@ -131,10 +131,10 @@ local plugins = {
 	{ 'nvim-lualine/lualine.nvim',
 		dependencies = { 'SmiteshP/nvim-navic', 'lewis6991/gitsigns.nvim' },
 		keys = {
-			{ '<leader>e', vim.diagnostic.open_float },
+			{ '<Leader>e', vim.diagnostic.open_float },
 			{ '[d', vim.diagnostic.goto_prev },
 			{ ']d', vim.diagnostic.goto_next },
-			{ '<leader>q', vim.diagnostic.setloclist }
+			{ '<Leader>q', vim.diagnostic.setloclist }
 		},
 		init = function()
 			local navic = require('nvim-navic')
@@ -263,15 +263,15 @@ local plugins = {
 				vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
 				vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
 				vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-				vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-				vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-				vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-				vim.keymap.set('n', '<space>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, bufopts)
-				vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-				vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-				vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+				vim.keymap.set('n', '<Leader>wk', vim.lsp.buf.signature_help, bufopts)
+				vim.keymap.set('n', '<Leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+				vim.keymap.set('n', '<Leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+				vim.keymap.set('n', '<Leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, bufopts)
+				vim.keymap.set('n', '<Leader>D', vim.lsp.buf.type_definition, bufopts)
+				vim.keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, bufopts)
+				vim.keymap.set('n', '<Leader>ca', vim.lsp.buf.code_action, bufopts)
 				vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-				vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+				vim.keymap.set('n', '<Leader>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 			end
 
 			-- configs for lsp servers
@@ -344,7 +344,7 @@ local plugins = {
 
 	-- Completion
 	{ 'hrsh7th/nvim-cmp',
-        dependencies = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/cmp-cmdline', 'saadparwaiz1/cmp_luasnip', 'L3MON4D3/LuaSnip' },
+		dependencies = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/cmp-cmdline', 'saadparwaiz1/cmp_luasnip', 'L3MON4D3/LuaSnip' },
 		init = function()
 			local has_words_before = function()
 				local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -397,11 +397,11 @@ local plugins = {
 				})
 			}
 		end
-    },
+	},
 
 	-- Text editing plugins
 	{ 'nvim-treesitter/nvim-treesitter',
-        build = ':TSUpdate',
+		build = ':TSUpdate',
 		ft = { 'py', 'cpp' },
 		config = function()
 			-- nvim-treesitter
@@ -450,7 +450,15 @@ local plugins = {
 	-- install without yarn or npm
 	{ 'iamcco/markdown-preview.nvim',
 		build = function() vim.fn['mkdp#util#install']() end,
-		ft = 'md'
+		ft = 'markdown'
+	},
+
+	{ 'antonk52/markdowny.nvim',
+		ft = { 'markdown', 'txt' },
+		keys = { { '<C-y>', ':lua require("markdowny").link()<CR>', mode = 'v', buffer = 0 } },
+		config = function()
+			require('markdowny').setup()
+		end
 	},
 
 	-- Movement
@@ -468,7 +476,7 @@ local no_config = {
 	['lewis6991/gitsigns.nvim'] = 'gitsigns',
 	['numToStr/Comment.nvim'] = 'Comment',
 	['nmac427/guess-indent.nvim'] = 'guess-indent',
-	['jose-elias-alvarez/null-ls.nvim'] = 'null-ls'
+	['jose-elias-alvarez/null-ls.nvim'] = 'null-ls',
 }
 
 for plugin, name in pairs(no_config) do
