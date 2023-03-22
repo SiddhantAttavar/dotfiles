@@ -1,4 +1,4 @@
--- Key bindings for neovim
+-- uey bindings for neovim
 -- Leader key
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -30,8 +30,8 @@ if not (vim.g.vscode) then
 	-- Buffers
 	vim.api.nvim_set_keymap('n', '<Tab>', ':bn<CR>', opts)
 	vim.api.nvim_set_keymap('n', '<S-Tab>', ':bp<CR>', opts)
-	vim.api.nvim_set_keymap('n', 'K', ':bn<CR>', opts)
-	vim.api.nvim_set_keymap('n', 'J', ':bp<CR>', opts)
+	vim.api.nvim_set_keymap('n', 'J', ':bn<CR>', opts)
+	vim.api.nvim_set_keymap('n', 'K', ':bp<CR>', opts)
 	vim.api.nvim_set_keymap('n', '<C-w>', ':bd<CR>', opts)
 	vim.api.nvim_set_keymap('n', '<C-t>', ':enew<CR>', opts)
 

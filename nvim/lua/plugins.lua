@@ -237,7 +237,7 @@ local plugins = {
 	-- LSP extension plugins
 	{ 'neovim/nvim-lspconfig',
 		dependencies = { 'williamboman/mason.nvim', 'SmiteshP/nvim-navic', 'williamboman/mason-lspconfig.nvim' },
-		ft = { 'py', 'md', 'c', 'cpp', 'lua' },
+		ft = { 'python', 'markdown', 'c', 'cpp', 'lua' },
 		config = function()
 			-- nvim-lspconfig and mason
 			require('mason').setup {}
@@ -261,7 +261,7 @@ local plugins = {
 				local bufopts = { noremap=true, silent=true, buffer=bufnr }
 				vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
 				vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-				vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+				vim.keymap.set('n', '<C-S-k>', vim.lsp.buf.hover, bufopts)
 				vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
 				vim.keymap.set('n', '<Leader>wk', vim.lsp.buf.signature_help, bufopts)
 				vim.keymap.set('n', '<Leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
@@ -325,7 +325,7 @@ local plugins = {
 
 	-- Debugging
 	{ 'mfussenegger/nvim-dap',
-		ft = { 'py' },
+		ft = { 'python' },
 		config = function()
 			local dap = require('dap')
 			dap.configurations.python = {
@@ -402,7 +402,7 @@ local plugins = {
 	-- Text editing plugins
 	{ 'nvim-treesitter/nvim-treesitter',
 		build = ':TSUpdate',
-		ft = { 'py', 'cpp' },
+		ft = { 'python', 'cpp' },
 		config = function()
 			-- nvim-treesitter
 			require('nvim-treesitter.configs').setup {
