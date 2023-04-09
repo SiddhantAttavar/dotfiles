@@ -13,6 +13,9 @@ vim.o.smartindent = true
 vim.o.autoindent = true
 vim.o.cindent = true
 
+-- Folding
+vim.o.foldlevelstart = 99
+
 -- Terminal
 if not vim.fn.has('win32') then
 	vim.o.shell = 'zsh'
@@ -48,8 +51,12 @@ vim.o.signcolumn = 'yes'
 -- Persistent undo
 vim.o.undofile = true
 
--- completion options
+-- Completion options
 vim.o.completeopt = 'menu'
 
 -- guifont
 vim.cmd [[set guifont=CaskaydiaCove\ Nerd\ Font]]
+
+-- Timeout
+vim.o.timeout = true
+vim.o.timeoutlen = 300

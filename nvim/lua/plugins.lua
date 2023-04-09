@@ -344,7 +344,7 @@ local plugins = {
 
 	-- Completion
 	{ 'hrsh7th/nvim-cmp',
-		dependencies = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/cmp-cmdline', 'saadparwaiz1/cmp_luasnip', 'L3MON4D3/LuaSnip' },
+		dependencies = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-cmdline', 'hrsh7th/cmp-path', 'saadparwaiz1/cmp_luasnip', 'L3MON4D3/LuaSnip' },
 		init = function()
 			local has_words_before = function()
 				local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -422,10 +422,10 @@ local plugins = {
 		dependencies = { 'MunifTanjim/nui.nvim' },
 		cmd = { 'CompetiTestAdd', 'CompetiTestRun', 'CompetiTestReceive' },
 		keys = {
-			{ '<C-r>', ':CompetiTestRun<CR>' },
-			{ '<C-u>c', ':CompetiTestReceive contest<CR>' },
-			{ '<C-u>t', ':CompetiTestReceive testcases<CR>' },
-			{ '<C-u>p', ':CompetiTestReceive problem<CR>' }
+			{ '<Leader>ur', ':CompetiTestRun<CR>' },
+			{ '<Leader>uc', ':CompetiTestReceive contest<CR>' },
+			{ '<Leader>ut', ':CompetiTestReceive testcases<CR>' },
+			{ '<Leader>up', ':CompetiTestReceive problem<CR>' }
 		},
 		config = function()
 			require('competitest').setup {
@@ -449,8 +449,9 @@ local plugins = {
 	-- Markdown
 	-- install without yarn or npm
 	{ 'iamcco/markdown-preview.nvim',
-		build = function() vim.fn['mkdp#util#install']() end,
-		ft = 'markdown'
+		build = ':call mkdp#util#install()',
+		ft = 'markdown',
+		keys = { { '<Leader>m', ':MarkdownPreviewToggle<CR>' } }
 	},
 
 	{ 'antonk52/markdowny.nvim',
@@ -458,6 +459,17 @@ local plugins = {
 		keys = { { '<C-y>', ':lua require("markdowny").link()<CR>', mode = 'v', buffer = 0 } },
 		config = function()
 			require('markdowny').setup()
+		end
+	},
+
+	{ 'preservim/vim-markdown',
+		ft = 'markdown'
+	},
+
+	{ 'jakewvincent/mkdnflow.nvim',
+		ft = 'markdown',
+		config = function()
+			require('mkdnflow').setup()
 		end
 	},
 
@@ -477,13 +489,15 @@ local no_config = {
 	['numToStr/Comment.nvim'] = 'Comment',
 	['nmac427/guess-indent.nvim'] = 'guess-indent',
 	['jose-elias-alvarez/null-ls.nvim'] = 'null-ls',
+	['Pocco81/auto-save.nvim'] = 'auto-save',
+	['folke/which-key.nvim'] = 'which-key'
 }
 
 for plugin, name in pairs(no_config) do
 	table.insert(plugins, {
 		plugin,
 		config = function()
-			require(name).setup {}
+			require(name).setup()
 		end,
 		lazy = false
 	})
