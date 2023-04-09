@@ -42,8 +42,11 @@ settings:
     global: never
   colors.webpage.preferred_color_scheme:
     global: dark
+  content.autoplay:
+    global: false
   content.geolocation:
     https://www.aakash.ac.in: false
+    https://www.embibe.com: false
   content.media.audio_capture:
     https://teams.microsoft.com: true
   content.media.audio_video_capture:
@@ -94,4 +97,6 @@ settings:
   tabs.new_position.unrelated:
     global: next
   url.default_page:
+    global: https://web.tabliss.io/
+  url.start_pages:
     global: https://web.tabliss.io/
