@@ -14,6 +14,11 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+local lsp_fts = { 'python', 'markdown', 'c', 'cpp', 'lua' }
+local dap_fts = { 'python' }
+local treesitter_fts = { 'python', 'cpp' }
+local text_fts = { 'markdown', 'txt' }
+
 -- Lazy plugins
 local plugins = {
 	-- { 'foo/bar' },
@@ -35,7 +40,7 @@ local plugins = {
 	{ 'junegunn/fzf.vim',
 		dependencies = { 'junegunn/fzf' },
 		build = ':call fzf#install()',
-		cmd = { 'Files', 'History' },
+		cmd = { 'Files', 'History', 'Gfiles', 'Buffers', 'Lines', 'Commands' },
 		keys = { { '<C-p>', ':Files<CR>' } },
 		config = function()
 			vim.cmd [[command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', 'pistol {}']}, <bang>0)]]
@@ -47,15 +52,14 @@ local plugins = {
 
 	-- Icons
 	{ 'kyazdani42/nvim-web-devicons', lazy = false },
-	{ 'ryanoasis/vim-devicons', lazy = false },
 
 	-- Dashboard
 	{ 'goolord/alpha-nvim',
 		dependencies = { 'kyazdani42/nvim-web-devicons' },
-		enabled = function()
+		cond = function()
 			return vim.fn.argc() == 0
 		end,
-		init = function()
+		config = function()
 			local alpha = require('alpha')
 			local dashboard = require('alpha.themes.dashboard')
 
@@ -129,7 +133,7 @@ local plugins = {
 
 	-- Lualine
 	{ 'nvim-lualine/lualine.nvim',
-		dependencies = { 'SmiteshP/nvim-navic', 'lewis6991/gitsigns.nvim' },
+		dependencies = { 'lewis6991/gitsigns.nvim' },
 		keys = {
 			{ '<Leader>e', vim.diagnostic.open_float },
 			{ '[d', vim.diagnostic.goto_prev },
@@ -137,8 +141,6 @@ local plugins = {
 			{ '<Leader>q', vim.diagnostic.setloclist }
 		},
 		init = function()
-			local navic = require('nvim-navic')
-
 			require('lualine').setup {
 				options = {
 					theme = 'onedark',
@@ -188,8 +190,8 @@ local plugins = {
 					},
 					lualine_c = {
 						{
-							navic.get_location,
-							cond = navic.is_available
+							'diagnostics',
+							sources = { 'nvim_lsp', 'nvim_diagnostic' }
 						}
 					},
 					lualine_z = {
@@ -224,20 +226,10 @@ local plugins = {
 		end
 	},
 
-	-- LSP Lualine element
-	{ 'SmiteshP/nvim-navic',
-		config = function()
-			require('nvim-navic').setup {
-				highlight = true,
-				depth_limit = 3
-			}
-		end
-	},
-
 	-- LSP extension plugins
 	{ 'neovim/nvim-lspconfig',
-		dependencies = { 'williamboman/mason.nvim', 'SmiteshP/nvim-navic', 'williamboman/mason-lspconfig.nvim' },
-		ft = { 'python', 'markdown', 'c', 'cpp', 'lua' },
+		dependencies = { 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim' },
+		ft = lsp_fts,
 		config = function()
 			-- nvim-lspconfig and mason
 			require('mason').setup {}
@@ -251,10 +243,6 @@ local plugins = {
 					update_in_insert = false,
 				}
 				)
-
-				if client.server_capabilities.documentSymbolProvider then
-					require('nvim-navic').attach(client, bufnr)
-				end
 
 				-- Mappings.
 				-- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -325,7 +313,7 @@ local plugins = {
 
 	-- Debugging
 	{ 'mfussenegger/nvim-dap',
-		ft = { 'python' },
+		ft = dap_fts,
 		config = function()
 			local dap = require('dap')
 			dap.configurations.python = {
@@ -344,7 +332,7 @@ local plugins = {
 
 	-- Completion
 	{ 'hrsh7th/nvim-cmp',
-		dependencies = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-cmdline', 'hrsh7th/cmp-path', 'saadparwaiz1/cmp_luasnip', 'L3MON4D3/LuaSnip' },
+		dependencies = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path' },
 		init = function()
 			local has_words_before = function()
 				local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -353,18 +341,10 @@ local plugins = {
 
 			-- nvim-cmp
 			local cmp = require('cmp')
-			local luasnip = require('luasnip')
-			luasnip.setup {}
 
 			cmp.setup {
-				snippet = {
-					expand = function(args)
-						luasnip.lsp_expand(args.body)
-					end,
-				},
 				sources = cmp.config.sources({
 					{ name = 'nvim_lsp' },
-					{ name = 'luasnip' },
 				}, {
 					{ name = 'buffer' },
 				}),
@@ -372,8 +352,6 @@ local plugins = {
 					['<Tab>'] = cmp.mapping(function(fallback)
 						if cmp.visible() then
 							cmp.select_next_item()
-						elseif luasnip.jumpable(-1) then
-							luasnip.jump(-1)
 						elseif has_words_before() then
 							cmp.complete()
 						else
@@ -402,7 +380,7 @@ local plugins = {
 	-- Text editing plugins
 	{ 'nvim-treesitter/nvim-treesitter',
 		build = ':TSUpdate',
-		ft = { 'python', 'cpp' },
+		ft = treesitter_fts,
 		config = function()
 			-- nvim-treesitter
 			require('nvim-treesitter.configs').setup {
@@ -450,12 +428,12 @@ local plugins = {
 	-- install without yarn or npm
 	{ 'iamcco/markdown-preview.nvim',
 		build = ':call mkdp#util#install()',
-		ft = 'markdown',
+		ft = text_fts,
 		keys = { { '<Leader>m', ':MarkdownPreviewToggle<CR>' } }
 	},
 
 	{ 'antonk52/markdowny.nvim',
-		ft = { 'markdown', 'txt' },
+		ft = text_fts,
 		keys = { { '<C-y>', ':lua require("markdowny").link()<CR>', mode = 'v', buffer = 0 } },
 		config = function()
 			require('markdowny').setup()
@@ -463,11 +441,11 @@ local plugins = {
 	},
 
 	{ 'preservim/vim-markdown',
-		ft = 'markdown'
+		ft = text_fts,
 	},
 
 	{ 'jakewvincent/mkdnflow.nvim',
-		ft = 'markdown',
+		ft = text_fts,
 		config = function()
 			require('mkdnflow').setup()
 		end
@@ -488,7 +466,6 @@ local no_config = {
 	['lewis6991/gitsigns.nvim'] = 'gitsigns',
 	['numToStr/Comment.nvim'] = 'Comment',
 	['nmac427/guess-indent.nvim'] = 'guess-indent',
-	['jose-elias-alvarez/null-ls.nvim'] = 'null-ls',
 	['Pocco81/auto-save.nvim'] = 'auto-save',
 	['folke/which-key.nvim'] = 'which-key'
 }
