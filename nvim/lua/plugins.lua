@@ -466,7 +466,6 @@ local no_config = {
 	['lewis6991/gitsigns.nvim'] = 'gitsigns',
 	['numToStr/Comment.nvim'] = 'Comment',
 	['nmac427/guess-indent.nvim'] = 'guess-indent',
-	['Pocco81/auto-save.nvim'] = 'auto-save',
 	['folke/which-key.nvim'] = 'which-key'
 }
 
