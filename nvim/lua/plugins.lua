@@ -59,6 +59,7 @@ local plugins = {
 		cond = function()
 			return vim.fn.argc() == 0
 		end,
+		lazy = false,
 		config = function()
 			local alpha = require('alpha')
 			local dashboard = require('alpha.themes.dashboard')
@@ -168,7 +169,7 @@ local plugins = {
 					lualine_y = {
 						{
 							'diff',
-							source = 'gitsigns_source'
+							source = 'fugitive_source'
 						}
 					},
 					lualine_z = {

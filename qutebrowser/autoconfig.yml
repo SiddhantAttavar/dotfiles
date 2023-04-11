@@ -47,6 +47,7 @@ settings:
   content.geolocation:
     https://www.aakash.ac.in: false
     https://www.embibe.com: false
+    https://www.google.com: false
   content.media.audio_capture:
     https://teams.microsoft.com: true
   content.media.audio_video_capture:
