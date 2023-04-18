@@ -211,22 +211,6 @@ local plugins = {
 		end
 	},
 
-	-- Browser nvim extension
-	{ 'glacambre/firenvim',
-		build = function() vim.fn['firenvim#install'](0) end,
-		enabled = not not vim.g.started_by_firenvim,
-		init = function()
-			vim.g.firenvim_config = {
-				localSettings = {
-					['.*'] = {
-						takeover = 'never',
-						content = 'markdown'
-					},
-				}
-			}
-		end
-	},
-
 	-- LSP extension plugins
 	{ 'neovim/nvim-lspconfig',
 		dependencies = { 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim' },
@@ -443,6 +427,9 @@ local plugins = {
 
 	{ 'preservim/vim-markdown',
 		ft = text_fts,
+		config = function()
+			vim.g.vim_markdown_conceal = 1
+		end
 	},
 
 	{ 'jakewvincent/mkdnflow.nvim',

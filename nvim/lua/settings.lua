@@ -60,3 +60,6 @@ vim.cmd [[set guifont=CaskaydiaCove\ Nerd\ Font]]
 -- Timeout
 vim.o.timeout = true
 vim.o.timeoutlen = 300
+
+-- Conceal settings
+vim.o.conceallevel = 2
