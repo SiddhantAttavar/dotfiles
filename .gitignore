@@ -21,3 +21,7 @@ termux/shell
 qutebrowser/*
 !qutebrowser/config.py
 !qutebrowser/autoconfig.yml
+
+# cmus
+cmus/*
+!cmus/onedark.theme
