@@ -76,38 +76,45 @@ else
 		echo "Or run this utility from the directory where they are located."
 		echo "###############################################################################"	
 	else
-		if [ -d "$HOME/.cmus" ]; then
+		if [ -d "$HOME/.config/cmus" ]; then
 			echo "###############################################################################"
-			if [ -f "$HOME/.cmus/playlist.pl" ]; then
+			if [ -f "$HOME/.config/cmus/playlist.pl" ]; then
 				time=`date +_%Y%m%d_%H%M%S`
 				echo "Backing up CMus playlist to playlist$time.pl"
-				cp "$HOME/.cmus/playlist.pl" "$HOME/.cmus/playlist_$time.pl"
+				cp "$HOME/.config/cmus/playlist.pl" "$HOME/.config/cmus/playlist_$time.pl"
 				echo "###############################################################################"
 			fi
 			echo "Choose the playlist to convert to CMus format."
-			echo "Playlist will be written to $HOME/.cmus/playlist.pl"
-			select fileName in $filelist; do
+			echo "Playlist will be written to $HOME/.config/cmus/playlist.pl"
+			for fileName in $filelist; do
+					echo $fileName
 				    if [ -n "$fileName" ]; then
 			    		if [ -f "$lizzyroot/lizzy.jar" ]; then
  						echo "###############################################################################"
  						echo "Converting $fileName with Lizzy"
 			    			echo "###############################################################################"
-						bash $lizzyroot/Transcode.sh $fileName -t pls >  $HOME/.cmus/temp.pls 2> $HOME/text.txt
-						name=$(echo "$HOME/.cmus/temp.pls")
+						bash $lizzyroot/Transcode.sh $fileName -t pls >  $HOME/.config/cmus/temp.pls 2> $HOME/text.txt
+						name=$(echo "$HOME/.config/cmus/temp.pls")
 					else
 						name=$(basename "$fileName")
-					fi				    				    	
-					grep $name -e "File" | awk -F "=" '{print $2}' |  sed 's/ /%20/g' | awk '{ gsub("file:///","/"); print $1 }'  > $HOME/.cmus/playlist.pl
-				    break
+						fi			    				    	
+					grep $name -e "File" | awk -F "=" '{print $2}' |  sed 's/ /%20/g' | awk '{ gsub("file:///","/"); print $1 }'  > $HOME/.config/cmus/playlist.pl
+
+					# Decode url
+					fileBaseName=${fileName##*/}
+					fileBaseName=${fileBaseName%.*}
+					echo $fileBaseName
+					sed "s@+@ @g;s@%@\\\\x@g" $HOME/.config/cmus/playlist.pl | xargs -0 printf "%b" > $HOME/.config/cmus/playlists/$fileBaseName
+					rm $HOME/.config/cmus/playlist.pl
 				    fi
 				done
 			echo "###############################################################################"		
 		else
 			echo "###############################################################################"
-			echo "CMus directory not in expected location of $HOME/.cmus"
+			echo "CMus directory not in expected location of $HOME/.config/cmus"
 			echo "Exiting."
 			echo "###############################################################################"		
 		fi		
 	fi
-	rm -f $HOME/.cmus/temp.pls
+	rm -f $HOME/.config/cmus/temp.pls
 fi
