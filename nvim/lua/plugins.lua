@@ -26,13 +26,12 @@ local plugins = {
 	-- General settings
 	{ 'tpope/vim-sensible', lazy = false },
 
-	-- Onedark theme
-	{ 'navarasu/onedark.nvim',
+	-- Catcuppuccin theme
+	{
+		'catppuccin/nvim',
+		name = 'catppuccin',
 		init = function()
-			require('onedark').setup {
-				style = 'cool'
-			}
-			require('onedark').load()
+			vim.cmd.colorscheme 'catppuccin-macchiato'
 		end
 	},
 
