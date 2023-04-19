@@ -41,5 +41,8 @@ alias py='python3'
 # bat alias
 alias bat='batcat'
 
-# urldecode
+# urldecode alias
 alias urldecode='sed "s@+@ @g;s@%@\\\\x@g" | xargs -0 printf "%b"'
+
+# cmus alias
+alias music='rm -f ~/.config/cmus/cache; cmus'

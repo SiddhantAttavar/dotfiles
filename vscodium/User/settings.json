@@ -178,7 +178,7 @@
 	"editor.detectIndentation": false,
 	"editor.multiCursorModifier": "ctrlCmd",
 	"terminal.integrated.enableMultiLinePasteWarning": false,
-	"workbench.colorTheme": "One Dark Modern",
+	"workbench.colorTheme": "Catppuccin Macchiato",
 	"settingsSync.ignoredSettings": [
 		"editor.fontFamily",
 		"cph.general.saveLocation",
