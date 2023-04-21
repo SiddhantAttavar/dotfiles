@@ -37,7 +37,7 @@ settings:
   colors.webpage.darkmode.algorithm:
     global: lightness-cielab
   colors.webpage.darkmode.enabled:
-    global: true
+    global: false
   colors.webpage.darkmode.policy.images:
     global: never
   colors.webpage.preferred_color_scheme:
@@ -55,6 +55,7 @@ settings:
   content.media.video_capture:
     https://teams.microsoft.com: true
   content.notifications.enabled:
+    https://app.quizrr.in: false
     https://messages.google.com: false
   content.pdfjs:
     global: true

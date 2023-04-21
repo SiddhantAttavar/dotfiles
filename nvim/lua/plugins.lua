@@ -26,12 +26,13 @@ local plugins = {
 	-- General settings
 	{ 'tpope/vim-sensible', lazy = false },
 
-	-- Catcuppuccin theme
-	{
-		'catppuccin/nvim',
-		name = 'catppuccin',
+	-- Onedark theme
+	{ 'navarasu/onedark.nvim',
 		init = function()
-			vim.cmd.colorscheme 'catppuccin-macchiato'
+			require('onedark').setup {
+				style = 'cool'
+			}
+			require('onedark').load()
 		end
 	},
 
@@ -95,9 +96,8 @@ local plugins = {
 		keys = { { '<C-b>', ':NvimTreeToggle<CR>' } },
 		config = function()
 			require('nvim-tree').setup {
-				hijack_netrw = false,
+				hijack_netrw = true,
 				disable_netrw = true,
-				open_on_setup = false,
 				open_on_tab = true,
 				update_cwd = true,
 				filters = {
