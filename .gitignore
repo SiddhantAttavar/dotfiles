@@ -18,9 +18,12 @@ vscodium/User/*
 termux/shell
 
 # Qutebrowser
-qutebrowser/*
-!qutebrowser/config.py
-!qutebrowser/autoconfig.yml
+browser/qutebrowser/*
+!browser/qutebrowser/config.py
+!browser/qutebrowser/autoconfig.yml
+
+# Userscript dependencies
+browser/userscript/requires/*
 
 # cmus
 cmus/*
