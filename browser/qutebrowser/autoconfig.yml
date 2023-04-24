@@ -41,7 +41,7 @@ settings:
   colors.webpage.darkmode.policy.images:
     global: never
   colors.webpage.preferred_color_scheme:
-    global: auto
+    global: dark
   content.autoplay:
     global: false
   content.geolocation:
@@ -94,10 +94,14 @@ settings:
     global: CaskaydiaCove Nerd Font
   fonts.web.family.standard:
     global: CaskaydiaCove Nerd Font
+  session.lazy_restore:
+    global: true
   tabs.last_close:
     global: close
   tabs.new_position.unrelated:
     global: next
+  tabs.width:
+    global: 15%
   url.default_page:
     global: https://zombiefox.github.io/nightTab/
   url.start_pages:
