@@ -99,6 +99,6 @@ settings:
   tabs.new_position.unrelated:
     global: next
   url.default_page:
-    global: https://web.tabliss.io/
+    global: https://zombiefox.github.io/nightTab/
   url.start_pages:
-    global: https://web.tabliss.io/
+    global: https://zombiefox.github.io/nightTab/

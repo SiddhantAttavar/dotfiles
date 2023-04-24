@@ -102,27 +102,27 @@ DISABLE THE REDIRECTION/FARSIDE FOR THAT
 PARTICULAR PLATFORM */
 
 //           REDIRECTON / FARSIDE
-let fandom = [true, true];
+let fandom = [true, false];
 let goodreads = [true, false];
-let google = [true, true];
-let gtranslate = [true, true];
-let hackernews = [true, true];
-let imdb = [true, true];
-let imgur = [true, true];
-let medium = [true, true];
-let quora = [true, true];
+let google = [true, false];
+let gtranslate = [true, false];
+let hackernews = [true, false];
+let imdb = [true, false];
+let imgur = [true, false];
+let medium = [true, false];
+let quora = [true, false];
 let reddit = [true, false];
-let reuters = [true, true];
-let tiktok = [true, true];
-let twitter = [true, true];
-let wikipedia = [true, true];
+let reuters = [true, false];
+let tiktok = [true, false];
+let twitter = [true, false];
+let wikipedia = [true, false];
 let youtube = [true, false];
 
 //       REDIRECTON / FARSIDE / WARNING
 let instagram = [true, false, true];
 
 // PREFERRED FRONTEND
-let youtubeFrontend = "invidious"; // accepts "invidious", "piped"
+let youtubeFrontend = "piped"; // accepts "invidious", "piped"
 let youtubeMusicFrontend = "beatbump"; // accepts "beatbump", "invidious", "piped"
 let redditFrontend = "libreddit"; // accepts "libreddit", "teddit"
 let googleFrontend = "searxng"; // accepts "searx", "searxng"
@@ -165,10 +165,16 @@ let invidiousInstances = [
 
 let pipedInstances = [
   "piped.video",
+  "piped.moomoo.me",
+  "piped.syncpundit.io",
+  "piped.mha.fi",
 ];
 
 let libredditInstances = [
+  "libreddit.spike.codes",
+  "libreddit.org",
   "libreddit.kavin.rocks",
+  "reddit.invak.id",
 ];
 
 let libremdbInstances = [
@@ -343,9 +349,7 @@ function redirectReddit() {
     var selectedInstance = "";
 
     if (reddit[1] == false) {
-      selectedInstance = eval(redditFrontend + "Instances")[
-        Math.floor(Math.random() * eval(redditFrontend + "Instances.length"))
-      ];
+      selectedInstance = 'libreddit.kavin.rocks';
     } else {
       selectedInstance = `${farsideInstance}/${redditFrontend}`;
     }
@@ -362,9 +366,7 @@ function redirectYoutube() {
     var selectedInstance = "";
 
     if (youtube[1] == false) {
-      selectedInstances = eval(youtubeFrontend + "Instances")[
-        Math.floor(Math.random() * eval(youtubeFrontend + "Instances.length"))
-      ];
+      selectedInstance = "yewtu.be";
     } else {
       selectedInstance = `${farsideInstance}/${youtubeFrontend}`;
     }
