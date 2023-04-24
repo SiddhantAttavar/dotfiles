@@ -83,9 +83,9 @@ createSymlink scripts .scripts
 createSymlink pistol .config/pistol
 createSymlink bat .config/bat
 createSymlink browser/qutebrowser .config/qutebrowser
+createSymlink browser/userscripts .local/share/qutebrowser/greasemonkey
 createSymlink git .config/git
 createSymlink tmux/.tmux.conf .tmux.conf
-createSymlink browser/userscripts .local/share/qutebrowser/greasemonkey
 
 # Install lsps
 pip install python-lsp-server
