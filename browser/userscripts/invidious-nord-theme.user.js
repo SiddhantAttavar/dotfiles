@@ -66,7 +66,7 @@
         --Linked: #81A1C1;
         --LinkedHover: #7490AD;
         /* Colours: Frost */
-        if select-color=="Colourful" {
+        /* if select-color=="Colourful" { */
             --Color1: #BF616A;
             --Color1Hover: #A6545C;
             --Color2: #D08770;
@@ -76,9 +76,9 @@
             --Color4: #EBCB8B;
             --Color4Hover: #D6B97F;
             --Color5: #A3BE8C;
-            --Color5Hover: #8AA177; }
+            --Color5Hover: #8AA177; /* } */
 
-        if select-color=="Frost" {
+        /* if select-color=="Frost" {
             --Color1: #88C0D0;
             --Color1Hover: #709EAB;
             --Color2: #5E81AC;
@@ -88,27 +88,27 @@
             --Color4: #8FBCBB;
             --Color4Hover: #7CA4A3;
             --Color5: #88C0D0;
-            --Color5Hover: #709EAB; }
+            --Color5Hover: #709EAB; } */
         
-        if theatre-mode=="No" {
+        /* if theatre-mode=="No" { */
             --MBottom: 0%;
             --MLeft: 1em;
             --MBRight: 1em;
-            --BlackBorders: 56.25%; }
+            --BlackBorders: 56.25%; /* } */
 
-        if theatre-mode=="Yes" {
+        /* if theatre-mode=="Yes" {
             --MBottom: 6%;
             --MLeft: -3.2%;
-            --MBRight: -3.2%; }
+            --MBRight: -3.2%; } */
             
-        if select-corners=="SlightlyRounded" {
-            --Corners: 0.4em; }
+        /* if select-corners=="SlightlyRounded" { */
+            --Corners: 0.4em; /* } */
 
-        if select-corners=="VeryRounded" {
-            --Corners: 1.5em; }
+        /* if select-corners=="VeryRounded" {
+            --Corners: 1.5em; } */
 
-        if select-corners=="Squared" {
-            --Corners: false; }
+        /* if select-corners=="Squared" {
+            --Corners: false; } */
 
         if select-screen-width=="Default" {
             --Width: 85em; }

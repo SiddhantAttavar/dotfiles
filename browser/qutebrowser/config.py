@@ -1,4 +1,6 @@
-# Themes
+c = c
+config = config
+
 config.source('qutebrowser-themes/themes/onedark.py')
 config.load_autoconfig()
 config.bind('<z><l>', 'spawn --userscript password_fill --dmenu-invocation zenity')

@@ -48,6 +48,9 @@ settings:
     https://www.aakash.ac.in: false
     https://www.embibe.com: false
     https://www.google.com: false
+  content.headers.user_agent:
+    global: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko)
+      Chrome/69.0.3497.128 Safari/537.36
   content.media.audio_capture:
     https://teams.microsoft.com: true
   content.media.audio_video_capture:
@@ -90,7 +93,21 @@ settings:
     - -e
     - ranger
     - --choosefile={}
+  fonts.completion.entry:
+    global: default_size default_family
+  fonts.contextmenu:
+    global: default_size default_family
   fonts.default_family:
+    global: CaskaydiaCove Nerd Font
+  fonts.web.family.cursive:
+    global: null
+  fonts.web.family.fantasy:
+    global: null
+  fonts.web.family.fixed:
+    global: CaskaydiaCove Nerd Font
+  fonts.web.family.sans_serif:
+    global: Cascadia Code
+  fonts.web.family.serif:
     global: CaskaydiaCove Nerd Font
   fonts.web.family.standard:
     global: CaskaydiaCove Nerd Font

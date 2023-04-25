@@ -109,16 +109,27 @@ local plugins = {
 
 	-- Terminal
 	{ 'akinsho/toggleterm.nvim',
-		cmd = 'ToggleTerm',
+		cmd = { 'ToggleTerm', 'ToggleTermToggleAll', 'TermExec', 'TermSelect', 'ToggleTermSetName', },
 		keys = {
 			{ '<C-f>', ':ToggleTerm<CR>' },
-			{ '<C-f>', '<C-\\><C-n>:ToggleTerm<CR>', mode = 't' }
+			{ '<C-f>', '<C-\\><C-n>:ToggleTerm<CR>', mode = 't' },
+			{ '<esc>', '<C-\\><C-n>', mode = 't' },
+			{ '<Leader>h', '<Cmd>wincmd h<CR>', mode = 't' },
+			{ '<Leader>j', '<Cmd>wincmd j<CR>', mode = 't' },
+			{ '<Leader>k', '<Cmd>wincmd k<CR>', mode = 't' },
+			{ '<Leader>l', '<Cmd>wincmd l<CR>', mode = 't' },
+			{ '<C-q>', ':wa<CR>:TermExec cmd="exit 123"<CR>' },
 		},
 		config = function()
 			require('toggleterm').setup {
 				winbar = {
 					enabled = false
-				}
+				},
+				on_exit = function(t, job, exit_code, name)
+					if exit_code == 123 then
+						vim.cmd [[xa]]
+					end
+				end
 			}
 		end
 	},
@@ -440,6 +451,7 @@ local plugins = {
 
 	-- Movement
 	{ 'ggandor/leap.nvim',
+		keys = { { 's', ':lua require("leap").leap { target_windows = { vim.fn.win_getid() }<CR>' } },
 		init = function()
 			require('leap').add_default_mappings()
 		end

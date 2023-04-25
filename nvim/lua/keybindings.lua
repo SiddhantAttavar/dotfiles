@@ -29,7 +29,4 @@ if not (vim.g.vscode) then
 	vim.api.nvim_set_keymap('n', 'K', ':bp<CR>', opts)
 	vim.api.nvim_set_keymap('n', '<C-w>', ':bd<CR>', opts)
 	vim.api.nvim_set_keymap('n', '<C-t>', ':enew<CR>', opts)
-
-	-- Terminal
-	vim.api.nvim_set_keymap('t', '<esc>', '<C-\\><C-n>', opts)
 end
