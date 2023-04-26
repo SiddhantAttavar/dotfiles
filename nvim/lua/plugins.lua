@@ -16,7 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 
 local lsp_fts = { 'python', 'markdown', 'c', 'cpp', 'lua' }
 local dap_fts = { 'python' }
-local treesitter_fts = { 'python', 'cpp' }
+local treesitter_fts = { 'python', 'cpp', 'java' }
 local text_fts = { 'markdown', 'txt' }
 
 -- Lazy plugins
@@ -233,13 +233,32 @@ local plugins = {
 		end
 	},
 
+	-- Mason
+	{ 'williamboman/mason.nvim',
+		dependencies = { 'williamboman/mason-lspconfig.nvim' },
+		build = ':MasonUpdate',
+		cmd = { 'Mason', 'MasonUpdate', 'MasonInstall', 'MasonUninstall', 'MasonUninstallAll', 'MasonLog' },
+		config = function()
+			require('mason').setup {}
+
+			-- setup LSPs
+			require('mason-lspconfig').setup {
+				ensure_installed = {
+					'pylsp',
+					'clangd',
+					'prosemd_lsp',
+					'lua_ls'
+				}
+			}
+		end
+	},
+
 	-- LSP extension plugins
 	{ 'neovim/nvim-lspconfig',
-		dependencies = { 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim' },
+		dependencies = { 'williamboman/mason.nvim' },
 		ft = lsp_fts,
 		config = function()
 			-- nvim-lspconfig and mason
-			require('mason').setup {}
 			local lsp = require('lspconfig')
 
 			-- on_attach callback function
@@ -295,16 +314,6 @@ local plugins = {
 							}
 						}
 					}
-				}
-			}
-
-			-- setup LSPs
-			require('mason-lspconfig').setup {
-				ensure_installed = {
-					'pylsp',
-					'clangd',
-					'prosemd_lsp',
-					'lua_ls'
 				}
 			}
 
@@ -394,7 +403,8 @@ local plugins = {
 			require('nvim-treesitter.configs').setup {
 				ensure_installed = {
 					'python',
-					'cpp'
+					'cpp',
+					'java'
 				},
 				highlight = {
 					enable = true
