@@ -28,7 +28,8 @@ local plugins = {
 
 	-- Onedark theme
 	{ 'navarasu/onedark.nvim',
-		init = function()
+		lazy = false,
+		config = function()
 			require('onedark').setup {
 				style = 'cool'
 			}
@@ -112,7 +113,9 @@ local plugins = {
 		cmd = { 'ToggleTerm', 'ToggleTermToggleAll', 'TermExec', 'TermSelect', 'ToggleTermSetName', },
 		keys = {
 			{ '<C-f>', ':ToggleTerm<CR>' },
+			{ '<C-g>', ':ToggleTerm direction=vertical<CR>' },
 			{ '<C-f>', '<C-\\><C-n>:ToggleTerm<CR>', mode = 't' },
+			{ '<C-g>', '<C-\\><C-n>:ToggleTerm<CR>', mode = 't' },
 			{ '<esc>', '<C-\\><C-n>', mode = 't' },
 			{ '<Leader>h', '<Cmd>wincmd h<CR>', mode = 't' },
 			{ '<Leader>j', '<Cmd>wincmd j<CR>', mode = 't' },
@@ -122,6 +125,13 @@ local plugins = {
 		},
 		config = function()
 			require('toggleterm').setup {
+				size = function(term)
+					if term.direction == "horizontal" then
+						return 15
+					elseif term.direction == "vertical" then
+						return vim.o.columns * 0.3
+					end
+				end,
 				winbar = {
 					enabled = false
 				},
@@ -136,7 +146,8 @@ local plugins = {
 
 	-- Notifications
 	{ 'rcarriga/nvim-notify',
-		init = function()
+		lazy = false,
+		config = function()
 			vim.notify = require('notify')
 		end
 	},
@@ -151,7 +162,8 @@ local plugins = {
 			{ ']d', vim.diagnostic.goto_next },
 			{ '<Leader>q', vim.diagnostic.setloclist }
 		},
-		init = function()
+		lazy = false,
+		config = function()
 			require('lualine').setup {
 				options = {
 					theme = 'onedark',
@@ -328,7 +340,8 @@ local plugins = {
 	-- Completion
 	{ 'hrsh7th/nvim-cmp',
 		dependencies = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path' },
-		init = function()
+		lazy = false,
+		config = function()
 			local has_words_before = function()
 				local line, col = unpack(vim.api.nvim_win_get_cursor(0))
 				return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
@@ -451,8 +464,9 @@ local plugins = {
 
 	-- Movement
 	{ 'ggandor/leap.nvim',
-		keys = { { 's', ':lua require("leap").leap { target_windows = { vim.fn.win_getid() }<CR>' } },
-		init = function()
+		keys = { { 's', ':lua require("leap").leap { target_windows = { vim.fn.win_getid() } }<CR>' } },
+		lazy = false,
+		config = function()
 			require('leap').add_default_mappings()
 		end
 	},
