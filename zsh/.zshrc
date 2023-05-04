@@ -5,6 +5,9 @@
 export SHELL="/usr/bin/zsh"
 export ZSH="$HOME/.oh-my-zsh"
 
+# Oh my zsh: automatically answer yes to update prompt
+DISABLE_UPDATE_PROMPT=true
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME

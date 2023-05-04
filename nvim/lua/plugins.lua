@@ -16,7 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 
 local lsp_fts = { 'python', 'markdown', 'c', 'cpp', 'lua' }
 local dap_fts = { 'python' }
-local treesitter_fts = { 'python', 'cpp', 'java' }
+local treesitter_fts = { 'python', 'cpp', 'java', 'markdown', 'lua' }
 local text_fts = { 'markdown', 'txt' }
 
 -- Lazy plugins
@@ -404,7 +404,9 @@ local plugins = {
 				ensure_installed = {
 					'python',
 					'cpp',
-					'java'
+					'java',
+					'markdown',
+					'lua'
 				},
 				highlight = {
 					enable = true
