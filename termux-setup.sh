@@ -42,6 +42,7 @@ pkg install -y tmux
 pkg install -y neofetch
 pjg install -y fzf
 pkg install -y python
+pkg install -y zsh
 
 # Create folders for conf files
 mkdir -p $HOME/.config
@@ -62,18 +63,12 @@ createSymlink nvim .config/nvim
 createSymlink ranger .config/ranger
 createSymlink vscodium .config/VSCodium
 createSymlink neofetch .config/neofetch
-createSymlink termux .termux
+createSymlink android/termux .termux
 createSymlink scripts .scripts
 
 if [ ! -f $HOME/bin/termux-file-editor ]; then
 	ln -s $PREFIX/bin/nvim $HOME/bin/termux-file-editor
 fi
-
-# Setup neovim: install vim-plug and plugins
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-echo "Installing Neovim plugins"
-nvim --headless +PlugInstall +qa 2> /dev/null
 
 # Oh-my-zsh setup
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
