@@ -104,18 +104,18 @@ PARTICULAR PLATFORM */
 //           REDIRECTON / FARSIDE
 let fandom = [true, false];
 let goodreads = [true, false];
-let google = [true, false];
+let google = [false, false];
 let gtranslate = [true, false];
 let hackernews = [true, false];
 let imdb = [true, false];
 let imgur = [true, false];
 let medium = [true, false];
-let quora = [true, false];
+let quora = [false, false];
 let reddit = [false, false];
 let reuters = [true, false];
 let tiktok = [true, false];
 let twitter = [true, false];
-let wikipedia = [true, false];
+let wikipedia = [false, false];
 let youtube = [true, false];
 
 //       REDIRECTON / FARSIDE / WARNING

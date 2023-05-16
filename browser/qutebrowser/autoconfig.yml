@@ -53,10 +53,13 @@ settings:
       Chrome/69.0.3497.128 Safari/537.36
   content.media.audio_capture:
     https://teams.microsoft.com: true
+    https://us02web.zoom.us: true
   content.media.audio_video_capture:
     https://teams.microsoft.com: true
+    https://us02web.zoom.us: true
   content.media.video_capture:
     https://teams.microsoft.com: true
+    https://us02web.zoom.us: true
   content.notifications.enabled:
     https://app.quizrr.in: false
     https://messages.google.com: false

@@ -1,0 +1,104 @@
+{
+	"policy": {
+		"DEFAULT": {
+			"capabilities": [
+				"frame",
+				"fetch",
+				"noscript",
+				"other",
+				"script",
+				"object",
+				"media",
+				"webgl",
+				"lan",
+				"unchecked_css"
+			],
+			"temp": false
+		},
+		"TRUSTED": {
+			"capabilities": [
+				"script",
+				"object",
+				"media",
+				"frame",
+				"webgl",
+				"fetch",
+				"noscript",
+				"unchecked_css",
+				"lan",
+				"other",
+				"font",
+				"ping"
+			],
+			"temp": false
+		},
+		"UNTRUSTED": {
+			"capabilities": [],
+			"temp": false
+		},
+		"sites": {
+			"trusted": [
+				"§:addons.mozilla.org",
+				"§:afx.ms",
+				"§:ajax.aspnetcdn.com",
+				"§:ajax.googleapis.com",
+				"§:bootstrapcdn.com",
+				"§:code.jquery.com",
+				"§:firstdata.com",
+				"§:firstdata.lv",
+				"§:gfx.ms",
+				"§:google.com",
+				"§:googlevideo.com",
+				"§:gstatic.com",
+				"§:hotmail.com",
+				"§:live.com",
+				"§:live.net",
+				"§:maps.googleapis.com",
+				"§:mozilla.net",
+				"§:netflix.com",
+				"§:nflxext.com",
+				"§:nflximg.com",
+				"§:nflxvideo.net",
+				"§:noscript.net",
+				"§:outlook.com",
+				"§:passport.com",
+				"§:passport.net",
+				"§:passportimages.com",
+				"§:paypal.com",
+				"§:paypalobjects.com",
+				"§:securecode.com",
+				"§:securesuite.net",
+				"§:sfx.ms",
+				"§:tinymce.cachefly.net",
+				"§:wlxrs.com",
+				"§:yahoo.com",
+				"§:yahooapis.com",
+				"§:yimg.com",
+				"§:youtube.com",
+				"§:ytimg.com"
+			],
+			"untrusted": [],
+			"custom": {}
+		},
+		"enforced": true,
+		"autoAllowTop": false
+	},
+	"local": {
+		"debug": false,
+		"showCtxMenuItem": false,
+		"showCountBadge": true,
+		"showFullAddresses": false,
+		"amnesticUpdates": false,
+		"storage": "local",
+		"uuid": "f3df4f28-986c-4ca0-9fb0-e9161cd2e6b8"
+	},
+	"sync": {
+		"global": false,
+		"xss": true,
+		"TabGuardMode": "incognito",
+		"cascadeRestrictions": false,
+		"overrideTorBrowserPolicy": false,
+		"storage": "sync"
+	},
+	"xssUserChoices": {}
+}

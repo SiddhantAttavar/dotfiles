@@ -152,7 +152,6 @@ local plugins = {
 		end
 	},
 
-
 	-- Lualine
 	{ 'nvim-lualine/lualine.nvim',
 		dependencies = { 'lewis6991/gitsigns.nvim' },
@@ -482,6 +481,20 @@ local plugins = {
 			require('leap').add_default_mappings()
 		end
 	},
+
+	{ 'nmac427/guess-indent.nvim',
+		lazy = false,
+		config = function()
+			require('guess-indent').setup {
+				filetype_exclude = {
+					'netrw',
+					'tutor',
+					'markdown',
+					'txt',
+				}
+			}
+		end
+	},
 }
 
 -- No config plugins
@@ -490,7 +503,6 @@ local no_config = {
 	['lukas-reineke/indent-blankline.nvim' ] = 'indent_blankline',
 	['lewis6991/gitsigns.nvim'] = 'gitsigns',
 	['numToStr/Comment.nvim'] = 'Comment',
-	['nmac427/guess-indent.nvim'] = 'guess-indent',
 	['folke/which-key.nvim'] = 'which-key'
 }
 
