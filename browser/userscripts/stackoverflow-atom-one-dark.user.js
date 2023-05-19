@@ -12,7 +12,6 @@
 (function IIFE() {
 	'use strict';
 
-	alert('sf')
 	document.addEventListener('readystatechange', function onReadyStateChange() {
 		if (document.readyState == 'interactive') {
 			const style = document.createElement('style');
