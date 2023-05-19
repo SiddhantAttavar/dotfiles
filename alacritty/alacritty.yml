@@ -459,10 +459,12 @@ colors:
 # Default:
 #   - (Linux/BSD/macOS) `$SHELL` or the user's login shell, if `$SHELL` is unset
 #   - (Windows) powershell
+# shell:
+#   program: /bin/zsh
+#   args:
+#     - --login
 shell:
-  program: /bin/zsh
-  args:
-    - --login
+  program: /home/siddhantattavar/.scripts/tmux-chooser.sh
 
 # Startup directory
 #
