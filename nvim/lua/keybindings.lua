@@ -1,4 +1,4 @@
--- uey bindings for neovim
+-- Key bindings for neovim
 -- Leader key
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '

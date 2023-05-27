@@ -178,7 +178,7 @@ local plugins = {
 							right_padding = 2
 						},
 					},
-					lualine_b = { 'filetype', 'diagnostics' },
+					lualine_b = { 'filetype' },
 					lualine_c = {
 						{
 							'filename',
@@ -213,7 +213,7 @@ local plugins = {
 					lualine_c = {
 						{
 							'diagnostics',
-							sources = { 'nvim_lsp', 'nvim_diagnostic' }
+							sources = { 'nvim_diagnostic' }
 						}
 					},
 					lualine_z = {
@@ -252,42 +252,23 @@ local plugins = {
 		end
 	},
 
-	-- LSP extension plugins
-	{ 'neovim/nvim-lspconfig',
-		dependencies = { 'williamboman/mason.nvim' },
-		ft = lsp_fts,
+	{ 'VonHeikemen/lsp-zero.nvim',
+		dependencies = { 'neovim/nvim-lspconfig', 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim', 'hrsh7th/nvim-cmp', 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip' },
+		lazy = false,
 		config = function()
-			-- nvim-lspconfig and mason
-			local lsp = require('lspconfig')
+			local lsp = require('lsp-zero').preset({})
+			local lspconfig = require('lspconfig')
 
-			-- on_attach callback function
-			local on_attach = function(client, bufnr)
+			lsp.on_attach(function(client, bufnr)
 				vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
-				vim.lsp.diagnostic.on_publish_diagnostics, {
-					signs = true,
-					update_in_insert = false,
-				}
+					vim.lsp.diagnostic.on_publish_diagnostics, {
+						signs = true,
+						update_in_insert = false
+					}
 				)
+				lsp.default_keymaps({buffer = bufnr})
+			end)
 
-				-- Mappings.
-				-- See `:help vim.lsp.*` for documentation on any of the below functions
-				local bufopts = { noremap=true, silent=true, buffer=bufnr }
-				vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-				vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-				vim.keymap.set('n', '<C-S-k>', vim.lsp.buf.hover, bufopts)
-				vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-				vim.keymap.set('n', '<Leader>wk', vim.lsp.buf.signature_help, bufopts)
-				vim.keymap.set('n', '<Leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-				vim.keymap.set('n', '<Leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-				vim.keymap.set('n', '<Leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, bufopts)
-				vim.keymap.set('n', '<Leader>D', vim.lsp.buf.type_definition, bufopts)
-				vim.keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, bufopts)
-				vim.keymap.set('n', '<Leader>ca', vim.lsp.buf.code_action, bufopts)
-				vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-				vim.keymap.set('n', '<Leader>f', function() vim.lsp.buf.format { async = true } end, bufopts)
-			end
-
-			-- configs for lsp servers
 			local server_config = {
 				pylsp = {
 					settings = {
@@ -305,6 +286,9 @@ local plugins = {
 				lua_ls = {
 					settings = {
 						Lua = {
+							runtime = {
+								version = 'LuaJIT',
+							},
 							diagnostics = {
 								globals = { 'vim' }
 							},
@@ -316,13 +300,15 @@ local plugins = {
 				}
 			}
 
-			require('mason-lspconfig').setup_handlers {
-				function (server_name)
-					local config = server_config[server_name]
-					config.on_attach = on_attach
-					lsp[server_name].setup(config)
+			for server_name, config in pairs(server_config) do
+				if (not lsp[server_name] == nil) and (not lsp[server_name].settings == nil) then
+					lsp[server_name].settings = config
 				end
-			}
+
+				lspconfig[server_name].setup(config)
+			end
+
+			lsp.setup()
 		end
 	},
 
@@ -347,7 +333,7 @@ local plugins = {
 
 	-- Completion
 	{ 'hrsh7th/nvim-cmp',
-		dependencies = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path' },
+		dependencies = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'windwp/nvim-autopairs' },
 		lazy = false,
 		config = function()
 			local has_words_before = function()
@@ -358,12 +344,26 @@ local plugins = {
 			-- nvim-cmp
 			local cmp = require('cmp')
 
+			-- General sources
+			local cmp_basic_sources = {
+				{
+					{ name = 'path' },
+				},
+				{ { name = 'buffer' } }
+			}
+
+			-- Filetype specific configuration
+			local ft_sources = {}
+			for _, ft in ipairs(lsp_fts) do
+				if ft_sources[ft] == nil then
+					ft_sources[ft] = cmp_basic_sources
+				end
+
+				table.insert(ft_sources[ft][1], { name = 'nvim_lsp' })
+			end
+
 			cmp.setup {
-				sources = cmp.config.sources({
-					{ name = 'nvim_lsp' },
-				}, {
-					{ name = 'buffer' },
-				}),
+				sources = cmp.config.sources(unpack(cmp_basic_sources)),
 				mapping = cmp.mapping.preset.insert({
 					['<Tab>'] = cmp.mapping(function(fallback)
 						if cmp.visible() then
@@ -381,15 +381,30 @@ local plugins = {
 							fallback()
 						end
 					end, { 'i', 's' }),
-					['CR'] = cmp.mapping(function(fallback)
+					['<CR>'] = cmp.mapping(function(fallback)
 						if cmp.visible() then
 							cmp.confirm({select = true})
 						else
 							fallback()
 						end
-					end, { 'i', 's' })
+					end, { 'i', 's' }),
+					['<C-b>'] = cmp.mapping.scroll_docs(-4),
+					['<C-f>'] = cmp.mapping.scroll_docs(4),
+					['<C-Space>'] = cmp.mapping.complete(),
+					['<C-e>'] = cmp.mapping.abort(),
 				})
 			}
+
+			for ft, cmp_sources in pairs(ft_sources) do
+				cmp.setup.filetype(ft, { sources = cmp.config.sources(unpack(cmp_sources)) })
+			end
+
+			-- Autopair
+			local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+			cmp.event:on(
+				'confirm_done',
+				cmp_autopairs.on_confirm_done()
+			)
 		end
 	},
 
@@ -400,17 +415,12 @@ local plugins = {
 		config = function()
 			-- nvim-treesitter
 			require('nvim-treesitter.configs').setup {
-				ensure_installed = {
-					'python',
-					'cpp',
-					'java',
-					'markdown',
-					'lua'
-				},
+				ensure_installed = treesitter_fts,
 				highlight = {
 					enable = true
 				}
 			}
+			require('nvim-treesitter.install').compilers = { 'gcc' }
 		end
 	},
 
@@ -499,7 +509,6 @@ local plugins = {
 
 -- No config plugins
 local no_config = {
-	['windwp/nvim-autopairs'] = 'nvim-autopairs',
 	['lukas-reineke/indent-blankline.nvim' ] = 'indent_blankline',
 	['lewis6991/gitsigns.nvim'] = 'gitsigns',
 	['numToStr/Comment.nvim'] = 'Comment',
