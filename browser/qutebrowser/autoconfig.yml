@@ -61,6 +61,7 @@ settings:
     https://teams.microsoft.com: true
     https://us02web.zoom.us: true
   content.notifications.enabled:
+    http://www.apio2023.org: false
     https://app.quizrr.in: false
     https://messages.google.com: false
   content.pdfjs:

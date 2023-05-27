@@ -1,3 +1,6 @@
+# Lua
+.luarc.json
+
 # Vim/Nvim plugin folders
 nvim/plugged/
 nvim/plugin/

@@ -5,6 +5,7 @@ alias n='nvim'
 alias r='rip'
 alias m='mv'
 alias c='cd'
+alias g='git'
 
 # some ls aliases
 alias ls='ls --color=auto --group-directories-first'

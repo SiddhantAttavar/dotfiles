@@ -122,7 +122,7 @@ let youtube = [true, false];
 let instagram = [true, false, true];
 
 // PREFERRED FRONTEND
-let youtubeFrontend = "piped"; // accepts "invidious", "piped"
+let youtubeFrontend = "invidious"; // accepts "invidious", "piped"
 let youtubeMusicFrontend = "beatbump"; // accepts "beatbump", "invidious", "piped"
 let redditFrontend = "libreddit"; // accepts "libreddit", "teddit"
 let googleFrontend = "searxng"; // accepts "searx", "searxng"

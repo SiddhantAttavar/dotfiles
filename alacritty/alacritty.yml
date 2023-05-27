@@ -464,7 +464,9 @@ colors:
 #   args:
 #     - --login
 shell:
-  program: /home/siddhantattavar/.scripts/tmux-chooser.sh
+  program: /usr/bin/tmux # <- set this to the path of your tmux installation
+  args:
+    - new-session
 
 # Startup directory
 #
