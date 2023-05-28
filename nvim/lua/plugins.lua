@@ -253,7 +253,7 @@ local plugins = {
 	},
 
 	{ 'VonHeikemen/lsp-zero.nvim',
-		dependencies = { 'neovim/nvim-lspconfig', 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim', 'hrsh7th/nvim-cmp', 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip' },
+		dependencies = { 'neovim/nvim-lspconfig', 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim', 'hrsh7th/nvim-cmp', 'L3MON4D3/LuaSnip' },
 		lazy = false,
 		config = function()
 			local lsp = require('lsp-zero').preset({})
@@ -300,13 +300,18 @@ local plugins = {
 				}
 			}
 
-			for server_name, config in pairs(server_config) do
-				if (not lsp[server_name] == nil) and (not lsp[server_name].settings == nil) then
-					lsp[server_name].settings = config
+			require('mason-lspconfig').setup_handlers({
+				function(server_name)
+					lspconfig[server_name].setup(server_config[server_name])
 				end
+			})
 
-				lspconfig[server_name].setup(config)
-			end
+			lsp.set_sign_icons({lsp.set_sign_icons({
+				error = '✘',
+				warn = '▲',
+				hint = '⚑',
+				info = '»'
+			})})
 
 			lsp.setup()
 		end
@@ -333,7 +338,7 @@ local plugins = {
 
 	-- Completion
 	{ 'hrsh7th/nvim-cmp',
-		dependencies = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'windwp/nvim-autopairs' },
+		dependencies = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'windwp/nvim-autopairs', 'uga-rosa/cmp-dictionary' },
 		lazy = false,
 		config = function()
 			local has_words_before = function()
@@ -354,13 +359,19 @@ local plugins = {
 
 			-- Filetype specific configuration
 			local ft_sources = {}
-			for _, ft in ipairs(lsp_fts) do
-				if ft_sources[ft] == nil then
-					ft_sources[ft] = cmp_basic_sources
-				end
 
-				table.insert(ft_sources[ft][1], { name = 'nvim_lsp' })
+			local add_ft_source = function(source_fts, source)
+				for _, ft in ipairs(source_fts) do
+					if ft_sources[ft] == nil then
+						ft_sources[ft] = cmp_basic_sources
+					end
+
+					table.insert(ft_sources[ft][1], { name = source })
+				end
 			end
+
+			add_ft_source(lsp_fts, 'nvim_lsp')
+			add_ft_source(text_fts, 'dictionary')
 
 			cmp.setup {
 				sources = cmp.config.sources(unpack(cmp_basic_sources)),
@@ -395,6 +406,17 @@ local plugins = {
 				})
 			}
 
+			-- Configure cmp sources
+			local dict = require('cmp_dictionary')
+			dict.setup {}
+
+			local ft_dictionaries = {}
+			for _, text_ft in ipairs(text_fts) do
+				ft_dictionaries[text_ft] = vim.fn.stdpath('config') .. '/spell/en.dict'
+			end
+			dict.switcher({ filetype = ft_dictionaries })
+
+			-- Setup filetype cmp sources
 			for ft, cmp_sources in pairs(ft_sources) do
 				cmp.setup.filetype(ft, { sources = cmp.config.sources(unpack(cmp_sources)) })
 			end
@@ -509,6 +531,7 @@ local plugins = {
 
 -- No config plugins
 local no_config = {
+	['windwp/nvim-autopairs'] = 'nvim-autopairs',
 	['lukas-reineke/indent-blankline.nvim' ] = 'indent_blankline',
 	['lewis6991/gitsigns.nvim'] = 'gitsigns',
 	['numToStr/Comment.nvim'] = 'Comment',
