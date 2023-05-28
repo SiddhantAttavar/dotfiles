@@ -14,7 +14,6 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-local lsp_fts = { 'python', 'markdown', 'c', 'cpp', 'lua' }
 local dap_fts = { 'python' }
 local treesitter_fts = { 'python', 'cpp', 'java', 'markdown', 'lua' }
 local text_fts = { 'markdown', 'txt' }
@@ -252,22 +251,18 @@ local plugins = {
 		end
 	},
 
-	{ 'VonHeikemen/lsp-zero.nvim',
-		dependencies = { 'neovim/nvim-lspconfig', 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim', 'hrsh7th/nvim-cmp', 'L3MON4D3/LuaSnip' },
+	{ 'neovim/nvim-lspconfig',
+		dependencies = { 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim', 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip' },
 		lazy = false,
 		config = function()
-			local lsp = require('lsp-zero').preset({})
 			local lspconfig = require('lspconfig')
 
-			lsp.on_attach(function(client, bufnr)
-				vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
-					vim.lsp.diagnostic.on_publish_diagnostics, {
-						signs = true,
-						update_in_insert = false
-					}
-				)
-				lsp.default_keymaps({buffer = bufnr})
-			end)
+			-- Diagnostic display options
+			local signs = { Error = '✘', Warn = '▲', Hint = '⚑', Info = '»' }
+			for type, icon in pairs(signs) do
+				local hl = "DiagnosticSign" .. type
+				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+			end
 
 			local server_config = {
 				pylsp = {
@@ -300,20 +295,37 @@ local plugins = {
 				}
 			}
 
-			require('mason-lspconfig').setup_handlers({
-				function(server_name)
-					lspconfig[server_name].setup(server_config[server_name])
-				end
-			})
+			-- Customize defaults
+			local lsp_default_config = lspconfig.util.default_config
+			lsp_default_config.capabilities = vim.tbl_deep_extend(
+				'force',
+				lsp_default_config.capabilities,
+				require('cmp_nvim_lsp').default_capabilities()
+			)
 
-			lsp.set_sign_icons({lsp.set_sign_icons({
-				error = '✘',
-				warn = '▲',
-				hint = '⚑',
-				info = '»'
-			})})
+			lsp_default_config.on_attach = function(client, bufnr)
+				-- Mappings.
+				-- See `:help vim.lsp.*` for documentation on any of the below functions
+				local bufopts = { noremap=true, silent=true, buffer=bufnr }
+				vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+				vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+				vim.keymap.set('n', '<C-S-k>', vim.lsp.buf.hover, bufopts)
+				vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+				vim.keymap.set('n', '<Leader>wk', vim.lsp.buf.signature_help, bufopts)
+				vim.keymap.set('n', '<Leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+				vim.keymap.set('n', '<Leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+				vim.keymap.set('n', '<Leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, bufopts)
+				vim.keymap.set('n', '<Leader>D', vim.lsp.buf.type_definition, bufopts)
+				vim.keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, bufopts)
+				vim.keymap.set('n', '<Leader>ca', vim.lsp.buf.code_action, bufopts)
+				vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+				vim.keymap.set('n', '<Leader>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+			end
 
-			lsp.setup()
+			-- Setup lsp servers
+			for server_name, config in pairs(server_config) do
+				lspconfig[server_name].setup(config)
+			end
 		end
 	},
 
@@ -336,49 +348,83 @@ local plugins = {
 		end
 	},
 
+	{ 'L3MON4D3/LuaSnip',
+		lazy = false,
+		build = 'make install_jsregexp',
+	},
+
 	-- Completion
 	{ 'hrsh7th/nvim-cmp',
-		dependencies = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'windwp/nvim-autopairs', 'uga-rosa/cmp-dictionary' },
+		dependencies = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'windwp/nvim-autopairs', 'uga-rosa/cmp-dictionary', 'saadparwaiz1/cmp_luasnip', 'L3MON4D3/LuaSnip' },
 		lazy = false,
 		config = function()
+			-- nvim-cmp
+			local cmp = require('cmp')
+			local luasnip = require('luasnip')
+
+			-- General sources
+			local cmp_sources = {
+				{
+					{ name = 'path' },
+					{ name = 'nvim_lsp' },
+					{ name = 'luasnip' },
+				},
+				{
+					{ name = 'dictionary' },
+					{ name = 'buffer' }
+				}
+			}
+
 			local has_words_before = function()
 				local line, col = unpack(vim.api.nvim_win_get_cursor(0))
 				return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
 			end
 
-			-- nvim-cmp
-			local cmp = require('cmp')
-
-			-- General sources
-			local cmp_basic_sources = {
-				{
-					{ name = 'path' },
-				},
-				{ { name = 'buffer' } }
+			-- Kind icons
+			local kind_icons = {
+				Text = "",
+				Method = "󰆧",
+				Function = "󰊕",
+				Constructor = "",
+				Field = "󰇽",
+				Variable = "󰂡",
+				Class = "󰠱",
+				Interface = "",
+				Module = "",
+				Property = "󰜢",
+				Unit = "",
+				Value = "󰎠",
+				Enum = "",
+				Keyword = "󰌋",
+				Snippet = "",
+				Color = "󰏘",
+				File = "󰈙",
+				Reference = "",
+				Folder = "󰉋",
+				EnumMember = "",
+				Constant = "󰏿",
+				Struct = "",
+				Event = "",
+				Operator = "󰆕",
+				TypeParameter = "󰅲",
 			}
 
-			-- Filetype specific configuration
-			local ft_sources = {}
-
-			local add_ft_source = function(source_fts, source)
-				for _, ft in ipairs(source_fts) do
-					if ft_sources[ft] == nil then
-						ft_sources[ft] = cmp_basic_sources
-					end
-
-					table.insert(ft_sources[ft][1], { name = source })
-				end
-			end
-
-			add_ft_source(lsp_fts, 'nvim_lsp')
-			add_ft_source(text_fts, 'dictionary')
-
 			cmp.setup {
-				sources = cmp.config.sources(unpack(cmp_basic_sources)),
+				sources = cmp.config.sources(unpack(cmp_sources)),
+				performance = {
+					max_view_entries = 10
+				},
+				snippet = {
+					expand = function(args)
+						luasnip.lsp_expand(args.body)
+					end
+				},
 				mapping = cmp.mapping.preset.insert({
 					['<Tab>'] = cmp.mapping(function(fallback)
 						if cmp.visible() then
 							cmp.select_next_item()
+						elseif luasnip.expand_or_locally_jumpable() then
+							luasnip.expand_or_jump()
 						elseif has_words_before() then
 							cmp.complete()
 						else
@@ -388,6 +434,8 @@ local plugins = {
 					['<S-Tab>'] = cmp.mapping(function(fallback)
 						if cmp.visible() then
 							cmp.select_prev_item()
+						elseif luasnip.jumpable(-1) then
+							luasnip.jump(-1)
 						else
 							fallback()
 						end
@@ -403,7 +451,28 @@ local plugins = {
 					['<C-f>'] = cmp.mapping.scroll_docs(4),
 					['<C-Space>'] = cmp.mapping.complete(),
 					['<C-e>'] = cmp.mapping.abort(),
-				})
+				}),
+				view = {
+					entries = {
+						name = 'custom',
+						selection_order = 'near_cursor'
+					}
+				},
+				formatting = {
+					format = function(entry, vim_item)
+						-- Kind icons
+						vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+						-- Source
+						vim_item.menu = ({
+							buffer = "[Buffer]",
+							nvim_lsp = "[LSP]",
+							luasnip = "[LuaSnip]",
+							nvim_lua = "[Lua]",
+							latex_symbols = "[LaTeX]",
+						})[entry.source.name]
+						return vim_item
+					end
+  },
 			}
 
 			-- Configure cmp sources
@@ -414,12 +483,10 @@ local plugins = {
 			for _, text_ft in ipairs(text_fts) do
 				ft_dictionaries[text_ft] = vim.fn.stdpath('config') .. '/spell/en.dict'
 			end
-			dict.switcher({ filetype = ft_dictionaries })
-
-			-- Setup filetype cmp sources
-			for ft, cmp_sources in pairs(ft_sources) do
-				cmp.setup.filetype(ft, { sources = cmp.config.sources(unpack(cmp_sources)) })
-			end
+			dict.switcher({
+				filetype = ft_dictionaries,
+				spelllang = vim.fn.stdpath('config') .. '/spell/zero.dict'
+			})
 
 			-- Autopair
 			local cmp_autopairs = require('nvim-autopairs.completion.cmp')
