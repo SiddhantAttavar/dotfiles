@@ -103,6 +103,8 @@ settings:
     global: default_size default_family
   fonts.default_family:
     global: CaskaydiaCove Nerd Font
+  fonts.default_size:
+    global: 12pt
   fonts.web.family.cursive:
     global: null
   fonts.web.family.fantasy:
@@ -112,9 +114,9 @@ settings:
   fonts.web.family.sans_serif:
     global: Cascadia Code
   fonts.web.family.serif:
-    global: CaskaydiaCove Nerd Font
+    global: Cascadia Code
   fonts.web.family.standard:
-    global: CaskaydiaCove Nerd Font
+    global: Cascadia Code
   session.lazy_restore:
     global: true
   tabs.last_close:
