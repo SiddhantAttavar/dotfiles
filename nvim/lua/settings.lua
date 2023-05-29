@@ -63,3 +63,10 @@ vim.o.timeoutlen = 300
 
 -- Conceal settings
 vim.o.conceallevel = 2
+
+-- Markdown
+vim.g.markdown_fenced_languages = {
+	'python',
+	'java',
+	'cpp'
+}

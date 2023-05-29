@@ -22,8 +22,17 @@ local text_fts = { 'markdown', 'txt' }
 local plugins = {
 	-- { 'foo/bar' },
 
-	-- General settings
+	-- Simple tpope plugins
 	{ 'tpope/vim-sensible', lazy = false },
+	{ 'tpope/vim-obsession', lazy = false },
+	{ 'tpope/vim-surround', lazy = false },
+	{ 'tpope/vim-eunuch', lazy = false },
+	{ 'tpope/vim-tbone', cmd = { 'Tmux', 'Tyank', 'Tput', 'Twrite', 'Tattach' } },
+	{ 'tpope/vim-abolish', ft = text_fts },
+	{ 'tpope/vim-endwise', ft = text_fts },
+
+	-- plenary
+	{ 'nvim-lua/plenary.nvim', lazy = false },
 
 	-- Onedark theme
 	{ 'navarasu/onedark.nvim',
@@ -252,7 +261,7 @@ local plugins = {
 	},
 
 	{ 'neovim/nvim-lspconfig',
-		dependencies = { 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim', 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip' },
+		dependencies = { 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim', 'hrsh7th/cmp-nvim-lsp', 'ray-x/lsp_signature.nvim' },
 		lazy = false,
 		config = function()
 			local lspconfig = require('lspconfig')
@@ -326,6 +335,9 @@ local plugins = {
 			for server_name, config in pairs(server_config) do
 				lspconfig[server_name].setup(config)
 			end
+
+			-- lsp_signature setup
+			require('lsp_signature').setup {}
 		end
 	},
 
@@ -351,6 +363,11 @@ local plugins = {
 	{ 'L3MON4D3/LuaSnip',
 		lazy = false,
 		build = 'make install_jsregexp',
+		dependencies = { 'honza/vim-snippets' },
+		config = function ()
+			require('luasnip').setup()
+			require('luasnip.loaders.from_snipmate').load({ paths = '~/.local/share/nvim/lazy/vim-snippets/snippets' })
+		end
 	},
 
 	-- Completion
@@ -501,14 +518,19 @@ local plugins = {
 	{ 'nvim-treesitter/nvim-treesitter',
 		build = ':TSUpdate',
 		ft = treesitter_fts,
+		dependencies = { 'HiPhish/nvim-ts-rainbow2' },
 		config = function()
 			-- nvim-treesitter
 			require('nvim-treesitter.configs').setup {
 				ensure_installed = treesitter_fts,
 				highlight = {
 					enable = true
+				},
+				rainbow = {
+					enable = true
 				}
 			}
+
 			require('nvim-treesitter.install').compilers = { 'gcc' }
 		end
 	},
