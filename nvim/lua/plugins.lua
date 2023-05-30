@@ -366,7 +366,7 @@ local plugins = {
 		dependencies = { 'honza/vim-snippets' },
 		config = function ()
 			require('luasnip').setup()
-			require('luasnip.loaders.from_snipmate').load({ paths = '~/.local/share/nvim/lazy/vim-snippets/snippets' })
+			require('luasnip.loaders.from_snipmate').lazy_load({ paths = '~/.local/share/nvim/lazy/vim-snippets/snippets' })
 		end
 	},
 
