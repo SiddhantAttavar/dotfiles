@@ -70,3 +70,10 @@ vim.g.markdown_fenced_languages = {
 	'java',
 	'cpp'
 }
+
+-- Dictionary
+vim.opt_global.dictionary = vim.fn.stdpath('config') .. '/spell/en.dict'
+
+-- Leader key
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '

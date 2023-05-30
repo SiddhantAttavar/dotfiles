@@ -5,7 +5,7 @@
 require('settings')
 if not (vim.g.vscode) then
 	-- Neovim specific customization
-	require('plugins')
+	require('plugins-load')
 	require('keybindings')
 	require('commands')
 end
