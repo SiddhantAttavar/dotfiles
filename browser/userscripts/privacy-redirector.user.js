@@ -111,7 +111,7 @@ let imdb = [true, false];
 let imgur = [true, false];
 let medium = [true, false];
 let quora = [false, false];
-let reddit = [false, false];
+let reddit = [true, false];
 let reuters = [true, false];
 let tiktok = [true, false];
 let twitter = [true, false];
@@ -119,12 +119,12 @@ let wikipedia = [false, false];
 let youtube = [true, false];
 
 //       REDIRECTON / FARSIDE / WARNING
-let instagram = [true, false, true];
+let instagram = [false, false, true];
 
 // PREFERRED FRONTEND
 let youtubeFrontend = "invidious"; // accepts "invidious", "piped"
 let youtubeMusicFrontend = "beatbump"; // accepts "beatbump", "invidious", "piped"
-let redditFrontend = "libreddit"; // accepts "libreddit", "teddit"
+let redditFrontend = "teddit"; // accepts "libreddit", "teddit"
 let googleFrontend = "searxng"; // accepts "searx", "searxng"
 
 // // // // // // // // // // // // //
@@ -158,9 +158,9 @@ let breezewikiInstances = [
 ];
 
 let invidiousInstances = [
-  "invidious.snopyta.org",
+  // "invidious.snopyta.org",
   "yewtu.be",
-  "vid.puffyan.us",
+  // "vid.puffyan.us",
 ];
 
 let pipedInstances = [
@@ -227,10 +227,11 @@ let scribeInstances = [
 ];
 
 let tedditInstances = [
-  "teddit.pussthecat.org",
-  "teddit.ggc-project.de",
-  "teddit.domain.glass",
-  "teddit.zaggy.nl",
+  // "teddit.pussthecat.org",
+  // "teddit.ggc-project.de",
+  // "teddit.domain.glass",
+  // "teddit.zaggy.nl",
+  "tedd.it",
 ];
 
 let wikilessInstances = [
@@ -349,7 +350,9 @@ function redirectReddit() {
     var selectedInstance = "";
 
     if (reddit[1] == false) {
-      selectedInstance = 'libreddit.kavin.rocks';
+      selectedInstance = eval(redditFrontend + "Instances")[
+        Math.floor(Math.random() * eval(redditFrontend + "Instances.length"))
+      ];
     } else {
       selectedInstance = `${farsideInstance}/${redditFrontend}`;
     }
@@ -366,7 +369,9 @@ function redirectYoutube() {
     var selectedInstance = "";
 
     if (youtube[1] == false) {
-      selectedInstance = "yewtu.be";
+      selectedInstance = eval(youtubeFrontend + "Instances")[
+        Math.floor(Math.random() * eval(youtubeFrontend + "Instances.length"))
+      ];
     } else {
       selectedInstance = `${farsideInstance}/${youtubeFrontend}`;
     }
