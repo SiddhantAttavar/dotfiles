@@ -1,4 +1,57 @@
+local server_config = {
+	pylsp = {
+		settings = {
+			pylsp = {
+				plugins = {
+					pycodestyle = {
+						enabled = false
+					}
+				}
+			}
+		}
+	},
+	clangd = {},
+	prosemd_lsp = {},
+	lua_ls = {
+		settings = {
+			Lua = {
+				runtime = {
+					version = 'LuaJIT',
+				},
+				diagnostics = {
+					globals = { 'vim' }
+				},
+				telemetry = {
+					enable = false
+				}
+			}
+		}
+	}
+}
+
 return {
+	-- Mason
+	{
+		'williamboman/mason.nvim',
+		dependencies = { 'williamboman/mason-lspconfig.nvim' },
+		build = ':MasonUpdate',
+		cmd = { 'Mason', 'MasonUpdate', 'MasonInstall', 'MasonUninstall', 'MasonUninstallAll', 'MasonLog' },
+		ft = require('plugins.ft-groups').lsp_fts,
+		config = function()
+			require('mason').setup {}
+
+			local lsp_list = {}
+			for lsp, _ in pairs(server_config) do
+				table.insert(lsp_list, lsp)
+			end
+
+			-- setup LSPs
+			require('mason-lspconfig').setup {
+				ensure_installed = lsp_list
+			}
+		end
+	},
+
 	-- LSP config
 	{
 		'neovim/nvim-lspconfig',
@@ -15,36 +68,6 @@ return {
 				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 			end
 
-			local server_config = {
-				pylsp = {
-					settings = {
-						pylsp = {
-							plugins = {
-								pycodestyle = {
-									enabled = false
-								}
-							}
-						}
-					}
-				},
-				clangd = {},
-				prosemd_lsp = {},
-				lua_ls = {
-					settings = {
-						Lua = {
-							runtime = {
-								version = 'LuaJIT',
-							},
-							diagnostics = {
-								globals = { 'vim' }
-							},
-							telemetry = {
-								enable = false
-							}
-						}
-					}
-				}
-			}
 
 			-- Customize defaults
 			local lsp_default_config = lspconfig.util.default_config
