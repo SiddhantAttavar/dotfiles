@@ -5,6 +5,7 @@ local always_on = {
 	'tpope/vim-surround',
 	'tpope/vim-eunuch',
 	'nvim-lua/plenary.nvim',
+	'michaeljsmith/vim-indent-object',
 }
 
 -- Just require('plugin').setup()
@@ -17,13 +18,13 @@ local just_setup = {
 }
 
 -- Plugins with just one line of config
-local text_fts = require('plugins.ft-groups').treesitter_fts
+local text_fts = require('ft-groups').treesitter_fts
 local plugins = {
 	{ 'tpope/vim-tbone', cmd = { 'Tmux', 'Tyank', 'Tput', 'Twrite', 'Tattach' } },
 	{ 'tpope/vim-fugitive', cmd = { 'Git', 'G' } },
-	{ 'kyazdani42/nvim-web-devicons', lazy = false },
 	{ 'tpope/vim-abolish', ft = text_fts },
 	{ 'tpope/vim-endwise', ft = text_fts },
+	{ 'kyazdani42/nvim-web-devicons', lazy = false },
 }
 
 

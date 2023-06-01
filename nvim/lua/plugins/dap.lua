@@ -2,7 +2,7 @@ return {
 	-- Debugging
 	{
 		'mfussenegger/nvim-dap',
-		ft = dap_fts,
+		ft = require('ft-groups').dap_fts,
 		config = function()
 			local dap = require('dap')
 			dap.configurations.python = {

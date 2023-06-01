@@ -3,8 +3,9 @@ return {
 	{
 		'nvim-treesitter/nvim-treesitter',
 		build = ':TSUpdate',
-		ft = require('plugins.ft-groups').treesitter_fts,
 		dependencies = { 'HiPhish/nvim-ts-rainbow2' },
+		ft = require('ft-groups').treesitter_fts,
+		cmd = { 'TSUpdate' },
 		config = function()
 			-- nvim-treesitter
 			require('nvim-treesitter.configs').setup {

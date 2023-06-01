@@ -1,5 +1,5 @@
 -- Markdown plugins
-local text_fts = require('plugins.ft-groups').text_fts
+local text_fts = require('ft-groups').text_fts
 return {
 	-- Markdowny
 	{
@@ -16,9 +16,10 @@ return {
 		'iamcco/markdown-preview.nvim',
 		build = ':call mkdp#util#install()',
 		ft = text_fts,
+		cmd = { 'MarkdownPreviewToggle' },
 		keys = { { '<Leader>m', ':MarkdownPreviewToggle<CR>' } }
 	},
-	
+
 	-- Vim markdown
 	{
 		'preservim/vim-markdown',

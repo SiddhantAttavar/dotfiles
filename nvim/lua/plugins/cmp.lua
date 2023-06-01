@@ -1,3 +1,79 @@
+-- General sources
+local cmp_sources = {
+	{
+		{ name = 'path' },
+		{ name = 'luasnip' },
+		{ name = 'calc' },
+	},
+	{
+		{ name = 'buffer' }
+	}
+}
+
+-- Filetype groups
+local ft_source_groups = {
+	{
+		fts = require('ft-groups').text_fts,
+		config = { name = 'dictionary' },
+		index = 2
+	},
+	{
+		fts = require('ft-groups').lsp_fts,
+		config = { name = 'nvim_lsp' },
+		index = 1
+	},
+	{
+		fts = { 'gitcommit', 'octo' },
+		config = { name = 'git' },
+		index = 1
+	}
+}
+
+local has_words_before = function()
+	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
+end
+
+-- Kind icons
+local kind_icons = {
+	Text = "",
+	Method = "󰆧",
+	Function = "󰊕",
+	Constructor = "",
+	Field = "󰇽",
+	Variable = "󰂡",
+	Class = "󰠱",
+	Interface = "",
+	Module = "",
+	Property = "󰜢",
+	Unit = "",
+	Value = "󰎠",
+	Enum = "",
+	Keyword = "󰌋",
+	Snippet = "",
+	Color = "󰏘",
+	File = "󰈙",
+	Reference = "",
+	Folder = "󰉋",
+	EnumMember = "",
+	Constant = "󰏿",
+	Struct = "",
+	Event = "",
+	Operator = "󰆕",
+	TypeParameter = "󰅲",
+}
+
+-- Menu items
+local cmp_item_menu = {
+	dictionary = "[Dictionary]",
+	omni = "[Omnifunc]",
+	calc = "[Calculator]",
+	buffer = "[Buffer]",
+	nvim_lsp = "[LSP]",
+	luasnip = "[LuaSnip]",
+	latex_symbols = "[LaTeX]",
+}
+
 return {
 	{
 		'hrsh7th/nvim-cmp',
@@ -7,60 +83,6 @@ return {
 			-- nvim-cmp
 			local cmp = require('cmp')
 			local luasnip = require('luasnip')
-
-			-- General sources
-			local cmp_sources = {
-				{
-					{ name = 'path' },
-					{ name = 'luasnip' },
-					{ name = 'calc' },
-				},
-				{
-					{ name = 'buffer' }
-				}
-			}
-
-			-- Filetype groups
-			local ft_source_groups = {
-				dictionary = text_fts,
-				nvim_lsp = lsp_fts,
-				git = { 'gitcommit', 'octo' }
-			}
-
-			local has_words_before = function()
-				local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-				return col ~= 0 and
-					vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
-			end
-
-			-- Kind icons
-			local kind_icons = {
-				Text = "",
-				Method = "󰆧",
-				Function = "󰊕",
-				Constructor = "",
-				Field = "󰇽",
-				Variable = "󰂡",
-				Class = "󰠱",
-				Interface = "",
-				Module = "",
-				Property = "󰜢",
-				Unit = "",
-				Value = "󰎠",
-				Enum = "",
-				Keyword = "󰌋",
-				Snippet = "",
-				Color = "󰏘",
-				File = "󰈙",
-				Reference = "",
-				Folder = "󰉋",
-				EnumMember = "",
-				Constant = "󰏿",
-				Struct = "",
-				Event = "",
-				Operator = "󰆕",
-				TypeParameter = "󰅲",
-			}
 
 			cmp.setup {
 				sources = cmp.config.sources(unpack(cmp_sources)),
@@ -114,17 +136,10 @@ return {
 				formatting = {
 					format = function(entry, vim_item)
 						-- Kind icons
-						vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+						-- This concatonates the icons with the name of the item kind
+						vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
 						-- Source
-						vim_item.menu = ({
-							dictionary = "[Dictionary]",
-							omni = "[Omnifunc]",
-							calc = "[Calculator]",
-							buffer = "[Buffer]",
-							nvim_lsp = "[LSP]",
-							luasnip = "[LuaSnip]",
-							latex_symbols = "[LaTeX]",
-						})[entry.source.name]
+						vim_item.menu = (cmp_item_menu)[entry.source.name]
 						return vim_item
 					end
 				},
@@ -151,13 +166,13 @@ return {
 			-- Filetype specific sources
 			local ft_sources = {}
 
-			for source, fts in pairs(ft_source_groups) do
-				for _, ft in ipairs(fts) do
+			for _, ft_source_group in ipairs(ft_source_groups) do
+				for _, ft in ipairs(ft_source_group.fts) do
 					if ft_sources[ft] == nil then
 						ft_sources[ft] = vim.deepcopy(cmp_sources)
 					end
 
-					table.insert(ft_sources[ft][1], { name = source })
+					table.insert(ft_sources[ft][ft_source_group.index], ft_source_group.config)
 				end
 			end
 

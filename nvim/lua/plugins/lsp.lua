@@ -36,7 +36,7 @@ return {
 		dependencies = { 'williamboman/mason-lspconfig.nvim' },
 		build = ':MasonUpdate',
 		cmd = { 'Mason', 'MasonUpdate', 'MasonInstall', 'MasonUninstall', 'MasonUninstallAll', 'MasonLog' },
-		ft = require('plugins.ft-groups').lsp_fts,
+		ft = require('ft-groups').lsp_fts,
 		config = function()
 			require('mason').setup {}
 
@@ -55,8 +55,7 @@ return {
 	-- LSP config
 	{
 		'neovim/nvim-lspconfig',
-		dependencies = { 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim', 'hrsh7th/cmp-nvim-lsp',
-			'ray-x/lsp_signature.nvim' },
+		dependencies = { 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim', 'hrsh7th/cmp-nvim-lsp', 'ray-x/lsp_signature.nvim' },
 		lazy = false,
 		config = function()
 			local lspconfig = require('lspconfig')
@@ -91,7 +90,7 @@ return {
 				vim.keymap.set('n', '<Leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end,
 					bufopts)
 				vim.keymap.set('n', '<Leader>D', vim.lsp.buf.type_definition, bufopts)
-				vim.keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, bufopts)
+				vim.keymap.set('n', '<Leader>r', vim.lsp.buf.rename, bufopts)
 				vim.keymap.set('n', '<Leader>ca', vim.lsp.buf.code_action, bufopts)
 				vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 				vim.keymap.set('n', '<Leader>cf', function() vim.lsp.buf.format { async = true } end, bufopts)
