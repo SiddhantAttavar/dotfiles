@@ -232,6 +232,7 @@ let tedditInstances = [
   // "teddit.domain.glass",
   // "teddit.zaggy.nl",
   "tedd.it",
+  "tedd.it",
 ];
 
 let wikilessInstances = [
@@ -256,6 +257,9 @@ let searxngInstances = [
 ];
 
 let farsideInstance = "farside.link";
+
+let redditInstances = tedditInstances;
+let youtubeInstances = invidiousInstances;
 
 // // // // // // // // // // // // //
 
@@ -350,8 +354,8 @@ function redirectReddit() {
     var selectedInstance = "";
 
     if (reddit[1] == false) {
-      selectedInstance = eval(redditFrontend + "Instances")[
-        Math.floor(Math.random() * eval(redditFrontend + "Instances.length"))
+      selectedInstance = redditInstances[
+        Math.floor(Math.random() * redditInstances.length)
       ];
     } else {
       selectedInstance = `${farsideInstance}/${redditFrontend}`;
@@ -369,8 +373,8 @@ function redirectYoutube() {
     var selectedInstance = "";
 
     if (youtube[1] == false) {
-      selectedInstance = eval(youtubeFrontend + "Instances")[
-        Math.floor(Math.random() * eval(youtubeFrontend + "Instances.length"))
+      selectedInstance = youtubeInstances[
+        Math.floor(Math.random() * youtubeInstances.length)
       ];
     } else {
       selectedInstance = `${farsideInstance}/${youtubeFrontend}`;

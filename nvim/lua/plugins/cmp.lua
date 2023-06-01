@@ -2,11 +2,11 @@
 local cmp_sources = {
 	{
 		{ name = 'path' },
-		{ name = 'luasnip' },
 		{ name = 'calc' },
 	},
 	{
-		{ name = 'buffer' }
+		{ name = 'luasnip' },
+		{ name = 'buffer' },
 	}
 }
 
