@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Remap the key to it's default behavior
+# assuming `keycode 66` is your `caps lock` 
+# check using `xmodmap -pke | grep Caps_Lock`
+xmodmap -e 'keycode 66 = Shift_L Shift_L Shift_L Shift_L Shift_L Shift_L' >& /dev/null
+
+# kill `xcape` if it's already running so you don't
+# get two competing instances
+pidof xcape | xargs kill -1 >& /dev/null
+
+# actually start xcape
+xcape -e 'Shift_L=Escape' >& /dev/null
+xcape -e 'Shift_L=Escape' -t 100 >& /dev/null
