@@ -42,6 +42,14 @@ settings:
     global: never
   colors.webpage.preferred_color_scheme:
     global: dark
+  completion.favorite_paths:
+    global: null
+  completion.show:
+    global: always
+  completion.shrink:
+    global: true
+  completion.use_best_match:
+    global: true
   content.autoplay:
     global: false
   content.geolocation:
@@ -69,8 +77,6 @@ settings:
   content.register_protocol_handler:
     https://calendar.google.com?cid=%25s: false
     https://mail.google.com?extsrc=mailto&url=%25s: false
-  downloads.location.directory:
-    global: $HOME/d/Downloads
   downloads.open_dispatcher:
     global: null
   editor.command:
@@ -117,6 +123,8 @@ settings:
     global: Cascadia Code
   fonts.web.family.standard:
     global: Cascadia Code
+  fonts.web.size.minimum:
+    global: 12
   session.lazy_restore:
     global: true
   tabs.last_close:

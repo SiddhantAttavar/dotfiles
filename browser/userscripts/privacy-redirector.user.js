@@ -221,18 +221,19 @@ let rimgoInstances = [
 
 let scribeInstances = [
   "scribe.rip",
-  "scribe.nixnet.services",
+  // "scribe.nixnet.services",
   "scribe.citizen4.eu",
   "scribe.bus-hit.me",
 ];
 
 let tedditInstances = [
-  // "teddit.pussthecat.org",
+  "teddit.pussthecat.org",
   // "teddit.ggc-project.de",
   // "teddit.domain.glass",
   // "teddit.zaggy.nl",
-  "tedd.it",
-  "tedd.it",
+  // "tedd.it",
+  // "teddit.net",
+  // "teddit.bus-hit.me",
 ];
 
 let wikilessInstances = [
