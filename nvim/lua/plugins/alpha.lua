@@ -2,7 +2,7 @@ return {
 	-- Dashboard
 	{
 		'goolord/alpha-nvim',
-		dependencies = { 'kyazdani42/nvim-web-devicons' },
+		dependencies = { 'kyazdani42/nvim-web-devicons', 'natecraddock/workspaces.nvim' },
 		cond = function()
 			return vim.fn.argc() == 0
 		end,
@@ -25,11 +25,12 @@ return {
 
 			-- Set menu
 			dashboard.section.buttons.val = {
+				dashboard.button('l', '󰙰	> Load workspace', ':lua require("workspaces").fzf_open_workspaces()<CR>'),
 				dashboard.button('e', '	> New file', ':ene <BAR> startinsert <CR>'),
-				dashboard.button('f', '	> Find file', ':Files<CR>'),
-				dashboard.button('r', '	> Recent', ':History<CR>'),
+				dashboard.button('f', '󰈞	> Find file', ':Files<CR>'),
+				dashboard.button('r', '	> Recent', ':History<CR>'),
 				dashboard.button('s', '	> Settings', ':e $MYVIMRC<CR>'),
-				dashboard.button('q', '	> Quit NVIM', ':qa<CR>'),
+				dashboard.button('q', '󰿅	> Quit NVIM', ':qa<CR>'),
 			}
 
 			-- Send config to alpha

@@ -15,24 +15,23 @@ return {
 			{ '<Leader>l', '<Cmd>wincmd l<CR>',                  mode = 't' },
 			{ '<C-q>',     ':wa<CR>:TermExec cmd="exit 123"<CR>' },
 		},
-		config = function()
-			require('toggleterm').setup {
-				size = function(term)
-					if term.direction == "horizontal" then
-						return 15
-					elseif term.direction == "vertical" then
-						return vim.o.columns * 0.3
-					end
-				end,
-				winbar = {
-					enabled = false
-				},
-				on_exit = function(t, job, exit_code, name)
-					if exit_code == 123 then
-						vim.cmd [[xa]]
-					end
+		config = true,
+		opts = {
+			size = function(term)
+				if term.direction == "horizontal" then
+					return 15
+				elseif term.direction == "vertical" then
+					return vim.o.columns * 0.3
 				end
-			}
-		end
+			end,
+			winbar = {
+				enabled = false
+			},
+			on_exit = function(t, job, exit_code, name)
+				if exit_code == 123 then
+					vim.cmd [[xa]]
+				end
+			end
+		}
 	}
 }

@@ -63,6 +63,7 @@ vim.o.timeoutlen = 300
 
 -- Conceal settings
 vim.o.conceallevel = 2
+vim.g.vim_markdown_conceal = 1
 
 -- Markdown
 vim.g.markdown_fenced_languages = {

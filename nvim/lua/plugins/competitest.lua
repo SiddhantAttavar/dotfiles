@@ -10,22 +10,21 @@ return {
 			{ '<Leader>ut', ':CompetiTestReceive testcases<CR>' },
 			{ '<Leader>up', ':CompetiTestReceive problem<CR>' }
 		},
-		config = function()
-			require('competitest').setup {
-				testcases_use_single_file = true,
-				compile_command = {
-					cpp = {
-						exec = 'g++',
-						args = { '-Wall', '$(FNAME)', '-o', 'a.out' }
-					}
-				},
-				run_command = {
-					cpp = { exec = './a.out' }
-				},
-				runner_ui = {
-					interface = 'split'
+		config = true,
+		opts = {
+			testcases_use_single_file = true,
+			compile_command = {
+				cpp = {
+					exec = 'g++',
+					args = { '-Wall', '$(FNAME)', '-o', 'a.out' }
 				}
+			},
+			run_command = {
+				cpp = { exec = './a.out' }
+			},
+			runner_ui = {
+				interface = 'split'
 			}
-		end
+		}
 	}
 }

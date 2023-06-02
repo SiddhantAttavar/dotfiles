@@ -4,8 +4,7 @@ return {
 		'mfussenegger/nvim-dap',
 		ft = require('ft-groups').dap_fts,
 		config = function()
-			local dap = require('dap')
-			dap.configurations.python = {
+			require('dap').configurations.python = {
 				{
 					type = 'python',
 					request = 'launch',

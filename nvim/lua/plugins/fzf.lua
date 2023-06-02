@@ -13,9 +13,6 @@ return {
 			{ '<C-p>h', ':History<CR>' },
 			{ '<C-p>c', ':Commands<CR>' },
 			{ '<C-p>m', ':Marks<CR>' },
-		},
-		config = function()
-			vim.cmd [[command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', 'pistol {}']}, <bang>0)]]
-		end
+		}
 	}
 }

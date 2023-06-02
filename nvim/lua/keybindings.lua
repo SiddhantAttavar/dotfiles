@@ -14,7 +14,6 @@ vim.api.nvim_set_keymap('n', '<esc>', ':noh<CR><esc>', opts)
 
 if not (vim.g.vscode) then
 	-- Window mapping
-	vim.api.nvim_set_keymap('n', '<Leader>w', ':w<CR>', opts)
 	vim.api.nvim_set_keymap('n', '<Leader>h', '<C-w>h', opts)
 	vim.api.nvim_set_keymap('n', '<Leader>j', '<C-w>j', opts)
 	vim.api.nvim_set_keymap('n', '<Leader>k', '<C-w>k', opts)
