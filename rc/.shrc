@@ -25,8 +25,8 @@ export MANPAGER='nvim +Man!'
 export MANWIDTH=999
 
 # Load .sh_aliases
-if [ -f ~/.sh-aliases ]; then
-	. ~/.sh-aliases
+if [ -f $HOME/.dotfiles/rc/.sh-aliases ]; then
+	. $HOME/.dotfiles/rc/.sh-aliases
 fi
 
 # Load .profle
@@ -35,7 +35,7 @@ if [ -f ~/.profile ]; then
 fi
 
 # Update PATH
-export PATH="$HOME/.scripts:$PATH"
+export PATH="$HOME/.dotfiles/scripts:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"

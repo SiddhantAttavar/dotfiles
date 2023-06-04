@@ -72,6 +72,7 @@ createSymlink rc/.sh-aliases .sh-aliases
 createSymlink rc/.hushlogin .hushlogin
 createSymlink rc/.dircolors .dircolors
 createSymlink rc/.inputrc .inputrc
+createSymlink rc/.xprofile .xprofile
 createSymlink bash/.bashrc .bashrc
 createSymlink zsh/.zshrc .zshrc
 createSymlink neofetch .config/neofetch
@@ -90,20 +91,12 @@ createSymlink browser/userscripts .local/share/qutebrowser/greasemonkey
 createSymlink git .config/git
 createSymlink tmux/.tmux.conf .tmux.conf
 
-# Install lsps
-pip install python-lsp-server
-sudo apt install -y clangd-12
-sudo apt-get install -y openjdk-18-jre openjdk-18-jdk
-
 # Install vscodium extensions
 codium --install-extension DivyanshuAgrawal.competitive-programming-helper
 codium --install-extension formulahendry.code-runner
 codium --install-extension yzhang.markdown-all-in-one
 codium --install-extension cweijan.vscode-office
 codium --install-extension asvetliakov.vscode-neovim
-
-# Theming options
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/denysdovhan/gnome-terminal-one/master/one-dark.sh)"
 
 # Oh-my-zsh setup
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended

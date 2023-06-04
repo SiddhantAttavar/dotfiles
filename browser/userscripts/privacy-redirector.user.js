@@ -108,7 +108,7 @@ let google = [false, false];
 let gtranslate = [true, false];
 let hackernews = [true, false];
 let imdb = [true, false];
-let imgur = [false, false];
+let imgur = [true, false];
 let medium = [true, false];
 let quora = [false, false];
 let reddit = [true, false];
@@ -213,10 +213,10 @@ let quetreInstances = [
 ];
 
 let rimgoInstances = [
-  "i.bcow.xyz",
+  // "i.bcow.xyz",
   "rimgo.pussthecat.org",
   "rimgo.totaldarkness.net",
-  "rimgo.bus-hit.me",
+  // "rimgo.bus-hit.me",
 ];
 
 let scribeInstances = [

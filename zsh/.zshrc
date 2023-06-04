@@ -108,8 +108,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-if [ -f $HOME/.shrc ]; then
-	. $HOME/.shrc
+if [ -f $HOME/.dotfiles/rc/.shrc ]; then
+	. $HOME/.dotfiles/rc/.shrc
 fi
 
 # Fzf setup

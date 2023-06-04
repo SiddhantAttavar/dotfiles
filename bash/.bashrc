@@ -1,7 +1,7 @@
 # TERMINAL CONFIG
 # Run general shell configuration
-if [ -f ~/.shrc ]; then
-	. ~/.shrc
+if [ -f $HOME/.dotfiles/rc/.shrc ]; then
+	. $HOME/.dotfiles/rc/.shrc
 fi
 
 # Hide user name and host name in terminal prompt
