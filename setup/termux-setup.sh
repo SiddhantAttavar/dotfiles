@@ -31,7 +31,7 @@ function createSymlink {
 
 # Termux setup
 termux-setup-storage
-pkg install coreutils
+pkg install -y coreutils
 pkg update
 pkg upgrade
 
@@ -43,6 +43,7 @@ pkg install -y neofetch
 pjg install -y fzf
 pkg install -y python
 pkg install -y zsh
+pkg install -y openssh
 
 # Create folders for conf files
 mkdir -p $HOME/.config
