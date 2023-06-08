@@ -1,9 +1,3 @@
-- defaults:
-	link:
-		relink: true
-		create: true
-
-- clean: ['~']
 
 - sudo:
 	- aptget:

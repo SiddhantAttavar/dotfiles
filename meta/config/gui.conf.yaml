@@ -1,0 +1,21 @@
+- sudo:
+	- aptget:
+		codium:
+		pass:
+
+- link:
+	~/.inputrc: rc/.inputrc
+	~/.xprofile: rc/.xprofile
+	~/.config/alacritty: alacritty
+	~/.config/VSCodium: vscodium
+	~/.xmodmap: x/.xmodmap
+	~/.local/share/applications/firefox-private.desktop: desktop/firefox-private.desktop
+	~/.config/qutebrowser: browser/qutebrowser
+	~/.local/share/qutebrowser/greasemonkey: browser/userscripts
+
+- shell:
+	- codium --install-extension DivyanshuAgrawal.competitive-programming-helper
+	- codium --install-extension formulahendry.code-runner
+	- codium --install-extension yzhang.markdown-all-in-one
+	- codium --install-extension cweijan.vscode-office
+	- codium --install-extension asvetliakov.vscode-neovim

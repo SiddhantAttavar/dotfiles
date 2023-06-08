@@ -1,19 +1,22 @@
 [submodule "dotbot"]
-	path = install/dotbot
+	path = meta/dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
 [submodule "dotbot-sudo"]
-	path = install/dotbot-sudo
+	path = meta/dotbot-sudo
 	url = https://github.com/DrDynamic/dotbot-sudo.git
 [submodule "dotbot_plugin_aptget"]
-	path = install/dotbot_plugin_aptget
+	path = meta/dotbot_plugin_aptget
 	url = https://github.com/dein0s/dotbot_plugin_aptget.git
 [submodule "dotbot-pip"]
-	path = install/dotbot-pip
+	path = meta/dotbot-pip
 	url = https://github.com/sobolevn/dotbot-pip.git
 [submodule "dotbot-rust"]
-	path = install/dotbot-rust
+	path = meta/dotbot-rust
 	url = https://github.com/alexcormier/dotbot-rust
 [submodule "dotbot-git"]
-	path = install/dotbot-git
+	path = meta/dotbot-git
 	url = https://github.com/DrDynamic/dotbot-git.git
+[submodule "dotbot-include"]
+	path = meta/dotbot-include
+	url = https://gitlab.com/gnfzdz/dotbot-include.git
