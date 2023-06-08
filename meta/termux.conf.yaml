@@ -1,4 +1,4 @@
 - include: 'meta/configs/setup.conf.yaml'
 - shell:
-	- alias sudo=''
+    - alias sudo=''
 - include: 'meta/configs/term.conf.yaml'
