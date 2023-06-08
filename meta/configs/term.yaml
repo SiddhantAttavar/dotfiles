@@ -16,13 +16,15 @@
         bat:
         pass:
     - shell:
-        - curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+        - curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile default --no-modify-path
 
 - pip:
     file: python/requirements.txt
     stdout: false
     stderr: true
 
+- shell:
+    - export PATH="$HOME/.cargo/bin:$PATH"
 - cargo:
     - tealdeer
     - rm-improved
@@ -37,14 +39,20 @@
     ~/.config/ranger: ranger
     ~/.config/pistol: pistol
     ~/.config/bat: bat
-    ~/.config/git: git
-    ~/.tmux.conf: tmux/tmux.conf
+    ~/.tmux.conf: tmux/.tmux.conf
 
 - shell:
     - chsh -s $(which zsh)
     - sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
     - mkdir -p ~/.local/bin
-    - wget -O ~/.local/bin/pistol https://github.com/doronbehar/pistol/releases/latest/download/pistol
+
+- ifaarch64:
+    - shell:
+        - wget -O ~/.local/bin/pistol https://github.com/doronbehar/pistol/releases/latest/download/pistol-static-aarch64
+    - shell:
+        - wget -O ~/.local/bin/pistol https://github.com/doronbehar/pistol/releases/latest/download/pistol-static-armv7l
+    - shell:
+        - wget -O ~/.local/bin/pistol https://github.com/doronbehar/pistol/releases/latest/download/pistol-static-x86_64
 
 - git:
     '~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions':

@@ -20,3 +20,6 @@
 [submodule "dotbot-include"]
 	path = meta/plugins/dotbot-include
 	url = https://gitlab.com/gnfzdz/dotbot-include.git
+[submodule "dotbot-ifarch"]
+	path = meta/plugins/dotbot-ifarch
+	url = https://github.com/ryansch/dotbot-ifarch.git
