@@ -4,3 +4,6 @@
 		create: true
 
 - clean: ['~']
+
+- shell:
+	- chsh -s $(which zsh)
