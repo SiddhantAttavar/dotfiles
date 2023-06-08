@@ -31,3 +31,6 @@ browser/userscript/requires/*
 # cmus
 cmus/*
 !cmus/onedark.theme
+
+# dotbot files
+meta/plugins/dotbot-sudo/sudo.conf.json
