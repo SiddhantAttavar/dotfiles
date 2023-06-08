@@ -1,3 +1,8 @@
+- defaults:
+    link:
+        relink: true
+        create: true
+
 - sudo:
     - aptget:
         zsh:
@@ -37,6 +42,7 @@
     ~/.tmux.conf: tmux/tmux.conf
 
 - shell:
+    - chsh -s $(which zsh)
     - sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
     - mkdir -p ~/.local/bin
     - wget -O ~/.local/bin/pistol https://github.com/doronbehar/pistol/releases/latest/download/pistol
