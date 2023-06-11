@@ -6,6 +6,8 @@ alias r='rip'
 alias m='mv'
 alias c='cd'
 alias g='git'
+alias s='sudo'
+alias a='sudo apt'
 
 # some ls aliases
 alias ls='ls --color=auto --group-directories-first'

@@ -193,7 +193,7 @@ let lingvaInstances = [
 
 let nitterInstances = [
   "nitter.net",
-  "nitter.pussthecat.org",
+  // "nitter.pussthecat.org",
   "nitter.fdn.fr",
   "nitter.1d4.us",
 ];

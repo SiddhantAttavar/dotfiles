@@ -123,8 +123,8 @@ return {
 								fallback()
 							end
 						end,
-						s = cmp.mapping.confirm({ select = true }),
-						c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+						s = cmp.mapping.confirm({ select = false }),
+						c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
 					}),
 					['<C-b>'] = cmp.mapping.scroll_docs(-4),
 					['<C-f>'] = cmp.mapping.scroll_docs(4),

@@ -1,0 +1,21 @@
+#!/usr/bin/python3
+from json import loads
+from sys import argv
+
+subscription_text = ''
+with open(argv[1]) as f:
+	subscription_text = f.read()
+
+subcriptions = loads(subscription_text)['subscriptions']
+
+res = '<?xml version="1.0" encoding="UTF-8"?><opml version="1.0"><head><title>Youtube subcriptions</title></head><body>'
+
+for sub in subcriptions:
+	name = sub['name']
+	id = sub['url'].split('/')[-1]
+	res += f'<outline text="{name}" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id={id}"/>'
+
+res += '</body></opml>'
+
+with open(argv[2], 'w') as f:
+	f.write(res)

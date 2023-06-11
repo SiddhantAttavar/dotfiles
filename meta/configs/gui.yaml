@@ -6,6 +6,8 @@
 - sudo:
     - aptget:
         codium:
+- shell:
+    - rm ~/.dotfiles/meta/plugins/dotbot-sudo/sudo.conf.json
 
 - link:
     ~/.inputrc: rc/.inputrc
