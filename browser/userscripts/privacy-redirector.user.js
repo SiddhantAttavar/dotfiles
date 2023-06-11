@@ -215,7 +215,7 @@ let quetreInstances = [
 let rimgoInstances = [
   // "i.bcow.xyz",
   "rimgo.pussthecat.org",
-  "rimgo.totaldarkness.net",
+  // "rimgo.totaldarkness.net",
   // "rimgo.bus-hit.me",
 ];
 

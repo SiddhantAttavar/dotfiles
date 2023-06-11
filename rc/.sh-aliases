@@ -30,6 +30,7 @@ fi
 alias gsync='git pull; git push'
 alias gs='git status'
 alias gd='git diff'
+alias ga='git add'
 alias gca='git add -A; git commit -m'
 gcap() { git add -A; git commit -m "$1"; git push; }
 
