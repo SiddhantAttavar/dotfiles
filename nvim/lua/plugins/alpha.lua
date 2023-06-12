@@ -26,7 +26,7 @@ return {
 			-- Set menu
 			dashboard.section.buttons.val = {
 				dashboard.button('l', '󰙰	> Load workspace', ':lua require("workspaces").fzf_open_workspaces()<CR>'),
-				dashboard.button('e', '	> New file', ':ene <BAR> startinsert <CR>'),
+				dashboard.button('i', '	> New file', ':ene <BAR> startinsert <CR>'),
 				dashboard.button('f', '󰈞	> Find file', ':Files<CR>'),
 				dashboard.button('r', '	> Recent', ':History<CR>'),
 				dashboard.button('s', '	> Settings', ':e $MYVIMRC<CR>'),

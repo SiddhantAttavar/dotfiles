@@ -124,7 +124,7 @@ let instagram = [false, false, true];
 // PREFERRED FRONTEND
 let youtubeFrontend = "invidious"; // accepts "invidious", "piped"
 let youtubeMusicFrontend = "beatbump"; // accepts "beatbump", "invidious", "piped"
-let redditFrontend = "teddit"; // accepts "libreddit", "teddit"
+let redditFrontend = "libreddit"; // accepts "libreddit", "teddit"
 let googleFrontend = "searxng"; // accepts "searx", "searxng"
 
 // // // // // // // // // // // // //
@@ -171,8 +171,9 @@ let pipedInstances = [
 ];
 
 let libredditInstances = [
-  "libreddit.spike.codes",
-  "libreddit.org",
+  // "libreddit.spike.codes",
+  // "libreddit.org",
+  // "libreddit.eu.org",
   "libreddit.kavin.rocks",
   "reddit.invak.id",
 ];

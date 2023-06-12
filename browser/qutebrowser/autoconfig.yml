@@ -72,6 +72,7 @@ settings:
     http://www.apio2023.org: false
     https://app.quizrr.in: false
     https://messages.google.com: false
+    https://old.reddit.com: false
   content.pdfjs:
     global: true
   content.register_protocol_handler:
