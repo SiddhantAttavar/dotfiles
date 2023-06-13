@@ -1,0 +1,68 @@
+#!/usr/bin/env python3
+
+import json
+import os
+import sys
+
+# Class
+
+class App(object):
+
+    def __init__(self):
+        self.passwords = []
+        self.password_store_path = os.path.expanduser('~/.password-store')
+
+        for root, dirs, files in os.walk(self.password_store_path):
+            self.passwords.extend(
+                os.path.join(root, name[:-4])[len(self.password_store_path) + 1:]
+                for name in files if name.endswith('.gpg')
+            )
+
+    def activate(self, index):
+        if not self.matches:
+            return
+
+        os.system(f'/usr/bin/pass -c {self.matches[index]}')
+        os.system(f'/usr/bin/notify-send --icon=password-manager "Password" "Copied {self.matches[index]} to clipboard. Will clear in 45 seconds."')
+
+        sys.stdout.write('"Close"\n')
+        sys.stdout.flush()
+
+    def search(self, query):
+        query        = query.split(' ', 1)[1]
+        self.matches = [password for password in self.passwords if query in password]
+
+        for index, password in enumerate(self.matches):
+            sys.stdout.write(json.dumps({
+                'Append': {
+                    'id': index,
+                    'name': password,
+                    'description': '',
+                    'keywords': None,
+                    'icon': None,
+                    'exec': None,
+                    'window': None
+                }
+            }))
+            sys.stdout.write('\n')
+
+        sys.stdout.write('"Finished"\n')
+        sys.stdout.flush()
+
+# Main Execution
+
+def main():
+    app = App()
+
+    for line in sys.stdin:
+        try:
+            request = json.loads(line)
+            if 'Search' in request:
+                app.search(request['Search'])
+            elif 'Activate' in request:
+                app.activate(request['Activate'])
+        except json.decoder.JSONDecodeError:
+            pass
+
+if __name__ == '__main__':
+    main()

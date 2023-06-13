@@ -18,6 +18,7 @@
     ~/.local/share/applications/firefox-private.desktop: desktop/firefox-private.desktop
     ~/.config/qutebrowser: browser/qutebrowser
     ~/.local/share/qutebrowser/greasemonkey: browser/userscripts
+    ~/.local/share/pop-launcher: pop-launcher
 
 - shell:
     - codium --install-extension DivyanshuAgrawal.competitive-programming-helper

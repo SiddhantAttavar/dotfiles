@@ -1,0 +1,98 @@
+#!/usr/bin/env python3
+
+import json
+import os
+import sys
+
+# App
+
+class App(object):
+
+    def __init__(self):
+        self.matches = []
+
+    def activate(self, index):
+        if not self.matches:
+            return
+
+        Xrandr.set_external_display(self.matches[index])
+        sys.stdout.write('"Close"\n')
+        sys.stdout.flush()
+
+    def search(self, query):
+        query        = query.split(' ', 1)[1]
+        self.matches = [layout for layout in Xrandr.LAYOUTS if query in layout]
+
+        for index, layout in enumerate(self.matches):
+            sys.stdout.write(json.dumps({
+                'Append': {
+                    'id': index,
+                    'name': layout.title(),
+                    'description': f'Set external display {layout}',
+                    'keywords': None,
+                    'icon': None,
+                    'exec': None,
+                    'window': None
+                }
+            }))
+            sys.stdout.write('\n')
+
+        sys.stdout.write('"Finished"\n')
+        sys.stdout.flush()
+
+# Xrandr
+
+class Xrandr(object):
+    DISPLAY_RX = r'([^\s]+) connected'
+    LCDS       = ('eDP-1',) # Internal Laptop displays
+    LAYOUTS    = {
+        'above': 'xrandr --output {internal} --primary --auto --output {external} --auto --above    {internal}',
+        'below': 'xrandr --output {internal} --primary --auto --output {external} --auto --below    {internal}',
+        'left' : 'xrandr --output {internal} --primary --auto --output {external} --auto --left-of  {internal}',
+        'right': 'xrandr --output {internal} --primary --auto --output {external} --auto --right-of {internal}',
+        'only' : 'xrandr --output {internal} --off            --output {external} --auto --primary',
+        'clone': 'xrandr --output {internal} --primary --auto --output {external} --auto --same-as  {internal}',
+        'off'  : 'xrandr --output {internal} --primary --auto --output {external} --off',
+    }
+
+    @staticmethod
+    def parse_displays():
+        return [match.split()[0] for match in filter(lambda line: ' connected' in line, os.popen('xrandr -q'))]
+
+    @staticmethod
+    def set_external_display(layout):
+        displays = Xrandr.parse_displays()
+        try:
+            internal = [display for display in displays if display in Xrandr.LCDS][0]
+        except IndexError:
+            raise Exception('Could not find internal display')
+
+        try:
+            external = [display for display in displays if display not in Xrandr.LCDS][0]
+        except IndexError:
+            raise Exception('Could not find external display')
+
+        try:
+            command = Xrandr.LAYOUTS[layout].format(internal=internal, external=external)
+        except KeyError:
+            raise Exception(f'Unknown layout: {layout}')
+
+        return os.system(command)
+
+# Main Execution
+
+def main():
+    app = App()
+
+    for line in sys.stdin:
+        try:
+            request = json.loads(line)
+            if 'Search' in request:
+                app.search(request['Search'])
+            elif 'Activate' in request:
+                app.activate(request['Activate'])
+        except json.decoder.JSONDecodeError:
+            pass
+
+if __name__ == '__main__':
+    main()
