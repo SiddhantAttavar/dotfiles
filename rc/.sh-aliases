@@ -8,6 +8,7 @@ alias c='cd'
 alias g='git'
 alias s='sudo'
 alias a='sudo apt'
+alias v='vi'
 
 # some ls aliases
 alias ls='ls --color=auto --group-directories-first'

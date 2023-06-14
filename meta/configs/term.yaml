@@ -39,6 +39,7 @@
     ~/.zshrc: zsh/.zshrc
     ~/.config/neofetch: neofetch 
     ~/.config/nvim: nvim
+    ~/.vim: vim
     ~/.config/ranger: ranger
     ~/.config/pistol: pistol
     ~/.config/bat: bat

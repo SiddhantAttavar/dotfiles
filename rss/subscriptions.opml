@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>Subscriptions</title>
+  </head>
+  <body>
+    <outline title="Webcomics" text="Webcomics">
+      <outline title="XKCD" text="XKCD" type="rss" xmlUrl="https://xkcd.com/rss.xml" htmlUrl="https://xkcd.com/"/>
+      <outline title="Questionable Content" text="Questionable Content" type="rss" xmlUrl="https://www.questionablecontent.net/QCRSS.xml" htmlUrl="http://www.questionablecontent.net"/>
+      <outline title="Oglaf" text="Oglaf" type="rss" xmlUrl="https://www.oglaf.com/feeds/rss/" htmlUrl="https://www.oglaf.com/latest/"/>
+    </outline>
+    <outline title="Tech" text="Tech">
+      <outline title="Random ASCII" text="Random ASCII" type="rss" xmlUrl="https://randomascii.wordpress.com/feed/" htmlUrl="https://randomascii.wordpress.com"/>
+      <outline title="Code Of Honor" text="Code Of Honor" type="rss" xmlUrl="https://www.codeofhonor.com/blog/feed" htmlUrl="https://www.codeofhonor.com/blog"/>
+      <outline title="Coding Horror" text="Coding Horror" type="rss" xmlUrl="https://blog.codinghorror.com/rss/" htmlUrl="https://blog.codinghorror.com/"/>
+      <outline title="System76" text="System76" type="rss" xmlUrl="https://blog.system76.com/rss" htmlUrl="https://blog.system76.com/rss.xml"/>
+    </outline>
+    <outline title="Nextcloud" text="Nextcloud" type="rss" xmlUrl="https://nextcloud.com/blog/feed" htmlUrl="https://nextcloud.com/"/>
+    <outline title="Youtube" text="Youtube" type="rss" xmlUrl="https://yewtu.be/feed/private?token=RHSiguSfBHaNsaM1wgdUWcUHlKEjq_6oAfAhGgtVzeA=" htmlUrl="https://yewtu.be/feed/subscriptions"/>
+    <outline title="Siddhant Attavar" text="Siddhant Attavar" type="rss" xmlUrl="https://siddhantattavar.com/feed.xml" htmlUrl=""/>
+    <outline title="Reddit" text="Reddit" type="rss" xmlUrl="https://old.reddit.com/.rss?feed=8bcb366769449d28b0fc5667b01e672d8b3b10ed&amp;user=PythonSupremacy61e61" htmlUrl="https://old.reddit.com/?feed=8bcb366769449d28b0fc5667b01e672d8b3b10ed&amp;user=PythonSupremacy61e61"/>
+    <outline title="Mastodon" text="Mastodon" type="rss" xmlUrl="https://mastodon.social/@SiddhantAttavar.rss" htmlUrl="https://mastodon.social/@SiddhantAttavar"/>
+  </body>
+</opml>
