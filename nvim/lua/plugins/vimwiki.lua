@@ -2,6 +2,7 @@ return {
 	-- Vimwiki
 	{
 		'vimwiki/vimwiki',
+		dependencies = { 'jamessan/vim-gnupg' },
 		cmd = { 'VimwikiIndex', 'VimwikiTabIndex', 'VimwikiUISelect', 'VimwikiDiaryIndex' },
 		keys = {
 			{ '<Leader>ww', ':VimwikiIndex<CR>' },
@@ -19,6 +20,8 @@ return {
 			}
 
 			vim.g.vimwiki_global_ext = 0
+
+			vim.cmd [[let g:GPGFilePattern = '*.\(gpg\|asc\|pgp\)\(.md\)\=']]
 		end
 	}
 }
