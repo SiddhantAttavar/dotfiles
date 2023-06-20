@@ -21,6 +21,7 @@ alias cls='clear'
 
 # file management alias
 alias rm='rm -ri'
+alias cp='cp -r'
 alias mv='mv -i'
 alias md='mkdir'
 if exists 'fdfind' ; then

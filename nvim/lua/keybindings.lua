@@ -26,6 +26,6 @@ if not (vim.g.vscode) then
 	-- Buffers
 	vim.api.nvim_set_keymap('n', 'J', ':bn<CR>', opts)
 	vim.api.nvim_set_keymap('n', 'K', ':bp<CR>', opts)
-	vim.api.nvim_set_keymap('n', '<C-w>', ':bd<CR>', opts)
+	vim.api.nvim_set_keymap('n', '<C-w>', ':bd %<CR>', opts)
 	vim.api.nvim_set_keymap('n', '<C-t>', ':enew<CR>', opts)
 end

@@ -1,19 +1,27 @@
 prepopulate-query-feeds yes
-
+# Nextcloud News settings
 urls-source "ocnews"
-ocnews-url "https://100.108.15.89:32768" # Domain of your Nextcloud
+ocnews-url `echo $NEXTCLOUD_URL` # Domain of your Nextcloud
 ocnews-login "admin" # Desired nextcloud user to log in as
-#ocnews-passwordeval "pass newsboat/nextcloud-news" # Nextcloud password (app password if using 2Fa)
-ocnews-password "4bXHG-pgJSW-48bWX-kppse-cc8cZ" # Nextcloud password (app password if using 2Fa)
+ocnews-passwordeval "pass newsboat/nextcloud-news" # Nextcloud password (app password if using 2Fa)
 ssl-verifyhost "no"
+ssl-verifypeer "no"
 ocnews-flag-star "s"
 
-goto-next-feed no
+# Theme
+color listnormal cyan default
+color listfocus black yellow standout bold
+color listnormal_unread blue default
+color listfocus_unread yellow default bold
+color info red black bold
+color article cyan default
 
+# General settings
+goto-next-feed no
+show-read-feeds no
 browser "xdg-open" # This will open the browser defined by xdg-settings
 
-# Below bindings apply vim like keybindings in most places
-
+# Vim keybindings
 bind-key h quit articlelist
 bind-key h quit article
 bind-key h quit tagselection
