@@ -5,7 +5,8 @@
 nvim/plugged/
 nvim/plugin/
 nvim/autoload/
-nvim/spell/
+nvim/spell/*
+!nvim/spell/en.utf-8.add
 vim/autoload/
 nvim/lazy-lock.json
 
@@ -31,6 +32,3 @@ browser/userscript/requires/*
 # cmus
 cmus/*
 !cmus/onedark.theme
-
-# dotbot files
-meta/plugins/dotbot-sudo/sudo.conf.json
