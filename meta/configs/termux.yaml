@@ -1,2 +1,4 @@
 - shell:
     - alias sudo=''
+- aptget:
+    - termux-api
