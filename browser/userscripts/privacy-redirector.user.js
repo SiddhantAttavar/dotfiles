@@ -159,8 +159,9 @@ let breezewikiInstances = [
 
 let invidiousInstances = [
   // "invidious.snopyta.org",
-  "yewtu.be",
-  // "vid.puffyan.us",
+  // "yewtu.be",
+  // "invidious.kavin.rocks",
+  "vid.puffyan.us",
 ];
 
 let pipedInstances = [
@@ -228,11 +229,11 @@ let scribeInstances = [
 ];
 
 let tedditInstances = [
-  "teddit.pussthecat.org",
+  // "teddit.pussthecat.org",
   // "teddit.ggc-project.de",
   // "teddit.domain.glass",
   // "teddit.zaggy.nl",
-  // "tedd.it",
+  "tedd.it",
   // "teddit.net",
   // "teddit.bus-hit.me",
 ];

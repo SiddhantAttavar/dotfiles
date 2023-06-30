@@ -32,7 +32,7 @@ fi
 alias gsync='git pull; git push'
 alias gs='git status'
 alias gd='git diff'
-alias ga='git add'
+alias ga='git add -A'
 alias gl='git log --graph --full-history --all --pretty'
 alias gca='git add -A; git commit -m'
 gcap() { git add -A; git commit -m "$1"; git push; }
@@ -52,13 +52,13 @@ alias bat='batcat'
 alias urldecode='sed "s@+@ @g;s@%@\\\\x@g" | xargs -0 printf "%b"'
 
 # vimwiki alias
-vimwiki () {
+w() {
     if [[ $# == 0 ]]
     then
         nvim +'VimwikiIndex'
-    elif [[ $1 == 'git' ]]
+    elif [[ $1 == 'g' ]]
     then
-        git -C ~/vimwiki/ ${@:2}
+        git -C ~/d/Others/vimwiki/ ${@:2}
     else
         echo 'Usage: vimwiki [git] [args ...]'
     fi
