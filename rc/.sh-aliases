@@ -9,6 +9,7 @@ alias g='git'
 alias s='sudo'
 alias a='sudo apt'
 alias v='vi'
+alias t='tldr'
 
 # some ls aliases
 alias ls='ls --color=auto --group-directories-first'
@@ -18,6 +19,9 @@ alias l='ls --group-directories-first'
 
 # clear screem alias
 alias cls='clear'
+
+# info alias
+alias info='info --vi-keys'
 
 # file management alias
 alias rm='rm -ri'

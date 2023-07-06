@@ -28,4 +28,8 @@ if not (vim.g.vscode) then
 	vim.api.nvim_set_keymap('n', 'K', ':bp<CR>', opts)
 	vim.api.nvim_set_keymap('n', '<C-w>', ':bd %<CR>', opts)
 	vim.api.nvim_set_keymap('n', '<C-t>', ':enew<CR>', opts)
+
+	-- Create empty line
+	vim.api.nvim_set_keymap('n', '`', 'o<esc>k', opts)
+	vim.api.nvim_set_keymap('n', '~', 'O<esc>j', opts)
 end
