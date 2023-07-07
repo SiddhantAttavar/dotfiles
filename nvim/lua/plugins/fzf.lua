@@ -13,6 +13,7 @@ return {
 			{ '<C-p>h', ':History<CR>' },
 			{ '<C-p>c', ':Commands<CR>' },
 			{ '<C-p>m', ':Marks<CR>' },
+			{ '<C-p>w', ':lua require("workspaces").fzf_open_workspaces()<CR>' }
 		}
 	}
 }
