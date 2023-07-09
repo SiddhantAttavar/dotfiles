@@ -16,7 +16,7 @@ alias ls='ls --color=auto --group-directories-first'
 alias ll='ls -Al --group-directories-first'
 alias la='ls -A --group-directories-first'
 alias l='ls --group-directories-first'
-w() { if [[ $# == 0 ]]; then nvim "+WorkspacesOpen notes"; elif [[ $1 == 'g' ]]; then git -C ~/.notes/ ${@:2}; fi}
+w() { if [[ $# == 0 ]]; then nvim "+WorkspacesOpen wiki"; elif [[ $1 == 'g' ]]; then git -C ~/.wiki/ ${@:2}; fi}
 
 # clear screem alias
 alias cls='clear'

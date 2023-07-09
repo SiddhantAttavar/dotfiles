@@ -28,6 +28,13 @@ return {
 	{
 		'jakewvincent/mkdnflow.nvim',
 		ft = text_fts,
-		config = true
+		config = true,
+		opts = {
+			links = {
+				transform_explicit = function(input)
+					return input:gsub('[ /]', '-'):lower()
+				end
+			}
+		}
 	}
 }
