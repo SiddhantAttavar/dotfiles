@@ -15,7 +15,10 @@ return {
 		build = ':call mkdp#util#install()',
 		ft = text_fts,
 		cmd = { 'MarkdownPreviewToggle' },
-		keys = { { '<Leader>m', ':MarkdownPreviewToggle<CR>' } }
+		keys = { { '<Leader>m', ':MarkdownPreviewToggle<CR>' } },
+		init = function()
+			vim.g.mkdp_auto_close = 0
+		end
 	},
 
 	-- Vim markdown
