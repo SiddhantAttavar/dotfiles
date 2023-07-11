@@ -29,7 +29,7 @@ return {
 				dashboard.button('i', '	> New file', ':ene <BAR> startinsert <CR>'),
 				dashboard.button('f', '󰈞	> Find file', ':Files<CR>'),
 				dashboard.button('r', '	> Recent', ':History<CR>'),
-				dashboard.button('w', '󰎞	> Open wiki', ':VimwikiIndex<CR>'),
+				dashboard.button('w', '󰎞	> Open wiki', ':WorkspacesOpen wiki<CR>'),
 				dashboard.button('s', '	> Settings', ':e $MYVIMRC<CR>'),
 				dashboard.button('q', '󰿅	> Quit NVIM', ':qa<CR>'),
 			}
