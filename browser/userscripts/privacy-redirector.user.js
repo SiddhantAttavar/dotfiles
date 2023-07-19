@@ -233,7 +233,8 @@ let tedditInstances = [
   // "teddit.ggc-project.de",
   // "teddit.domain.glass",
   // "teddit.zaggy.nl",
-  "tedd.it",
+  // "tedd.it",
+  "old.reddit.com",
   // "teddit.net",
   // "teddit.bus-hit.me",
 ];
@@ -730,7 +731,7 @@ switch (urlHostname) {
     break;
 
   case "www.reddit.com":
-  case "old.reddit.com":
+  // case "old.reddit.com":
     redirectReddit();
     break;
 

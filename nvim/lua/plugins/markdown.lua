@@ -37,6 +37,13 @@ return {
 				transform_explicit = function(input)
 					return input:gsub('[ /]', '-'):lower()
 				end
+			},
+			to_do = {
+				symbols = {
+					' ',
+					'x',
+					'-'
+				}
 			}
 		}
 	}

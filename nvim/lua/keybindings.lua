@@ -8,6 +8,8 @@ local opts = { noremap = true, silent = true }
 vim.api.nvim_set_keymap('n', 'Y', ':%y+<CR>', opts)
 vim.api.nvim_set_keymap('n', '<C-v>', '"+p', opts)
 vim.api.nvim_set_keymap('n', ';', ':', opts)
+vim.api.nvim_set_keymap('i', '<C-BS>', '<C-W>', opts)
+vim.api.nvim_set_keymap('i', '<C-H>', '<C-W>', opts)
 
 -- Highlighting
 vim.api.nvim_set_keymap('n', '<esc>', ':noh<CR><esc>', opts)
