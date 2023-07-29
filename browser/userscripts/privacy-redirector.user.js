@@ -66,7 +66,7 @@
 // @updateURL https://raw.githubusercontent.com/dybdeskarphet/privacy-redirector/main/privacy-redirector.js
 // @run-at document-start
 // @match *://*.fandom.com/*
-// @match *://*.google.com/*
+// @match *://google.com/*
 // @match *://*.imdb.com/*
 // @match *://*.imgur.com/*
 // @match *://*.instagram.com/*
