@@ -1,5 +1,6 @@
 -- Markdown plugins
 local text_fts = require('ft-groups').text_fts
+local file_exists = require('utils').file_exists
 return {
 	-- Markdowny
 	{
@@ -34,7 +35,27 @@ return {
 		config = true,
 		opts = {
 			links = {
+				transform_implicit = function(input)
+					local pwd_file = vim.fn.getcwd() .. '/' .. input
+					local sub_folder_file = vim.fn.expand('%:p:h') .. '/' .. input
+
+					-- Try to check the subfolder first
+					if file_exists(sub_folder_file) then
+						return sub_folder_file
+					end
+
+					-- Check the pwd next
+					if file_exists(pwd_file) then
+						return sub_folder_file
+					end
+
+					-- Create a file in the subfolder
+					return sub_folder_file
+				end,
 				transform_explicit = function(input)
+					if input == '' then
+						return os.date('%d-%m-%y')
+					end
 					return input:gsub('[ /]', '-'):lower()
 				end
 			},
