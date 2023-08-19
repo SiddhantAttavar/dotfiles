@@ -15,6 +15,8 @@
         fd-find:
         bat:
         pass:
+        neomutt:
+        gnupg:
     - shell:
         - curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile default --no-modify-path
 - shell:
@@ -39,10 +41,12 @@
     ~/.zshrc: zsh/.zshrc
     ~/.config/neofetch: neofetch 
     ~/.config/nvim: nvim
+    ~/.mutt: mutt
     ~/.vim: vim
     ~/.config/ranger: ranger
     ~/.config/pistol: pistol
     ~/.config/bat: bat
+    ~/.tmux.conf: tmux/.tmux.conf
     ~/.tmux.conf: tmux/.tmux.conf
 
 - ifaarch64:

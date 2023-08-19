@@ -10,6 +10,7 @@ alias s='sudo'
 alias a='sudo apt'
 alias v='vi'
 alias t='tldr'
+alias e='exit'
 
 # some ls aliases
 alias ls='ls --color=auto --group-directories-first'

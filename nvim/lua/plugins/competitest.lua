@@ -3,12 +3,12 @@ return {
 	{
 		'xeluxee/competitest.nvim',
 		dependencies = { 'MunifTanjim/nui.nvim' },
-		cmd = { 'CompetiTestAdd', 'CompetiTestRun', 'CompetiTestReceive' },
+		cmd = { 'CompetiTest' },
 		keys = {
-			{ '<Leader>ur', ':CompetiTestRun<CR>' },
-			{ '<Leader>uc', ':CompetiTestReceive contest<CR>' },
-			{ '<Leader>ut', ':CompetiTestReceive testcases<CR>' },
-			{ '<Leader>up', ':CompetiTestReceive problem<CR>' }
+			{ '<Leader>ur', ':CompetiTest run<CR>' },
+			{ '<Leader>uc', ':CompetiTest receive contest<CR>' },
+			{ '<Leader>ut', ':CompetiTest receive testcases<CR>' },
+			{ '<Leader>up', ':CompetiTest receive problem<CR>' }
 		},
 		config = true,
 		opts = {
@@ -24,6 +24,11 @@ return {
 			},
 			runner_ui = {
 				interface = 'split'
+			},
+			template_file = {
+				cpp = '~/d/Competitions/Competitive-Programming/Templates/Template.cpp',
+				py = '~/d/Competitions/Competitive-Programming/Templates/Template.py',
+				java = '~/d/Competitions/Competitive-Programming/Templates/Template.java'
 			}
 		}
 	}
