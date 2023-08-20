@@ -46,7 +46,7 @@ return {
 
 					-- Check the pwd next
 					if file_exists(pwd_file) then
-						return sub_folder_file
+						return pwd_file
 					end
 
 					-- Create a file in the subfolder
