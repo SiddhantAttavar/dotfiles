@@ -20,7 +20,8 @@ return {
 				}
 			},
 			run_command = {
-				cpp = { exec = './a.out' }
+				cpp = { exec = './a.out' },
+				py = { exec = 'python "$(FNAME)"' }
 			},
 			runner_ui = {
 				interface = 'split'

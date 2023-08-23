@@ -26,6 +26,9 @@ return {
 	{
 		'preservim/vim-markdown',
 		ft = text_fts,
+		init = function ()
+			vim.g.vim_markdown_math = 1
+		end
 	},
 
 	-- M.text_ftskdnflow
