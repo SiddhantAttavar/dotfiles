@@ -72,7 +72,6 @@
 // @match *://*.instagram.com/*
 // @match *://*.medium.com/*
 // @match *://*.quora.com/*
-// @match *://*.reddit.com/*
 // @match *://*.reuters.com/*
 // @match *://*.tiktok.com/*
 // @match *://*.twitter.com/*

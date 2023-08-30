@@ -6,6 +6,8 @@
 - sudo:
     - aptget:
         codium:
+        zathura:
+        qutebrowser:
 - shell:
     - rm ~/.dotfiles/meta/plugins/dotbot-sudo/sudo.conf.json
 
@@ -14,6 +16,7 @@
     ~/.xprofile: rc/.xprofile
     ~/.config/alacritty: alacritty
     ~/.config/VSCodium: vscodium
+    ~/.config/zathura: zathura
     ~/.xmodmap: x/.xmodmap
     ~/.local/share/applications/firefox-private.desktop: desktop/firefox-private.desktop
     ~/.config/qutebrowser: browser/qutebrowser

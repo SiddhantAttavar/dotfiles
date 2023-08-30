@@ -73,6 +73,7 @@ settings:
     http://www.apio2023.org: false
     https://app.quizrr.in: false
     https://codedrills.io: false
+    https://codeforces.com: true
     https://messages.google.com: false
     https://old.reddit.com: false
   content.pdfjs:
