@@ -35,3 +35,6 @@ set recolor                     "false"
 set recolor-keephue             "false"
 set recolor
 
+
+# Clipboard
+set selection-clipboard clipboard

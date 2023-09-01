@@ -99,8 +99,8 @@ return {
 			end
 
 			-- Setup lsp servers
-			for server_name, config in pairs(server_config) do
-				lspconfig[server_name].setup(config)
+			for _, server_name in pairs(require('mason-lspconfig').get_installed_servers()) do
+				lspconfig[server_name].setup(server_config[server_name])
 			end
 
 			-- lsp_signature setup

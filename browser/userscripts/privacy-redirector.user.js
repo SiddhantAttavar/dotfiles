@@ -83,6 +83,7 @@
 // @match *://medium.com/*
 // @match *://news.ycombinator.com/*
 // @match *://reddit.com/*
+// @match *://www.reddit.com/*
 // @match *://translate.google.com/*
 // @match *://twitter.com/*
 // @match *://www.goodreads.com/*
