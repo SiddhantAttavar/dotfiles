@@ -36,6 +36,7 @@ fi
 
 # git aliases
 alias gsync='git pull; git push'
+alias gp='git pull'
 alias gs='git status'
 alias gd='git diff'
 alias ga='git add -A'
