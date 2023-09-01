@@ -41,8 +41,10 @@ return {
 			require('mason').setup {}
 
 			local lsp_list = {}
-			for lsp, _ in pairs(server_config) do
-				table.insert(lsp_list, lsp)
+			if not vim.fn.exists('$TERMUX') then
+				for lsp, _ in pairs(server_config) do
+					table.insert(lsp_list, lsp)
+				end
 			end
 
 			-- setup LSPs

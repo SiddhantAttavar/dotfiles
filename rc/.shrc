@@ -54,6 +54,10 @@ export GPG_TTY=`tty`
 # FZF settings
 export FZF_DEFAULT_OPTS='--preview="pistol {}"'
 
+if exists 'termux-setup-storage'; then
+	export TERMUX=1
+fi
+
 if exists 'fdfind'; then
 	export FZF_DEFAULT_COMMAND='fdfind --hidden --follow .'
 
