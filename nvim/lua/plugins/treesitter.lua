@@ -3,7 +3,6 @@ return {
 	{
 		'nvim-treesitter/nvim-treesitter',
 		build = ':TSUpdate',
-		dependencies = { 'HiPhish/nvim-ts-rainbow2' },
 		ft = require('ft-groups').treesitter_fts,
 		cmd = { 'TSUpdate' },
 		config = function()
@@ -11,9 +10,6 @@ return {
 			require('nvim-treesitter.configs').setup {
 				ensure_installed = treesitter_fts,
 				highlight = {
-					enable = true
-				},
-				rainbow = {
 					enable = true
 				}
 			}
