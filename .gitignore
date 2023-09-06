@@ -25,6 +25,7 @@ termux/shell
 browser/qutebrowser/*
 !browser/qutebrowser/config.py
 !browser/qutebrowser/autoconfig.yml
+!browser/qutebrowser/quickmarks
 
 # Userscript dependencies
 browser/userscript/requires/*
