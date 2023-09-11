@@ -54,11 +54,11 @@ export GPG_TTY=`tty`
 # FZF settings
 export FZF_DEFAULT_OPTS='--preview="pistol {}"'
 
-if exists 'termux-setup-storage'; then
+if command -v 'termux-setup-storage' > /dev/null ; then
 	export TERMUX=1
 fi
 
-if exists 'fdfind'; then
+if command -v 'fdfind' > /dev/null ; then
 	export FZF_DEFAULT_COMMAND='fdfind --hidden --follow .'
 
 	_fzf_compgen_path() {
