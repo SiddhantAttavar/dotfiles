@@ -57,3 +57,6 @@ alias bat='batcat'
 
 # urldecode alias
 alias urldecode='sed "s@+@ @g;s@%@\\\\x@g" | xargs -0 printf "%b"'
+
+# cmus alias
+alias cm='cmus'
