@@ -51,9 +51,6 @@ export PATH=$JAVA_HOME/jre/bin:$PATH
 # Set GPG_TTY
 export GPG_TTY=`tty`
 
-# Set YTui Music directory
-export YTUI_MUSIC_DIR="$HOME/.config/ytui_music"
-
 # FZF settings
 export FZF_DEFAULT_OPTS='--preview="pistol {}"'
 
