@@ -33,3 +33,6 @@ browser/userscript/requires/*
 # cmus
 cmus/*
 !cmus/onedark.theme
+
+# ytui_music
+ytui_music/storage.db3

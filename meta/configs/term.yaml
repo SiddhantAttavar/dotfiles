@@ -41,7 +41,6 @@
     ~/.zshrc: zsh/.zshrc
     ~/.config/neofetch: neofetch 
     ~/.config/nvim: nvim
-    ~/.mutt: mutt
     ~/.vim: vim
     ~/.config/ranger: ranger
     ~/.config/pistol: pistol

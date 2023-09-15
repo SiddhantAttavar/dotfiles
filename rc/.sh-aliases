@@ -29,7 +29,8 @@ alias info='info --vi-keys'
 alias rm='rm -ri'
 alias cp='cp -r'
 alias mv='mv -i'
-alias md='mkdir'
+unalias md
+md() { mkdir -p "$1"; cd "$1"; }
 if exists 'fdfind' ; then
 	alias fd='fdfind'
 fi

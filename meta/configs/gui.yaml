@@ -22,6 +22,8 @@
     ~/.config/qutebrowser: browser/qutebrowser
     ~/.local/share/qutebrowser/greasemonkey: browser/userscripts
     ~/.local/share/pop-launcher: pop-launcher
+    ~/.mutt: mutt
+    ~/.config/ytui-music: ytui-music
 
 - shell:
     - codium --install-extension DivyanshuAgrawal.competitive-programming-helper

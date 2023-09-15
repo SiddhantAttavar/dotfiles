@@ -116,14 +116,14 @@ let reuters = [true, false];
 let tiktok = [true, false];
 let twitter = [true, false];
 let wikipedia = [false, false];
-let youtube = [false, false];
+let youtube = [true, false];
 
 //       REDIRECTON / FARSIDE / WARNING
 let instagram = [false, false, true];
 
 // PREFERRED FRONTEND
 let youtubeFrontend = "invidious"; // accepts "invidious", "piped"
-let youtubeMusicFrontend = "beatbump"; // accepts "beatbump", "invidious", "piped"
+let youtubeMusicFrontend = "invidious"; // accepts "beatbump", "invidious", "piped"
 let redditFrontend = "libreddit"; // accepts "libreddit", "teddit"
 let googleFrontend = "searxng"; // accepts "searx", "searxng"
 
