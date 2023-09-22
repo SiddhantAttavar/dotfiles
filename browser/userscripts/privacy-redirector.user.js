@@ -83,7 +83,7 @@
 // @match *://medium.com/*
 // @match *://news.ycombinator.com/*
 // @match *://reddit.com/*
-// @match *://www.reddit.com/*
+// @match *://www.reddit.com/*s
 // @match *://translate.google.com/*
 // @match *://twitter.com/*
 // @match *://www.goodreads.com/*
@@ -114,16 +114,16 @@ let quora = [false, false];
 let reddit = [true, false];
 let reuters = [true, false];
 let tiktok = [true, false];
-let twitter = [true, false];
+let twitter = [false, false];
 let wikipedia = [false, false];
-let youtube = [true, false];
+let youtube = [true, false, false];
 
 //       REDIRECTON / FARSIDE / WARNING
 let instagram = [false, false, true];
 
 // PREFERRED FRONTEND
 let youtubeFrontend = "invidious"; // accepts "invidious", "piped"
-let youtubeMusicFrontend = "invidious"; // accepts "beatbump", "invidious", "piped"
+let youtubeMusicFrontend = "beatbump"; // accepts "beatbump", "invidious", "piped"
 let redditFrontend = "libreddit"; // accepts "libreddit", "teddit"
 let googleFrontend = "searxng"; // accepts "searx", "searxng"
 
@@ -463,7 +463,7 @@ function redirectMedium() {
 }
 
 function redirectYoutubeMusic() {
-  if (youtube[0] == true) {
+  if (youtube[0] == true && youtube[2] == true) {
     window.stop();
 
     var beatbumpInstance =

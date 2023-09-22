@@ -47,7 +47,6 @@ vim.o.splitright = true
 vim.o.hidden = true
 vim.api.nvim_create_autocmd({ 'VimEnter' }, { command = 'set laststatus=3' })
 vim.o.signcolumn = 'yes'
-vim.o.colorcolumn = '100'
 
 -- Persistent undo
 vim.o.undofile = true
