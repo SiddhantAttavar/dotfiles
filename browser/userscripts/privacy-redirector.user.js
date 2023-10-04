@@ -78,12 +78,12 @@
 // @match *://*.wikipedia.org/*
 // @match *://*.youtube-nocookie.com/*
 // @match *://*.youtube.com/*
+// @match *://*.reddit.com/*
 // @match *://imgur.com/*
 // @match *://instagram.com/*
 // @match *://medium.com/*
 // @match *://news.ycombinator.com/*
 // @match *://reddit.com/*
-// @match *://www.reddit.com/*s
 // @match *://translate.google.com/*
 // @match *://twitter.com/*
 // @match *://www.goodreads.com/*
@@ -124,7 +124,7 @@ let instagram = [false, false, true];
 // PREFERRED FRONTEND
 let youtubeFrontend = "invidious"; // accepts "invidious", "piped"
 let youtubeMusicFrontend = "beatbump"; // accepts "beatbump", "invidious", "piped"
-let redditFrontend = "libreddit"; // accepts "libreddit", "teddit"
+let redditFrontend = "teddit"; // accepts "libreddit", "teddit"
 let googleFrontend = "searxng"; // accepts "searx", "searxng"
 
 // // // // // // // // // // // // //
