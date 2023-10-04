@@ -12,6 +12,7 @@ done
 PLAYLIST_FILE="$HOME/d/Others/Music/Playlists/Liked-Songs.pls"
 SONGS_DIR="$HOME/d/Others/Music/Songs"
 TMP_DIR="$HOME/d/Others/Music"
+CMUS_PL_DIR="$HOME/.config/cmus/playlists"
 
 PLS_LINES=$(cat "$PLAYLIST_FILE" | wc -l)
 PLS_ENTRIES=$((($PLS_LINES - 3) / 2))
@@ -41,12 +42,12 @@ if [ -n "$album" ]; then
 fi
 
 if [ -n "$artist" ]; then
-	YT_DLP_CLOSING_ARGS+=( "${YT_DLP_CLOSING_ARGS[@]}" --replace-in-metadata "album_artist" "\S.*" "$artist" )
+	YT_DLP_CLOSING_ARGS=( "${YT_DLP_CLOSING_ARGS[@]}" --replace-in-metadata "album_artist" "\S.*" "$artist" )
 	EXPLICIT_METADATA+="-metadata album_artist=\"$artist\" "
 fi
 
 if [ -n "$EXPLICIT_METADATA" ]; then
-	YT_DLP_ARGS+=( --ppa "$EXPLICIT_METADATA" )
+	YT_DLP_ARGS=( "${YT_DLP_ARGS[@]}" --ppa "$EXPLICIT_METADATA" )
 	YT_DLP_ARGS=( "${YT_DLP_ARGS[@]}" "${YT_DLP_CLOSING_ARGS[@]}" )
 fi
 
@@ -66,7 +67,11 @@ add_to_play_list() {
 	echo "File$PLS_ENTRIES=file://$SONGS_DIR/$SONG_FILE" >> "$PLAYLIST_FILE"
 	echo "Title$PLS_ENTRIES=$SONG_TITLE" >> "$PLAYLIST_FILE"
 
-	cmus-remote -C "add -p $SONGS_DIR/$SONG_FILE"
+	while IFS=',' read -ra ADDR; do
+		for pl in "${ADDR[@]}"; do
+			echo "$SONGS_DIR/$SONG_FILE" >> "$CMUS_PL_DIR/$pl"
+		done
+	done <<< "$playlists"
 }
 
 find "$TMP_DIR"/*.mp3 -maxdepth 1 -type f | while read file; do add_to_play_list "$file"; done
