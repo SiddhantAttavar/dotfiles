@@ -61,3 +61,6 @@ alias urldecode='sed "s@+@ @g;s@%@\\\\x@g" | xargs -0 printf "%b"'
 
 # cmus alias
 alias cm='cmus'
+
+# yt-dlp alias
+alias youtube-dl='yt-dlp'
