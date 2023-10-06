@@ -93,18 +93,18 @@ else
  						echo "###############################################################################"
  						echo "Converting $fileName with Lizzy"
 			    			echo "###############################################################################"
-						bash $lizzyroot/Transcode.sh $fileName -t pls >  $HOME/.config/cmus/temp.pls 2> $HOME/text.txt
+						bash $lizzyroot/Transcode.sh "$fileName" -t pls >  $HOME/.config/cmus/temp.pls 2> $HOME/text.txt
 						name=$(echo "$HOME/.config/cmus/temp.pls")
 					else
 						name=$(basename "$fileName")
 						fi			    				    	
-					grep $name -e "File" | awk -F "=" '{print $2}' |  sed 's/ /%20/g' | awk '{ gsub("file:///","/"); print $1 }'  > $HOME/.config/cmus/playlist.pl
+					grep "$name" -e "File" | awk -F "=" '{print $2}' |  sed 's/ /%20/g' | awk '{ gsub("file:///","/"); print $1 }'  > $HOME/.config/cmus/playlist.pl
 
 					# Decode url
-					fileBaseName=${fileName##*/}
-					fileBaseName=${fileBaseName%.*}
+					fileBaseName="${fileName##*/}"
+					fileBaseName="${fileBaseName%.*}"
 					echo $fileBaseName
-					sed "s@+@ @g;s@%@\\\\x@g" $HOME/.config/cmus/playlist.pl | xargs -0 printf "%b" > $HOME/.config/cmus/playlists/$fileBaseName
+					sed "s@+@ @g;s@%@\\\\x@g" $HOME/.config/cmus/playlist.pl | xargs -0 printf "%b" > "$HOME/.config/cmus/playlists/$fileBaseName"
 					rm $HOME/.config/cmus/playlist.pl
 				    fi
 				done

@@ -9,14 +9,17 @@ for ARGUMENT in "$@"; do
 	export "$KEY"="$VALUE"
 done
 
-PLAYLIST_FILE="$HOME/d/Others/Music/Playlists/Liked-Songs.pls"
+PLAYLIST_DIR="$HOME/d/Others/Music/Playlists"
 SONGS_DIR="$HOME/d/Others/Music/Songs"
 TMP_DIR="$HOME/d/Others/Music"
 CMUS_PL_DIR="$HOME/.config/cmus/playlists"
+if [[ $TERMUX == 1]]; then
+	PLAYLIST_DIR="$HOME/storage/music/Playlists"
+	SONGS_DIR="$HOME/storage/music/Songs"
+	TMP_DIR="$HOME/storage/music"
+	CMUS_PL_DIR="$HOME/.config/cmus/playlists"
+fi
 
-PLS_LINES=$(cat "$PLAYLIST_FILE" | wc -l)
-PLS_ENTRIES=$((($PLS_LINES - 3) / 2))
-OLD_PLS_ENTRIES=$PLS_ENTRIES
 
 # Yt-dlp arguments
 YT_DLP_ARGS=( \
@@ -64,17 +67,21 @@ add_to_play_list() {
 	mv "$TMP_DIR/$SONG_FILE" "$SONGS_DIR"
 
 	PLS_ENTRIES=$(($PLS_ENTRIES + 1))
-	echo "File$PLS_ENTRIES=file://$SONGS_DIR/$SONG_FILE" >> "$PLAYLIST_FILE"
-	echo "Title$PLS_ENTRIES=$SONG_TITLE" >> "$PLAYLIST_FILE"
 
 	while IFS=',' read -ra ADDR; do
 		for pl in "${ADDR[@]}"; do
+			PLAYLIST_FILE="$PLAYLIST_DIR/$pl.pls"
+			PLS_LINES=$(cat "$PLAYLIST_FILE" | wc -l)
+			PLS_ENTRIES=$((($PLS_LINES - 3) / 2))
+			OLD_PLS_ENTRIES=$PLS_ENTRIES
 			echo "$SONGS_DIR/$SONG_FILE" >> "$CMUS_PL_DIR/$pl"
+			echo "File$PLS_ENTRIES=file://$SONGS_DIR/$SONG_FILE" >> "$PLAYLIST_FILE"
+		echo "Title$PLS_ENTRIES=$SONG_TITLE" >> "$PLAYLIST_FILE"
+			sed "s/NumberOfEntries=$OLD_PLS_ENTRIES/NumberOfEntries=$PLS_ENTRIES/g" "$PLAYLIST_FILE" > "$TMP_DIR/Liked-Songs.pls"
+			mv -f "$TMP_DIR/Liked-Songs.pls" "$PLAYLIST_FILE"
 		done
 	done <<< "$playlists"
 }
 
 find "$TMP_DIR"/*.mp3 -maxdepth 1 -type f | while read file; do add_to_play_list "$file"; done
 
-sed "s/NumberOfEntries=$OLD_PLS_ENTRIES/NumberOfEntries=$PLS_ENTRIES/g" "$PLAYLIST_FILE" > "$TMP_DIR/Liked-Songs.pls"
-mv -f "$TMP_DIR/Liked-Songs.pls" "$PLAYLIST_FILE"
