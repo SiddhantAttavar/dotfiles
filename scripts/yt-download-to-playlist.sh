@@ -13,7 +13,8 @@ PLAYLIST_DIR="$HOME/d/Others/Music/Playlists"
 SONGS_DIR="$HOME/d/Others/Music/Songs"
 TMP_DIR="$HOME/d/Others/Music"
 CMUS_PL_DIR="$HOME/.config/cmus/playlists"
-if [[ $TERMUX == 1]]; then
+
+if [[ $TERMUX == 1 ]]; then
 	PLAYLIST_DIR="$HOME/storage/music/Playlists"
 	SONGS_DIR="$HOME/storage/music/Songs"
 	TMP_DIR="$HOME/storage/music"
@@ -58,7 +59,7 @@ yt-dlp "${YT_DLP_ARGS[@]}" "$url"
 
 add_to_play_list() {
 	SONG_FILE=$(basename "$1")
-	SONG_TITLE="${SONG_FILE%.*}"
+	SONG_TITLE="${SONG_FILE% \[*\].*}"
 
 	if [ "$SONG_TITLE" == "\*" ]; then
 		continue
@@ -74,6 +75,7 @@ add_to_play_list() {
 			PLS_LINES=$(cat "$PLAYLIST_FILE" | wc -l)
 			PLS_ENTRIES=$((($PLS_LINES - 3) / 2))
 			OLD_PLS_ENTRIES=$PLS_ENTRIES
+			PLS_ENTRIES=$(($PLS_ENTRIES + 1))
 			echo "$SONGS_DIR/$SONG_FILE" >> "$CMUS_PL_DIR/$pl"
 			echo "File$PLS_ENTRIES=file://$SONGS_DIR/$SONG_FILE" >> "$PLAYLIST_FILE"
 		echo "Title$PLS_ENTRIES=$SONG_TITLE" >> "$PLAYLIST_FILE"

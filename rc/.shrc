@@ -60,6 +60,8 @@ export YTUI_MUSICDIR=~/.config/ytui_music
 # Termux specific settings
 if command -v 'termux-setup-storage' > /dev/null ; then
 	export TERMUX=1
+else
+	export TERMUX=0
 fi
 
 if command -v 'fdfind' > /dev/null ; then
