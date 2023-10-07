@@ -55,7 +55,10 @@ export GPG_TTY=`tty`
 export FZF_DEFAULT_OPTS='--preview="pistol {}"'
 
 # YTUI_Music settings
-export YTUI_MUSICDIR=~/.config/ytui_music
+export YTUI_MUSICDIR="$HOME/.config/ytui_music"
+
+# YTfzf settings
+export YTFZF_SYSTEM_ADDON_DIR="$HOME/.config/ytfzf/addons"
 
 # Termux specific settings
 if command -v 'termux-setup-storage' > /dev/null ; then

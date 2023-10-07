@@ -116,7 +116,7 @@ let reuters = [true, false];
 let tiktok = [true, false];
 let twitter = [false, false];
 let wikipedia = [false, false];
-let youtube = [true, false, false];
+let youtube = [false, false, false];
 
 //       REDIRECTON / FARSIDE / WARNING
 let instagram = [false, false, true];

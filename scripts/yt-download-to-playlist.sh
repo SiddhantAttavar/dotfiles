@@ -9,10 +9,22 @@ for ARGUMENT in "$@"; do
 	export "$KEY"="$VALUE"
 done
 
+playlists="$playlists,Liked-Songs"
+if [[ -z "$url" ]]; then
+	url=$(ytfzf -c yt-music -I link | tail -n 1)
+fi
+
+# if [[ ! "$url" =~ "https:\/\/*" ]]; then
+# 	echo "$url"
+# 	echo "No valid url found. Exiting..."
+# 	exit
+# fi
+
 PLAYLIST_DIR="$HOME/d/Others/Music/Playlists"
 SONGS_DIR="$HOME/d/Others/Music/Songs"
 TMP_DIR="$HOME/d/Others/Music"
 CMUS_PL_DIR="$HOME/.config/cmus/playlists"
+CMUS_LIB_FILE="$HOME/.config/cmus/lib.pl"
 
 if [[ $TERMUX == 1 ]]; then
 	PLAYLIST_DIR="$HOME/storage/music/Playlists"
@@ -69,8 +81,14 @@ add_to_play_list() {
 
 	PLS_ENTRIES=$(($PLS_ENTRIES + 1))
 
+	echo "$SONGS_DIR/$SONG_FILE" >> "$CMUS_LIB_FILE"
+
 	while IFS=',' read -ra ADDR; do
 		for pl in "${ADDR[@]}"; do
+			if [[ -z "$pl" ]]; then
+				continue
+			fi
+
 			PLAYLIST_FILE="$PLAYLIST_DIR/$pl.pls"
 			PLS_LINES=$(cat "$PLAYLIST_FILE" | wc -l)
 			PLS_ENTRIES=$((($PLS_LINES - 3) / 2))
@@ -79,8 +97,8 @@ add_to_play_list() {
 			echo "$SONGS_DIR/$SONG_FILE" >> "$CMUS_PL_DIR/$pl"
 			echo "File$PLS_ENTRIES=file://$SONGS_DIR/$SONG_FILE" >> "$PLAYLIST_FILE"
 		echo "Title$PLS_ENTRIES=$SONG_TITLE" >> "$PLAYLIST_FILE"
-			sed "s/NumberOfEntries=$OLD_PLS_ENTRIES/NumberOfEntries=$PLS_ENTRIES/g" "$PLAYLIST_FILE" > "$TMP_DIR/Liked-Songs.pls"
-			mv -f "$TMP_DIR/Liked-Songs.pls" "$PLAYLIST_FILE"
+			sed "s/NumberOfEntries=$OLD_PLS_ENTRIES/NumberOfEntries=$PLS_ENTRIES/g" "$PLAYLIST_FILE" > "$TMP_DIR/$pl.pls"
+			mv -f "$TMP_DIR/$pl.pls" "$PLAYLIST_FILE"
 		done
 	done <<< "$playlists"
 }
