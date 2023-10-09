@@ -52,6 +52,8 @@ MapData/
 .directory
 d/Competition/SimAID/Case-Studies/
 .anvil-data/
+d/Programming/Unity/Editor
+d/Programming/libmuse
 
 # Android
 # Gradle files
