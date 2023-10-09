@@ -1,0 +1,1 @@
+/home/siddhantattavar/.config/cmus/cmus-cover-art/display.sh
