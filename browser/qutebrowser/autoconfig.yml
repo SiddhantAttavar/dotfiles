@@ -131,6 +131,8 @@ settings:
     global: 12
   session.lazy_restore:
     global: true
+  statusbar.show:
+    global: always
   tabs.last_close:
     global: close
   tabs.new_position.unrelated:
@@ -141,3 +143,5 @@ settings:
     global: https://zombiefox.github.io/nightTab/
   url.start_pages:
     global: https://zombiefox.github.io/nightTab/
+  window.hide_decoration:
+    global: true

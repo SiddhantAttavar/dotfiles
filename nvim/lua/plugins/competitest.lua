@@ -30,7 +30,8 @@ return {
 				cpp = '~/d/Competitions/Competitive-Programming/Templates/Template.cpp',
 				py = '~/d/Competitions/Competitive-Programming/Templates/Template.py',
 				java = '~/d/Competitions/Competitive-Programming/Templates/Template.java'
-			}
+			},
+			view_output_diff = true
 		}
 	}
 }

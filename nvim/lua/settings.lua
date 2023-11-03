@@ -78,3 +78,6 @@ vim.opt_global.dictionary = vim.fn.stdpath('config') .. '/spell/en.dict'
 -- Leader key
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+
+-- Autoread
+vim.g.autoread = true

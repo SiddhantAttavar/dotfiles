@@ -204,5 +204,8 @@
 	},
 	"cph.general.saveLocation": "/home/siddhantattavar/d/Competitions/Competitive-Programming/build",
 	"window.titleBarStyle": "custom",
-	"window.commandCenter": true
+	"window.commandCenter": true,
+	"extensions.experimental.affinity": {
+		"asvetliakov.vscode-neovim": 1
+	}
 }

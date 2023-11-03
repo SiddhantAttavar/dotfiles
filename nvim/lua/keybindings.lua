@@ -34,4 +34,7 @@ if not (vim.g.vscode) then
 	-- Create empty line
 	vim.api.nvim_set_keymap('n', '`', 'o<esc>k', opts)
 	vim.api.nvim_set_keymap('n', '~', 'O<esc>j', opts)
+
+	-- Competitive-Programming
+	vim.api.nvim_set_keymap('n', '<Leader>ux', ':!cp ~/d/Competitions/Competitive-Programming/Templates/Template.cpp %<CR>', opts)
 end

@@ -16,7 +16,7 @@ CompileFlags:
   - -Wfloat-equal
   - -Wno-unused-const-variable
   - -Wno-sign-conversion
-  - -std=c++17
+  # - -std=c++17
 
 Index:
   Background: Skip
