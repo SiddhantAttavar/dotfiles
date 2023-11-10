@@ -3,7 +3,7 @@
 
 -- General customization
 require('settings')
-if not (vim.g.vscode) then
+if not vim.g.vscode then
 	-- Neovim specific customization
 	require('plugins-load')
 	require('keybindings')

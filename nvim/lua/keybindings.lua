@@ -36,5 +36,5 @@ if not (vim.g.vscode) then
 	vim.api.nvim_set_keymap('n', '~', 'O<esc>j', opts)
 
 	-- Competitive-Programming
-	vim.api.nvim_set_keymap('n', '<Leader>ux', ':!cp ~/d/Competitions/Competitive-Programming/Templates/Template.cpp %<CR>', opts)
+	vim.api.nvim_set_keymap('n', '<Leader>ux', ':!cp ~/d/Competitions/Competitive-Programming/Templates/Template.cpp %<CR>l<CR>', opts)
 end
