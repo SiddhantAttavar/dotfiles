@@ -156,7 +156,6 @@
     "files.eol": "\n",
     "editor.insertSpaces": false,
 	"explorer.incrementalNaming": "smart",
-    "vim.useCtrlKeys": false,
 	"vscode-neovim.neovimExecutablePaths.win32": "C:\\Program Files\\Neovim\\bin\\nvim.exe",
     "security.workspace.trust.untrustedFiles": "open",
     "vim.enableNeovim": true,
@@ -205,5 +204,9 @@
 	"window.commandCenter": true,
 	"extensions.experimental.affinity": {
 		"asvetliakov.vscode-neovim": 1
-	}
+	},
+	"vscode-neovim.useCtrlKeysForInsertMode": false,
+	"vscode-neovim.useCtrlKeysForNormalMode": false,
+	"vim.useCtrlKeys": false,
+	"notebook.lineNumbers": "on"
 }

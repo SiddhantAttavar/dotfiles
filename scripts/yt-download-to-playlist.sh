@@ -14,12 +14,6 @@ if [[ -z "$url" ]]; then
 	url=$(ytfzf -c yt-music -I link | tail -n 1)
 fi
 
-# if [[ ! "$url" =~ "https:\/\/*" ]]; then
-# 	echo "$url"
-# 	echo "No valid url found. Exiting..."
-# 	exit
-# fi
-
 PLAYLIST_DIR="$HOME/d/Others/Music/Playlists"
 SONGS_DIR="$HOME/d/Others/Music/Songs"
 TMP_DIR="$HOME/d/Others/Music"

@@ -63,8 +63,10 @@ export YTFZF_SYSTEM_ADDON_DIR="$HOME/.config/ytfzf/addons"
 # Termux specific settings
 if command -v 'termux-setup-storage' > /dev/null ; then
 	export TERMUX=1
+	export MUSIC_DIR="$HOME/storage/shared/Music"
 else
 	export TERMUX=0
+	export MUSIC_DIR="$HOME/d/Others/Music"
 fi
 
 if command -v 'fdfind' > /dev/null ; then

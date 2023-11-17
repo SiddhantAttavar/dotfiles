@@ -19,3 +19,7 @@ res += '</body></opml>'
 
 with open(argv[2], 'w') as f:
 	f.write(res)
+
+with open(argv[3], 'w') as f:
+	ytfzf_res = [sub['url'] for sub in subcriptions]
+	f.write('\n'.join(ytfzf_res))
