@@ -18,10 +18,11 @@ return {
 					exec = 'g++',
 					args = { '-Wall', '$(FNAME)', '-o', 'a.out' }
 				}
+				-- py = { exec = 'python3', args = { '$(FNAME)' } }
 			},
 			run_command = {
 				cpp = { exec = './a.out' },
-				py = { exec = 'python "$(FNAME)"' }
+				python = { exec = 'python3', args = { '$(FNAME)' } }
 			},
 			runner_ui = {
 				interface = 'split'
