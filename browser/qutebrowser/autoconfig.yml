@@ -39,7 +39,7 @@ settings:
   colors.webpage.darkmode.enabled:
     global: true
   colors.webpage.darkmode.policy.images:
-    global: always
+    global: never
   colors.webpage.preferred_color_scheme:
     global: dark
   completion.favorite_paths:
