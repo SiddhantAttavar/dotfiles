@@ -1,5 +1,5 @@
 # dotfiles
-My personal configuration for Windows, Linux and Android
+My personal configuration for Windows, Linux and Android.
 
 ## Setup
 ### Windows
