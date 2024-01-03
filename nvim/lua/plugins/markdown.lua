@@ -39,6 +39,10 @@ return {
 		opts = {
 			links = {
 				transform_implicit = function(input)
+					if require('mkdnflow').paths.pathType(input) ~= 'file' then
+						return input
+					end
+
 					local pwd_file = vim.fn.getcwd() .. '/' .. input
 					local sub_folder_file = vim.fn.expand('%:p:h') .. '/' .. input
 
@@ -60,7 +64,9 @@ return {
 						return os.date('%d-%m-%y')
 					end
 					return input:gsub('[ /]', '-'):lower()
-				end
+				end,
+				name_is_source = true,
+				conceal = true
 			},
 			to_do = {
 				symbols = {
