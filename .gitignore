@@ -36,3 +36,7 @@ cmus/*
 
 # ytui_music
 ytui_music/storage.db3
+
+# spotify-tui
+spotify-tui
+spotify-tui/config.yml

@@ -208,5 +208,6 @@
 	"vscode-neovim.useCtrlKeysForInsertMode": false,
 	"vscode-neovim.useCtrlKeysForNormalMode": false,
 	"vim.useCtrlKeys": false,
-	"notebook.lineNumbers": "on"
+	"notebook.lineNumbers": "on",
+	"workbench.sideBar.location": "right"
 }
