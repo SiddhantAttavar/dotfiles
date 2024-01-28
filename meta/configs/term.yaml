@@ -30,7 +30,9 @@
 - cargo:
     - tealdeer
     - rm-improved
+    - spotify-tui
 - shell:
+    - cargp install spotifyd --locked
     - export PATH="$HOME/.cargo/bin:$PATH"
     - tldr --update
 
@@ -46,7 +48,7 @@
     ~/.config/pistol: pistol
     ~/.config/bat: bat
     ~/.tmux.conf: tmux/.tmux.conf
-    ~/.tmux.conf: tmux/.tmux.conf
+    ~/.config/spotify-tui: spotify-tui
 
 - ifaarch64:
     - shell:
