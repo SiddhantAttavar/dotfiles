@@ -1,3 +1,5 @@
+from os import environ
+
 # Satisfying the linter
 c = c
 config = config
@@ -9,20 +11,12 @@ from os import name as os_name
 # Colorscheme
 config.source('qutebrowser-themes/themes/onedark.py')
 
-# Change downloads directory if windows
-if os_name == 'nt':
-	c.downloads.location.directory = 'D:\\Downloads'
-	c.completion.favorite_paths = ['D:\\Downloads']
-else:
-	c.downloads.location.directory = '$HOME/d/Downloads'
-	c.completion.favorite_paths = ['$HOME/d/Downloads']
+# Set downloads directory
+assert 'DOWNLOADS_DIR' in environ
+c.downloads.location.directory = environ.get('DOWNLOADS_DIR', 'D:\\downloads')
 
 # Load autoconfig.yml
 config.load_autoconfig()
-
-# Change downloads directory if windows
-if os_name == 'nt':
-	c.downloads.location.directory = 'D:\\Downloads'
 
 # Keybindings
 config.bind('<z><l>', 'spawn --userscript password_fill --dmenu-invocation zenity')

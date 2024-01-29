@@ -1,28 +1,3 @@
-[submodule "dotbot"]
-	path = meta/dotbot
-	url = https://github.com/anishathalye/dotbot
-	ignore = dirty
-[submodule "dotbot-sudo"]
-	path = meta/plugins/dotbot-sudo
-	url = https://github.com/DrDynamic/dotbot-sudo.git
-[submodule "dotbot_plugin_aptget"]
-	path = meta/plugins/dotbot_plugin_aptget
-	url = https://github.com/dein0s/dotbot_plugin_aptget.git
-[submodule "dotbot-pip"]
-	path = meta/plugins/dotbot-pip
-	url = https://github.com/sobolevn/dotbot-pip.git
-[submodule "dotbot-rust"]
-	path = meta/plugins/dotbot-rust
-	url = https://github.com/alexcormier/dotbot-rust
-[submodule "dotbot-git"]
-	path = meta/plugins/dotbot-git
-	url = https://github.com/DrDynamic/dotbot-git.git
-[submodule "dotbot-include"]
-	path = meta/plugins/dotbot-include
-	url = https://gitlab.com/gnfzdz/dotbot-include.git
-[submodule "dotbot-ifarch"]
-	path = meta/plugins/dotbot-ifarch
-	url = https://github.com/ryansch/dotbot-ifarch.git
-[submodule "meta/plugins/dotbot-apt"]
-	path = meta/plugins/dotbot-apt
-	url = https://github.com/bryant1410/dotbot-apt
+[submodule "browser/qutebrowser/qutebrowser-themes"]
+	path = browser/qutebrowser/qutebrowser-themes
+	url = https://github.com/leandwo/qutebrowser-themes
