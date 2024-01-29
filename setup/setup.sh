@@ -36,6 +36,8 @@ wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.g
     | sudo dd of=/usr/share/keyrings/vscodium-archive-keyring.gpg
 echo 'deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] https://download.vscodium.com/debs vscodium main' \
     | sudo tee /etc/apt/sources.list.d/vscodium.list
+sudo add-apt-repository -y ppa:neovim-ppa/unstable
+sudo add-apt-repository -y ppa:aslatter/ppa
 
 # Install programs
 echo "Installing programs"
@@ -43,7 +45,6 @@ sudo apt update
 sudo apt upgrade -y
 sudo apt autoremove -y
 sudo apt install -y zsh
-sudo add-apt-repository -y ppa:neovim-ppa/unstable
 sudo apt install -y neovim
 sudo apt install -y tmux
 sudo apt install -y neofetch
@@ -56,6 +57,7 @@ sudo apt install -y neomutt
 sudo apt install -y gnupg
 sudo apt install -y zathura
 sudo apt install -y qutebrowser
+sudo apt install -y alacritty
 
 pip install ranger-fm
 
@@ -125,6 +127,9 @@ wget -O ~/.local/bin/pistol https://github.com/doronbehar/pistol/releases/latest
 # Install zsh plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+# Tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Source config files
 echo "Sourcing config files"

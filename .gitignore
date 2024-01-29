@@ -23,6 +23,7 @@ termux/shell
 
 # Qutebrowser
 browser/qutebrowser/*
+!browser/qutebrowser/qutebrowser-themes
 !browser/qutebrowser/config.py
 !browser/qutebrowser/autoconfig.yml
 !browser/qutebrowser/quickmarks
