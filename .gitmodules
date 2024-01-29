@@ -23,3 +23,6 @@
 [submodule "dotbot-ifarch"]
 	path = meta/plugins/dotbot-ifarch
 	url = https://github.com/ryansch/dotbot-ifarch.git
+[submodule "meta/plugins/dotbot-apt"]
+	path = meta/plugins/dotbot-apt
+	url = https://github.com/bryant1410/dotbot-apt
