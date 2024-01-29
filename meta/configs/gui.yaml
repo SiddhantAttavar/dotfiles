@@ -4,10 +4,10 @@
         create: true
 
 - sudo:
-    - aptget:
-        codium:
-        zathura:
-        qutebrowser:
+    - apt:
+        - codium
+        - zathura
+        - qutebrowser
 - shell:
     - rm ~/.dotfiles/meta/plugins/dotbot-sudo/sudo.conf.json
 

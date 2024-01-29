@@ -4,19 +4,20 @@
         create: true
 
 - sudo:
-    - aptget:
-        zsh:
-        neovim:
-            ppa_source: ppa:neovim-ppa/unstable
-            upgrade: true
-        tmux:
-        neofetch:
-        fzf:
-        fd-find:
-        bat:
-        pass:
-        neomutt:
-        gnupg:
+    - shell:
+        - add-apt-repository ppa:neovim-ppa/unstable
+        - apt update
+    - apt:
+        - zsh
+        - neovim
+        - tmux
+        - neofetch
+        - fzf
+        - fd-find
+        - bat
+        - pass
+        - neomutt
+        - gnupg
     - shell:
         - curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile default --no-modify-path
 - shell:
@@ -49,6 +50,7 @@
     ~/.config/bat: bat
     ~/.tmux.conf: tmux/.tmux.conf
     ~/.config/spotify-tui: spotify-tui
+    ~/.config/spotifyd: spotifyd
 
 - ifaarch64:
     - shell:
