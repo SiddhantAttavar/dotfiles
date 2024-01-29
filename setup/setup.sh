@@ -52,11 +52,21 @@ sudo apt install -y fzf
 sudo apt install -y fd-find
 sudo apt install -y bat
 sudo apt install -y pass
+sudo apt install -y neomutt
+sudo apt install -y gnupg
+sudo apt install -y zathura
+sudo apt install -y qutebrowser
 
 pip install ranger-fm
 
 cargo install tealdeer
 cargo install rm-improved
+cargo install spotify-tui
+cargo install spotifyd --locked
+
+# Update tldr cache
+export PATH="$HOME/.cargo/bin:$PATH"
+tldr --update
 
 # Install rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -77,6 +87,7 @@ createSymlink bash/.bashrc .bashrc
 createSymlink zsh/.zshrc .zshrc
 createSymlink neofetch .config/neofetch
 createSymlink nvim .config/nvim
+createSymlink vim .vim
 createSymlink vale/.vale.ini .vale.ini
 createSymlink ranger .config/ranger
 createSymlink alacritty .config/alacritty
@@ -90,6 +101,12 @@ createSymlink browser/qutebrowser .config/qutebrowser
 createSymlink browser/userscripts .local/share/qutebrowser/greasemonkey
 createSymlink git .config/git
 createSymlink tmux/.tmux.conf .tmux.conf
+createSymlink spotify-tui .config/spotify-tui
+createSymlink spotifyd .config/spotifyd
+createSymlink zathura .config/zathura
+createSymlink pop-launcher .local/share/pop-launcher
+createSymlink mutt .mutt
+createSymlink pulse .config/pulse
 
 # Install vscodium extensions
 codium --install-extension DivyanshuAgrawal.competitive-programming-helper
@@ -99,7 +116,9 @@ codium --install-extension cweijan.vscode-office
 codium --install-extension asvetliakov.vscode-neovim
 
 # Oh-my-zsh setup
+chsh -s $(which zsh)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+mv ~/.zshrc.pre-oh-my-zsh ~/.zshrc
 mkdir -p ~/.local/bin
 wget -O ~/.local/bin/pistol https://github.com/doronbehar/pistol/releases/latest/download/pistol
 

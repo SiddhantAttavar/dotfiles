@@ -33,7 +33,7 @@
     - rm-improved
     - spotify-tui
 - shell:
-    - cargp install spotifyd --locked
+    - cargo install spotifyd --locked
     - export PATH="$HOME/.cargo/bin:$PATH"
     - tldr --update
 
