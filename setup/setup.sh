@@ -38,10 +38,6 @@ echo 'deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] https:/
     | sudo tee /etc/apt/sources.list.d/vscodium.list
 sudo add-apt-repository -y ppa:neovim-ppa/unstable
 sudo add-apt-repository -y ppa:aslatter/ppa
-wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg
-cat signal-desktop-keyring.gpg | sudo tee /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
-echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main' |\
-  sudo tee /etc/apt/sources.list.d/signal-xenial.list
 
 # Install programs
 echo "Installing programs"
@@ -63,8 +59,8 @@ sudo apt install -y zathura
 sudo apt install -y qutebrowser
 sudo apt install -y alacritty
 sudo apt install -y htop
-sudo apt install -y signal-desktop
-sudo apt install -y signal-desktop
+sudo apt install -y libpam-fprintd
+sudo apt install -y python3-pip
 
 pip install ranger-fm
 
@@ -72,6 +68,7 @@ cargo install tealdeer
 cargo install rm-improved
 cargo install spotify-tui
 cargo install spotifyd --locked
+cargo install --git https://github.com/boxdot/gurk-rs gurk
 
 # Update tldr cache
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -141,3 +138,5 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # Source config files
 echo "Sourcing config files"
 source $HOME/.shrc
+
+fprint-enroll

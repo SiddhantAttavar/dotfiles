@@ -112,7 +112,7 @@ settings:
   fonts.contextmenu:
     global: default_size default_family
   fonts.default_family:
-    global: CaskaydiaCove Nerd Font
+    global: CaskaydiaCove Nerd Font Mono Regular
   fonts.default_size:
     global: 12pt
   fonts.web.family.cursive:

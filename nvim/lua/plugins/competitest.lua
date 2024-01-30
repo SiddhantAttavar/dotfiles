@@ -28,9 +28,9 @@ return {
 				interface = 'split'
 			},
 			template_file = {
-				cpp = '~/d/Competitions/Competitive-Programming/Templates/Template.cpp',
-				py = '~/d/Competitions/Competitive-Programming/Templates/Template.py',
-				java = '~/d/Competitions/Competitive-Programming/Templates/Template.java'
+				cpp = '~/competitions/Competitive-Programming/Templates/Template.cpp',
+				py = '~/competitions/Competitive-Programming/Templates/Template.py',
+				java = '~/competitions/Competitive-Programming/Templates/Template.java'
 			},
 			view_output_diff = true
 		}

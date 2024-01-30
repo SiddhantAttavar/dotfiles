@@ -1,7 +1,7 @@
 :root {
-	--tab-active-bg-color: #057;
-	--tab-inactive-bg-color: #333;
-	--tab-active-fg-fallback-color: #eee;		/* color of text in an active tab without a container */
+	--tab-active-bg-color: #3e4451;
+	--tab-inactive-bg-color: #282c34;
+	--tab-active-fg-fallback-color: #abb2bf;		/* color of text in an active tab without a container */
 	--tab-inactive-fg-fallback-color: #888;		/* color of text in an inactive tab without a container */
 	--urlbar-focused-bg-color: #41404c;
 	--urlbar-not-focused-bg-color: #1c1b22;
@@ -10,8 +10,8 @@
 	--urlbar-font: 'CaskaydiaCove Nerd Font';
 
 	/* try increasing if you encounter problems */
-	--urlbar-height-setting: 24px;
-	--tab-min-height: 16px !important;
+	--urlbar-height-setting: 20px;
+	--tab-min-height: 20px !important;
 
 	/* I don't recommend you touch this unless you know what you're doing */
 	--arrowpanel-menuitem-padding: 2px !important;
@@ -63,7 +63,7 @@ toolbar .toolbarbutton-1 { padding: 0 0 !important; }
 	padding-top: 0 !important;
 	padding-bottom: 0 !important;
 	font-family: var(--urlbar-font, 'monospace');
-	font-size: 11px;
+	font-size: 14px;
 }
 
 #urlbar {
@@ -138,7 +138,7 @@ toolbar .toolbarbutton-1 { padding: 0 0 !important; }
 
 #TabsToolbar, .tabbrowser-tab {
 	max-height: var(--tab-min-height) !important;
-	font-size: 11px !important;
+	font-size: 14px !important;
 }
 
 /* Change color of normal tabs */

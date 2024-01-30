@@ -175,7 +175,6 @@
 	"editor.detectIndentation": false,
 	"editor.multiCursorModifier": "ctrlCmd",
 	"terminal.integrated.enableMultiLinePasteWarning": false,
-	"workbench.colorTheme": "One Dark Modern Classic",
 	"settingsSync.ignoredSettings": [
 		"editor.fontFamily",
 		"cph.general.saveLocation",
@@ -209,5 +208,6 @@
 	"vscode-neovim.useCtrlKeysForNormalMode": false,
 	"vim.useCtrlKeys": false,
 	"notebook.lineNumbers": "on",
-	"workbench.sideBar.location": "right"
+	"workbench.sideBar.location": "right",
+	"workbench.colorTheme": "One Dark Modern Classic"
 }
