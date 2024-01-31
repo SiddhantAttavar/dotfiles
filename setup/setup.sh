@@ -38,6 +38,8 @@ echo 'deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] https:/
     | sudo tee /etc/apt/sources.list.d/vscodium.list
 sudo add-apt-repository -y ppa:neovim-ppa/unstable
 sudo add-apt-repository -y ppa:aslatter/ppa
+curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg | sudo gpg --yes --dearmor --output /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/cloudflare-client.list
 
 # Install programs
 echo "Installing programs"
@@ -61,6 +63,7 @@ sudo apt install -y alacritty
 sudo apt install -y htop
 sudo apt install -y libpam-fprintd
 sudo apt install -y python3-pip
+sudo apt install -y cloudflare-warp
 
 pip install ranger-fm
 

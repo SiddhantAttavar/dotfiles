@@ -4,11 +4,12 @@ return {
 		'nvim-treesitter/nvim-treesitter',
 		build = ':TSUpdate',
 		ft = require('ft-groups').treesitter_fts,
-		cmd = { 'TSUpdate' },
+		cmd = { 'TSUpdate', 'TSInstall', 'TSUninstall', 'TSBufEnable' },
 		config = function()
 			-- nvim-treesitter
+			print("debug")
 			require('nvim-treesitter.configs').setup {
-				ensure_installed = treesitter_fts,
+				ensure_installed = require('ft-groups').treesitter_fts,
 				highlight = {
 					enable = true
 				}

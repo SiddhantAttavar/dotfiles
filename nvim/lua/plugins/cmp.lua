@@ -191,5 +191,14 @@ return {
 				cmp_autopairs.on_confirm_done()
 			)
 		end
+	},
+
+	-- cmp-dictionary
+	{
+		'uga-rosa/cmp-dictionary',
+		ft = require('ft-groups').text_fts,
+		opts = {
+			paths = { '/usr/share/dict/words' },
+		}
 	}
 }
