@@ -42,8 +42,8 @@ alias gs='git status'
 alias gd='git diff'
 alias ga='git add -A'
 alias gl='git log --graph --full-history --all --pretty'
-alias gca='git pull; git add -A; git commit -m'
-gcap() { git pull; git add -A; git commit -m "$1"; git push; }
+alias gca='git pull; git add -A; git commit -S -m'
+gcap() { git pull; git add -A; git commit -S -m "$1"; git push; }
 
 # apt aliases
 alias update='sudo apt update; sudo apt upgrade -y; sudo apt autoremove -y'
