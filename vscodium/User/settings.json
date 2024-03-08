@@ -151,7 +151,7 @@
         }
     },
 	"GitLive.Issue tracker integration": "Disabled",
-	"cph.general.defaultLanguageTemplateFileLocation": "/home/siddhantattavar/d/Competitions/Competitive-Programming/Templates/Template.cpp",
+	"cph.general.defaultLanguageTemplateFileLocation": "/home/sidat/competitions/Competitive-Programming/Templates/Template.cpp",
     "git.autofetch": true,
     "files.eol": "\n",
     "editor.insertSpaces": false,
@@ -163,7 +163,7 @@
     "vim.neovimPath": " C:\\Program Files\\Neovim\\bin\\nvim.exe",
     "vim.neovimUseConfigFile": true,
 	"editor.lineNumbers": "relative",
-	"editor.fontFamily": "CaskaydiaCove Nerd Font",
+	"editor.fontFamily": "Caskaydiacove Nerd Font Mono",
     "vscode-neovim.neovimInitVimPaths.linux": "~/.config/nvim/init.lua",
 	"vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
     "git.confirmSync": false,
@@ -198,7 +198,7 @@
 		"comments": true, // !!!
 		"strings": true   // !!!
 	},
-	"cph.general.saveLocation": "/home/siddhantattavar/d/Competitions/Competitive-Programming/build",
+	"cph.general.saveLocation": "/home/sidat/competitions/Competitive-Programming/build",
 	"window.titleBarStyle": "custom",
 	"window.commandCenter": true,
 	"extensions.experimental.affinity": {
@@ -209,5 +209,7 @@
 	"vim.useCtrlKeys": false,
 	"notebook.lineNumbers": "on",
 	"workbench.sideBar.location": "right",
-	"workbench.colorTheme": "One Dark Modern Classic"
+	"workbench.colorTheme": "One Dark Modern Classic",
+	"notebook.output.fontFamily": "Caskaydiacove Nerd Font Mono",
+	"editor.codeLensFontFamily": "Caskaydiacove Nerd Font Mono"
 }
