@@ -1,0 +1,19 @@
+#!/bin/python3
+import requests
+from os import environ
+
+url = "https://fw.bits-pilani.ac.in:8090/login.xml"
+headers = {
+    "Content-Type": "application/x-www-form-urlencoded",
+    "User-Agent": "Mozilla/5.0",
+}
+data = {
+    "mode": "191",
+    "username": environ['BITS_WIFI_USERNAME'],
+    "password": environ['BITS_WIFI_PASSWORD'],
+    "a": "1704879917472",
+    "producttype": "0",
+}
+# message = response.text.split("<message>")[1].split("</message>")[0]
+response = requests.post(url, headers=headers, data=data)
+print(response)
