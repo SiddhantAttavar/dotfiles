@@ -67,6 +67,8 @@ sudo apt install -y cloudflare-warp
 
 pip install ranger-fm
 
+# Install rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 cargo install tealdeer
 cargo install rm-improved
 cargo install spotify-tui
@@ -76,9 +78,6 @@ cargo install --git https://github.com/boxdot/gurk-rs gurk
 # Update tldr cache
 export PATH="$HOME/.cargo/bin:$PATH"
 tldr --update
-
-# Install rust
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # Create folders for conf files
 mkdir -p $HOME/.config

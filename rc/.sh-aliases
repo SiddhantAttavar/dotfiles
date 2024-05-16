@@ -26,7 +26,7 @@ alias cls='clear'
 alias info='info --vi-keys'
 
 # file management alias
-alias rm='rm -ri'
+alias rm='rip -ri'
 alias cp='cp -r'
 alias mv='mv -i'
 unalias md > /dev/null 2> /dev/null
