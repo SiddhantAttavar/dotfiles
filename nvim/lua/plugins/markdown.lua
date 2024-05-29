@@ -25,6 +25,7 @@ return {
 	-- Vim markdown
 	{
 		'preservim/vim-markdown',
+		dependencies = { 'godlygeek/tabular' },
 		ft = text_fts,
 		init = function ()
 			vim.g.vim_markdown_math = 1
