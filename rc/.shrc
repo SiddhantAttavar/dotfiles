@@ -60,6 +60,21 @@ export YTUI_MUSICDIR="$HOME/.config/ytui_music"
 # YTfzf settings
 export YTFZF_SYSTEM_ADDON_DIR="$HOME/.config/ytfzf/addons"
 
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/sidat/.miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/sidat/.miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/sidat/.miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/sidat/.miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
 # Termux specific settings
 if command -v 'termux-setup-storage' > /dev/null ; then
 	export TERMUX=1

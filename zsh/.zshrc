@@ -118,3 +118,4 @@ fi
 [ -f /data/data/com.termux/files/usr/share/fzf/completion.zsh ] && source /data/data/com.termux/files/usr/share/fzf/completion.zsh
 [ -f /data/data/com.termux/files/usr/share/fzf/key-bindings.zsh ] && source /data/data/com.termux/files/usr/share/fzf/key-bindings.zsh
 export FZF_BASE=$(which fzf)
+

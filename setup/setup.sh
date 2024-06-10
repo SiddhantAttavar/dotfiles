@@ -102,6 +102,7 @@ createSymlink alacritty .config/alacritty
 createSymlink vscodium .config/VSCodium
 createSymlink x/.xmodmap .xmodmap
 createSymlink desktop/firefox-private.desktop .local/share/applications/firefox-private.desktop
+createSymlink desktop/openvibe-desktop.desktop .local/share/applications/openvibe-desktop.desktop
 createSymlink scripts .scripts
 createSymlink pistol .config/pistol
 createSymlink bat .config/bat
