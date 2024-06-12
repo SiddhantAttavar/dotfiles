@@ -48,6 +48,9 @@ export PATH="$HOME/.gems/bin:$PATH"
 export JAVA_HOME=/usr/lib/jvm/java-18-openjdk-amd64
 export PATH=$JAVA_HOME/jre/bin:$PATH
 
+# Set TEX environment variables
+export TEXMFHOME="$HOME/.texmf"
+
 # Set GPG_TTY
 export GPG_TTY=`tty`
 
