@@ -3,7 +3,7 @@ Version=1.0
 Name=OpenViBE Designer
 Comment=Create and design OpenViBE circuits
 Keywords=OpenViBE;BCI;EEG
-Exec=openvibe-designer
+Exec=env GTK_THEME=elementary openvibe-designer
 Terminal=false
 X-MultipleArgs=false
 Type=Application

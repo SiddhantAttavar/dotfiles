@@ -20,7 +20,7 @@ local plugins = {
 	{ 'lukas-reineke/indent-blankline.nvim', main = 'ibl', lazy = false, config = true },
 	{ 'lewis6991/gitsigns.nvim', lazy = false, config = true },
 	{ 'numToStr/Comment.nvim', lazy = false, config = true },
-	{ 'folke/which-key.nvim', lazy = false, config = true }
+	{ 'folke/which-key.nvim', lazy = false, config = true },
 }
 
 
