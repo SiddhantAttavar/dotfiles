@@ -44,6 +44,11 @@ export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 export GEM_HOME="$HOME/.gems"
 export PATH="$HOME/.gems/bin:$PATH"
 
+# Add rbenv to home
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
 # Set Java Home
 export JAVA_HOME=/usr/lib/jvm/java-18-openjdk-amd64
 export PATH=$JAVA_HOME/jre/bin:$PATH
