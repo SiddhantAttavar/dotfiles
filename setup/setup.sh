@@ -103,6 +103,7 @@ createSymlink vscodium .config/VSCodium
 createSymlink x/.xmodmap .xmodmap
 createSymlink desktop/firefox-private.desktop .local/share/applications/firefox-private.desktop
 createSymlink desktop/openvibe-desktop.desktop .local/share/applications/openvibe-desktop.desktop
+createSymlink desktop/arduino.desktop .local/share/applications/arduino.desktop
 createSymlink scripts .scripts
 createSymlink pistol .config/pistol
 createSymlink bat .config/bat

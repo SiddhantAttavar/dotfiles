@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Arduino IDE
+Comment=Create, edit and run Arduino sketches
+Keywords=Arduino
+Exec=arduino-ide
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=arduino

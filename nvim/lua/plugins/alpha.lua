@@ -31,6 +31,7 @@ return {
 				dashboard.button('r', '	> Recent', ':History<CR>'),
 				dashboard.button('w', '󰎞	> Open wiki', ':WorkspacesOpen wiki<CR>'),
 				dashboard.button('s', '	> Settings', ':e $MYVIMRC<CR>'),
+				dashboard.button('c', '	> Competitive Programming', ':WorkspacesOpen Competitive-Programming<CR>'),
 				dashboard.button('q', '󰿅	> Quit NVIM', ':qa<CR>'),
 			}
 

@@ -119,3 +119,7 @@ fi
 [ -f /data/data/com.termux/files/usr/share/fzf/key-bindings.zsh ] && source /data/data/com.termux/files/usr/share/fzf/key-bindings.zsh
 export FZF_BASE=$(which fzf)
 
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
