@@ -71,7 +71,7 @@ pip install ranger-fm
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 cargo install tealdeer
 cargo install rm-improved
-cargo install spotify-tui
+cargo install spotify_player --features image lyric-finder
 cargo install spotifyd --locked
 cargo install --git https://github.com/boxdot/gurk-rs gurk
 
