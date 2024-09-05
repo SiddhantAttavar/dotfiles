@@ -24,6 +24,7 @@ if not (vim.g.vscode) then
 
 	-- Saving
 	vim.api.nvim_set_keymap('n', '<C-s>', ':wa<CR>', opts)
+	vim.api.nvim_set_keymap('n', 'qq', ':wa<CR>', opts)
 
 	-- Buffers
 	vim.api.nvim_set_keymap('n', 'J', ':bn<CR>', opts)
