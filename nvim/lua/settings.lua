@@ -68,7 +68,6 @@ vim.g.vim_markdown_conceal = 1
 -- Markdown
 vim.g.markdown_fenced_languages = {
 	'python',
-	'java',
 	'cpp'
 }
 

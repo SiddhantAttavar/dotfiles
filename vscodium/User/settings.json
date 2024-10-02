@@ -2,10 +2,11 @@
     "cph.general.defaultLanguage": "cpp",
 	"cph.general.retainWebviewContext": true,
     "workbench.editorAssociations": {
-        "*.png": "cweijan.officeViewer",
-        "*.ipynb": "jupyter-notebook",
-        "*.md": "default"
-    },
+		"*.png": "cweijan.officeViewer",
+		"*.ipynb": "jupyter-notebook",
+		"*.md": "default",
+		"{git,gitlens}:/**/*.{md,csv,svg}": "default"
+	},
     "explorer.confirmDragAndDrop": false,
     "files.autoSave": "afterDelay",
     "terminal.integrated.tabs.enabled": true,
@@ -211,5 +212,6 @@
 	"workbench.sideBar.location": "right",
 	"workbench.colorTheme": "One Dark Modern Classic",
 	"notebook.output.fontFamily": "Caskaydiacove Nerd Font Mono",
-	"editor.codeLensFontFamily": "Caskaydiacove Nerd Font Mono"
+	"editor.codeLensFontFamily": "Caskaydiacove Nerd Font Mono",
+	"jupyter.askForKernelRestart": false
 }

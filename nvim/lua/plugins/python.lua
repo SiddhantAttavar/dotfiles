@@ -44,6 +44,7 @@ return {
         keys = {
             { "<localleader>hc", ':lua require("quarto.runner").run_cell()<CR>' },
             { "<localleader>ha", ':lua require("quarto.runner").run_above()<CR>' },
+            { "<localleader>hb", ':lua require("quarto.runner").run_below()<CR>' },
             { "<localleader>hA", ':lua require("quarto.runner").run_all()<CR>' },
             { "<localleader>hl", ':lua require("quarto.runner").run_line()<CR>' },
             { "<localleader>hr",  ':lua require("quarto.runner").run_range()<CR>', mode = 'v' },
