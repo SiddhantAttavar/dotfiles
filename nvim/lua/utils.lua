@@ -9,5 +9,13 @@ return {
 		else
 			return false
 		end
+	end,
+	contains = function(array, value)
+		for i, r in ipairs(array) do
+			if r == value then
+				return true
+			end
+		end
+		return false
 	end
 }

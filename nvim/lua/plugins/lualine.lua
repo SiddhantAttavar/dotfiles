@@ -35,6 +35,22 @@ return {
 						path = 1
 					}
 				},
+				lualine_x = {
+					{
+						function()
+							if vim.fn.mode() == "v" or vim.fn.mode() == "V" or vim.fn.mode() == "" then
+								return vim.fn.wordcount().visual_words .. " words"
+							end
+							return vim.fn.wordcount().words .. " words"
+						end,
+						cond = function()
+							return require('utils').contains(require('ft-groups').text_fts, vim.bo.filetype)
+						end
+					},
+					'encoding',
+					'fileformat',
+					'filetype'
+				},
 				lualine_y = {
 					{
 						'diff',
