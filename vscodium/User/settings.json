@@ -5,7 +5,7 @@
 		"*.png": "cweijan.officeViewer",
 		"*.ipynb": "jupyter-notebook",
 		"*.md": "default",
-		"{git,gitlens}:/**/*.{md,csv,svg}": "default"
+		"{git,gitlens,git-graph}:/**/*.{md,csv,svg}": "default"
 	},
     "explorer.confirmDragAndDrop": false,
     "files.autoSave": "afterDelay",
