@@ -1,3 +1,7 @@
+# Mouse mappings
+map <Button9> navigate previous
+map <Button8> navigate next
+
 # Base16 OneDark
 # Author: Lalit Magant (http://github.com/tilal6991)
 
