@@ -1,7 +1,7 @@
 :root {
 	--tab-active-bg-color: #3e4451;
 	--tab-inactive-bg-color: #282c34;
-	--tab-active-fg-fallback-color: #abb2bf;		/* color of text in an active tab without a container */
+	--tab-active-fg-fallback-color: #abb2bf;	/* color of text in an active tab without a container */
 	--tab-inactive-fg-fallback-color: #888;		/* color of text in an inactive tab without a container */
 	--urlbar-focused-bg-color: #41404c;
 	--urlbar-not-focused-bg-color: #1c1b22;
@@ -29,10 +29,13 @@
 /* Bottom left page loading status or url preview */
 #statuspanel { display: none !important; }
 
-/* Hide dropdown that appears when you type in search bar */
-.autocomplete-history-popup, panel[type=autocomplete-richlistbox], panel[type=autocomplete] {
-	display: none !important;
-}
+/* remove radius from right-click popup */
+menupopup, panel { --panel-border-radius: 0px !important; }
+menu, menuitem, menucaption { border-radius: 0px !important; }
+
+/* no stupid large buttons in right-click menu */
+menupopup > #context-navigation { display: none !important; }
+menupopup > #context-sep-navigation { display: none !important; }
 
 /* --- DEBLOAT NAVBAR ----------------------------------- */
 
@@ -45,11 +48,17 @@
 #fxa-toolbar-menu-button { display: none; }
 /* empty space before and after the url bar */
 #customizableui-special-spring1, #customizableui-special-spring2 { display: none; }
+.private-browsing-indicator-with-label { display: none; }
 
 /* --- STYLE NAVBAR ------------------------------------ */
 
 /* remove padding between toolbar buttons */
 toolbar .toolbarbutton-1 { padding: 0 0 !important; }
+
+/* add it back to the downloads button, otherwise it's too close to the urlbar */
+#downloads-button {
+	margin-left: 2px !important;
+}
 
 /* add padding to the right of the last button so that it doesn't touch the edge of the window */
 #PanelUI-menu-button {
@@ -83,10 +92,10 @@ toolbar .toolbarbutton-1 { padding: 0 0 !important; }
 }
 
 /* keep pop-up menus from overlapping with navbar */
-#widget-overflow { margin: 0 !important; }
-#appMenu-popup { margin: 0 !important; }
-#customizationui-widget-panel { margin: 0 !important; }
-#unified-extensions-panel { margin: 0 !important; }
+#widget-overflow { margin: 4px !important; }
+#customizationui-widget-panel { margin: 4px !important; }
+#unified-extensions-panel { margin-top: 4px !important; }
+#appMenu-popup { margin-top: 4px !important; }
 
 /* --- UNIFIED EXTENSIONS BUTTON ------------------------ */
 
@@ -103,13 +112,27 @@ toolbar .toolbarbutton-1 { padding: 0 0 !important; }
 	display: none !important;
 }
 
-/* reduce padding between the menu items */
-#unified-extensions-view > vbox > vbox > .unified-extensions-item { padding-block: 0px !important; }
-.unified-extensions-item-menu-button.subviewbutton { padding: 2px !important; }
-
 /* add 3px padding on the top and the bottom of the box */
 .panel-subview-body {
 	padding: 3px 0px !important;
+}
+
+#unified-extensions-view .toolbarbutton-icon {
+	padding: 0 !important;
+}
+
+.unified-extensions-item-contents {
+	line-height: 1 !important;
+	white-space: nowrap !important;
+}
+
+#unified-extensions-panel .unified-extensions-item {
+	margin-block: 0 !important;
+}
+
+.toolbar-menupopup :is(menu, menuitem), .subview-subheader, panelview
+.toolbarbutton-1, .subviewbutton, .widget-overflow-list .toolbarbutton-1 {
+	padding: 4px !important;
 }
 
 /* --- DEBLOAT URLBAR ----------------------------------- */
@@ -151,6 +174,17 @@ tab {
 	font-family: var(--tab-font, monospace);
 	font-weight: bold;
 	border: none !important;
+	padding-top: 0 !important;
+}
+
+.tab-content {
+	padding: 0 0 0 var(--tab-inline-padding);
+}
+
+.tab-background {
+	margin-block: 0 !important;
+	min-height: var(--tab-min-height);
+	outline-offset: 0 !important;
 }
 
 /* safari style tab width */
@@ -199,7 +233,7 @@ tab {
 /* remove dark space between pinned tab and first non-pinned tab */
 #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]) >
 #tabbrowser-arrowscrollbox >
-.tabbrowser-tab[first-visible-unpinned-tab] {
+.tabbrowser-tab:nth-child(1 of :not([pinned], [hidden])) {
 	margin-inline-start: 0px !important;
 }
 
@@ -209,6 +243,10 @@ tab {
 /* fix displaying of pinned tabs on overflow */
 #tabbrowser-tabs:not([secondarytext-unsupported]) .tab-label-container {
 	height: var(--tab-min-height) !important;
+}
+
+#tabbrowser-tabs {
+	min-height: var(--tab-min-height) !important;
 }
 
 /* remove overflow scroll buttons */
@@ -234,25 +272,33 @@ tab {
 
 /* --- AUTOHIDE NAVBAR ---------------------------------- */
 
-/* hide navbar unless focused */
-#nav-bar {
-	min-height: 0 !important;
-	max-height: 0 !important;
-	height: 0 !important;
-	--moz-transform: scaleY(0) !important;
-	transform: scaleY(0) !important;
+#nav-bar,
+#urlbar {
+	transform: translateY(calc(0px - var(--urlbar-height-setting)));
+	opacity: 0;
 }
 
-/* show on focus */
+#navigator-toolbox {
+	min-height: var(--tab-min-height) !important;
+	height: var(--tab-min-height) !important;
+}
+
+#navigator-toolbox:focus-within {
+	min-height: calc(var(--urlbar-height-setting) + var(--tab-min-height)) !important;
+	height: calc(var(--urlbar-height-setting) + var(--tab-min-height)) !important;
+	transform: translateY(calc(0px - var(--tab-min-height)));
+}
+
+#TabsToolbar {
+	transform: translateY(var(--tab-min-height));
+}
+
 #nav-bar:focus-within {
-	--moz-transform: scale(1) !important;
-	transform: scale(1) !important;
-	max-height: var(--urlbar-height-setting) !important;
-	height: var(--urlbar-height-setting) !important;
-	min-height: var(--urlbar-height-setting) !important;
+	transform: translateY(var(--tab-min-height));
+	opacity: 1;
 }
 
-#navigator-toolbox:focus-within > .browser-toolbar {
+#urlbar:focus-within {
 	transform: translateY(0);
 	opacity: 1;
 }
