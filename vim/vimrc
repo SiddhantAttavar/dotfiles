@@ -1,5 +1,4 @@
-" Import settings, plugins, themes etc from different files
-" source ./settings/file.vim
+" Import settings, plugins, themes etc from different files " source ./settings/file.vim
 
 " General customization
 runtime ./settings/settings.vim

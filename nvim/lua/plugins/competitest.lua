@@ -16,7 +16,7 @@ return {
 			compile_command = {
 				cpp = {
 					exec = 'g++',
-					args = { '-Wall', '$(FNAME)', '-o', 'a.out' }
+					args = { '-Wall', '-fsanitize=undefined', '$(FNAME)', '-o', 'a.out' }
 				}
 				-- py = { exec = 'python3', args = { '$(FNAME)' } }
 			},

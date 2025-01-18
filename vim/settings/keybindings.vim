@@ -15,8 +15,8 @@ nnoremap <C-s> :wa!<CR>
 " Tab navigation
 nnoremap <C-w> :w<CR> :bd<CR>
 nnoremap <C-t> :enew<CR>
-nnoremap <Tab> :w<CR> :bn<CR>
-nnoremap <S-Tab> :w<CR> :bp<CR>
+nnoremap <S-J> :w<CR> :bn<CR>
+nnoremap <S-K> :w<CR> :bp<CR>
 
 " Copy-pasting
 nnoremap <C-v> "+p

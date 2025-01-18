@@ -1,5 +1,5 @@
 {
-    "cph.general.defaultLanguage": "cpp",
+    "cph.general.defaultLanguage": "python",
 	"cph.general.retainWebviewContext": true,
     "workbench.editorAssociations": {
 		"*.png": "cweijan.officeViewer",
@@ -151,8 +151,7 @@
             "path": "C:\\Users\\attav\\AppData\\Local\\Programs\\Python\\Python39\\python.exe"
         }
     },
-	"GitLive.Issue tracker integration": "Disabled",
-	"cph.general.defaultLanguageTemplateFileLocation": "/home/sidat/competitions/Competitive-Programming/Templates/Template.cpp",
+    "GitLive.Issue tracker integration": "Disabled",
     "git.autofetch": true,
     "files.eol": "\n",
     "editor.insertSpaces": false,
@@ -172,8 +171,7 @@
 	"code-runner.ignoreSelection": true,
     "markdown-pdf.highlightStyle": "atom-one-dark.css",
     "terminal.external.windowsExec": "wsl.exe",
-    "workbench.layoutControl.type": "menu",
-	"editor.detectIndentation": false,
+	"workbench.layoutControl.type": "menu",
 	"editor.multiCursorModifier": "ctrlCmd",
 	"terminal.integrated.enableMultiLinePasteWarning": false,
 	"settingsSync.ignoredSettings": [

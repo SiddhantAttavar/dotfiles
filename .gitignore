@@ -2,6 +2,8 @@
 .luarc.json
 
 # Vim/Nvim plugin folders
+vim/plugged
+vim/autoload
 nvim/plugged/
 nvim/plugin/
 nvim/autoload/
