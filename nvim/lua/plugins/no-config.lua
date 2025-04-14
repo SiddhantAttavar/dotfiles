@@ -14,7 +14,6 @@ local plugins = {
 	{ 'tpope/vim-tbone', cmd = { 'Tmux', 'Tyank', 'Tput', 'Twrite', 'Tattach' } },
 	{ 'tpope/vim-fugitive', cmd = { 'Git', 'G' } },
 	{ 'tpope/vim-abolish', ft = text_fts },
-	{ 'tpope/vim-endwise', ft = text_fts },
 	{ 'kyazdani42/nvim-web-devicons', lazy = false },
 	{ 'windwp/nvim-autopairs', lazy = false, config = true },
 	{ 'lukas-reineke/indent-blankline.nvim', main = 'ibl', lazy = false, config = true },

@@ -9,9 +9,6 @@ vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.softtabstop = 0
 vim.o.expandtab = false
-vim.o.smartindent = true
-vim.o.autoindent = true
-vim.o.cindent = true
 
 -- Folding
 vim.o.foldlevelstart = 99
@@ -80,3 +77,7 @@ vim.g.maplocalleader = ' '
 
 -- Autoread
 vim.g.autoread = true
+
+vim.o.smartindent = true
+vim.o.autoindent = true
+vim.o.cindent = true

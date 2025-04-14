@@ -22,6 +22,9 @@ w() { if [[ $# == 0 ]]; then nvim "+WorkspacesOpen wiki"; elif [[ $1 == 'g' ]]; 
 # clear screem alias
 alias cls='clear'
 
+# competitive programming alias
+alias cc='pwd | xclip -sel clip; nvim "+WorkspacesOpen Competitive-Programming"'
+
 # info alias
 alias info='info --vi-keys'
 

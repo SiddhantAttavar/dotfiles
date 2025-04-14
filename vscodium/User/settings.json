@@ -154,7 +154,6 @@
     "GitLive.Issue tracker integration": "Disabled",
     "git.autofetch": true,
     "files.eol": "\n",
-    "editor.insertSpaces": false,
 	"explorer.incrementalNaming": "smart",
 	"vscode-neovim.neovimExecutablePaths.win32": "C:\\Program Files\\Neovim\\bin\\nvim.exe",
     "security.workspace.trust.untrustedFiles": "open",
