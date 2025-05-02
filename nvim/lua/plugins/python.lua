@@ -52,17 +52,6 @@ return {
         ft = { 'quarto', 'markdown' },
         config = true,
         opts = {
-            lspFeatures = {
-                languages = { 'python' },
-                chunks = 'all',
-                diagnostics = {
-                    enabled = true,
-                    triggers = { 'BufWritePost' }
-                },
-                completion = {
-                    enabled = true
-                }
-            },
             keymap = {
                 hover = 'H',
                 definition = 'gd',

@@ -2,11 +2,10 @@
     "cph.general.defaultLanguage": "python",
 	"cph.general.retainWebviewContext": true,
     "workbench.editorAssociations": {
-		"*.png": "cweijan.officeViewer",
-		"*.ipynb": "jupyter-notebook",
-		"*.md": "default",
-		"{git,gitlens,git-graph}:/**/*.{md,csv,svg}": "default"
-	},
+        "*.png": "cweijan.officeViewer",
+        "*.ipynb": "jupyter-notebook",
+        "*.md": "default"
+    },
     "explorer.confirmDragAndDrop": false,
     "files.autoSave": "afterDelay",
     "terminal.integrated.tabs.enabled": true,
