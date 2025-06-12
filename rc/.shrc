@@ -60,7 +60,7 @@ export TEXMFHOME="$HOME/.texmf"
 export GPG_TTY=`tty`
 
 # FZF settings
-export FZF_DEFAULT_OPTS='--preview="pistol {}"'
+export FZF_DEFAULT_OPTS='--preview="batcat {}"'
 
 # YTUI_Music settings
 export YTUI_MUSICDIR="$HOME/.config/ytui_music"

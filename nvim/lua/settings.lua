@@ -81,3 +81,10 @@ vim.g.autoread = true
 vim.o.smartindent = true
 vim.o.autoindent = true
 vim.o.cindent = true
+
+-- Custom filetypes
+vim.filetype.add({
+	pattern = {
+		[".*%.config"] = "config"
+	}
+})

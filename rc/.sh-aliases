@@ -14,9 +14,9 @@ alias e='exit'
 
 # some ls aliases
 alias ls='ls --color=auto --group-directories-first'
-alias ll='ls -Al --group-directories-first'
-alias la='ls -A --group-directories-first'
-alias l='ls --group-directories-first'
+alias ll='ls -Alh'
+alias la='ls -A'
+alias l='ls'
 w() { if [[ $# == 0 ]]; then nvim "+WorkspacesOpen wiki"; elif [[ $1 == 'g' ]]; then git -C ~/.wiki/ ${@:2}; fi}
 
 # clear screem alias

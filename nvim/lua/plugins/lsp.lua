@@ -26,6 +26,18 @@ local server_config = {
 				}
 			}
 		}
+	},
+	nextflow_ls = {
+		cmd = { 'java', '-jar', '/home/sidat/.local/bin/nextflow-language-server-all.jar' },
+		filetypes = { 'nextflow' },
+		root_markers = { 'nextflow.config', '.git' },
+		settings = {
+			nextflow = {
+				files = {
+					exclude = { '.git', '.nf-test', 'work' },
+				},
+			},
+		}
 	}
 }
 
@@ -69,7 +81,6 @@ return {
 				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 			end
 
-
 			-- Customize defaults
 			local lsp_default_config = lspconfig.util.default_config
 			lsp_default_config.capabilities = vim.tbl_deep_extend(
@@ -99,12 +110,12 @@ return {
 			end
 
 			-- Setup lsp servers
-			for _, server_name in pairs(require('mason-lspconfig').get_installed_servers()) do
-				lspconfig[server_name].setup(server_config[server_name])
+			for server_name, config in pairs(server_config) do
+				lspconfig[server_name].setup(config)
 			end
 
 			-- lsp_signature setup
-			-- require('lsp_signature').setup {}
+			require('lsp_signature').setup {}
 		end
 	}
 }
