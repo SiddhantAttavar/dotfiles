@@ -4,7 +4,9 @@ local server_config = {
 			pylsp = {
 				plugins = {
 					pycodestyle = {
-						enabled = false
+						enabled = false,
+						ignore = { "W191" },
+						maxLineLength = 100
 					}
 				}
 			}
@@ -49,21 +51,6 @@ return {
 		build = ':MasonUpdate',
 		cmd = { 'Mason', 'MasonUpdate', 'MasonInstall', 'MasonUninstall', 'MasonUninstallAll', 'MasonLog' },
 		ft = require('ft-groups').lsp_fts,
-		config = function()
-			require('mason').setup {}
-
-			local lsp_list = {}
-			if not vim.fn.exists('$TERMUX') then
-				for lsp, _ in pairs(server_config) do
-					table.insert(lsp_list, lsp)
-				end
-			end
-
-			-- setup LSPs
-			require('mason-lspconfig').setup {
-				ensure_installed = lsp_list
-			}
-		end
 	},
 
 	-- LSP config
