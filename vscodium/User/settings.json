@@ -1,5 +1,5 @@
 {
-    "cph.general.defaultLanguage": "python",
+    "cph.general.defaultLanguage": "cpp",
 	"cph.general.retainWebviewContext": true,
     "workbench.editorAssociations": {
         "*.png": "cweijan.officeViewer",
@@ -98,7 +98,6 @@
         "fortran_fixed-form": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
         "fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt"
     },
-    "cph.language.cpp.Args": "-std=c++17",
     "files.exclude": {
         "**/.classpath": true,
         "**/.project": true,
@@ -117,7 +116,6 @@
         "jupyter-notebook": "left"
 	},
     "workbench.editor.wrapTabs": true,
-    "editor.inlineSuggest.enabled": true,
     "github.copilot.enable": {
         "*": true,
         "yaml": false,
@@ -160,7 +158,6 @@
     "vim.neovimConfigPath": "C:\\Users\\attav\\AppData\\Local\\nvim\\init.vim",
     "vim.neovimPath": " C:\\Program Files\\Neovim\\bin\\nvim.exe",
     "vim.neovimUseConfigFile": true,
-	"editor.lineNumbers": "relative",
 	"editor.fontFamily": "Caskaydiacove Nerd Font Mono",
     "vscode-neovim.neovimInitVimPaths.linux": "~/.config/nvim/init.lua",
 	"vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
@@ -169,9 +166,8 @@
 	"code-runner.ignoreSelection": true,
     "markdown-pdf.highlightStyle": "atom-one-dark.css",
     "terminal.external.windowsExec": "wsl.exe",
-	"workbench.layoutControl.type": "menu",
-	"editor.multiCursorModifier": "ctrlCmd",
-	"terminal.integrated.enableMultiLinePasteWarning": false,
+    "workbench.layoutControl.type": "menu",
+	"terminal.integrated.enableMultiLinePasteWarning": "never",
 	"settingsSync.ignoredSettings": [
 		"editor.fontFamily",
 		"cph.general.saveLocation",
@@ -181,20 +177,14 @@
 	"vscode-neovim.neovimInitVimPaths.win32": "C:\\Users\\attav\\.config\\AppData\\Local\\nvim\\init.lua",
 	"workbench.enableExperiments": false,
 	"workbench.settings.enableNaturalLanguageSearch": false,
-	"security.workspace.trust.enabled": false,
-	"editor.fontSize": 18,
+    "security.workspace.trust.enabled": false,
 	"[markdown]": {
 		"editor.quickSuggestions": {
 			"comments": "on",
 			"strings": "on",
 			"other": "on"
 		}
-	},
-	"editor.quickSuggestions": {
-		"other": true,
-		"comments": true, // !!!
-		"strings": true   // !!!
-	},
+    },
 	"cph.general.saveLocation": "/home/sidat/competitions/Competitive-Programming/build",
 	"window.titleBarStyle": "custom",
 	"window.commandCenter": true,
@@ -204,10 +194,13 @@
 	"vscode-neovim.useCtrlKeysForInsertMode": false,
 	"vscode-neovim.useCtrlKeysForNormalMode": false,
 	"vim.useCtrlKeys": false,
-	"notebook.lineNumbers": "on",
-	"workbench.sideBar.location": "right",
+    "notebook.lineNumbers": "on",
 	"workbench.colorTheme": "One Dark Modern Classic",
 	"notebook.output.fontFamily": "Caskaydiacove Nerd Font Mono",
 	"editor.codeLensFontFamily": "Caskaydiacove Nerd Font Mono",
-	"jupyter.askForKernelRestart": false
+    "jupyter.askForKernelRestart": false,
+    "editor.fontSize": 18,
+    "C_Cpp.default.cppStandard": "c++23",
+    "C_Cpp.default.cStandard": "c23",
+    "C_Cpp.default.intelliSenseMode": "linux-gcc-x86"
 }

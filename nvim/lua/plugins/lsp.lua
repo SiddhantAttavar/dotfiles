@@ -51,6 +51,7 @@ return {
 		build = ':MasonUpdate',
 		cmd = { 'Mason', 'MasonUpdate', 'MasonInstall', 'MasonUninstall', 'MasonUninstallAll', 'MasonLog' },
 		ft = require('ft-groups').lsp_fts,
+		opts = {}
 	},
 
 	-- LSP config
@@ -76,7 +77,7 @@ return {
 				require('cmp_nvim_lsp').default_capabilities()
 			)
 
-			lsp_default_config.on_attach = function(client, bufnr)
+			global_on_attach = function(client, bufnr)
 				-- Mappings.
 				-- See `:help vim.lsp.*` for documentation on any of the below functions
 				local bufopts = { noremap = true, silent = true, buffer = bufnr }
@@ -98,7 +99,9 @@ return {
 
 			-- Setup lsp servers
 			for server_name, config in pairs(server_config) do
-				lspconfig[server_name].setup(config)
+				config.on_attach = global_on_attach
+				vim.lsp.config(server_name, config)
+				vim.lsp.enable(server_name)
 			end
 
 			-- lsp_signature setup
