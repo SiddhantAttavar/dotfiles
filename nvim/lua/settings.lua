@@ -88,3 +88,6 @@ vim.filetype.add({
 		[".*%.config"] = "config"
 	}
 })
+
+-- New line insertion after braces
+vim.opt.formatoptions:append('rocqlnj')

@@ -10,8 +10,14 @@ return {
 			require('nvim-treesitter.configs').setup {
 				ensure_installed = require('ft-groups').treesitter_fts,
 				highlight = {
+					enable = true,
+					disable = {
+						'help'
+					}
+				},
+				indent = {
 					enable = true
-				}
+				},
 			}
 
 			require('nvim-treesitter.install').compilers = { 'gcc' }

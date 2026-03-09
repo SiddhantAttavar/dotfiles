@@ -7,6 +7,7 @@ local cmp_sources = {
 	{
 		{ name = 'luasnip' },
 		{ name = 'buffer' },
+		{ name = 'copilot' }
 	}
 }
 
@@ -30,8 +31,9 @@ local ft_source_groups = {
 }
 
 local has_words_before = function()
-	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
+  if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then return false end
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_text(0, line-1, 0, line-1, col, {})[1]:match("^%s*$") == nil
 end
 
 -- Kind icons
@@ -61,6 +63,7 @@ local kind_icons = {
 	Event = "",
 	Operator = "󰆕",
 	TypeParameter = "󰅲",
+	Copilot = "",
 }
 
 -- Menu items
@@ -190,6 +193,18 @@ return {
 				'confirm_done',
 				cmp_autopairs.on_confirm_done()
 			)
+
+			-- Attach Lsp sources after LspAttach
+			vim.api.nvim_create_autocmd("LspAttach", {
+				callback = function()
+					require("cmp").setup.buffer({
+						sources = {
+							{ name = "nvim_lsp" },
+							{ name = "buffer" },
+						},
+					})
+				end,
+			})
 		end
 	},
 

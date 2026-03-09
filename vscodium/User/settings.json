@@ -202,5 +202,7 @@
     "editor.fontSize": 18,
     "C_Cpp.default.cppStandard": "c++23",
     "C_Cpp.default.cStandard": "c23",
-    "C_Cpp.default.intelliSenseMode": "linux-gcc-x86"
+    "C_Cpp.default.intelliSenseMode": "linux-gcc-x86",
+    "chat.disableAIFeatures": false,
+    "github.copilot.nextEditSuggestions.enabled": true
 }

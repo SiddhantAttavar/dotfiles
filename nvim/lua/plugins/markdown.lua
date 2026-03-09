@@ -38,43 +38,9 @@ return {
 		ft = text_fts,
 		config = true,
 		opts = {
-			links = {
-				transform_implicit = function(input)
-					if require('mkdnflow').paths.pathType(input) ~= 'file' then
-						return input
-					end
-
-					local pwd_file = vim.fn.getcwd() .. '/' .. input
-					local sub_folder_file = vim.fn.expand('%:p:h') .. '/' .. input
-
-					-- Try to check the subfolder first
-					if file_exists(sub_folder_file) then
-						return sub_folder_file
-					end
-
-					-- Check the pwd next
-					if file_exists(pwd_file) then
-						return pwd_file
-					end
-
-					-- Create a file in the subfolder
-					return sub_folder_file
-				end,
-				transform_explicit = function(input)
-					if input == '' then
-						return os.date('%d-%m-%y')
-					end
-					return input:gsub('[ /]', '-'):lower()
-				end,
-				name_is_source = true,
-				conceal = true
-			},
-			to_do = {
-				symbols = {
-					' ',
-					'x',
-					'-'
-				}
+			path_resolution = {
+				primary = 'current',
+				fallback = 'first'
 			}
 		}
 	},
