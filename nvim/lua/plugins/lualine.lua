@@ -72,7 +72,7 @@ return {
 						'buffers',
 						separator = { left = '', right = '' },
 						symbols = { alternate_file = '' }
-					},
+					}
 				},
 				lualine_c = {
 					{

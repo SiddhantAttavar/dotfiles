@@ -75,6 +75,9 @@ cargo install spotify_player --features image lyric-finder
 cargo install spotifyd --locked
 cargo install --git https://github.com/boxdot/gurk-rs gurk
 
+# Opencode
+npm i -g opencode-ai
+
 # Update tldr cache
 export PATH="$HOME/.cargo/bin:$PATH"
 tldr --update

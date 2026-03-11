@@ -42,3 +42,7 @@ set recolor
 
 # Clipboard
 set selection-clipboard clipboard
+
+# Default zoom
+set adjust-open "width"
+set zoom-center true

@@ -42,8 +42,17 @@ vim.o.fileformat = 'unix'
 -- Buffer management
 vim.o.splitright = true
 vim.o.hidden = true
-vim.api.nvim_create_autocmd({ 'VimEnter' }, { command = 'set laststatus=3' })
 vim.o.signcolumn = 'yes'
+vim.api.nvim_create_autocmd({ 'VimEnter' }, { command = 'set laststatus=3' })
+vim.api.nvim_create_autocmd("VimLeavePre", {
+	callback = function()
+		for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+			if vim.api.nvim_buf_is_valid(buf) and vim.api.nvim_buf_get_option(buf, 'buftype') == "terminal" then
+				vim.api.nvim_buf_delete(buf, { force = true })
+			end
+		end
+	end
+})
 
 -- Persistent undo
 vim.o.undofile = true
@@ -88,6 +97,3 @@ vim.filetype.add({
 		[".*%.config"] = "config"
 	}
 })
-
--- New line insertion after braces
-vim.opt.formatoptions:append('rocqlnj')

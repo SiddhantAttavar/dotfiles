@@ -5,39 +5,40 @@ vim.g.maplocalleader = ' '
 
 -- Copy-pasting
 local opts = { noremap = true, silent = true }
-vim.api.nvim_set_keymap('n', 'Y', ':%y+<CR>', opts)
-vim.api.nvim_set_keymap('n', '<C-v>', '"+p', opts)
-vim.api.nvim_set_keymap('n', ';', ':', opts)
-vim.api.nvim_set_keymap('i', '<C-BS>', '<C-W>', opts)
-vim.api.nvim_set_keymap('i', '<C-H>', '<C-W>', opts)
+vim.keymap.set('n', 'Y', '<CMD>%y+<CR>', opts)
+vim.keymap.set('n', '<C-v>', '"+p', opts)
+vim.keymap.set('n', ';', '<CMD>', opts)
+vim.keymap.set('i', '<C-BS>', '<C-W>', opts)
+vim.keymap.set('i', '<C-H>', '<C-W>', opts)
+
+-- Window mapping
+vim.keymap.set('n', '<Leader>h', '<C-w>h', opts)
+vim.keymap.set('n', '<Leader>j', '<C-w>j', opts)
+vim.keymap.set('n', '<Leader>k', '<C-w>k', opts)
+vim.keymap.set('n', '<Leader>l', '<C-w>l', opts)
+vim.keymap.set('n', '<C-q>', '<CMD>wa<CR>:qa<CR>', opts)
+
+-- Saving
+vim.keymap.set('n', '<C-s>', '<CMD>wa<CR>', opts)
+vim.keymap.set('n', 'qq', '<Nop>', opts)
+vim.keymap.set('n', 'qq', '<CMD>wa<CR>', opts)
+vim.keymap.set('n', 'Q', '<CMD>wa<CR>', opts)
+
+-- Buffers
+vim.keymap.set('n', 'J', '<CMD>bn<CR>', opts)
+vim.keymap.set('n', 'K', '<CMD>bp<CR>', opts)
+vim.keymap.set('n', '<C-w>', '<CMD>bd %<CR>', opts)
+vim.keymap.set('n', '<C-t>', '<CMD>enew<CR>', opts)
+
+-- Create empty line
+vim.keymap.set('n', '`', 'o<esc>k', opts)
+vim.keymap.set('n', '~', 'O<esc>j', opts)
 
 -- Highlighting
-vim.api.nvim_set_keymap('n', '<esc>', ':noh<CR><esc>', opts)
+vim.keymap.set('n', '<esc>', '<CMD>noh<CR><esc>', opts)
 
-if not (vim.g.vscode) then
-	-- Window mapping
-	vim.api.nvim_set_keymap('n', '<Leader>h', '<C-w>h', opts)
-	vim.api.nvim_set_keymap('n', '<Leader>j', '<C-w>j', opts)
-	vim.api.nvim_set_keymap('n', '<Leader>k', '<C-w>k', opts)
-	vim.api.nvim_set_keymap('n', '<Leader>l', '<C-w>l', opts)
-	vim.api.nvim_set_keymap('n', '<C-q>', ':wa<CR>:xa<CR>', opts)
+-- Terminal
+vim.keymap.set('t', '<esc><esc>', '<C-\\><C-n>', opts)
 
-	-- Saving
-	vim.api.nvim_set_keymap('n', '<C-s>', ':wa<CR>', opts)
-	vim.api.nvim_set_keymap('n', 'qq', '<Nop>', opts)
-	vim.api.nvim_set_keymap('n', 'qq', ':wa<CR>', opts)
-	vim.api.nvim_set_keymap('n', 'Q', ':wa<CR>', opts)
-
-	-- Buffers
-	vim.api.nvim_set_keymap('n', 'J', ':bn<CR>', opts)
-	vim.api.nvim_set_keymap('n', 'K', ':bp<CR>', opts)
-	vim.api.nvim_set_keymap('n', '<C-w>', ':bd %<CR>', opts)
-	vim.api.nvim_set_keymap('n', '<C-t>', ':enew<CR>', opts)
-
-	-- Create empty line
-	vim.api.nvim_set_keymap('n', '`', 'o<esc>k', opts)
-	vim.api.nvim_set_keymap('n', '~', 'O<esc>j', opts)
-
-	-- Competitive-Programming
-	vim.api.nvim_set_keymap('n', '<Leader>ux', ':!cp ~/competitions/Competitive-Programming/Templates/Template.cpp "%"<CR>l<CR>', opts)
-end
+-- Competitive-Programming
+vim.keymap.set('n', '<Leader>ux', '<CMD>!cp ~/competitions/Competitive-Programming/Templates/Template.cpp "%"<CR>l<CR>', opts)
