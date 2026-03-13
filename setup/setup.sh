@@ -121,6 +121,7 @@ createSymlink zathura .config/zathura
 createSymlink pop-launcher .local/share/pop-launcher
 createSymlink mutt .mutt
 createSymlink pulse .config/pulse
+createSymlink opencode/opencode.json .config/opencode/opencode.json
 
 # Install vscodium extensions
 codium --install-extension DivyanshuAgrawal.competitive-programming-helper

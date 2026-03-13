@@ -3,8 +3,7 @@ return {
 	{
 		'nvim-treesitter/nvim-treesitter',
 		build = ':TSUpdate',
-		ft = require('ft-groups').treesitter_fts,
-		cmd = { 'TSUpdate', 'TSInstall', 'TSUninstall', 'TSBufEnable' },
+		lazy = false,
 		config = function()
 			-- nvim-treesitter
 			require('nvim-treesitter.configs').setup {
@@ -17,7 +16,7 @@ return {
 				},
 				indent = {
 					enable = true
-				},
+				}
 			}
 
 			require('nvim-treesitter.install').compilers = { 'gcc' }

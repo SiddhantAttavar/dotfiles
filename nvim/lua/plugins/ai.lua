@@ -1,4 +1,5 @@
 return {
+	-- Opencode
 	{
 		"nickjvandyke/opencode.nvim",
 		cmd = { "OpenCode", "OpenCodeToggle" },
