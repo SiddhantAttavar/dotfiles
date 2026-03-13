@@ -1,0 +1,59 @@
+#!/bin/bash
+# Switch to a tmux session and optionally delete the current one
+# Usage: tmux-switch [--keep]
+# 
+# Options:
+#   --keep    Keep the current session instead of deleting it
+
+KEEP_SESSION=false
+
+# Parse arguments
+while [[ $# -gt 0 ]]; do
+	case $1 in
+		--keep)
+			KEEP_SESSION=true
+			shift
+			;;
+		*)
+			echo "Unknown option: $1"
+			echo "Usage: tmux-switch [--keep]"
+			exit 1
+			;;
+	esac
+done
+
+# Get the current session name
+CURRENT_SESSION=$(tmux display-message -p "#{session_name}" 2>/dev/null)
+
+# If not in a tmux session, exit with error
+if [[ -z "$CURRENT_SESSION" ]]; then
+	echo "Error: Not in a tmux session"
+	exit 1
+fi
+
+# Get all sessions
+SESSIONS=$(tmux list-sessions -F "#{session_name}" 2>/dev/null)
+
+# If no sessions available, exit
+if [[ -z "$SESSIONS" ]]; then
+	echo "Error: No tmux sessions available"
+	exit 1
+fi
+
+# Let user select with fzf
+SELECTED=$(echo "$SESSIONS" | fzf \
+	--preview 'tmux list-windows -t {} -F "Window: #{window_name}" && echo "" && tmux capture-pane -t {} -p -S -30' \
+	--preview-window "right:50%" \
+	--height 50%)
+
+# If user cancelled, exit
+if [[ -z "$SELECTED" ]]; then
+	exit 0
+fi
+
+# Delete the current session first if --keep was not provided
+if [[ "$KEEP_SESSION" == false ]] && [[ "$SELECTED" != "$CURRENT_SESSION" ]]; then
+	tmux switch-client -t "$SELECTED" \; kill-session -t "$CURRENT_SESSION"
+else
+	tmux switch-client -t "$SELECTED"
+fi

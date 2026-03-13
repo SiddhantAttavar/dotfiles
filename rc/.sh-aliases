@@ -68,3 +68,5 @@ alias cm='cmus'
 # yt-dlp alias
 alias youtube-dl='yt-dlp'
 
+# tmux fzf alias
+alias ts='tmux-switch'
