@@ -1,0 +1,5 @@
+#!/usr/bin/zsh
+LINK=$(curl -sL example.com | awk -F '"' '{print $4}') && curl $LINK
+KEY="${LINK#*\?}"
+DATA="magic=$KEY&username=$BITS_WIFI_USERNAME&password=$BITS_WIFI_PASSWORD"
+curl -d "$DATA" https://fw.bits-pilani.ac.in:8090
