@@ -70,3 +70,6 @@ alias youtube-dl='yt-dlp'
 
 # tmux fzf alias
 alias ts='tmux-switch'
+
+# nextcloud sync alias
+alias ncsync='nextcloudcmd -s -u "$NEXTCLOUD_USERNAME" -p "$NEXTCLOUD_PASSWORD" nextcloud/ https://gio.it.tab.digital/ > /dev/null 2>&1'

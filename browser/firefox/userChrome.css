@@ -137,7 +137,7 @@ toolbar .toolbarbutton-1 { padding: 0 0 !important; }
 
 /* --- DEBLOAT URLBAR ----------------------------------- */
 
-#identity-box { display: none; }
+/* #identity-box { display: none; } */
 #pageActionButton { display: none; }
 #pocket-button { display: none; }
 #urlbar-zoom-button { display: none; }
@@ -272,7 +272,7 @@ tab {
 
 /* --- AUTOHIDE NAVBAR ---------------------------------- */
 
-#nav-bar,
+/* #nav-bar,
 #urlbar {
 	transform: translateY(calc(0px - var(--urlbar-height-setting)));
 	opacity: 0;
@@ -301,4 +301,4 @@ tab {
 #urlbar:focus-within {
 	transform: translateY(0);
 	opacity: 1;
-}
+} */

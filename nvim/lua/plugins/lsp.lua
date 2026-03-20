@@ -60,8 +60,6 @@ return {
 		dependencies = { 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim', 'hrsh7th/cmp-nvim-lsp', 'ray-x/lsp_signature.nvim' },
 		lazy = false,
 		config = function()
-			local lspconfig = require('lspconfig')
-
 			-- Diagnostic display options
 			local signs = { Error = '✘', Warn = '▲', Hint = '⚑', Info = '»' }
 			for type, icon in pairs(signs) do
@@ -69,15 +67,7 @@ return {
 				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 			end
 
-			-- Customize defaults
-			local lsp_default_config = lspconfig.util.default_config
-			lsp_default_config.capabilities = vim.tbl_deep_extend(
-				'force',
-				lsp_default_config.capabilities,
-				require('cmp_nvim_lsp').default_capabilities()
-			)
-
-			global_on_attach = function(client, bufnr)
+			local global_on_attach = function(client, bufnr)
 				-- Mappings.
 				-- See `:help vim.lsp.*` for documentation on any of the below functions
 				local bufopts = { noremap = true, silent = true, buffer = bufnr }
@@ -98,8 +88,10 @@ return {
 			end
 
 			-- Setup lsp servers
+			local capabilities = require('cmp_nvim_lsp').default_capabilities()
 			for server_name, config in pairs(server_config) do
 				config.on_attach = global_on_attach
+				config.capabilities = capabilities
 				vim.lsp.config(server_name, config)
 				vim.lsp.enable(server_name)
 			end
