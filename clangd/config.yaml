@@ -1,5 +1,6 @@
 CompileFlags:
   Add:
+  - -I/home/sidat/.local/include/c++
   - -I/usr/include/c++/13
   - -I/usr/include/x86_64-linux-gnu/c++/13
   - -I/usr/include/c++/13/backward

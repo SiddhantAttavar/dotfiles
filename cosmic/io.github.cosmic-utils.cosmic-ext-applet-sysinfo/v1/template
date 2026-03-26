@@ -1,0 +1,1 @@
+CPU {cpu_usage} {cpu_temp} RAM {ram_usage} ↓{dl_speed}M/s ↑{ul_speed}M/s

@@ -122,6 +122,7 @@ createSymlink pop-launcher .local/share/pop-launcher
 createSymlink mutt .mutt
 createSymlink pulse .config/pulse
 createSymlink opencode/opencode.json .config/opencode/opencode.json
+createSymlink cosmic/io.github.cosmic-utils.cosmic-ext-applet-sysinfo .config/cosmic/io.github.cosmic-utils.cosmic-ext-applet-sysinfo
 
 # Install vscodium extensions
 codium --install-extension DivyanshuAgrawal.competitive-programming-helper

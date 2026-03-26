@@ -39,6 +39,7 @@ export PATH="$HOME/.dotfiles/scripts:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
+export PATH="$HOME/.config/emacs/bin:$PATH"
 
 # Set Gem Path for ruby
 export GEM_HOME="$HOME/.gems"

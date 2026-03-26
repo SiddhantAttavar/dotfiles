@@ -9,7 +9,10 @@
 			"ls *": "allow",
 			"file *": "allow",
 			"grep *": "allow",
-			"head *": "allow"
+			"head *": "allow",
+			"tail *": "allow",
+			"wc *" : "allow",
+			"find *": "allow"
 		}
 	}
 }
