@@ -12,7 +12,9 @@
 			"head *": "allow",
 			"tail *": "allow",
 			"wc *" : "allow",
-			"find *": "allow"
+			"find *": "allow",
+			"cat *": "allow",
+			"cp *": "allow"
 		}
 	}
 }
