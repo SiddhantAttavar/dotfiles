@@ -46,6 +46,3 @@ set selection-clipboard clipboard
 # Default zoom
 set adjust-open "width"
 set zoom-center true
-
-# Title bar
-set window-title-basename false

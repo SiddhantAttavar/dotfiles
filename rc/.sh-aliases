@@ -73,3 +73,7 @@ alias ts='tmux-switch'
 
 # nextcloud sync alias
 alias ncsync='nextcloudcmd -s -u "$NEXTCLOUD_USERNAME" -p "$NEXTCLOUD_PASSWORD" nextcloud/ https://gio.it.tab.digital/ > /dev/null 2>&1'
+
+# Zathura flatpak alias
+zathura() { flatpak run org.pwmt.zathura "$@" > /dev/null 2>&1 &! }
+compdef '_precommand' zathura
