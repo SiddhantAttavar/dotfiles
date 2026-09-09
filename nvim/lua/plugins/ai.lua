@@ -1,81 +1,129 @@
+-- Opaque routing label required by the OpenCode Go gateway on every request
+-- (anomalyco/opencode#47763); not a secret, any stable UUID works
+local OPENCODE_SESSION_ID = '6d6a2f1a-54af-4f00-a4f5-6a1f2b3c4d5e'
+
+-- Read an API key from opencode's credential store so minuet reuses the
+-- existing subscriptions instead of separate env vars
+local opencode_auth_keys = {}
+local function opencode_auth_key(provider)
+	if opencode_auth_keys[provider] then
+		return opencode_auth_keys[provider]
+	end
+	local ok, content = pcall(vim.fn.readfile, vim.fn.expand('~/.local/share/opencode/auth.json'))
+	if not ok then
+		return nil
+	end
+	local ok_json, auth = pcall(vim.json.decode, table.concat(content, '\n'))
+	if not ok_json or type(auth) ~= 'table' or type(auth[provider]) ~= 'table' then
+		return nil
+	end
+	opencode_auth_keys[provider] = auth[provider].key
+	return opencode_auth_keys[provider]
+end
+
 return {
 	-- Opencode
 	{
-		'nickjvandyke/opencode.nvim',
-		cmd = { 'OpenCode', 'OpenCodeToggle' },
+		'sudo-tee/opencode.nvim',
+		cmd = 'Opencode',
+		-- Snacks provides the pickers; its module config lives in snacks.lua
+		dependencies = { 'folke/snacks.nvim' },
 		keys = {
-			{ '<Leader>oc', '<ESC>:lua require("opencode").toggle()<CR>' },
-			{ '<Leader>os', '<ESC>:lua require("opencode").stop()<CR>', }
+			{ '<Leader>oc', function() require('opencode.api').toggle() end, desc = 'Opencode: toggle' },
+			{ '<Leader>os', function() require('opencode.api').cancel() end, desc = 'Opencode: cancel request' },
+			{ '<Leader>oa', function() require('opencode.api').switch_mode() end, desc = 'Opencode: switch agent mode' },
 		},
-		config = function()
-			-- Configure to reuse the same server across sessions
-			vim.g.opencode_opts = {
-				server = {
-					start = function()
-						require('opencode.terminal').start('opencode --port')
-					end,
-					stop = function()
-						require('opencode.terminal').stop()
-					end,
-					toggle = function()
-						require('opencode.terminal').toggle('opencode --port')
-					end,
+		opts = {
+			keymap = {
+				editor = {
+					['<leader>oc'] = { 'toggle' },
+					['<leader>os'] = { 'cancel' },
+					['<leader>oa'] = { 'switch_mode' },
+					['<leader>ot'] = false,
 				},
-				events = {
-					enabled = true,
-					reload = true,
-				},
-			}
+			},
+			preferred_picker = 'snacks'
+		},
+		config = function(_, opts)
+			require('opencode').setup(opts)
 
-			-- Make OpenCode buffer unlisted so it doesn't show in lualine
-			vim.api.nvim_create_autocmd('TermOpen', {
-				pattern = 'term://*opencode*',
-				callback = function(event)
-					vim.api.nvim_buf_set_option(event.buf, 'buflisted', false)
-				end,
-			})
-
-			-- Auto-select last session when server connects
-			vim.api.nvim_create_autocmd('User', {
-				pattern = 'OpencodeEvent:server.connected',
-				callback = function()
-					require('opencode').command('session.last')
-				end,
-			})
-
-			-- Stop OpenCode when exiting vim
+			-- Close the Opencode UI before nvim exits so no Opencode
+			-- windows linger into the shutdown sequence
 			vim.api.nvim_create_autocmd('VimLeavePre', {
-				callback = require('opencode').stop
+				group = vim.api.nvim_create_augroup('OpencodeShutdown', { clear = true }),
+				desc = 'Close Opencode UI before exiting',
+				callback = function()
+					require('opencode.api').close()
+				end
 			})
-		end,
+		end
 	},
 
-	-- Github copilot
+	-- Minuet AI: inline completions (ghost text) via OpenCode Go
 	{
-		'zbirenbaum/copilot.lua',
-		dependencies = { 'copilotlsp-nvim/copilot-lsp' },
+		'milanglacier/minuet-ai.nvim',
+		-- Load lazily: only on <Leader>ot / <Leader>oe / :Minuet. Enabling
+		-- completions turns on the current buffer; buffers opened afterwards
+		-- get auto-trigger via minuet's FileType autocmd
+		cmd = 'Minuet',
 		keys = {
-			{ '<Leader>oe', '<ESC>:Copilot enable<CR>' },
-			{ '<Leader>ot', '<ESC>:Copilot suggestions toggle_auto_trigger<CR>' }
+			{ '<Leader>ot', '<cmd>Minuet virtualtext toggle<CR>', desc = 'Minuet: toggle completions' },
+			{ '<Leader>oe', '<cmd>Minuet virtualtext enable<CR>', desc = 'Minuet: enable completions' },
 		},
-		cmd = { 'Copilot' },
-		config = true,
 		opts = {
-			suggestions = {
-				enabled = true,
-				auto_trigger = true,
+			provider = 'openai_compatible',
+			request_timeout = 2.5,
+			throttle = 1500,
+			debounce = 600,
+			virtualtext = {
+				auto_trigger_ft = { '*' },
+				auto_trigger_ignore_ft = { 'opencode', 'opencode_output', 'TelescopePrompt', 'gitcommit', 'help', 'qf' },
 				keymap = {
-					accept = '<Tab>',
-					prev = '<Leader>sp',
+					-- <Tab> accept is wired into the nvim-cmp handler in cmp.lua
 					next = '<Leader>sn',
-					dismiss = '<Leader>sd'
+					prev = '<Leader>sp',
+					dismiss = '<Leader>sd',
+					accept_line = '<A-a>'
 				}
 			},
-			nes = {
-				enabled = true,
-				keymap = {
-					accept_and_goto = '<Leader>sa',
-					dismiss = '<ESC>'
+			provider_options = {
+				openai_compatible = {
+					api_key = function() return opencode_auth_key('opencode-go') end,
+					end_point = 'https://opencode.ai/zen/go/v1/chat/completions',
+					model = 'qwen3.8-flash',
+					name = 'Opencode',
+					optional = {
+						max_tokens = 128,
+						top_p = 0.9,
+						reasoning_effort = 'none'
+					},
+					-- The Go gateway requires a session routing header
+					-- (anomalyco/opencode#47763)
+					transform = {
+						function(data)
+							data.headers['x-opencode-session'] = OPENCODE_SESSION_ID
+							return data
+						end
+					}
+				}
+			},
+			presets = {
+				openrouter = {
+					provider = 'openai_compatible',
+					provider_options = {
+						openai_compatible = {
+							api_key = function() return opencode_auth_key('openrouter') end,
+							end_point = 'https://openrouter.ai/api/v1/chat/completions',
+							model = 'deepseek/deepseek-v4-flash',
+							name = 'Openrouter',
+							optional = {
+								max_tokens = 128,
+								top_p = 0.9,
+								reasoning = { effort = 'none' },
+								provider = { sort = 'throughput' }
+							}
+						}
+					}
 				}
 			}
 		}

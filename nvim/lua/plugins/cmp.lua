@@ -99,7 +99,10 @@ return {
 				},
 				mapping = cmp.mapping.preset.insert({
 					['<Tab>'] = cmp.mapping(function(fallback)
-						if cmp.visible() then
+						local ok, vt = pcall(require, 'minuet.virtualtext')
+						if ok and vt.action.is_visible() then
+							vt.action.accept()
+						elseif cmp.visible() then
 							cmp.select_next_item()
 						elseif luasnip.expand_or_locally_jumpable() then
 							luasnip.expand_or_jump()

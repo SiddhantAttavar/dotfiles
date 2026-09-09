@@ -43,6 +43,9 @@ vim.o.fileformat = 'unix'
 vim.o.splitright = true
 vim.o.hidden = true
 vim.o.signcolumn = 'yes'
+-- Don't persist empty unnamed windows (e.g. opencode.nvim's scratch UI
+-- windows) into session files; they restore as dead empty buffers
+vim.opt.sessionoptions:remove('blank')
 vim.api.nvim_create_autocmd({ 'VimEnter' }, { command = 'set laststatus=3' })
 vim.api.nvim_create_autocmd("VimLeavePre", {
 	callback = function()

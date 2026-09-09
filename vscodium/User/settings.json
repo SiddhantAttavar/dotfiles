@@ -117,11 +117,12 @@
 	},
     "workbench.editor.wrapTabs": true,
     "github.copilot.enable": {
-        "*": true,
-        "yaml": false,
+        "*": false,
         "plaintext": true,
-        "markdown": true
-	},
+        "markdown": true,
+        "scminput": false,
+        "yaml": false
+    },
     "browser-preview.chromeExecutable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
     "terminal.integrated.defaultProfile.windows": "PowerShell",
     "terminal.integrated.profiles.windows": {
@@ -203,6 +204,5 @@
     "C_Cpp.default.cppStandard": "c++23",
     "C_Cpp.default.cStandard": "c23",
     "C_Cpp.default.intelliSenseMode": "linux-gcc-x86",
-    "chat.disableAIFeatures": false,
     "github.copilot.nextEditSuggestions.enabled": true
 }
