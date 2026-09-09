@@ -2,6 +2,7 @@
 
 import json
 import os
+import subprocess
 import sys
 
 # Class
@@ -22,8 +23,10 @@ class App(object):
         if not self.matches:
             return
 
-        os.system(f'/usr/bin/pass -c {self.matches[index]}')
-        os.system(f'/usr/bin/notify-send --icon=password-manager "Password" "Copied {self.matches[index]} to clipboard. Will clear in 45 seconds."')
+        entry = self.matches[index]
+        subprocess.run(['/usr/bin/pass', '-c', entry])
+        subprocess.run(['/usr/bin/notify-send', '--icon=password-manager', 'Password',
+                         f'Copied {entry} to clipboard. Will clear in 45 seconds.'])
 
         sys.stdout.write('"Close"\n')
         sys.stdout.flush()
