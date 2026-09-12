@@ -88,7 +88,17 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Autoread
-vim.g.autoread = true
+vim.o.autoread = true
+
+-- Pick up external file changes (agent edits from opencode, git
+-- operations, other tools) as soon as they are detected
+vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI' }, {
+	group = vim.api.nvim_create_augroup('AutoReloadExternalChanges', { clear = true }),
+	desc = 'Reload files changed outside nvim',
+	callback = function()
+		vim.cmd('checktime')
+	end,
+})
 
 vim.o.smartindent = true
 vim.o.autoindent = true

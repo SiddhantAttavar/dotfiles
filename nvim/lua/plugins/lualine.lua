@@ -88,8 +88,6 @@ return {
 				}
 			},
 			extensions = {
-				'fzf',
-				'nvim-tree',
 				'toggleterm'
 			}
 		}

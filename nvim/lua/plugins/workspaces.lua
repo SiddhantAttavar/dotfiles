@@ -13,13 +13,13 @@ return {
 	-- Workspace manager
 	{
 		'natecraddock/workspaces.nvim',
-		dependencies = { 'junegunn/fzf.vim' },
 		cmd = { 'WorkspacesAdd', 'WorkspacesAddDir', 'WorkspacesRemove', 'WorkspacesRemoveDir', 'WorkspacesRename', 'WorkspacesList', 'WorkspacesListDirs', 'WorkspacesOpen', 'WorkspacesSyncDirs' },
 		keys = {
 			{ '<Leader>qa', ':WorkspacesAdd<CR>' },
 			{ '<Leader>qr', ':WorkspacesRemove<CR>' },
-			{ '<Leader>qo', ':lua require("workspaces").fzf_open_workspaces()<CR>' },
+			{ '<Leader>qo', '<cmd>lua require("workspaces").pick_workspaces()<CR>', desc = 'Pick workspace' },
 		},
+		lazy = 'false',
 		config = function()
 			local workspaces = require('workspaces')
 			workspaces.setup {
@@ -31,18 +31,29 @@ return {
 				}
 			}
 
-			workspaces.fzf_open_workspaces = function()
-				local workspaces_list = {}
-				for _, workspace in ipairs(workspaces.get()) do
-					table.insert(workspaces_list, workspace.name)
-				end
-
-				vim.api.nvim_call_function('fzf#run', { vim.api.nvim_call_function('fzf#wrap', { {
-					source = workspaces_list,
-					sink = 'WorkspacesOpen',
-					options = '--prompt "Workspaces>" --preview-window=hidden'
-				} }) })
+		workspaces.pick_workspaces = function()
+			local items = {}
+			for idx, workspace in ipairs(workspaces.get()) do
+				table.insert(items, { text = workspace.name, idx = idx })
 			end
+
+			return Snacks.picker.pick({
+				title = ' Workspaces ',
+				layout = 'select',
+				items = items,
+				format = function(item)
+					return { { item.text } }
+				end,
+				actions = {
+					confirm = function(picker, item)
+						picker:close()
+						if item then
+							vim.cmd('WorkspacesOpen ' .. vim.fn.fnameescape(item.text))
+						end
+					end,
+				},
+			})
+		end
 		end
 	}
 }

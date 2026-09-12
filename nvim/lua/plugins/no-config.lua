@@ -2,7 +2,6 @@
 local always_on = {
 	'tpope/vim-sensible',
 	'tpope/vim-obsession',
-	'tpope/vim-surround',
 	'tpope/vim-eunuch',
 	'nvim-lua/plenary.nvim',
 	'michaeljsmith/vim-indent-object',
@@ -15,7 +14,6 @@ local plugins = {
 	{ 'tpope/vim-fugitive', cmd = { 'Git', 'G' } },
 	{ 'tpope/vim-abolish', ft = text_fts },
 	{ 'kyazdani42/nvim-web-devicons', lazy = false },
-	{ 'windwp/nvim-autopairs', lazy = false, config = true },
 	{ 'lewis6991/gitsigns.nvim', lazy = false, config = true },
 	{ 'numToStr/Comment.nvim', lazy = false, config = true },
 	{ 'folke/which-key.nvim', lazy = false, config = true },

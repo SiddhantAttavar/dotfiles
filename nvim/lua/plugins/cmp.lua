@@ -80,7 +80,7 @@ local cmp_item_menu = {
 return {
 	{
 		'hrsh7th/nvim-cmp',
-		dependencies = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'windwp/nvim-autopairs', 'uga-rosa/cmp-dictionary', 'saadparwaiz1/cmp_luasnip', 'L3MON4D3/LuaSnip', 'hrsh7th/cmp-calc', 'hrsh7th/cmp-cmdline' },
+		dependencies = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'uga-rosa/cmp-dictionary', 'saadparwaiz1/cmp_luasnip', 'L3MON4D3/LuaSnip', 'hrsh7th/cmp-calc', 'hrsh7th/cmp-cmdline' },
 		lazy = false,
 		config = function()
 			-- nvim-cmp
@@ -190,14 +190,7 @@ return {
 				})
 			end
 
-			-- Autopair
-			local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-			cmp.event:on(
-				'confirm_done',
-				cmp_autopairs.on_confirm_done()
-			)
-
-			-- Attach Lsp sources after LspAttach
+		-- Attach Lsp sources after LspAttach
 			vim.api.nvim_create_autocmd("LspAttach", {
 				callback = function()
 					require("cmp").setup.buffer({
