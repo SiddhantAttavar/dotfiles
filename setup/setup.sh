@@ -121,7 +121,7 @@ createSymlink zathura .config/zathura
 createSymlink pop-launcher .local/share/pop-launcher
 createSymlink mutt .mutt
 createSymlink pulse .config/pulse
-createSymlink opencode/opencode.json .config/opencode/opencode.json
+createSymlink opencode .config/opencode
 createSymlink cosmic/io.github.cosmic-utils.cosmic-ext-applet-sysinfo .config/cosmic/io.github.cosmic-utils.cosmic-ext-applet-sysinfo
 
 # Install vscodium extensions

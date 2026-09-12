@@ -1,0 +1,11 @@
+{
+  "$schema": "https://opencode.ai/tui.json",
+
+  // TUI theme, leave empty to use default theme
+  // Available themes: https://opencode.ai/docs/en/themes/
+  "theme": "one-dark",
+
+  // Custom keybinds, leave empty to use default keybinds
+  // Full configuration guide: https://opencode.ai/docs/en/keybinds/
+  "keybinds": {}
+}

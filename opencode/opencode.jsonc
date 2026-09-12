@@ -1,0 +1,107 @@
+{
+	"$schema": "https://opencode.ai/config.json",
+
+	// Permissions - carried over from previous personal config
+	"permission": {
+		"task": "ask",
+		"edit": "allow",
+		"bash": {
+			"*": "ask",
+			"cd *": "allow",
+			"ls *": "allow",
+			"file *": "allow",
+			"grep *": "allow",
+			"rg *": "allow",
+			"head *": "allow",
+			"tail *": "allow",
+			"wc *": "allow",
+			"find *": "allow",
+			"fd *": "allow",
+			"cat *": "allow",
+			"cp *": "allow",
+			"make *": "allow",
+			"cmake *": "allow",
+			"mv *": "allow",
+			"g++ *": "allow",
+			"gcc *": "allow",
+			"python3 *": "allow",
+			"git status": "allow",
+			"git status *": "allow",
+			"git diff": "allow",
+			"git diff *": "allow",
+			"git log": "allow",
+			"git log *": "allow",
+			"git show": "allow",
+			"git show *": "allow",
+			"git branch": "allow",
+			"git branch *": "allow",
+			"which *": "allow",
+			"pwd": "allow",
+			"echo *": "allow",
+			"tree *": "allow",
+			"tldr *": "allow",
+			"man *": "allow"
+		}
+	},
+
+	// Primary model - OpenCode Go subscription
+	// glm-5.3-flash is fast/cheap; glm-5.3 or kimi-k3 are stronger if needed
+	"model": "opencode-go/glm-5.3-flash",
+
+	// Lightweight model for simple tasks (title generation, etc.)
+	"small_model": "opencode-go/deepseek-v4-flash",
+
+	// Agent configurations
+	"agent": {
+		// Sub-agent for executing tasks.
+		// When using SDD (Specification-Driven Development), after the primary model
+		// defines the goals, a mid-tier model can carry out the work.
+		"general": {
+			"mode": "subagent",
+			"model": "opencode-go/glm-5.3-flash"
+		},
+		// Exploration tasks: token-heavy with large context windows; use a cheap model.
+		"explore": {
+			"mode": "subagent",
+			"model": "opencode-go/deepseek-v4-flash"
+		}
+	},
+
+	// Enable LSP diagnostics for the agent, synced with nvim mason installs
+	// clangd: C/C++ (opencode auto-installs), pylsp: Python, lua-ls: Lua (auto-installs)
+	// prosemd/nextflow are nvim-only, not supported by opencode's lsp config
+	"lsp": {
+		"clangd": {
+			"command": ["clangd"]
+		},
+		"pylsp": {
+			"command": ["/home/sidat/.local/share/nvim/mason/packages/python-lsp-server/venv/bin/pylsp"]
+		},
+		"lua-ls": {
+			"command": ["lua-language-server"]
+		}
+	},
+
+	// MCP servers - defined here or embedded in skills
+	"mcp": {
+		// context7: query up-to-date library docs and code examples
+		"context7": {
+			"type": "remote",
+			"url": "https://mcp.context7.com/mcp"
+		}
+		// searchcode: search and analyze public git repositories
+		// "searchcode": {
+		// 	"type": "remote",
+		// 	"url": "https://api.searchcode.com/v1/mcp"
+		// }
+	},
+
+	// Plugins
+	// research_papers tool: search arXiv/OpenAlex (AI-facing, just ask for papers)
+	"plugin": [
+		"opencode-research-papers"
+	],
+
+	// Auto-update opencode
+	"autoupdate": true
+}
