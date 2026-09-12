@@ -34,9 +34,10 @@ return {
 		opts = {
 			picker = {
 				enabled = true,
-				-- Keep global vim.ui.select native; opencode drives the
-				-- snacks picker directly through its own config
-				ui_select = false,
+				-- Hand vim.ui.select to the snacks picker: opencode.select()
+				-- is built for it (group headers, highlights and previews
+				-- via its is_snacks formatting path)
+				ui_select = true,
 				sources = {
 					-- Show dotfiles, like nvim-tree's filters.dotfiles
 					explorer = { hidden = true },

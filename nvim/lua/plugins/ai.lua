@@ -21,42 +21,35 @@ local function opencode_auth_key(provider)
 	return opencode_auth_keys[provider]
 end
 
+-- The OpenCode TUI command, shared by server start + the toggle keymap
+local opencode_cmd = 'opencode --port'
+local terminal_opts = { win = { position = 'right', enter = false } }
+
 return {
-	-- Opencode
+	-- Opencode (nickjvandyke): pairs with OpenCode's TUI running in a
+	-- snacks terminal; prompts from nvim inject editor context (@this,
+	-- @diagnostics, ...). Range selections are appended to the prompt via
+	-- the <Leader>oo/oO operators
 	{
-		'sudo-tee/opencode.nvim',
-		cmd = 'Opencode',
-		-- Snacks provides the pickers; its module config lives in snacks.lua
+		'nickjvandyke/opencode.nvim',
 		dependencies = { 'folke/snacks.nvim' },
 		keys = {
-			{ '<Leader>oc', function() require('opencode.api').toggle() end, desc = 'Opencode: toggle' },
-			{ '<Leader>os', function() require('opencode.api').cancel() end, desc = 'Opencode: cancel request' },
-			{ '<Leader>oa', function() require('opencode.api').switch_mode() end, desc = 'Opencode: switch agent mode' },
+			{ '<Leader>oc', function() require('snacks.terminal').toggle(opencode_cmd, terminal_opts) end, desc = 'Opencode: toggle TUI' },
+			{ '<Leader>oa', function() require('opencode').ask('@this: ') end, desc = 'Opencode: ask', mode = { 'n', 'x' } },
+			{ '<Leader>os', function() require('opencode').select() end, desc = 'Opencode: select', mode = { 'n', 'x' } },
+			{ '<Leader>oi', function() require('opencode').command('session.interrupt') end, desc = 'Opencode: interrupt session' },
+			{ '<Leader>oA', function() require('opencode').command('agent.cycle') end, desc = 'Opencode: cycle agent' },
+			-- Append selection/range/line to the OpenCode prompt
+			{ '<Leader>oo', function() return require('opencode').operator('@this ') end, desc = 'Opencode: append selection', expr = true, mode = { 'n', 'x' } },
+			{ '<Leader>oO', function() return require('opencode').operator('@this ') .. '_' end, desc = 'Opencode: append line', expr = true },
 		},
-		opts = {
-			keymap = {
-				editor = {
-					['<leader>oc'] = { 'toggle' },
-					['<leader>os'] = { 'cancel' },
-					['<leader>oa'] = { 'switch_mode' },
-					['<leader>ot'] = false,
-				},
-			},
-			preferred_picker = 'snacks'
-		},
-		config = function(_, opts)
-			require('opencode').setup(opts)
-
-			-- Close the Opencode UI before nvim exits so no Opencode
-			-- windows linger into the shutdown sequence
-			vim.api.nvim_create_autocmd('VimLeavePre', {
-				group = vim.api.nvim_create_augroup('OpencodeShutdown', { clear = true }),
-				desc = 'Close Opencode UI before exiting',
-				callback = function()
-					require('opencode.api').close()
-				end
-			})
-		end
+		config = function()
+			vim.g.opencode_opts = {
+				server = {
+					start = function () require('snacks.terminal').open(opencode_cmd, terminal_opts) end
+				}
+			}
+		end,
 	},
 
 	-- Minuet AI: inline completions (ghost text) via OpenCode Go
@@ -77,7 +70,10 @@ return {
 			debounce = 600,
 			virtualtext = {
 				auto_trigger_ft = { '*' },
-				auto_trigger_ignore_ft = { 'opencode', 'opencode_output', 'TelescopePrompt', 'gitcommit', 'help', 'qf' },
+				auto_trigger_ignore_ft = {
+					'opencode', 'opencode_output', 'opencode_ask', 'snacks_terminal',
+					'TelescopePrompt', 'gitcommit', 'help', 'qf'
+				},
 				keymap = {
 					-- <Tab> accept is wired into the nvim-cmp handler in cmp.lua
 					next = '<Leader>sn',
