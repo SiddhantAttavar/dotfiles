@@ -1,0 +1,11 @@
+# CRC external keyboard (INSTANT USB Keyboard, USB 30fa:2350)
+# JIS layout -> ThinkPad-like behavior
+# 70089 (YEN, left of backspace)  -> backspace
+# 7008a (HENKAN, right of space)  -> space
+# 7008b (MUHENKAN, left of space) -> space
+# 70065 (COMPOSE, next to right Ctrl) -> right alt
+evdev:input:b0003v30FAp2350*
+ KEYBOARD_KEY_70089=backspace
+ KEYBOARD_KEY_7008a=space
+ KEYBOARD_KEY_7008b=space
+ KEYBOARD_KEY_70065=rightalt

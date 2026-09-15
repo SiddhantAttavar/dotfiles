@@ -78,6 +78,9 @@ cargo install --git https://github.com/boxdot/gurk-rs gurk
 # Opencode
 npm i -g opencode-ai
 
+# tree-sitter CLI (compiles nvim-treesitter parsers on the main branch)
+npm i -g tree-sitter-cli
+
 # Update tldr cache
 export PATH="$HOME/.cargo/bin:$PATH"
 tldr --update

@@ -1,0 +1,4 @@
+evdev:name:ThinkPad Extra Buttons:dmi:bvn*:bvr*:bd*:svnLENOVO*:pn*:*
+ KEYBOARD_KEY_4b=previoussong
+ KEYBOARD_KEY_4c=playpause
+ KEYBOARD_KEY_4d=nextsong

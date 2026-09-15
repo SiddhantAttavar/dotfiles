@@ -27,7 +27,7 @@ vim.keymap.set('n', 'Q', '<CMD>wa<CR>', opts)
 -- Buffers
 vim.keymap.set('n', 'J', '<CMD>bn<CR>', opts)
 vim.keymap.set('n', 'K', '<CMD>bp<CR>', opts)
--- vim.keymap.set('n', '<C-w>', '<CMD>bd %<CR>', opts)
+-- vim.keymap.set('n', '<C-c>', '<CMD>bd %<CR>', opts)
 vim.keymap.set('n', '<C-t>', '<CMD>enew<CR>', opts)
 
 -- Create empty line

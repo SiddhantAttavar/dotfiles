@@ -23,7 +23,19 @@ end
 
 -- The OpenCode TUI command, shared by server start + the toggle keymap
 local opencode_cmd = 'opencode --port'
-local terminal_opts = { win = { position = 'right', enter = false } }
+local terminal_opts = {
+	win = {
+		position = 'right',
+		enter = false,
+		keys = {
+			-- Single <esc> exits terminal mode; it is never forwarded to
+			-- OpenCode, so its TUI interrupt stays silent. Every field of
+			-- the default term_normal must be overridden in full (the
+			-- style merge would otherwise keep its expr/desc)
+			term_normal = { '<esc>', function() vim.cmd('stopinsert') end, mode = 't', expr = false, desc = 'Exit terminal mode' },
+		},
+	},
+}
 
 return {
 	-- Opencode (nickjvandyke): pairs with OpenCode's TUI running in a

@@ -49,7 +49,8 @@
 	"model": "opencode-go/glm-5.3-flash",
 
 	// Lightweight model for simple tasks (title generation, etc.)
-	"small_model": "opencode-go/deepseek-v4-flash",
+	// NOTE: deepseek-v4-flash broke (China-only hosting opt-in) - replaced 2026-09-15
+	"small_model": "opencode/mimo-v2.5-free",
 
 	// Agent configurations
 	"agent": {
@@ -63,7 +64,7 @@
 		// Exploration tasks: token-heavy with large context windows; use a cheap model.
 		"explore": {
 			"mode": "subagent",
-			"model": "opencode-go/deepseek-v4-flash"
+			"model": "opencode-go/qwen3.8-flash"
 		}
 	},
 
@@ -99,7 +100,8 @@
 	// Plugins
 	// research_papers tool: search arXiv/OpenAlex (AI-facing, just ask for papers)
 	"plugin": [
-		"opencode-research-papers"
+		"opencode-research-papers",
+		"opencode-skill-creator"
 	],
 
 	// Auto-update opencode
